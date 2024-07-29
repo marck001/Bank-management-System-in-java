@@ -11,7 +11,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
- * @author marck
+ * @author marco
  */
 public class DALCliente {
 
