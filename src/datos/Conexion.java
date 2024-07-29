@@ -18,6 +18,9 @@ public class Conexion {
         url = "jdbc:mysql://localhost:3306/eurekabank";
         user = "root";
         password = "";
-        return DriverManager.getConnection(url, user, password);        
+        String xd;
+        return DriverManager.getConnection(url, user, password); 
+        
     }
+    
 }
