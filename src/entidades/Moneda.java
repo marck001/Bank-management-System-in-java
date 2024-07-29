@@ -6,7 +6,7 @@ package entidades;
 
 /**
  *
- * @author Sistemas
+ * @author Gaby
  */
 public class Moneda {
     private String codigo;

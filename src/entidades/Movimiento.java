@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author gta_2
+ * @author Celeste
  */
 public class Movimiento implements Comparable<Movimiento> {
     private String codigo;

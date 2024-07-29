@@ -3,7 +3,7 @@ import java.util.*;
 
 /**
  *
- * @author gta_2
+ * @author Celeste
  */
 public class MovimientoComparar implements Comparator<Movimiento> {
     
