@@ -4,9 +4,8 @@ public class ConstructorCrearCuentaDolares {
 
 
     public ConstructorCrearCuentaDolares() {
-        
-        THEMANU;
-        
+        int s;
+        s = 0;
     }
 
 
