@@ -4,7 +4,7 @@ public class ConstructorCrearCuentaDolares {
 
 
     public ConstructorCrearCuentaDolares() {
-        int saldo;
+       int cuenta;
     }
 
 
