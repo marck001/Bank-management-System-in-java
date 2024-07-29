@@ -21,4 +21,4 @@ public class Conexion {
         return DriverManager.getConnection(url, user, password);        
     }
 }
-//kbro
+//ima chivaso kbro
