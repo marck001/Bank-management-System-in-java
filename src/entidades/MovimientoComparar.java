@@ -1,0 +1,15 @@
+package entidades;
+import java.util.*;
+
+/**
+ *
+ * @author gta_2
+ */
+public class MovimientoComparar implements Comparator<Movimiento> {
+    
+    @Override
+    public int compare(Movimiento movimiento1, Movimiento movimiento2) {
+        return movimiento1.getCodigo().compareToIgnoreCase(movimiento2.getCodigo());
+    }  
+    
+}
