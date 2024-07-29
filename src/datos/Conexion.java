@@ -23,5 +23,4 @@ public class Conexion {
     }
 }
 //kbro
-//manuel es
-//thefelix
+//manuel y themarck
