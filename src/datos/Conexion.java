@@ -18,9 +18,9 @@ public class Conexion {
         url = "jdbc:mysql://localhost:3306/eurekabank";
         user = "root";
         password = "";
-        //String xd;
         return DriverManager.getConnection(url, user, password); 
         
     }
-    
 }
+//kbro
+//manuel es
