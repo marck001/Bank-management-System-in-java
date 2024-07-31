@@ -136,6 +136,14 @@ public class Cuenta {
     public void setClieCodigo(Cliente clieCodigo) {
         this.clieCodigo = clieCodigo;
     }
-    
-    
+
+    int compareTo(Cuenta codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    int compareToIgnoreCase(Cuenta codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+
 }
