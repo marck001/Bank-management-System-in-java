@@ -59,6 +59,18 @@ public class Movimiento implements Comparable<Movimiento> {
         return getFecha(fecha);
     }
 
+    public GregorianCalendar getFecha() {
+        return fecha;
+    }
+
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
+    }
+
     private String getFecha(GregorianCalendar fecha) {
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
         int mes = fecha.get(Calendar.MONTH) + 1;

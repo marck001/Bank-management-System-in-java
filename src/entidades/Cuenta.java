@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author User
  */
-public class Cuenta {
+public abstract class Cuenta {
     private String codigo;
     private float saldo;
     private GregorianCalendar fechaCreacion;
@@ -144,6 +144,5 @@ public class Cuenta {
     int compareToIgnoreCase(Cuenta codigo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-
+   
 }

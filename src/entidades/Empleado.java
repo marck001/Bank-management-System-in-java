@@ -4,12 +4,13 @@
  */
 package entidades;
 
+
 /**
  *
  * @author alexis
  */
 public class Empleado {
-     private String codigo;
+    private String codigo;
     private String apePaterno;
     private String apeMaterno;
     private String nombre;
@@ -17,8 +18,10 @@ public class Empleado {
     private String direccion;
     private String user;
     private String clave;
+    protected ConstructorCrearCuenta constructor;
 
-    public Empleado(String codigo, String apePaterno, String apeMaterno, String nombre, String ciudad, String direccion, String user, String clave) {
+    public Empleado(String codigo, String apePaterno, String apeMaterno, String nombre,
+            String ciudad, String direccion, String user, String clave) {
         this.codigo = codigo;
         this.apePaterno = apePaterno;
         this.apeMaterno = apeMaterno;
@@ -27,6 +30,27 @@ public class Empleado {
         this.direccion = direccion;
         this.user = user;
         this.clave = clave;
+    }
+
+    public Empleado(String codigo, String apePaterno, String apeMaterno, String nombre,
+            String ciudad, String direccion, String user, String clave, ConstructorCrearCuenta constructor) {
+        this.codigo = codigo;
+        this.apePaterno = apePaterno;
+        this.apeMaterno = apeMaterno;
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
+        this.user = user;
+        this.clave = clave;
+        this.constructor = constructor;
+    }
+
+    public Cuenta construye(float movimiento, float saldo, float deposito, float retiro, int contador) {
+        constructor.movimientoCuenta(movimiento, saldo, contador);
+        constructor.retiroCuenta(retiro, saldo);
+        constructor.depositoCuenta(deposito, saldo);
+        Cuenta cuenta = constructor.resultado();
+        return cuenta;
     }
 
     public Empleado(String codigo) {
@@ -107,5 +131,5 @@ public class Empleado {
                 + ", getDireccion()=" + getDireccion() + ", getUser()=" + getUser() + ", getClave()=" + getClave()
                 + "]";
     }
-       
+
 }
