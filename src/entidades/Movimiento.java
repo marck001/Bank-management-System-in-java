@@ -118,7 +118,6 @@ public class Movimiento implements Comparable<Movimiento> {
         this.tipoMovimiento = tipoMovimiento;
     }
     
-    
     @Override
     public int compareTo(Movimiento movimiento) {
         return this.getCodigo().compareTo(movimiento.getCodigo());
