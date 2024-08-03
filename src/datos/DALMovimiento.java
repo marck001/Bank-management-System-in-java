@@ -109,8 +109,8 @@ public static Movimiento obtenerMovimiento(String Codigo) {
             obj.setReferencia(rs.getString(4));
             obj.setCuenCodigo(rs.getString(5));
             obj.setEmpleado(rs.getString(6));
-            obj.
-            }
+            obj.setTipoMo
+                        }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
         } finally {

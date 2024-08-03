@@ -1,10 +1,10 @@
 
-package datos; 
+package datos;
 
 import entidades.*;
 import java.sql.*;
+import java.util.*;
 import static javax.swing.JOptionPane.showMessageDialog;
-
 
 public class DALSucursal{
 
@@ -13,7 +13,18 @@ public class DALSucursal{
     private static CallableStatement cs=null;
 
 
-    public static 
+    public static String insertarSucursal(Sucursal sucursal){
+        String mensaje = null, sql;
+
+        try{
+
+            
+        }
+
+
+
+
+    }
 
 
 
