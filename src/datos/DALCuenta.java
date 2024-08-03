@@ -120,18 +120,18 @@ public class DALCuenta {
                 obj.setContMovimientos(Integer.parseInt(rs.getString(9)));
                 obj.setClave(rs.getString(10));
             }
-    }catch (Exception e) {
-        showMessageDialog(null, e.getMessage(), "Error", 0);
-    }finally {
-            try {
-                rs.close();
-                cs.close();
-                cn.close();
-            } catch (SQLException ex) {
-                showMessageDialog(null, ex.getMessage(), "Error", 0);
+        }catch (ClassNotFoundException | SQLException e) {
+            showMessageDialog(null, e.getMessage(), "Error", 0);
+        }finally {
+                try {
+                    rs.close();
+                    cs.close();
+                    cn.close();
+                } catch (SQLException ex) {
+                    showMessageDialog(null, ex.getMessage(), "Error", 0);
+                }
             }
-        }
-        return obj;  
+            return obj;  
     }
 
     public static ArrayList<Cuenta> listarCuentasCorriente() {
