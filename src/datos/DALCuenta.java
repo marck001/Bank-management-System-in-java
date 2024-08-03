@@ -147,7 +147,7 @@ public static ArrayList<Cuenta> listarCuentasCorriente() {
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery(sql);
             while(rs.next()) {
-              String [] string =   rs.getString(3).split("-");
+              String [] string = rs.getString(3).split("-");
               list.add(new CuentaCorriente(rs.getString(1), Float.parseFloat(rs.getString(2)) , new GregorianCalendar(Integer.parseInt(string[0]),Integer.parseInt(string[1]),Integer.parseInt(string[2])), rs.getString(4),Integer.parseInt(rs.getString(5)) , rs.getString(6)));
             }
         }catch(ClassNotFoundException | SQLException ex) {
@@ -173,11 +173,7 @@ public static ArrayList<Cuenta> listarCuentasAhorro() {
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery(sql);
             while(rs.next()) {
-              String [] string =   rs.getString(3).split("-");
-
-              
-                
-              // cuenta 
+              String [] string = rs.getString(3).split("-");
               list.add(new CuentaAhorro(rs.getString(1), Float.parseFloat(rs.getString(2)) , new GregorianCalendar(Integer.parseInt(string[0]),Integer.parseInt(string[1]),Integer.parseInt(string[2])), rs.getString(4),Integer.parseInt(rs.getString(5)) , rs.getString(6)));
             }
         }catch(ClassNotFoundException | SQLException ex) {

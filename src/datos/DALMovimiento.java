@@ -17,7 +17,7 @@ private static Connection cn = null;
             cs = cn.prepareCall(sql);
 
             cs.setString(1, obj.getCuenCodigo().getCodigo());
-
+            
               
           
         }catch (ClassNotFoundException | SQLException ex) {
