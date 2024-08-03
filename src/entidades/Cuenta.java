@@ -22,12 +22,6 @@ public abstract class Cuenta {
     private Empleado emplCreaCuenta;
     private Cliente clieCodigo;
     
-/* 
-    public Cuenta() {
-        this("", 0.0f, new GregorianCalendar(2000, 0, 1), "", 0, "");
-    }
-
-    */
     public Cuenta(){
         this("", 0.0f, new GregorianCalendar(2000, 0, 1), "", 0, ""); 
     }
@@ -91,13 +85,13 @@ public abstract class Cuenta {
     }
     
     private String getFechaCorta(GregorianCalendar fecha){
-        int dia, mes , año;
+        int dia, mes , year;
         dia=fecha.get(Calendar.DAY_OF_MONTH);
         mes=fecha.get(Calendar.MONTH)+1;
-        año=fecha.get(Calendar.YEAR);
-        return (dia<=9? "0"+dia:dia)+ "/" + (mes<=9? "0"+mes:mes) + "/" + año;
+        year=fecha.get(Calendar.YEAR);
+        return year + "-" + (mes <= 9 ? "0" + mes : mes) + "-" + (dia <= 9 ? "0" + dia : dia);
     }
-    
+
     public void setFechaCreacion(int dia, int mes, int año){
         fechaCreacion = new GregorianCalendar(año, -mes, dia);
     }

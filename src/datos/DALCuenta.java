@@ -6,8 +6,8 @@ package datos;
 
 import entidades.*;
 import java.sql.*;
-import static javax.swing.JOptionPane.showMessageDialog;
 import java.util.*;
+import static javax.swing.JOptionPane.showMessageDialog;
 import patronBuilder.*;
 /**
  *
@@ -49,7 +49,7 @@ public class DALCuenta {
         return mensaje;
     }
     
-     public static String buscarCuenta(String codigo) {
+    public static String buscarCuenta(String codigo) {
         String sql;
         try {
             cn = Conexion.realizarConexion();
@@ -74,7 +74,7 @@ public class DALCuenta {
         return null;
     }
     
-      public static String obtenerSaldo(String codigo) {
+    public static String obtenerSaldo(String codigo) {
         String sql;
         try {
             cn = Conexion.realizarConexion();
@@ -83,8 +83,7 @@ public class DALCuenta {
             cs.setString(1, codigo);
             rs = cs.executeQuery();
             while (rs.next()) {
-              return rs.getString("cuensaldo");
-               //String codigo, Empleado empleado, Cliente cliente, Moneda moneda, Sucursal sucursal, float saldo, GregorianCalendar fechaCreacion, String estado, int contMov, String clave
+                return rs.getString("cuensaldo");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -109,12 +108,12 @@ public class DALCuenta {
             cs.setString(1, cuenCodigo);
             rs = cs.executeQuery();
             while(rs.next()) {
-                //public Cuenta(String codigo, float saldo, GregorianCalendar fechaCreacion, String estado, int contMovimientos, String clave) 
                 obj.setCodigo(rs.getString(1));
-                obj.setMoneCodigo(new Moneda(rs.getString(2))); 
-                obj.setEmplCreaCuenta(new Empleado(rs.getString(3)));
-                obj.setClieCodigo(new Cliente(rs.getString(4)));
-                obj.setSaldo(Float.valueOf(rs.getString(5)));
+                obj.setMoneCodigo(new Moneda(rs.getString(2)));
+                obj.setSucuCodigo(new Sucursal(rs.getString(3)));
+                obj.setEmplCreaCuenta(new Empleado(rs.getString(4)));
+                obj.setClieCodigo(new Cliente(rs.getString(5)));
+                obj.setSaldo(Float.parseFloat(rs.getString(6)));
                 String [] date = rs.getString(7).split("-");
                 obj.setFechaCreacion(new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]) - 1, Integer.parseInt(date[2])));
                 obj.setEstado(rs.getString(8));
@@ -132,23 +131,20 @@ public class DALCuenta {
                 showMessageDialog(null, ex.getMessage(), "Error", 0);
             }
         }
-    return obj;
-    
-}
-/**
- * @return
- */
-public static ArrayList<Cuenta> listarCuentasCorriente() {
-    String sql;
-    ArrayList<Cuenta> list= new ArrayList<>(); 
-    try {
+        return obj;  
+    }
+
+    public static ArrayList<Cuenta> listarCuentasCorriente() {
+        String sql;
+        ArrayList<Cuenta> list= new ArrayList<>(); 
+        try {
             cn = Conexion.realizarConexion();
             sql = "{call sp_listar_cuentas()}";
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery(sql);
             while(rs.next()) {
-              String [] string = rs.getString(3).split("-");
-              list.add(new CuentaCorriente(rs.getString(1), Float.parseFloat(rs.getString(2)) , new GregorianCalendar(Integer.parseInt(string[0]),Integer.parseInt(string[1]),Integer.parseInt(string[2])), rs.getString(4),Integer.parseInt(rs.getString(5)) , rs.getString(6)));
+                String [] string = rs.getString(3).split("-");
+                list.add(new CuentaCorriente(rs.getString(1), Float.parseFloat(rs.getString(2)) , new GregorianCalendar(Integer.parseInt(string[0]),Integer.parseInt(string[1]),Integer.parseInt(string[2])), rs.getString(4),Integer.parseInt(rs.getString(5)) , rs.getString(6)));
             }
         }catch(ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -162,20 +158,20 @@ public static ArrayList<Cuenta> listarCuentasCorriente() {
             }
         }
         return list;
-}
+    }
 
-public static ArrayList<Cuenta> listarCuentasAhorro() {
-    String sql;
-    ArrayList<Cuenta> list= new ArrayList<>(); 
-    try {
-            cn = Conexion.realizarConexion();
-            sql = "{call sp_listar_cuentas()}";
-            cs = cn.prepareCall(sql);
-            rs = cs.executeQuery(sql);
-            while(rs.next()) {
-              String [] string = rs.getString(3).split("-");
-              list.add(new CuentaAhorro(rs.getString(1), Float.parseFloat(rs.getString(2)) , new GregorianCalendar(Integer.parseInt(string[0]),Integer.parseInt(string[1]),Integer.parseInt(string[2])), rs.getString(4),Integer.parseInt(rs.getString(5)) , rs.getString(6)));
-            }
+    public static ArrayList<Cuenta> listarCuentasAhorro() {
+        String sql;
+        ArrayList<Cuenta> list= new ArrayList<>(); 
+        try {
+                cn = Conexion.realizarConexion();
+                sql = "{call sp_listar_cuentas()}";
+                cs = cn.prepareCall(sql);
+                rs = cs.executeQuery(sql);
+                while(rs.next()) {
+                    String [] string = rs.getString(3).split("-");
+                    list.add(new CuentaAhorro(rs.getString(1), Float.parseFloat(rs.getString(2)) , new GregorianCalendar(Integer.parseInt(string[0]),Integer.parseInt(string[1]),Integer.parseInt(string[2])), rs.getString(4),Integer.parseInt(rs.getString(5)) , rs.getString(6)));
+                }
         }catch(ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
         } finally {
@@ -188,9 +184,9 @@ public static ArrayList<Cuenta> listarCuentasAhorro() {
             }
         }
         return list;
-}
+    }
 
-     public static String actualizarCuenta(Cuenta obj){
+    public static String actualizarCuenta(Cuenta obj){
         String mensaje = null;
         try {
             cn = Conexion.realizarConexion();
@@ -218,14 +214,59 @@ public static ArrayList<Cuenta> listarCuentasAhorro() {
             }
         }
         return mensaje;        
-        }
- /*   public static String retiroCuenta (float retiro, String codigo){
-        String mesaje, saldo;
-        float nuevoSaldo=0.0f;
-        saldo= obtenerSaldo(codigo);
-        nuevoSaldo=
+    }
 
-        return mensaje;
-    }*/
+    public static String retiroCuenta (float retiro, String codigo){
+        String mensaje=null;
+        String saldoStr = obtenerSaldo(codigo);
+        float saldo = Float.parseFloat(saldoStr);
+        Cuenta cuenta=obtenerCuenta(codigo);
+        float nuevoSaldo = saldo - retiro;
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_actualizar_Saldo(?, ?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, cuenta.getCodigo());
+            cs.setString(2, String.valueOf(nuevoSaldo));
+            cs.executeUpdate();
+            } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;     
+        }
+    public static String depositoCuenta(float deposito, String codigo){
+        String mensaje=null;
+        String saldoStr = obtenerSaldo(codigo);
+        float saldo = Float.parseFloat(saldoStr);
+        Cuenta cuenta=obtenerCuenta(codigo);
+        float nuevoSaldo = saldo+deposito;
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_actualizar_Saldo(?, ?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, cuenta.getCodigo());
+            cs.setString(2, String.valueOf(nuevoSaldo));
+            cs.executeUpdate();
+            } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;     
+        }
+   /* public static String interesCuenta();
+    public static String movimientoCuenta();*/
 
 }
