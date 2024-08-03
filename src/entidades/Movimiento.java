@@ -13,8 +13,8 @@ public class Movimiento implements Comparable<Movimiento> {
     private GregorianCalendar fecha;
     private float importe;
     private String referencia; //referencia de la cuenta
-    private Cuenta codigo;
-    private Empleado empleado; //codigo empleado
+    private Cuenta cuenCodigo;
+    private Empleado empCodigo; //codigo empleado
     private TipoMovimiento tipoMovimiento; 
     private Cuenta cuenta;
     
@@ -35,12 +35,12 @@ public class Movimiento implements Comparable<Movimiento> {
         this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "", null);
     }
 
-    public Cuenta getCodigo() {
-        return codigo;
+    public Cuenta getCuenCodigo() {
+        return cuenCodigo;
     }
 
-    public void setCodigo(Cuenta codigo) {
-        this.codigo = codigo;
+    public void setCuenCodigo(Cuenta cuenCodigo) {
+        this.cuenCodigo = cuenCodigo;
     }
 
     public int getNumero() {
@@ -102,12 +102,12 @@ public class Movimiento implements Comparable<Movimiento> {
         this.referencia = referencia;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public Empleado getEmpCodigo() {
+        return empCodigo;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setEmpleado(Empleado empCodigo) {
+        this.empCodigo = empCodigo;
     }
 
     public TipoMovimiento getTipoMovimiento() {
@@ -120,6 +120,6 @@ public class Movimiento implements Comparable<Movimiento> {
     
     @Override
     public int compareTo(Movimiento movimiento) {
-        return this.getCodigo().compareTo(movimiento.getCodigo());
+        return this.getCuenCodigo().compareTo(movimiento.getCuenCodigo());
     }
 }

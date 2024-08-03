@@ -5,7 +5,6 @@
 package datos;
 
 import entidades.*;
-import patronBuilder.*;
 import java.util.*;
 import java.sql.*;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -163,4 +162,7 @@ public class DALEmpleado {
         }
         return obj;
     }
+
+
+    
 }

@@ -22,9 +22,14 @@ public abstract class Cuenta {
     private Empleado emplCreaCuenta;
     private Cliente clieCodigo;
     
-
+/* 
     public Cuenta() {
         this("", 0.0f, new GregorianCalendar(2000, 0, 1), "", 0, "");
+    }
+
+    */
+    public Cuenta(){
+        this("", 0.0f, new GregorianCalendar(2000, 0, 1), "", 0, ""); 
     }
 
     public Cuenta(String codigo, float saldo, GregorianCalendar fechaCreacion, String estado, int contMovimientos, String clave) {
@@ -33,6 +38,19 @@ public abstract class Cuenta {
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;
         this.contMovimientos = contMovimientos;
+        this.clave = clave;
+    }
+
+    public Cuenta(String codigo, Empleado empleado, Cliente cliente, Moneda moneda, Sucursal sucursal, float saldo, GregorianCalendar fechaCreacion, String estado, int contMov, String clave) {
+        this.codigo = codigo;
+        this.emplCreaCuenta = empleado;
+        this.clieCodigo = cliente;
+        this.moneCodigo= moneda;
+        this.sucuCodigo = sucursal;
+        this.saldo = saldo;
+        this.fechaCreacion = fechaCreacion;
+        this.estado = estado;
+        this.contMovimientos= contMov;
         this.clave = clave;
     }
     
