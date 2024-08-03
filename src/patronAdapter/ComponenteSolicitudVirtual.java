@@ -17,7 +17,7 @@ public class ComponenteSolicitudVirtual {
         ///2//  Extraemos esa cuenta y guardamos en objeto cuenta
         //condicional a 1
             ////PEDIMOS CLAVE
-            // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO)   //METODO DE DAL QUE TENGA EL QUERY
+            // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO)   //METODO DE DAL QUE TENGA EL UPDATE
             // Mostramos MENSAJITO nuevo saldo
             // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999 y COD DE MOV CORRESPONDIENTE
             // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENTO

@@ -1,6 +1,6 @@
 
-package entidades;
-
+package patronBuilder;
+import entidades.*;
 import java.util.GregorianCalendar;
 
 public class CuentaCorriente extends Cuenta {
@@ -13,7 +13,5 @@ public class CuentaCorriente extends Cuenta {
         super(codigo, saldo, fechaCreacion, estado, contMovimientos, clave);
     }
 
-    public void costoMantenimiento(float saldo, float costoMantenimiento, String codigoMoneda) {
-        
-    }
+    
 }
