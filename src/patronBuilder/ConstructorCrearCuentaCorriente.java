@@ -2,8 +2,6 @@
 package patronBuilder;
 import java.util.GregorianCalendar;
 
-import entidades.*;
-
 
 public class ConstructorCrearCuentaCorriente extends ConstructorCrearCuenta {
 
@@ -35,19 +33,19 @@ public class ConstructorCrearCuentaCorriente extends ConstructorCrearCuenta {
         cuenta.setClave(clave);
     }
 
-    public void setMoneCodigo(Moneda moneCodigo) {
+    public void setMoneCodigo(String moneCodigo) {
         cuenta.setMoneCodigo(moneCodigo);
     }
 
-    public void setSucuCodigo(Sucursal sucuCodigo) {
+    public void setSucuCodigo(String sucuCodigo) {
         cuenta.setSucuCodigo(sucuCodigo);
     }
 
-    public void setEmplCreaCuenta(Empleado emplCreaCuenta) {
+    public void setEmplCreaCuenta(String emplCreaCuenta) {
         cuenta.setEmplCreaCuenta(emplCreaCuenta);
     }
 
-    public void setClieCodigo(Cliente clieCodigo) {
+    public void setClieCodigo(String clieCodigo) {
         cuenta.setClieCodigo(clieCodigo);
     }
 }

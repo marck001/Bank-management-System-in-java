@@ -17,10 +17,10 @@ public abstract class Cuenta {
     private String estado;
     private int contMovimientos;
     private String clave;
-    private Moneda moneCodigo;
-    private Sucursal sucuCodigo;
-    private Empleado emplCreaCuenta;
-    private Cliente clieCodigo;
+    private String moneCodigo;
+    private String sucuCodigo;
+    private String emplCreaCuenta;
+    private String clieCodigo;
     
     public Cuenta(){
         this("", 0.0f, new GregorianCalendar(2000, 0, 1), "", 0, ""); 
@@ -34,18 +34,17 @@ public abstract class Cuenta {
         this.contMovimientos = contMovimientos;
         this.clave = clave;
     }
-
-    public Cuenta(String codigo, Empleado empleado, Cliente cliente, Moneda moneda, Sucursal sucursal, float saldo, GregorianCalendar fechaCreacion, String estado, int contMov, String clave) {
+    public Cuenta(String codigo, float saldo, GregorianCalendar fechaCreacion, String estado, int contMovimientos, String clave, String moneCodigo, String sucuCodigo, String emplCreaCuenta, String clieCodigo) {
         this.codigo = codigo;
-        this.emplCreaCuenta = empleado;
-        this.clieCodigo = cliente;
-        this.moneCodigo= moneda;
-        this.sucuCodigo = sucursal;
         this.saldo = saldo;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;
-        this.contMovimientos= contMov;
+        this.contMovimientos = contMovimientos;
         this.clave = clave;
+        this.moneCodigo = moneCodigo;
+        this.sucuCodigo = sucuCodigo;
+        this.emplCreaCuenta = emplCreaCuenta;
+        this.clieCodigo = clieCodigo;
     }
     
     public Cuenta(String codigo){
@@ -80,7 +79,7 @@ public abstract class Cuenta {
         return fechaCreacion;
     }
     
-     public String getFechaCreacionCorta() {
+    public String getFechaCreacionCorta() {
         return getFechaCorta(getFechaCreacion());
     }
     
@@ -117,35 +116,35 @@ public abstract class Cuenta {
         this.contMovimientos = contMovimientos;
     }
 
-    public Moneda getMoneCodigo() {
+    public String getMoneCodigo() {
         return moneCodigo;
     }
 
-    public void setMoneCodigo(Moneda moneCodigo) {
+    public void setMoneCodigo(String moneCodigo) {
         this.moneCodigo = moneCodigo;
     }
 
-    public Sucursal getSucuCodigo() {
+    public String getSucuCodigo() {
         return sucuCodigo;
     }
 
-    public void setSucuCodigo(Sucursal sucuCodigo) {
+    public void setSucuCodigo(String sucuCodigo) {
         this.sucuCodigo = sucuCodigo;
     }
 
-    public Empleado getEmplCreaCuenta() {
+    public String getEmplCreaCuenta() {
         return emplCreaCuenta;
     }
 
-    public void setEmplCreaCuenta(Empleado emplCreaCuenta) {
+    public void setEmplCreaCuenta(String emplCreaCuenta) {
         this.emplCreaCuenta = emplCreaCuenta;
     }
 
-    public Cliente getClieCodigo() {
+    public String getClieCodigo() {
         return clieCodigo;
     }
 
-    public void setClieCodigo(Cliente clieCodigo) {
+    public void setClieCodigo(String clieCodigo) {
         this.clieCodigo = clieCodigo;
     }
 
@@ -156,5 +155,4 @@ public abstract class Cuenta {
     int compareToIgnoreCase(Cuenta codigo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-   
 }

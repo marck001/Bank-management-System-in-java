@@ -19,7 +19,7 @@ public class ComponenteSolicitudVirtual {
     
     public void retirarSaldoPorEmpleado(String codCuenta, float saldo) {
         String codBuscado, clave, mensaje;
-        int contIntentos = 1;
+        int contIntentos = 1, numMov;
         float saldoNuevo;
         Cuenta cuenta;
         Cliente cliente = new Cliente();
@@ -29,7 +29,7 @@ public class ComponenteSolicitudVirtual {
         if(codBuscado != null){
             ///2//  Extraemos esa cuenta y guardamos en objeto cuenta
             cuenta = DALCuenta.obtenerCuenta(codBuscado);
-            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo().getCodigo());
+            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo());
              //PEDIMOS CLAVE
             clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
             do { 
@@ -42,7 +42,8 @@ public class ComponenteSolicitudVirtual {
                         showMessageDialog(null, cliente.getNombre() + "  su nuevo saldo es:  " + saldoNuevo, "Retiro existoso", 1 );
                     // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999 y COD DE MOV CORRESPONDIENTE
                         GregorianCalendar fechaActual = new GregorianCalendar();
-                        Movimiento mov = new Movimiento(1,fechaActual,saldo, null, cuenta.getCodigo(), "9999" , "004"); // puse 1 al comienzo, ta por definir
+                        numMov= DALMovimiento.NumeroMaxMovimiento(codBuscado);
+                        Movimiento mov = new Movimiento(numMov++,fechaActual,saldo, "SALIDA", cuenta.getCodigo(), "9999" , "004"); // puse 1 al comienzo, ta por definir
                     // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
                         mensaje = DALMovimiento.insertarMovimiento(mov);
                         if(mensaje ==null)
@@ -65,19 +66,19 @@ public class ComponenteSolicitudVirtual {
     }
 
     public void depositarSaldoPorEmpleado(String codCuenta, float saldo, int op) {
-        String codBuscado, clave, mensaje;
-        int contIntentos = 0;
+        String codBuscado, clave, mensaje, mensaje2;
+        int contIntentos = 0, numMov, numMov1;
         float saldoNuevo;
         Cuenta cuenta = null;
         Cliente cliente = new Cliente();
-       
+
         codBuscado = DALCuenta.buscarCuenta(codCuenta);
 
         if (codBuscado != null) {
             cuenta = DALCuenta.obtenerCuenta(codCuenta);
-            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo().getCodigo());
+            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo());
 
-          
+        
             clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", 1);
             while (!cuenta.getClave().equals(clave) && contIntentos < 3) {
                 contIntentos++;
@@ -85,7 +86,7 @@ public class ComponenteSolicitudVirtual {
                     showMessageDialog(null, "Clave incorrecta. Le quedan " + (3 - contIntentos) + " intentos.", "Clave incorrecta", 0);
                     clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", 1);
                 } else {
-                    showMessageDialog(null, "La cuenta no existe o no esta registrada." ,"ERROR", 0);
+                    showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde." ,"ERROR", 0);
                     return;
                 }
             }
@@ -95,17 +96,21 @@ public class ComponenteSolicitudVirtual {
                 String codBuscadoDestino = DALCuenta.buscarCuenta(codCuentaDestino);
 
                 if (codBuscadoDestino != null) {
-                    Cuenta cuentaDestino = DALCuenta.obtenerCuenta(codCuentaDestino);
                     mensaje = DALCuenta.depositoCuenta(saldo, codCuentaDestino);
+                    mensaje2 = DALCuenta.retiroCuenta(saldo, codCuenta);
 
-                    if (mensaje == null) {
-                        saldoNuevo = Float.parseFloat(DALCuenta.obtenerSaldo(codCuentaDestino));
+                    if (mensaje == null && mensaje2 == null) {
+                        saldoNuevo = Float.parseFloat(DALCuenta.obtenerSaldo(codCuenta));
                         showMessageDialog(null, cliente.getNombre() + " su nuevo saldo es: " + saldoNuevo, "Depósito exitoso", 1);
 
                         GregorianCalendar fechaActual = new GregorianCalendar();
-                        Movimiento mov = new Movimiento(1, fechaActual, saldo, null, cuentaDestino.getCodigo(), "9999", "004");
+                        numMov = DALMovimiento.NumeroMaxMovimiento(codBuscado);
+                        numMov1= DALMovimiento.NumeroMaxMovimiento(codBuscadoDestino);
+                        Movimiento mov = new Movimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999", "009");
+                        Movimiento mov1 = new Movimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino, "9999", "008");
                         mensaje = DALMovimiento.insertarMovimiento(mov);
-                        if (mensaje == null) {
+                        mensaje2 = DALMovimiento.insertarMovimiento(mov1);
+                        if (mensaje == null && mensaje2 == null) {
                             showMessageDialog(null, "Movimiento realizado de forma exitosa");
                         } else {
                             showMessageDialog(null, "Problemas en registrar el movimiento");
@@ -125,7 +130,8 @@ public class ComponenteSolicitudVirtual {
                     showMessageDialog(null, cliente.getNombre() + " su nuevo saldo es: " + saldoNuevo, "Descuento exitoso", 1);
 
                     GregorianCalendar fechaActual = new GregorianCalendar();
-                    Movimiento mov = new Movimiento(2, fechaActual, saldo, null, cuenta.getCodigo(), "9999", "005"); // Código de movimiento correspondiente a otro banco
+                    numMov= DALMovimiento.NumeroMaxMovimiento(codBuscado);
+                    Movimiento mov = new Movimiento(numMov++, fechaActual, saldo, "SALIDA", cuenta.getCodigo(), "9999", "009"); // Código de movimiento correspondiente a otro banco
                     mensaje = DALMovimiento.insertarMovimiento(mov);
                     if (mensaje == null) {
                         showMessageDialog(null, "Movimiento realizado de forma exitosa");
@@ -166,10 +172,10 @@ public class ComponenteSolicitudVirtual {
         Cliente cliente = new Cliente();
         
         codBuscado = DALCuenta.buscarCuenta(codCuenta);
-         if(codBuscado != null){
+        if(codBuscado != null){
             cuenta = DALCuenta.obtenerCuenta(codBuscado);
-            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo().getCodigo());
-             clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
+            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo());
+            clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
         ///1//   Buscamos SU cuenta
         ///2//  Extraemos esa cuenta y guardamos en objeto cuenta
         //condicional a 1

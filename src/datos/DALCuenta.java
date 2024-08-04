@@ -26,10 +26,10 @@ public class DALCuenta {
             sql = "{call sp_insertar_cuenta(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, obj.getCodigo());
-            cs.setString(2, obj.getMoneCodigo().getCodigo());
-            cs.setString(3, obj.getSucuCodigo().getCodigo());
-            cs.setString(4, obj.getEmplCreaCuenta().getCodigo());
-            cs.setString(5, obj.getClieCodigo().getCodigo());
+            cs.setString(2, obj.getMoneCodigo());
+            cs.setString(3, obj.getSucuCodigo());
+            cs.setString(4, obj.getEmplCreaCuenta());
+            cs.setString(5, obj.getClieCodigo());
             cs.setString(6, String.valueOf(obj.getSaldo()));
             cs.setString(7, obj.getFechaCreacion().toString());
             cs.setString(8, obj.getEstado());
@@ -100,7 +100,7 @@ public class DALCuenta {
     }
 
     public static Cuenta obtenerCuenta (String cuenCodigo){
-        Cuenta obj = new CuentaCorriente();
+        Cuenta obj = new CuentaAhorro();
         try {
             cn = Conexion.realizarConexion();
             String sql = "{call sp_busca_cuenta(?)}";
@@ -109,10 +109,10 @@ public class DALCuenta {
             rs = cs.executeQuery();
             while(rs.next()) {
                 obj.setCodigo(rs.getString(1));
-                obj.setMoneCodigo(new Moneda(rs.getString(2)));
-                obj.setSucuCodigo(new Sucursal(rs.getString(3)));
-                obj.setEmplCreaCuenta(new Empleado(rs.getString(4)));
-                obj.setClieCodigo(new Cliente(rs.getString(5)));
+                obj.setMoneCodigo(rs.getString(2));
+                obj.setSucuCodigo(rs.getString(3));
+                obj.setEmplCreaCuenta(rs.getString(4));
+                obj.setClieCodigo(rs.getString(5));
                 obj.setSaldo(Float.parseFloat(rs.getString(6)));
                 String [] date = rs.getString(7).split("-");
                 obj.setFechaCreacion(new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]) - 1, Integer.parseInt(date[2])));

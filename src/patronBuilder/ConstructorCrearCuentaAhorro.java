@@ -21,10 +21,10 @@ public class ConstructorCrearCuentaAhorro extends ConstructorCrearCuenta {
     public void setFechaCreacion(GregorianCalendar fecha) {
         cuenta.setFechaCreacion(fecha) ;
     }
-     public void setEstado(String estado) {
+    public void setEstado(String estado) {
         cuenta.setEstado(estado);
     }
- 
+
     public void setContMovimientos(int contMovimientos) {
         cuenta.setContMovimientos(0);
     }
@@ -33,20 +33,19 @@ public class ConstructorCrearCuentaAhorro extends ConstructorCrearCuenta {
         cuenta.setClave(clave);
     }
 ;
-    public void setMoneCodigo(Moneda moneCodigo) {
+    public void setMoneCodigo(String moneCodigo) {
         cuenta.setMoneCodigo(moneCodigo);
     }
 ;
-    public void setSucuCodigo(Sucursal sucuCodigo) {
+    public void setSucuCodigo(String sucuCodigo) {
         cuenta.setSucuCodigo(sucuCodigo);
     }
 ;
-    public void setEmplCreaCuenta(Empleado emplCreaCuenta) {
+    public void setEmplCreaCuenta(String emplCreaCuenta) {
         cuenta.setEmplCreaCuenta(emplCreaCuenta);
     }
 
-    public void setClieCodigo(Cliente clieCodigo) {
+    public void setClieCodigo(String clieCodigo) {
         cuenta.setClieCodigo(clieCodigo);
     }
 }
-   

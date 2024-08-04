@@ -13,10 +13,10 @@ public abstract class ConstructorCrearCuenta{
     public abstract void setEstado(String estado);
     public abstract void setContMovimientos(int contMovimientos);
     public abstract void setClave(String clave);
-    public abstract void setMoneCodigo(Moneda moneCodigo);
-    public abstract void setSucuCodigo(Sucursal sucuCodigo);
-    public abstract void setEmplCreaCuenta(Empleado emplCreaCuenta);
-    public abstract void setClieCodigo(Cliente clieCodigo);
+    public abstract void setMoneCodigo(String moneCodigo);
+    public abstract void setSucuCodigo(String sucuCodigo);
+    public abstract void setEmplCreaCuenta(String emplCreaCuenta);
+    public abstract void setClieCodigo(String clieCodigo);
 
     public Cuenta getCuenta() {
         return cuenta;
