@@ -5,8 +5,8 @@
 package datos;
 
 import entidades.*;
-import java.util.*;
 import java.sql.*;
+import java.util.*;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
@@ -138,15 +138,15 @@ public class DALEmpleado {
             rs = cs.executeQuery();
             while (rs.next()) {
                //obj = new Empleado(rs.getString(1),rs.getString(2)+" "+rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
-               obj.setCodigo(rs.getString(1));
-               obj.setApePaterno(rs.getString(2));
-               obj.setApeMaterno(rs.getString(3));
-               obj.setNombre(rs.getString(4));
-               obj.setCiudad(rs.getString(5));
-               obj.setDireccion(rs.getString(6));
-               obj.setUser(rs.getString(7));
-               obj.setClave(rs.getString(8));
-               
+            obj.setCodigo(rs.getString(1));
+            obj.setApePaterno(rs.getString(2));
+            obj.setApeMaterno(rs.getString(3));
+            obj.setNombre(rs.getString(4));
+            obj.setCiudad(rs.getString(5));
+            obj.setDireccion(rs.getString(6));
+            obj.setUser(rs.getString(7));
+            obj.setClave(rs.getString(8));
+            
                //String codigo, String apellidos, String nombre, String ciudad, String direccion, String user, String clave
             }
         } catch (ClassNotFoundException | SQLException ex) {

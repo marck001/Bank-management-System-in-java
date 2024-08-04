@@ -265,5 +265,72 @@ public class DALCuenta {
             }
         }
         return mensaje;     
+    }
+
+    public static String cancelarCuenta(String codCuenta) {
+        String mensaje=null;
+        Cuenta cuenta=obtenerCuenta(codCuenta);
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_cancelarCuentaCliente(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, cuenta.getCodigo());
+            cs.executeUpdate();
+            } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
         }
+        return mensaje;      
+    }
+
+    public static String anularCuenta(String codCuenta) {
+        String mensaje=null;
+        Cuenta cuenta=obtenerCuenta(codCuenta);
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_cancelarCuentaEmpleado(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, cuenta.getCodigo());
+            cs.executeUpdate();
+            } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;  
+    }
+
+    public static String reactivarCuenta(String codCuenta) {
+        String mensaje=null;
+        Cuenta cuenta=obtenerCuenta(codCuenta);
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_reactivarCuenta(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, cuenta.getCodigo());
+            cs.executeUpdate();
+            } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;  
+    }
+
 }
