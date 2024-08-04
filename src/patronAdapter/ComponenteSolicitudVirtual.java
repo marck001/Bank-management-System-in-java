@@ -58,7 +58,6 @@ public class ComponenteSolicitudVirtual {
                     contIntentos++;
                     showMessageDialog(null, "Le quedan " + (3-contIntentos) + " intentos.","Clave incorrecta",0);
                 }   
-
             } while (contIntentos!=3);
         }else{
             showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
@@ -72,7 +71,7 @@ public class ComponenteSolicitudVirtual {
         Cuenta cuenta = null;
         Cliente cliente = new Cliente();
        
-         codBuscado = DALCuenta.buscarCuenta(codCuenta);
+        codBuscado = DALCuenta.buscarCuenta(codCuenta);
 
         if (codBuscado != null) {
             cuenta = DALCuenta.obtenerCuenta(codCuenta);
