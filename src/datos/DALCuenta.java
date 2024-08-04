@@ -193,10 +193,10 @@ public class DALCuenta {
             String sql = "{call sp_actualizar_Cuenta(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, obj.getCodigo());
-            cs.setString(2, obj.getMoneCodigo().getCodigo());
-            cs.setString(3, obj.getSucuCodigo().getCodigo());
-            cs.setString(4, obj.getEmplCreaCuenta().getCodigo());
-            cs.setString(5, obj.getClieCodigo().getCodigo());
+            cs.setString(2, obj.getMoneCodigo());
+            cs.setString(3, obj.getSucuCodigo());
+            cs.setString(4, obj.getEmplCreaCuenta());
+            cs.setString(5, obj.getClieCodigo());
             cs.setString(6, String.valueOf(obj.getSaldo()));
             cs.setString(7, obj.getFechaCreacion().toString());
             cs.setString(8, obj.getEstado());
@@ -266,7 +266,4 @@ public class DALCuenta {
         }
         return mensaje;     
         }
-   /* public static String interesCuenta();
-    public static String movimientoCuenta();*/
-
 }
