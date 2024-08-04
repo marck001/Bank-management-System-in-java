@@ -166,4 +166,32 @@ public class DALMovimiento {
         }
         return movimientos;
     }
-}
+    
+    public static int NumeroMaxMovimiento(String cuenCodigo){
+        int max = 0;
+        try{
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_returnMax(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, cuenCodigo);
+            rs = cs.executeQuery();
+            if(rs.next()){
+                max = rs.getInt("moviNumero");
+            }
+            
+            cs.executeUpdate();
+        }catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        
+        }return max;
+        
+       }
+    }
