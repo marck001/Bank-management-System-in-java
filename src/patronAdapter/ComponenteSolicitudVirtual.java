@@ -66,7 +66,7 @@ public class ComponenteSolicitudVirtual {
 
     public void depositarSaldoPorEmpleado(String codCuenta, float saldo, int op) {
         String codBuscado, clave, mensaje, mensaje2;
-        int contIntentos = 0, numMov, numMov1, aux;
+        int contIntentos = 0, numMov, numMov1, aux1, aux2, aux3;
         float saldoNuevo;
         Cuenta cuenta;
         Cliente cliente;
@@ -104,8 +104,8 @@ public class ComponenteSolicitudVirtual {
                         GregorianCalendar fechaActual = new GregorianCalendar();
                         numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado);
                         numMov1 = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino);
-                        aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999","009");                        
-                        aux = BLMovimiento.insertarMovimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino,"9999", "008");
+                        aux1 = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999","009");                        
+                        aux2 = BLMovimiento.insertarMovimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino,"9999", "008");
 
                     } else {
                         showMessageDialog(null, "Error 1: "+ mensaje + "\n" + "Error 2: "+mensaje2, "Error", 0);
@@ -124,9 +124,9 @@ public class ComponenteSolicitudVirtual {
 
                     GregorianCalendar fechaActual = new GregorianCalendar();
                     numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado); // Código de movimiento correspondiente a otro banco
-                    aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA A OTRO BANCO", cuenta.getCodigo(), "9999",
+                    aux3 = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA A OTRO BANCO", cuenta.getCodigo(), "9999",
                             "009");
-                            System.out.println(aux); 
+                            System.out.println(aux3); 
                 } else {
                     showMessageDialog(null,  mensaje , "Error", 0);
                 }
