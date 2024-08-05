@@ -1,22 +1,25 @@
 package datos;
+
 import entidades.*;
 import java.util.*;
 import java.sql.*;
 import static javax.swing.JOptionPane.showMessageDialog;
 
-public class DALInteresMensual {
+public class DALTipoMovimiento{
     private static Connection cn = null;
     private static ResultSet rs = null;
     private static CallableStatement cs = null;
 
-    public static String insertarInteres(InteresMensual interes) {
-    String mensaje=null, sql;
+    public static String insertarTipoMovimiento(TipoMovimiento tipoMov) {
+        String mensaje=null, sql;
         try {
             cn = Conexion.realizarConexion();
-            sql ="{call sp_insertar_interes(?, ?)}";
-            cs = cn.prepareCall(sql); 
-            cs.setString(1, interes.getMoneda().getCodigo());
-            cs.setFloat(2, interes.getInteImporte());
+            sql = "{call sp_insertar_tipoMovimiento(?, ?, ?,?)}";   
+            cs = cn.prepareCall(sql);
+            cs.setString(1, tipoMov.getTipoCodigo());
+            cs.setString(2, tipoMov.getTipoDescripcion());
+            cs.setString(3, tipoMov.getTipoAccion());
+            cs.setString(4, tipoMov.getTipoEstado());
             cs.executeUpdate();            
         } catch(ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
@@ -28,19 +31,19 @@ public class DALInteresMensual {
                 mensaje = ex.getMessage();
             }
         }
-        return mensaje;  
+        return mensaje;
     }
 
-    public static String buscarInteres(String codigo) {
+    public static String buscarTipoMovimiento(String codigo) {
         String sql;
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_buscar_interes(?)}";
+            sql = "{call sp_buscar_tipoMovimiento(?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, codigo);
             rs = cs.executeQuery();
             while(rs.next()) {
-                return rs.getString("monecodigo");
+                return rs.getString("tipocodigo");
             }
         } catch(ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -56,16 +59,16 @@ public class DALInteresMensual {
         return null;
     }
 
-    public static ArrayList<InteresMensual> listarInteres() {
+    public static ArrayList<TipoMovimiento> listarTipoMovimiento() {
         String sql;
-        ArrayList<InteresMensual> interes = new ArrayList<>();
+        ArrayList<TipoMovimiento> tipoMov = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_listar_interes()}";
+            sql = "{call sp_listar_tipoMovimiento()}";
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery(sql);
             while(rs.next()) {
-                interes.add(new InteresMensual(new Moneda(rs.getString(1)), rs.getFloat(2)));
+                tipoMov.add(new TipoMovimiento(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)));
             }
         }catch(ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -78,17 +81,19 @@ public class DALInteresMensual {
                 showMessageDialog(null, ex.getMessage(), "Error", 0);
             }
         }
-        return interes;
+        return tipoMov;
     }
 
-    public static String actualizarInteres(InteresMensual interes) {
+    public static String actualizarTipoMoviento(TipoMovimiento tipoMov) {
         String mensaje = null;
         try {
             cn = Conexion.realizarConexion();
-            String sql = "{call sp_actualizar_interes(?, ?)}";
+            String sql = "{call sp_actualizar_tipoMovimiento(?, ?, ?,?)}";
             cs = cn.prepareCall(sql);
-            cs.setString(1, interes.getMoneda().getCodigo());
-            cs.setFloat(2,  interes.getInteImporte());
+            cs.setString(1, tipoMov.getTipoCodigo());
+            cs.setString(2, tipoMov.getTipoDescripcion());
+            cs.setString(3, tipoMov.getTipoAccion());
+            cs.setString(4, tipoMov.getTipoEstado());
             cs.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
@@ -103,17 +108,19 @@ public class DALInteresMensual {
         return mensaje;        
     }
 
-    public static InteresMensual obtenerInteres(String codigo) {
-        InteresMensual inter = new InteresMensual();
+    public static TipoMovimiento obtenerTipoMovimiento(String codigo) {
+        TipoMovimiento tipoMov = new TipoMovimiento();
         try {
             cn = Conexion.realizarConexion();
-            String sql = "{call sp_buscar_interes(?)}";
+            String sql = "{call sp_buscar_tipoMovimiento(?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, codigo);
             rs = cs.executeQuery();
             while (rs.next()) {
-                inter.setMoneda(new Moneda(rs.getString(1)));
-                inter.setInteImporte(rs.getFloat(2));
+                tipoMov.setTipoCodigo(rs.getString(1));
+                tipoMov.setTipoDescripcion(rs.getString(2));
+                tipoMov.setTipoAccion(rs.getString(3));
+                tipoMov.setTipoEstado(rs.getString(4));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -126,6 +133,7 @@ public class DALInteresMensual {
                 showMessageDialog(null, ex.getMessage(), "Error", 0);
             }
         }
-        return inter;
+        return tipoMov;
     }
+    
 }

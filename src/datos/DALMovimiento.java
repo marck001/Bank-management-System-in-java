@@ -17,7 +17,7 @@ public class DALMovimiento {
             sql = "{call sp_insertar_movimiento(?, ?, ?, ?, ?, ?)}";
             cs = cn.prepareCall(sql);
             cs.setInt(1, obj.getNumero());
-            cs.setString(2, obj.getFechaCreacionCorta());
+            cs.setString(2, obj.getFechaCreacionCorta()); 
             cs.setString(3, String.valueOf(obj.getImporte()));
             cs.setString(4, obj.getReferencia());
             cs.setString(5, DALCuenta.buscarCuenta(obj.getCuenCodigo()));
@@ -37,13 +37,13 @@ public class DALMovimiento {
         return mensaje;
     }
 
-    public static String buscarMovimiento(String codigo) {
+    public static String buscarMovimiento(String cuenCodigo) {
         String sql;
         try {
             cn = Conexion.realizarConexion();
             sql = "{call sp_buscar_movimiento(?)}";
             cs = cn.prepareCall(sql);
-            cs.setString(1, codigo);
+            cs.setString(1, cuenCodigo);
             rs = cs.executeQuery();
             while (rs.next()) {
                 return rs.getString("movicodigo");
@@ -89,13 +89,13 @@ public class DALMovimiento {
         return mensaje;
     }
 
-    public static Movimiento obtenerMovimiento(String Codigo) {
+    public static Movimiento obtenerMovimiento(String cuenCodigo) {
         Movimiento obj = new Movimiento();
         try {
             cn = Conexion.realizarConexion();
             String sql = "{call sp_buscar_movimiento(?)}";
             cs = cn.prepareCall(sql);
-            cs.setString(1, Codigo);
+            cs.setString(1, cuenCodigo);
             rs = cs.executeQuery();
             while (rs.next()) {
                 obj.setNumero(rs.getInt(1));
@@ -192,6 +192,5 @@ public class DALMovimiento {
             }
         
         }return max;
-        
     }
 }

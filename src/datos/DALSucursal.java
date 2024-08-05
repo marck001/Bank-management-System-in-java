@@ -141,5 +141,37 @@ public class DALSucursal {
         }
         return mensaje;
     }
+    
+    public static Sucursal obtenerSucursal(String codigo) {
+        Sucursal sucursal = null;
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_buscar_sucursal(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, codigo);
+            rs = cs.executeQuery();
+            if (rs.next()) {
+                String tipo = rs.getString("tipo");
+                if ("Departamental".equalsIgnoreCase(tipo)) {
+                    sucursal = new SucursalDepartamental(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+                } else if ("Provincial".equalsIgnoreCase(tipo)) {
+                    sucursal = new SucursalProvincial(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+                } else {
+                    sucursal = new Sucursal(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return sucursal;
+    }
 
 }

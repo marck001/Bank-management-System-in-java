@@ -11,7 +11,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import patronBuilder.*;
 /**
  *
- * @author marck
+ * @author marck e ima
  */
 public class DALCuenta {
 
@@ -131,7 +131,7 @@ public class DALCuenta {
                     showMessageDialog(null, ex.getMessage(), "Error", 0);
                 }
             }
-            return obj;  
+        return obj;  
     }
 
     public static ArrayList<Cuenta> listarCuentasCorriente() {
@@ -144,11 +144,13 @@ public class DALCuenta {
             rs = cs.executeQuery(sql);
             while(rs.next()) {
                 String [] string = rs.getString(3).split("-");
-                list.add(new CuentaCorriente(rs.getString(1), Float.parseFloat(rs.getString(2)) , new GregorianCalendar(Integer.parseInt(string[0]),Integer.parseInt(string[1]),Integer.parseInt(string[2])), rs.getString(4),Integer.parseInt(rs.getString(5)) , rs.getString(6)));
+                                                                           //String codigo, float saldo, GregorianCalendar fechaCreacion, String estado, int contMovimientos, String clave, String moneCodigo, String sucuCodigo, String emplCreaCuenta, String clieCodigo
+                list.add(new CuentaCorriente(rs.getString(1), Float.parseFloat(rs.getString(2)) , new GregorianCalendar(Integer.parseInt(string[0]),Integer.parseInt(string[1]),Integer.parseInt(string[2])), rs.getString(4),Integer.parseInt(rs.getString(5)) , rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)));
             }
         }catch(ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
         } finally {
+
             try {
                 rs.close();
                 cs.close();
@@ -240,7 +242,7 @@ public class DALCuenta {
             }
         }
         return mensaje;     
-        }
+    }
     public static String depositoCuenta(float deposito, String codigo){
         String mensaje=null;
         String saldoStr = obtenerSaldo(codigo);
