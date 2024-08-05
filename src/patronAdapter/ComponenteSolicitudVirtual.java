@@ -4,19 +4,20 @@
  */
 package patronAdapter;
 
-import datos.*;
+import logica.*;
 import entidades.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
+
 /**
- 
+ * 
  * @author User
  */
 public class ComponenteSolicitudVirtual {
-    
-    //Llamamos métodos de la capa LOGICA-->DATOS DE CUENTA
-    
+
+    // Llamamos métodos de la capa LOGICA-->DATOS DE CUENTA
+
     public void retirarSaldoPorEmpleado(String codCuenta, float saldo) {
         String codBuscado, clave, mensaje;
         int contIntentos = 0, numMov;
@@ -24,34 +25,30 @@ public class ComponenteSolicitudVirtual {
         Cuenta cuenta;
         Cliente cliente;
         ///1//   Buscamos q exista la cuenta
-        codBuscado=DALCuenta.buscarCuenta(codCuenta);
+        codBuscado=BLCuenta.buscar(codCuenta);
         //condicional a 1
         if(codBuscado != null){
             ///2//  Extraemos esa cuenta y guardamos en objeto cuenta
-            cuenta = DALCuenta.obtenerCuenta(codBuscado);
-            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo());
+            cuenta = BLCuenta.obtenerCuenta(codBuscado);
+            cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
              //PEDIMOS CLAVE
             do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
                 if(cuenta.getClave().equals(clave)){
                 // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO)   //METODO DE DAL QUE TENGA EL UPDATE
-                mensaje = DALCuenta.retiroCuenta( saldo, codCuenta);
+                mensaje = BLCuenta.retiroCuenta( saldo, codCuenta);
                     if(mensaje == null){
-                        saldoNuevo = Float.parseFloat(DALCuenta.obtenerSaldo(codCuenta));                 
+                        saldoNuevo = Float.parseFloat(BLCuenta.obtenerSaldo(codCuenta));                 
                     // Mostramos MENSAJITO nuevo saldo
                         showMessageDialog(null, cliente.getNombre() + "  su nuevo saldo es:  " + saldoNuevo, "Retiro existoso", 1 );
                     // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999 y COD DE MOV CORRESPONDIENTE
                         GregorianCalendar fechaActual = new GregorianCalendar();
-                        numMov= DALMovimiento.NumeroMaxMovimiento(codBuscado);
-                        Movimiento mov = new Movimiento(numMov++,fechaActual,saldo, "SALIDA", cuenta.getCodigo(), "9999" , "004"); // puse 1 al comienzo, ta por definir
+                        numMov= BLMovimiento.NumeroMaxMovimiento(codBuscado);
                     // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
-                        mensaje = DALMovimiento.insertarMovimiento(mov);
-                        if(mensaje ==null)
-                            showMessageDialog(null, "Movimiento realizado de forma exitosa ");
-                        else 
-                        showMessageDialog(null, "Problemas en registrar el movimiento ");
+                        int aux = BLMovimiento.insertarMovimiento(numMov++,fechaActual,saldo, "SALIDA", cuenta.getCodigo(), "9999" , "004");
+                        System.out.println(aux);                        
                     }else{
-                        showMessageDialog(null, "No se realizo el retiro, intente más tarde");
+                        showMessageDialog(null, mensaje, "Error",0);
                     }
                     break;
                 }
@@ -69,233 +66,226 @@ public class ComponenteSolicitudVirtual {
 
     public void depositarSaldoPorEmpleado(String codCuenta, float saldo, int op) {
         String codBuscado, clave, mensaje, mensaje2;
-        int contIntentos = 0, numMov, numMov1;
+        int contIntentos = 0, numMov, numMov1, aux;
         float saldoNuevo;
         Cuenta cuenta;
         Cliente cliente;
-
-        codBuscado = DALCuenta.buscarCuenta(codCuenta);
+        codBuscado = BLCuenta.buscar(codCuenta);
 
         if (codBuscado != null) {
-            cuenta = DALCuenta.obtenerCuenta(codCuenta);
-            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo());
+            cuenta = BLCuenta.obtenerCuenta(codCuenta);
+            cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
             clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", 1);
             while (!cuenta.getClave().equals(clave) && contIntentos < 3) {
                 contIntentos++;
                 if (contIntentos < 3) {
-                    showMessageDialog(null, "Clave incorrecta. Le quedan " + (3 - contIntentos) + " intentos.", "Clave incorrecta", 0);
+                    showMessageDialog(null, "Clave incorrecta. Le quedan " + (3 - contIntentos) + " intentos.",
+                            "Clave incorrecta", 0);
                     clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", 1);
                 } else {
-                    showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde." ,"ERROR", 0);
+                    showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde.", "ERROR", 0);
                     return;
                 }
             }
 
             if (op == 1) {
                 String codCuentaDestino = JOptionPane.showInputDialog("Ingrese el código de la cuenta destino:");
-                String codBuscadoDestino = DALCuenta.buscarCuenta(codCuentaDestino);
+                String codBuscadoDestino = BLCuenta.buscar(codCuentaDestino);
 
                 if (codBuscadoDestino != null) {
-                    mensaje = DALCuenta.depositoCuenta(saldo, codCuentaDestino);
-                    mensaje2 = DALCuenta.retiroCuenta(saldo, codCuenta);
+                    mensaje = BLCuenta.depositoCuenta(saldo, codCuentaDestino);
+                    mensaje2 = BLCuenta.retiroCuenta(saldo, codCuenta);
 
                     if (mensaje == null && mensaje2 == null) {
-                        saldoNuevo = Float.parseFloat(DALCuenta.obtenerSaldo(codCuenta));
-                        showMessageDialog(null, cliente.getNombre() + " su nuevo saldo es: " + saldoNuevo, "Depósito exitoso", 1);
+                        saldoNuevo = Float.parseFloat(BLCuenta.obtenerSaldo(codCuenta));
+                        showMessageDialog(null, cliente.getNombre() + " su nuevo saldo es: " + saldoNuevo,
+                                "Depósito exitoso", 1);
 
                         GregorianCalendar fechaActual = new GregorianCalendar();
-                        numMov = DALMovimiento.NumeroMaxMovimiento(codBuscado);
-                        numMov1= DALMovimiento.NumeroMaxMovimiento(codBuscadoDestino);
-                        Movimiento mov = new Movimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999", "009");
-                        Movimiento mov1 = new Movimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino, "9999", "008");
-                        mensaje = DALMovimiento.insertarMovimiento(mov);
-                        mensaje2 = DALMovimiento.insertarMovimiento(mov1);
-                        if (mensaje == null && mensaje2 == null) {
-                            showMessageDialog(null, "Movimiento realizado de forma exitosa");
-                        } else {
-                            showMessageDialog(null, "Problemas en registrar el movimiento");
-                        }
+                        numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado);
+                        numMov1 = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino);
+                        aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999","009");                        
+                        aux = BLMovimiento.insertarMovimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino,"9999", "008");
+
                     } else {
-                        showMessageDialog(null, "No se realizó el depósito, intente más tarde");
+                        showMessageDialog(null, "Error 1: "+ mensaje + "\n" + "Error 2: "+mensaje2, "Error", 0);
                     }
                 } else {
                     showMessageDialog(null, "La cuenta destino no existe o no está registrada.", "Error", 0);
                 }
             } else if (op == 2) {
-                
-                mensaje = DALCuenta.retiroCuenta(saldo, cuenta.getCodigo());
+
+                mensaje = BLCuenta.retiroCuenta(saldo, cuenta.getCodigo());
 
                 if (mensaje == null) {
-                    saldoNuevo = Float.parseFloat(DALCuenta.obtenerSaldo(cuenta.getCodigo()));
-                    showMessageDialog(null, cliente.getNombre() + " su nuevo saldo es: " + saldoNuevo, "Descuento exitoso", 1);
+                    saldoNuevo = Float.parseFloat(BLCuenta.obtenerSaldo(cuenta.getCodigo()));
+                    showMessageDialog(null, cliente.getNombre() + " su nuevo saldo es: " + saldoNuevo,
+                            "Descuento exitoso", 1);
 
                     GregorianCalendar fechaActual = new GregorianCalendar();
-                    numMov= DALMovimiento.NumeroMaxMovimiento(codBuscado);
-                    Movimiento mov = new Movimiento(numMov++, fechaActual, saldo, "SALIDA", cuenta.getCodigo(), "9999", "009"); // Código de movimiento correspondiente a otro banco
-                    mensaje = DALMovimiento.insertarMovimiento(mov);
-                    if (mensaje == null) {
-                        showMessageDialog(null, "Movimiento realizado de forma exitosa");
-                    } else {
-                        showMessageDialog(null, "Problemas en registrar el movimiento");
-                    }
+                    numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado); // Código de movimiento correspondiente a otro banco
+                    aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA A OTRO BANCO", cuenta.getCodigo(), "9999",
+                            "009");
+                            System.out.println(aux); 
                 } else {
-                    showMessageDialog(null, "No se realizó el descuento, intente más tarde");
+                    showMessageDialog(null,  mensaje , "Error", 0);
                 }
             }
         } else {
             showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
         }
+         
     }
 
-        //OP 1  = OTRA CUENTA DE EUREKABANK
-            ///1//   Buscamos q exista la cuenta A QN QUIERE DEPOSITAR
-            ///2//   Extraemos esa cuenta y guardamos en objeto cuenta
-            //condicional a 1
-                //PEDIMOS CLAVE
-                // HACEMOS EL DEPOSITO (AUMENTAMOS EL SALDO A LA NUEVA CUENTA)  //METODO DE DAL QUE TENGA EL QUERY
-                // Mostramos MENSAJITO QUE SE HIZO EL MOVIMIENTO
-                // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999
-                // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENTO
-        //OP 2 = OTRA BANCO
-               ////PEDIMOS CLAVE
-               // HACEMOS EL DESCUENTO A LA CUENTA      //METODO DE DAL QUE TENGA EL QUERY DE DESCUENTO
-               // Mostramos MENSAJITO QUE SE HIZO EL MOVIMIENTO A OTRO BANCO
-               // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999 y COD DE MOV CORRESPONDIENTE-- REFERENCIA OTRO BANCO
-               // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENTO
-    
+    // OP 1 = OTRA CUENTA DE EUREKABANK
+    /// 1// Buscamos q exista la cuenta A QN QUIERE DEPOSITAR
+    /// 2// Extraemos esa cuenta y guardamos en objeto cuenta
+    // condicional a 1
+    // PEDIMOS CLAVE
+    // HACEMOS EL DEPOSITO (AUMENTAMOS EL SALDO A LA NUEVA CUENTA) //METODO DE DAL
+    // QUE TENGA EL QUERY
+    // Mostramos MENSAJITO QUE SE HIZO EL MOVIMIENTO
+    // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999
+    // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENTO
+    // OP 2 = OTRA BANCO
+    //// PEDIMOS CLAVE
+    // HACEMOS EL DESCUENTO A LA CUENTA //METODO DE DAL QUE TENGA EL QUERY DE
+    // DESCUENTO
+    // Mostramos MENSAJITO QUE SE HIZO EL MOVIMIENTO A OTRO BANCO
+    // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999 y COD DE MOV
+    // CORRESPONDIENTE-- REFERENCIA OTRO BANCO
+    // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENTO
 
     public void recargarSaldoPorEmpleado(String codCuenta, float saldo) {
         String codBuscado, clave, mensaje;
-        int contIntentos = 0, numMov;
+        int contIntentos = 0, numMov, aux;
         float saldoNuevo;
         Cuenta cuenta;
         Cliente cliente;
-        ///1//   Buscamos q exista la cuenta
-        codBuscado=DALCuenta.buscarCuenta(codCuenta);
-        //condicional a 1
-        if(codBuscado != null){
-            ///2//  Extraemos esa cuenta y guardamos en objeto cuenta
-            cuenta = DALCuenta.obtenerCuenta(codBuscado);
-            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo());
-             //PEDIMOS CLAVE
+        /// 1// Buscamos q exista la cuenta
+        codBuscado = BLCuenta.buscar(codCuenta);
+        // condicional a 1
+        if (codBuscado != null) {
+            /// 2// Extraemos esa cuenta y guardamos en objeto cuenta
+            cuenta = BLCuenta.obtenerCuenta(codBuscado);
+            cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
+            // PEDIMOS CLAVE
             do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
-                if(cuenta.getClave().equals(clave)){
-                // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO)   //METODO DE DAL QUE TENGA EL UPDATE
-                mensaje = DALCuenta.depositoCuenta(saldo, codCuenta);
-                    if(mensaje == null){
-                        saldoNuevo = Float.parseFloat(DALCuenta.obtenerSaldo(codCuenta));                 
-                    // Mostramos MENSAJITO nuevo saldo
-                        showMessageDialog(null, cliente.getNombre() + "  su nuevo saldo es:  " + saldoNuevo, "Retiro existoso", 1 );
-                    // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999 y COD DE MOV CORRESPONDIENTE
+                if (cuenta.getClave().equals(clave)) {
+                    // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO) //METODO DE DAL QUE TENGA EL UPDATE
+                    mensaje = BLCuenta.depositoCuenta(saldo, codCuenta);
+                    if (mensaje == null) {
+                        saldoNuevo = Float.parseFloat(BLCuenta.obtenerSaldo(codCuenta));
+                        // Mostramos MENSAJITO nuevo saldo
+                        showMessageDialog(null, cliente.getNombre() + "  su nuevo saldo es:  " + saldoNuevo,
+                                "Retiro existoso", 1);
+                        // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999 y COD DE MOV
+                        // CORRESPONDIENTE
                         GregorianCalendar fechaActual = new GregorianCalendar();
-                        numMov= DALMovimiento.NumeroMaxMovimiento(codBuscado);
-                        Movimiento mov = new Movimiento(numMov++,fechaActual,saldo, "ENTRADA", cuenta.getCodigo(), "9999" , "003"); // puse 1 al comienzo, ta por definir
-                    // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
-                        mensaje = DALMovimiento.insertarMovimiento(mov);
-                        if(mensaje ==null)
-                            showMessageDialog(null, "Movimiento realizado de forma exitosa ");
-                        else 
-                        showMessageDialog(null, "Problemas en registrar el movimiento ");
-                    }else{
-                        showMessageDialog(null, "No se realizo el retiro, intente más tarde");
+                        numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado); // puse 1 al comienzo, ta por definir
+                        // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
+                        aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "ENTRADA", cuenta.getCodigo(),
+                                "9999", "003"); 
+                                System.out.println(aux);  
+                    } else {
+                        showMessageDialog(null,  mensaje , "Error", 0);
                     }
                     break;
-                }
-                else{
+                } else {
                     contIntentos++;
-                    showMessageDialog(null, "Le quedan " + (3-contIntentos) + " intentos.","Clave incorrecta",0);
-                    if(contIntentos==3)
-                        showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde." ,"ERROR", 0);
-                }   
-            } while (contIntentos<3);
-        }else{
+                    showMessageDialog(null, "Le quedan " + (3 - contIntentos) + " intentos.", "Clave incorrecta", 0);
+                    if (contIntentos == 3)
+                        showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde.", "ERROR", 0);
+                }
+            } while (contIntentos < 3);
+        } else {
             showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
         }
+       
     }
 
     public void cancelarCuentaPorEmpleado(String codCuenta) {
         String codBuscado, clave, mensaje;
         Cuenta cuenta;
         Cliente cliente;
-        int contIntentos = 0, numMov;
-        ///1//   Buscamos SU cuenta
-        codBuscado = DALCuenta.buscarCuenta(codCuenta);
-        ///2//  Extraemos esa cuenta y guardamos en objeto cuenta
-        if(codBuscado != null) {
-            cuenta = DALCuenta.obtenerCuenta(codBuscado);
-            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo());
-            do { 
+        int contIntentos = 0, numMov, aux;
+        /// 1// Buscamos SU cuenta
+        codBuscado = BLCuenta.buscar(codCuenta);
+        /// 2// Extraemos esa cuenta y guardamos en objeto cuenta
+        if (codBuscado != null) {
+            cuenta = BLCuenta.obtenerCuenta(codBuscado);
+            cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
+            do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR CANCELAMIENTO", 1);
-                if(cuenta.getClave().equals(clave)) {
-                    mensaje = DALCuenta.cancelarCuenta(codCuenta);
-                    if(mensaje == null){
-                        showMessageDialog(null, cliente.getNombre() + "  su cuenta ha sido cancelada :(.", "Eurebank: triste que te fueras :'( .", 1 );
-                    // CREAMOS MOVIMIENTO 
+                if (cuenta.getClave().equals(clave)) {
+                    mensaje = BLCuenta.cancelarCuenta(codCuenta);
+                    if (mensaje == null) {
+                        showMessageDialog(null, cliente.getNombre() + "  su cuenta ha sido cancelada :(.",
+                                "Eurebank: triste que te fueras :'( .", 1);
+                        // CREAMOS MOVIMIENTO
                         GregorianCalendar fechaActual = new GregorianCalendar();
-                        numMov= DALMovimiento.NumeroMaxMovimiento(codCuenta);
-                        Movimiento mov = new Movimiento(numMov++,fechaActual,0.0f, "CANCELACION", cuenta.getCodigo(), "9999" , "002"); // puse 1 al comienzo, ta por definir
-                    // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
-                        mensaje = DALMovimiento.insertarMovimiento(mov);
-                        if(mensaje ==null)
-                            showMessageDialog(null, "Movimiento realizada de forma exitosa ");
-                        else 
-                        showMessageDialog(null, "Problemas en registrar el movimiento ");
-                    }else{
-                        showMessageDialog(null, "No se realizo la cancelación, intente más tarde");
+                        numMov = BLMovimiento.NumeroMaxMovimiento(codCuenta); // puse 1 al comienzo, ta por definir
+                        // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
+                        aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, 0.0f, "CANCELACION", cuenta.getCodigo(),
+                                "9999", "002");
+
+                                System.out.println(aux); 
+                    } else {
+                        showMessageDialog(null,  mensaje , "Error", 0);
                     }
                     break;
-                } else{
+                } else {
                     contIntentos++;
-                    showMessageDialog(null, "Le quedan " + (3-contIntentos) + " intentos.","Clave incorrecta",0);
-                    if(contIntentos==3)
-                        showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde." ,"ERROR", 0);
+                    showMessageDialog(null, "Le quedan " + (3 - contIntentos) + " intentos.", "Clave incorrecta", 0);
+                    if (contIntentos == 3)
+                        showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde.", "ERROR", 0);
                 }
-            } while (contIntentos<3);
-        }else{
-            showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
+            } while (contIntentos < 3);
+        } else {
+         
+           showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
         }
     }
 
     public void reactivarCuentaPorEmpleado(String codCuenta) {
         String codBuscado, clave, mensaje;
-        int contIntentos=0, numMov;
+        int contIntentos = 0, numMov, aux;
         Cliente cliente;
-        ///1//   Buscamos SU cuenta
-        codBuscado= DALCuenta.buscarCuenta(codCuenta);
-        if(codBuscado != null){
-            ///2//  Extraemos esa cuenta y guardamos en objeto cuenta
-            Cuenta cuenta= DALCuenta.obtenerCuenta(codBuscado);
-            cliente = DALCliente.obtenerCliente(cuenta.getClieCodigo());
-            do { 
+        /// 1// Buscamos SU cuenta
+        codBuscado = BLCuenta.buscar(codCuenta);
+        if (codBuscado != null) {
+            /// 2// Extraemos esa cuenta y guardamos en objeto cuenta
+            Cuenta cuenta = BLCuenta.obtenerCuenta(codBuscado);
+            cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
+            do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR REACTIVACIÓN", 1);
-                if(cuenta.getClave().equals(clave)){
-                mensaje = DALCuenta.reactivarCuenta(codCuenta);
-                    if(mensaje == null){
-                        showMessageDialog(null, cliente.getNombre() + "  su cuenta ha sido reactivada :).", "Eurebank feliz que hayas vuelto <3.", 1 );
-                    // CREAMOS MOVIMIENTO 
+                if (cuenta.getClave().equals(clave)) {
+                    mensaje = BLCuenta.reactivarCuenta(codCuenta);
+                    if (mensaje == null) {
+                        showMessageDialog(null, cliente.getNombre() + "  su cuenta ha sido reactivada :).",
+                                "Eurebank feliz que hayas vuelto <3.", 1);
+                        // CREAMOS MOVIMIENTO
                         GregorianCalendar fechaActual = new GregorianCalendar();
-                        numMov= DALMovimiento.NumeroMaxMovimiento(codCuenta);
-                        Movimiento mov = new Movimiento(numMov++,fechaActual,0.0f, "REACTIVACION", cuenta.getCodigo(), "9999" , "011"); // puse 1 al comienzo, ta por definir
-                    // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
-                        mensaje = DALMovimiento.insertarMovimiento(mov);
-                        if(mensaje ==null)
-                            showMessageDialog(null, "Tu cuenta ha sido reactivada ");
-                        else 
-                        showMessageDialog(null, "Problemas en registrar el movimento  al sistema. ");
-                    }else{
-                        showMessageDialog(null, "No se realizo la reactivación, intente más tarde");
+                        numMov = BLMovimiento.NumeroMaxMovimiento(codCuenta); // puse 1 al comienzo, ta por definir
+                        // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
+                        aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, 0.0f, "REACTIVACION", cuenta.getCodigo(),
+                                "9999", "011");
+                                
+                                System.out.println(aux); 
+                    } else {
+                        showMessageDialog(null,  mensaje , "Error", 0);
                     }
                     break;
-                }
-                else{
+                } else {
                     contIntentos++;
-                    showMessageDialog(null, "Le quedan " + (3-contIntentos) + " intentos.","Clave incorrecta",0);
-                    if(contIntentos==3)
-                        showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde." ,"ERROR", 0);
-                }  
-            } while (contIntentos<3);
-        } else{
+                    showMessageDialog(null, "Le quedan " + (3 - contIntentos) + " intentos.", "Clave incorrecta", 0);
+                    if (contIntentos == 3)
+                        showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde.", "ERROR", 0);
+                }
+         
+            } while (contIntentos < 3);
+        } else {
             showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
         }
     }

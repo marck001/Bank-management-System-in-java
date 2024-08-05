@@ -67,7 +67,7 @@ public class BLCliente {
     }
     
      public static Cliente obtenerCliente(String codigo) {
-        if(codigo.trim().length()==5) {
+        if(codigo.trim().length()==5 && buscarCliente(codigo)!=null) {
             obj = DALCliente.obtenerCliente(codigo);
             return obj;
         } else

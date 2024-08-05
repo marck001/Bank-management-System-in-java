@@ -18,10 +18,10 @@ public class Movimiento implements Comparable<Movimiento> {
     private String tipoMovimiento;  //dejalo ahi, solo pasamos una referencia, has undo
     
     public Movimiento() {
-        this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "", null);
+        this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "");
     }
 
-    public Movimiento(int numero, GregorianCalendar fecha, float importe, String referencia, Cuenta cuenta) {   //onde meto el codEmpleado?
+    public Movimiento(int numero, GregorianCalendar fecha, float importe, String referencia) {   //onde meto el codEmpleado?
         this.numero = numero;
         this.fecha = fecha;
         this.importe = importe;
@@ -30,7 +30,8 @@ public class Movimiento implements Comparable<Movimiento> {
     }
 
     public Movimiento(int numero, GregorianCalendar fecha, float importe, String referencia, 
-        String cuenCodigo, String empCodigo, String tipoMovimiento) {
+        String cuenCodigo, String empCodigo, String tipoMovimiento){
+
         this.numero = numero;
         this.fecha = fecha;
         this.importe = importe;
@@ -41,7 +42,7 @@ public class Movimiento implements Comparable<Movimiento> {
     }
 
     public Movimiento(Cuenta codigo) {
-        this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "", null);
+        this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "");
     }
 
     public String getCuenCodigo() {

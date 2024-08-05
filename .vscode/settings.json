@@ -1,0 +1,5 @@
+{
+    "liveshare.allowGuestDebugControl": true,
+    "liveshare.showReadOnlyUsersInEditor": "always",
+    "liveshare.guestApprovalRequired": false
+}
