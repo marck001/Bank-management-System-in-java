@@ -5,6 +5,7 @@
 package logica;
 
 import datos.*;
+import logica.*;
 import patronBuilder.*;
 import entidades.*;
 import java.util.*;
@@ -15,6 +16,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
  * @author marck e imagay
  */
 public class BLCuenta {
+    private static String[] monedas = {"Soles", "Dolares", "Pesos Argentinos", "Pesos chilenos", "Euros"};
     private static CuentaCorriente obj;
     public static int insertarCuenta(String codigo, String emplcod, String cliente, String monecode, String sucursal,
             float saldo, GregorianCalendar fechaCreacion, String estado, int contMov, String clave) {
@@ -123,9 +125,48 @@ public class BLCuenta {
     }
 
     public static String depositoCuenta(float deposito, String codigo) {
-        String mensaje;
+        Cuenta cuenta=obtenerCuenta(codigo);
+        Moneda moneda=BLMoneda.obtenerMoneda(cuenta.getMoneCodigo());
+        String nombreMoneda=moneda.getDescripcion();
+        String mensaje="";
         if (deposito > 0) {
-            mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+            switch(nombreMoneda){
+                case "Soles":
+                    if(deposito<=1000){
+                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
+                    }else{
+                      mensaje = "El limite es de 1000.00 soles";  
+                    }
+                    break;
+                case "Dolares":
+                    if(deposito<=268){
+                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
+                    }else{
+                      mensaje = "El limite es de 268 dólares. (1000 soles)";  
+                    }
+                    break;
+                case "Pesos argentinos":
+                    if(deposito<=250282){
+                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
+                    }else{
+                      mensaje = "El limite es de 250282 Pesos Argentinos ";  
+                    }
+                    break;
+                case "Pesos chilenos":
+                    if(deposito<=252457){
+                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
+                    }else{
+                      mensaje = "El limite es de 252457.00 Pesos Chilenos";  
+                    }
+                    break;
+                case "Euro":
+                    if(deposito<=245){
+                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
+                    }else{
+                      mensaje = "El limite es de 245.00 Euros";  
+                    }
+                    break;
+            }     
         } else {
             mensaje = "Monto del depósito inválido.";
         }
