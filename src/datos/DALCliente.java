@@ -48,7 +48,6 @@ public class DALCliente {
         return mensaje;
     }
 
-    
     public static String buscarCliente(String codigo) {
         String sql;
         try {
@@ -56,6 +55,32 @@ public class DALCliente {
             sql = "{call sp_buscar_cliente(?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, codigo);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                return rs.getString("cliecodigo");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return null;
+    }
+    
+    public static String buscarClienteLogin(String codigo, String dni) {
+        String sql;
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_buscar_cliente(?, ?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, codigo);
+            cs.setString(2, dni);
             rs = cs.executeQuery();
             while (rs.next()) {
                 return rs.getString("cliecodigo");

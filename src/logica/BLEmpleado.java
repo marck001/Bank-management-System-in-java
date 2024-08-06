@@ -39,6 +39,14 @@ public class BLEmpleado {
             return null;
         }
     }
+    
+    public static String buscarEmpleadoLogin(String codigo, String clave) {
+        if (codigo.trim().length() == 4 && clave == null) {
+            return DALEmpleado.buscarEmpleadoLogin(codigo, clave);
+        } else {
+            return null;
+        }
+    }
 
     public static ArrayList<Empleado> listarEmpleados() {
         return DALEmpleado.listarEmpleados();

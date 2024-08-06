@@ -12,7 +12,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
  * @author marck
  */
 public class BLCliente {
-     private static Cliente obj;
+    private static Cliente obj;
 
     public static int insertarCliente(String codigo, String apellidoP, String apellidoM, String nombre, String dni, String ciudad, String direccion, String email, String telefono) {
         String mensaje;
@@ -40,9 +40,17 @@ public class BLCliente {
         }
     }
     
-     public static String buscarCliente(String codigo) {
+    public static String buscarCliente(String codigo) {
         if (codigo.trim().length() == 5) {
             return DALCliente.buscarCliente(codigo);
+        } else {
+            return null;
+        }
+    }
+     
+    public static String buscarClienteLogin(String codigo, String dni) {
+        if (codigo.trim().length() == 5 && dni.trim().length() == 8) {
+            return DALCliente.buscarClienteLogin(codigo, dni);
         } else {
             return null;
         }
@@ -66,7 +74,7 @@ public class BLCliente {
         return mensaje;
     }
     
-     public static Cliente obtenerCliente(String codigo) {
+    public static Cliente obtenerCliente(String codigo) {
         if(codigo.trim().length()==5 && buscarCliente(codigo)!=null) {
             obj = DALCliente.obtenerCliente(codigo);
             return obj;
