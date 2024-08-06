@@ -17,7 +17,7 @@ public class DALMovimiento {
             sql = "{call sp_insertar_movimiento(?, ?, ?, ?, ?, ?)}";
             cs = cn.prepareCall(sql);
             cs.setInt(1, obj.getNumero());
-            cs.setString(2, obj.getFechaCreacionCorta());
+            cs.setString(2, obj.getFechaMov().toString());
             cs.setString(3, String.valueOf(obj.getImporte()));
             cs.setString(4, obj.getReferencia());
             cs.setString(5, DALCuenta.buscarCuenta(obj.getCuenCodigo()));
@@ -69,7 +69,7 @@ public class DALMovimiento {
             String sql = "{call sp_actualizar_movimiento(?, ?, ?, ?, ?, ?)}";
             cs = cn.prepareCall(sql);
             cs.setInt(1, obj.getNumero());
-            cs.setString(2, obj.getFechaCreacionCorta());
+            cs.setString(2, obj.getFechaMov().toString());
             cs.setString(3, String.valueOf(obj.getImporte()));
             cs.setString(4, obj.getReferencia());
             cs.setString(5, DALCuenta.buscarCuenta(obj.getCuenCodigo()));
@@ -104,7 +104,7 @@ public class DALMovimiento {
                 int year = Integer.parseInt(dateParts[0]);
                 int month = Integer.parseInt(dateParts[1]) - 1;
                 int day = Integer.parseInt(dateParts[2]);
-                obj.setFecha(new GregorianCalendar(year, month, day));
+                obj.setFechaMov(new GregorianCalendar(year, month, day));
                 obj.setImporte(rs.getFloat(3));
                 obj.setReferencia(rs.getString(4));
                 obj.setCuenCodigo(rs.getString(5));
@@ -112,7 +112,7 @@ public class DALMovimiento {
                 obj.setTipoMovimiento(rs.getString(7));
                 obj.setNumero(rs.getInt(1));
                 String[] date = rs.getString(2).split("-");
-                obj.setFechaCreacion(Integer.parseInt(date[0]), Integer.parseInt(date[1]) - 1,
+                obj.setFechaMov(Integer.parseInt(date[0]), Integer.parseInt(date[1]) - 1,
                         Integer.parseInt(date[2]));
                 obj.setImporte(Float.parseFloat(rs.getString(3)));
                 obj.setReferencia(rs.getString(4));

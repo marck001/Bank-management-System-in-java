@@ -13,14 +13,14 @@ public class BLMovimiento {
 
     private static Movimiento obj;
 
-    public static int insertarMovimiento(int numero, GregorianCalendar fecha, float importe, String referencia,
+    public static int insertarMovimiento(int numero, GregorianCalendar fechaMov, float importe, String referencia,
             String cuenCodigo, String empCodigo, String tipoMovimiento) {
         String mensaje = null;
-        if (numero > 0 && fecha != null && importe > 0 && importe == 0.0f && referencia.trim().length() > 0
+        if (numero > 0 && fechaMov != null && importe > 0  && referencia.trim().length() > 0
                 && cuenCodigo.trim().length() == 8 && empCodigo.trim().length() == 4
                 && tipoMovimiento.trim().length() > 0) {
             if (buscarMovimiento(cuenCodigo) == null) {
-                obj = new Movimiento();
+                obj = new Movimiento(numero, fechaMov, importe, referencia, cuenCodigo, empCodigo, tipoMovimiento);
                 mensaje = DALMovimiento.insertarMovimiento(obj);
                 if (mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
@@ -49,15 +49,15 @@ public class BLMovimiento {
         }
     }
 
-    public static String actualizarMovimiento(int numero, GregorianCalendar fecha, float importe, String referencia,
+    public static String actualizarMovimiento(int numero, GregorianCalendar fechaMov, float importe, String referencia,
             String cuenCodigo, String empCodigo, String tipoMovimiento) {
         String mensaje = null;
 
-        if (numero > 0 && fecha != null && importe >  0.0f && referencia.trim().length() > 0
+        if (numero > 0 && fechaMov != null && importe >  0.0f && referencia.trim().length() > 0
                 && cuenCodigo.trim().length() == 8 && empCodigo.trim().length() == 4
                 && tipoMovimiento.trim().length() > 0) {
-            obj = new Movimiento(numero, fecha, importe, referencia, cuenCodigo, empCodigo, tipoMovimiento);
-            ;
+            obj = new Movimiento(numero, fechaMov, importe, referencia, cuenCodigo, empCodigo, tipoMovimiento);
+            
             mensaje = DALMovimiento.actualizarMovimiento(obj);
 
             if (mensaje == null)

@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 public class Movimiento implements Comparable<Movimiento> {
     
     private int numero;
-    private GregorianCalendar fecha;
+    private GregorianCalendar fechaMov;
     private float importe;
     private String referencia; //referencia de la cuenta
     private String cuenCodigo;  // POR EJEM AKI, SOLO ES UN STRING codCuenta
@@ -21,19 +21,19 @@ public class Movimiento implements Comparable<Movimiento> {
         this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "");
     }
 
-    public Movimiento(int numero, GregorianCalendar fecha, float importe, String referencia) {   //onde meto el codEmpleado?
+    public Movimiento(int numero, GregorianCalendar fechaMov, float importe, String referencia) {   //onde meto el codEmpleado?
         this.numero = numero;
-        this.fecha = fecha;
+        this.fechaMov = fechaMov;
         this.importe = importe;
         this.referencia = referencia;
         
     }
 
-    public Movimiento(int numero, GregorianCalendar fecha, float importe, String referencia, 
+    public Movimiento(int numero, GregorianCalendar fechaMov, float importe, String referencia, 
         String cuenCodigo, String empCodigo, String tipoMovimiento){
 
         this.numero = numero;
-        this.fecha = fecha;
+        this.fechaMov = fechaMov;
         this.importe = importe;
         this.referencia = referencia;
         this.cuenCodigo = cuenCodigo;
@@ -61,30 +61,27 @@ public class Movimiento implements Comparable<Movimiento> {
         this.numero = numero;
     }
 
-    public GregorianCalendar getFechaCreacion() {
-        return fecha;
+    public GregorianCalendar getFechaMov() {
+        return fechaMov;
     }
 
-    public String getFechaCreacionCorta() {
-        return getFecha(fecha);
+    public String getFechaMovCorta() {
+        return getFechaCorta(getFechaMov());
     }
 
-    public GregorianCalendar getFecha() {
-        return fecha;
-    }
-    private String getFecha(GregorianCalendar fecha) {
+    private String getFechaCorta(GregorianCalendar fecha) {
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
         int mes = fecha.get(Calendar.MONTH) + 1;
         int año = fecha.get(Calendar.YEAR);
         return (dia <= 9 ? "0" + dia : dia) + "/" + (mes <= 9 ? "0" + mes : mes) + "/" + año;
     }
 
-    public void setFechaCreacion(int dia, int mes, int año) {
-        fecha = new GregorianCalendar(año, mes - 1, dia);
+    public void setFechaMov(int dia, int mes, int año) {
+        fechaMov = new GregorianCalendar(año, mes - 1, dia);
     }
 
-    public void setFecha(GregorianCalendar fecha) {
-        this.fecha = fecha;
+    public void setFechaMov(GregorianCalendar fechaMov) {
+        this.fechaMov = fechaMov;
     }
 
     public float getImporte() {
