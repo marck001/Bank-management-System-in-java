@@ -4,7 +4,7 @@
  */
 package logica;
 
-import entidades.*;
+import entidades.Sucursal;
 import datos.*;
 import patronComposite.*;
 import java.util.*;
