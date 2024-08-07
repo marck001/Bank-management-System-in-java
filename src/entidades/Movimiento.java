@@ -10,37 +10,47 @@ import java.util.GregorianCalendar;
 public class Movimiento implements Comparable<Movimiento> {
     
     private int numero;
-    private GregorianCalendar fecha;
+    private GregorianCalendar fechaMov;
     private float importe;
     private String referencia; //referencia de la cuenta
-    private Cuenta codigo;
-    private Empleado empleado; //codigo empleado
-    private TipoMovimiento tipoMovimiento; 
-    private Cuenta cuenta;
+    private String cuenCodigo;  // POR EJEM AKI, SOLO ES UN STRING codCuenta
+    private String empCodigo; //codigo empleado   IGUAL AKI
+    private String tipoMovimiento;  //dejalo ahi, solo pasamos una referencia, has undo
     
-
     public Movimiento() {
-        this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "", null);
+        this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "");
     }
 
-    public Movimiento(int numero, GregorianCalendar fecha, float importe, String referencia, Cuenta cuenta) {
+    public Movimiento(int numero, GregorianCalendar fechaMov, float importe, String referencia) {   //onde meto el codEmpleado?
         this.numero = numero;
-        this.fecha = fecha;
+        this.fechaMov = fechaMov;
         this.importe = importe;
         this.referencia = referencia;
-        this.cuenta = cuenta;
+        
+    }
+
+    public Movimiento(int numero, GregorianCalendar fechaMov, float importe, String referencia, 
+        String cuenCodigo, String empCodigo, String tipoMovimiento){
+
+        this.numero = numero;
+        this.fechaMov = fechaMov;
+        this.importe = importe;
+        this.referencia = referencia;
+        this.cuenCodigo = cuenCodigo;
+        this.empCodigo = empCodigo;
+        this.tipoMovimiento = tipoMovimiento;
     }
 
     public Movimiento(Cuenta codigo) {
-        this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "", null);
+        this(0, new GregorianCalendar(2000, 0, 1), 0.0f, "");
     }
 
-    public Cuenta getCodigo() {
-        return codigo;
+    public String getCuenCodigo() {
+        return cuenCodigo;
     }
 
-    public void setCodigo(Cuenta codigo) {
-        this.codigo = codigo;
+    public void setCuenCodigo(String cuenCodigo) {
+        this.cuenCodigo = cuenCodigo;
     }
 
     public int getNumero() {
@@ -51,39 +61,27 @@ public class Movimiento implements Comparable<Movimiento> {
         this.numero = numero;
     }
 
-    public GregorianCalendar getFechaCreacion() {
-        return fecha;
+    public GregorianCalendar getFechaMov() {
+        return fechaMov;
     }
 
-    public String getFechaCreacionCorta() {
-        return getFecha(fecha);
+    public String getFechaMovCorta() {
+        return getFechaCorta(getFechaMov());
     }
 
-    public GregorianCalendar getFecha() {
-        return fecha;
-    }
-
-    public Cuenta getCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(Cuenta cuenta) {
-        this.cuenta = cuenta;
-    }
-
-    private String getFecha(GregorianCalendar fecha) {
+    private String getFechaCorta(GregorianCalendar fecha) {
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
         int mes = fecha.get(Calendar.MONTH) + 1;
         int año = fecha.get(Calendar.YEAR);
         return (dia <= 9 ? "0" + dia : dia) + "/" + (mes <= 9 ? "0" + mes : mes) + "/" + año;
     }
 
-    public void setFechaCreacion(int dia, int mes, int año) {
-        fecha = new GregorianCalendar(año, mes - 1, dia);
+    public void setFechaMov(int dia, int mes, int año) {
+        fechaMov = new GregorianCalendar(año, mes - 1, dia);
     }
 
-    public void setFecha(GregorianCalendar fecha) {
-        this.fecha = fecha;
+    public void setFechaMov(GregorianCalendar fechaMov) {
+        this.fechaMov = fechaMov;
     }
 
     public float getImporte() {
@@ -102,24 +100,24 @@ public class Movimiento implements Comparable<Movimiento> {
         this.referencia = referencia;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public String getEmpCodigo() {
+        return empCodigo;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setEmpleado(String empCodigo) {
+        this.empCodigo = empCodigo;
     }
 
-    public TipoMovimiento getTipoMovimiento() {
+    public String getTipoMovimiento() {
         return tipoMovimiento;
     }
 
-    public void setTipoMovimiento(TipoMovimiento tipoMovimiento) {
+    public void setTipoMovimiento(String tipoMovimiento) {
         this.tipoMovimiento = tipoMovimiento;
     }
     
     @Override
     public int compareTo(Movimiento movimiento) {
-        return this.getCodigo().compareTo(movimiento.getCodigo());
+        return this.getCuenCodigo().compareTo(movimiento.getCuenCodigo());
     }
 }

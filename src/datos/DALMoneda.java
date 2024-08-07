@@ -72,7 +72,7 @@ public class DALMoneda {
             cn = Conexion.realizarConexion();
             sql = "{call sp_listar_monedas()}";
             cs = cn.prepareCall(sql);
-            rs = cs.executeQuery(sql);
+            rs = cs.executeQuery();
             while(rs.next()) {
                 monedas.add(new Moneda(rs.getString(1), rs.getString(2)));
             }
@@ -121,12 +121,9 @@ public class DALMoneda {
             cs = cn.prepareCall(sql);
             cs.setString(1, codigo);
             cs.executeUpdate();
-            
-             mensaje = "Moneda con "+codigo+"eliminada";
-            
+            mensaje = "Moneda con "+ codigo +"eliminada";
         }catch(ClassNotFoundException | SQLException ex){
                 mensaje = ex.getMessage();
-            
         }finally {
             try {
                 cs.close();
@@ -135,9 +132,7 @@ public class DALMoneda {
                 mensaje = ex.getMessage();
             }
         }
-        return mensaje;  
-        
-        
+        return mensaje;
     }
     
     public static Moneda obtenerMoneda(String codigo) {
@@ -165,7 +160,4 @@ public class DALMoneda {
         }
         return moneda;
     }
-    
-    
-    
 }

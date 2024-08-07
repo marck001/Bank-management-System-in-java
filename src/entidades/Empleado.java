@@ -4,7 +4,7 @@
  */
 package entidades;
 
-
+import patronBuilder.*;
 /**
  *
  * @author alexis
@@ -44,13 +44,26 @@ public class Empleado {
         this.clave = clave;
         this.constructor = constructor;
     }
+    
+    public Empleado(ConstructorCrearCuenta constructor ){
+        this.constructor = constructor;
+    }
 
-    public Cuenta construye(float movimiento, float saldo, float deposito, float retiro, int contador) {
-        constructor.movimientoCuenta(movimiento, saldo, contador);
-        constructor.retiroCuenta(retiro, saldo);
-        constructor.depositoCuenta(deposito, saldo);
-        Cuenta cuenta = constructor.resultado();
-        return cuenta;
+    public void construirCuenta(Cuenta cuenta) {
+        constructor.setClave(cuenta.getClave());
+        constructor.setSaldo(cuenta.getSaldo());
+        constructor.setFechaCreacion(cuenta.getFechaCreacion());
+        constructor.setEstado(cuenta.getEstado());
+        constructor.setContMovimientos(cuenta.getContMovimientos());
+        constructor.setClave(cuenta.getClave());
+        constructor.setMoneCodigo(cuenta.getMoneCodigo());
+        constructor.setSucuCodigo(cuenta.getSucuCodigo());
+        constructor.setEmplCreaCuenta(cuenta.getEmplCreaCuenta());
+        constructor.setClieCodigo(cuenta.getClieCodigo());
+    }
+
+    public Cuenta getCuenta() {
+        return constructor.getCuenta();
     }
 
     public Empleado(String codigo) {

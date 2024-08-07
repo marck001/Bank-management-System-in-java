@@ -21,7 +21,7 @@ public class Cliente {
 
     public Cliente() {
     }
-
+    
     public Cliente(String codigo) {
         this.codigo = codigo;
     }
