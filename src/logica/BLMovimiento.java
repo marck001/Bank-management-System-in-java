@@ -65,7 +65,6 @@ public class BLMovimiento {
         } else
             mensaje = "No válido";
         return mensaje;
-
     }
 
     public static Movimiento obtenerMovimiento(String cuenCodigo) {
