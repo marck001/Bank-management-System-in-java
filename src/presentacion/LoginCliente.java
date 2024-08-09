@@ -174,7 +174,7 @@ public class LoginCliente extends javax.swing.JFrame {
             frm.setLocationRelativeTo(null);
             this.dispose();
         } else {
-            showMessageDialog(null, "Codigo o clave erronea, intente nuevamente", "Login Empleado",0);
+            showMessageDialog(null, "Codigo o clave erronea, intente nuevamente", "Login Cliente",0);
             limpiar();
             btnLogin.requestFocus();
         }
