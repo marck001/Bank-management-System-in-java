@@ -73,6 +73,31 @@ public class DALCliente {
         return null;
     }
     
+    public static String buscarCuentaPorCliente(String codigo) {
+        String sql;
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_buscar_cuenta_por_cliente(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, codigo);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                return rs.getString("cuencodigo");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return null;
+    }
+    
     public static String buscarClienteLogin(String codigo, String dni) {
         String sql;
         try {
