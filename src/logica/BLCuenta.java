@@ -13,7 +13,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
- * @author marck e imagay
+ * @author marck e imaa
  */
 public class BLCuenta {
     private static String[] monedas = {"Soles", "Dolares", "Pesos Argentinos", "Pesos chilenos", "Euros"};
@@ -142,7 +142,7 @@ public class BLCuenta {
                     if(deposito<=268){
                       mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
                     }else{
-                      mensaje = "El limite es de 268 dólares. (1000 soles)";  
+                      mensaje = "El limite es de 268 dólares. ";  
                     }
                     break;
                 case "Pesos argentinos":

@@ -8,7 +8,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import logica.*;
 /**
  *
- * @author Usuario
+ * @author Usuarrrio
  */
 public class LoginCliente extends javax.swing.JFrame {
 
@@ -166,17 +166,15 @@ public class LoginCliente extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         codigo = txtCodigo.getText();
         dni = txtDni.getText();
-        respuesta1 = BLCliente.buscarClienteLogin(codigo, dni);
-        respuesta2 = BLCliente.buscarCuentaPorCliente(codigo);
-        if(respuesta1!=null && respuesta2!=null) {
+        respuesta = BLCliente.buscarClienteLogin(codigo, dni);
+        if(respuesta!=null) {
             MainFrm frm = new MainFrm();
             frm.setVisible(true);
             frm.pack();
             frm.setLocationRelativeTo(null);
-            //new BancaPorInternet(codCuenta);
             this.dispose();
         } else {
-            showMessageDialog(null, "Codigo o clave erronea, intente nuevamente", "Login Empleado",0);
+            showMessageDialog(null, "Codigo o clave erronea, intente nuevamente", "Login Cliente",0);
             limpiar();
             btnLogin.requestFocus();
         }
@@ -199,5 +197,5 @@ public class LoginCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDni;
     // End of variables declaration//GEN-END:variables
-    private String codigo, dni, respuesta1, respuesta2;
+    private String codigo, dni, respuesta;
 }
