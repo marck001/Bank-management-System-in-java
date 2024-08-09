@@ -26,6 +26,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
         Moneda moneda=BLMoneda.obtenerMoneda(cuenta.getMoneCodigo());
         lblNombreCliente.setText(cliente.getNombre());
         cuentaSaldo.setText(String.valueOf(cuenta.getSaldo())+" "+moneda.getDescripcion());
+        //banca
     }
     
       

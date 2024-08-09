@@ -13,7 +13,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
- * @author marck e ima
+ * @author marck e imaa
  */
 public class BLCuenta {
     private static String[] monedas = {"Soles", "Dolares", "Pesos Argentinos", "Pesos chilenos", "Euros"};

@@ -8,7 +8,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import logica.*;
 /**
  *
- * @author Usuario
+ * @author Usuarrrio
  */
 public class LoginCliente extends javax.swing.JFrame {
 

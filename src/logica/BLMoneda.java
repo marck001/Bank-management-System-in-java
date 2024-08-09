@@ -6,7 +6,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
- * @author alexisg
+ * @author alexisg im
  */
 
 public class BLMoneda {
