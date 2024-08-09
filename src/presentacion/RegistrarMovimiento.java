@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
-
+import javax.swing.BorderFactory;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 /**
  *
  * @author CRISTHIAN
@@ -15,6 +16,10 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
      */
     public RegistrarMovimiento() {
         initComponents();
+          this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
+
     }
 
     /**
