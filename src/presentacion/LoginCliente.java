@@ -8,7 +8,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import logica.*;
 /**
  *
- * @author Usuario
+ * @author Usuarrrio
  */
 public class LoginCliente extends javax.swing.JFrame {
 
@@ -176,7 +176,7 @@ public class LoginCliente extends javax.swing.JFrame {
             //new BancaPorInternet(codCuenta);
             this.dispose();
         } else {
-            showMessageDialog(null, "Codigo o clave erronea, intente nuevamente", "Login Empleado",0);
+            showMessageDialog(null, "Codigo o clave erronea, intente nuevamente", "Login Cliente",0);
             limpiar();
             btnLogin.requestFocus();
         }

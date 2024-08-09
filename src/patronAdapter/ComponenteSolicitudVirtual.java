@@ -4,6 +4,7 @@
  */
 package patronAdapter;
 
+import datos.DALCuenta;
 import logica.*;
 import entidades.*;
 import java.util.*;
@@ -12,7 +13,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  * 
- * @author User
+ * @author Imanoll y Alexis
  */
 public class ComponenteSolicitudVirtual {
 
@@ -67,7 +68,7 @@ public class ComponenteSolicitudVirtual {
     public void depositarSaldoPorEmpleado(String codCuenta, float saldo, int op) {
         String codBuscado, clave, mensaje, mensaje2;
         int contIntentos = 0, numMov, numMov1, aux1, aux2, aux3;
-        float saldoNuevo;
+        float saldoNuevo, retiroRemitente, saldoDestino;
         Cuenta cuenta;
         Cliente cliente;
         codBuscado = BLCuenta.buscar(codCuenta);
@@ -91,10 +92,38 @@ public class ComponenteSolicitudVirtual {
             if (op == 1) {
                 String codCuentaDestino = JOptionPane.showInputDialog("Ingrese el código de la cuenta destino:");
                 String codBuscadoDestino = BLCuenta.buscar(codCuentaDestino);
+                MonedaConverter[] monedas = new MonedaConverter[5];
+                        monedas[0] = new MonedaConverter("01", "SOLES", 1.0f);
+                        monedas[1] = new MonedaConverter("02", "DÓLARES", 3.70f);
+                        monedas[2] = new MonedaConverter("03", "PESOS ARGENTINOS", 0.00397919165f);
+                        monedas[3] = new MonedaConverter("04", "PESOS CHILENOS", 0.0039815961f);
+                        monedas[4] = new MonedaConverter("05", "EUROS", 4.07f);
 
                 if (codBuscadoDestino != null) {
-                    mensaje = BLCuenta.depositoCuenta(saldo, codCuentaDestino);
-                    mensaje2 = BLCuenta.retiroCuenta(saldo, codCuenta);
+                    Cuenta cuentaDestino= BLCuenta.obtenerCuenta(codBuscadoDestino);
+                    String moneDestino=cuentaDestino.getMoneCodigo();
+                    String moneRemitente=cuenta.getMoneCodigo();
+                    retiroRemitente=saldo;
+                    saldoDestino=cuentaDestino.getSaldo();
+                        if(moneDestino.trim().equals(moneRemitente)){
+                            mensaje = BLCuenta.depositoCuenta(saldo, codCuentaDestino);
+                            mensaje2 = BLCuenta.retiroCuenta(saldo, codCuenta);                    
+                        } else{
+                            for (MonedaConverter moneda : monedas) {
+                                   if (moneda.getCodigo().equals(moneRemitente)) {
+                                       saldo=saldo*moneda.getEquivalenciaEnSoles();
+                                       break; 
+                                   }
+                            }
+                            for (MonedaConverter moneda : monedas) {
+                                   if (moneda.getCodigo().equals(moneDestino)) {
+                                       saldo=saldo/moneda.getEquivalenciaEnSoles();
+                                       break; 
+                                   }
+                            }
+                            mensaje = BLCuenta.depositoCuenta(saldo, codCuentaDestino);
+                            mensaje2 = BLCuenta.retiroCuenta(retiroRemitente, codCuenta);                             
+                        }
 
                     if (mensaje == null && mensaje2 == null) {
                         saldoNuevo = Float.parseFloat(BLCuenta.obtenerSaldo(codCuenta));
@@ -289,4 +318,4 @@ public class ComponenteSolicitudVirtual {
             showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
         }
     }
-}
+} 
