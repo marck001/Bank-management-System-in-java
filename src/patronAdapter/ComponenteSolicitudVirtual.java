@@ -13,7 +13,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  * 
- * @author Imanol y Alexis
+ * @author Imanoll y Alexis
  */
 public class ComponenteSolicitudVirtual {
 

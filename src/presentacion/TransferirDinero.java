@@ -7,7 +7,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import patronAdapter.*;
 /**
  *
- * @author Imanol
+ * @author Imanoll
  */
 public class TransferirDinero extends javax.swing.JInternalFrame {
      private String codCuentica;

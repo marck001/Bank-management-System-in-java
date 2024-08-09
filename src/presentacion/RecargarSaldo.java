@@ -7,7 +7,7 @@ import patronAdapter.*;
 
 /**
  *
- * @author Imanol
+ * @author Imanoll
  */
 public class RecargarSaldo extends javax.swing.JInternalFrame {
     private String codCuentica;

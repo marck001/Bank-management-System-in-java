@@ -6,7 +6,7 @@ package presentacion;
 import patronAdapter.*;
 /**
  *
- * @author Imanol
+ * @author Imanoll
  */
 public class RetirarSaldo extends javax.swing.JInternalFrame {
      private String codCuentica;
