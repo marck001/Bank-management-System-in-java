@@ -277,6 +277,7 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         txtCodigo.setBackground(new java.awt.Color(102, 102, 102));
         txtCodigo.setForeground(new java.awt.Color(255, 255, 255));
         txtCodigo.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtCodigo.setEnabled(false);
         txtCodigo.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         iconoVolver1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
@@ -293,6 +294,7 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         txtNombre.setBackground(new java.awt.Color(102, 102, 102));
         txtNombre.setForeground(new java.awt.Color(255, 255, 255));
         txtNombre.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtNombre.setEnabled(false);
         txtNombre.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -301,11 +303,13 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         txtCiudad.setBackground(new java.awt.Color(102, 102, 102));
         txtCiudad.setForeground(new java.awt.Color(255, 255, 255));
         txtCiudad.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtCiudad.setEnabled(false);
         txtCiudad.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         txtDireccion.setBackground(new java.awt.Color(102, 102, 102));
         txtDireccion.setForeground(new java.awt.Color(255, 255, 255));
         txtDireccion.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtDireccion.setEnabled(false);
         txtDireccion.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -320,6 +324,7 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         txtTipo.setBackground(new java.awt.Color(102, 102, 102));
         txtTipo.setForeground(new java.awt.Color(255, 255, 255));
         txtTipo.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtTipo.setEnabled(false);
         txtTipo.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -328,6 +333,7 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         txtCuenta.setBackground(new java.awt.Color(102, 102, 102));
         txtCuenta.setForeground(new java.awt.Color(255, 255, 255));
         txtCuenta.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtCuenta.setEnabled(false);
         txtCuenta.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N

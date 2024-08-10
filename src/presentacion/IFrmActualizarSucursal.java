@@ -141,7 +141,10 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         lblCodigo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo.setText("Código de Sucursal:");
 
+        txtCodigo.setBackground(new java.awt.Color(102, 102, 102));
+        txtCodigo.setDisabledTextColor(new java.awt.Color(102, 0, 0));
         txtCodigo.setEnabled(false);
+        txtCodigo.setSelectedTextColor(new java.awt.Color(153, 153, 153));
         txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCodigoKeyTyped(evt);
@@ -154,30 +157,38 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         lblDescripcion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblDescripcion.setText("Nombre:");
 
+        txtCiudad.setBackground(new java.awt.Color(102, 102, 102));
         txtCiudad.setEnabled(false);
 
+        txtNombre.setBackground(new java.awt.Color(102, 102, 102));
         txtNombre.setEnabled(false);
 
         lblDescripcion1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblDescripcion1.setText("Direccion:");
 
+        txtDireccion.setBackground(new java.awt.Color(102, 102, 102));
+        txtDireccion.setForeground(new java.awt.Color(102, 0, 0));
         txtDireccion.setEnabled(false);
 
         lblCodigo2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo2.setText("CuCuenta:");
 
+        txtcuentasuc.setBackground(new java.awt.Color(102, 102, 102));
         txtcuentasuc.setEnabled(false);
 
         lblDescripcion2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblDescripcion2.setText("Nuevo Nombre:");
 
+        txtNombre1.setBackground(new java.awt.Color(102, 102, 102));
         txtNombre1.setEnabled(false);
 
         lblCodigo4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo4.setText("Nueva Ciudad:");
 
+        txtCiudad1.setBackground(new java.awt.Color(102, 102, 102));
         txtCiudad1.setEnabled(false);
 
+        txtDireccion1.setBackground(new java.awt.Color(102, 102, 102));
         txtDireccion1.setEnabled(false);
 
         lblDescripcion3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -186,6 +197,7 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         lblCodigo3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo3.setText("Nueva CuCuenta:");
 
+        txtcuentasuc1.setBackground(new java.awt.Color(102, 102, 102));
         txtcuentasuc1.setEnabled(false);
 
         btnNuevo.setMnemonic('N');
@@ -216,8 +228,10 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         lblCodigo5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo5.setText("Tipo:");
 
+        txtTipo.setBackground(new java.awt.Color(102, 102, 102));
         txtTipo.setEnabled(false);
 
+        txtTipo1.setBackground(new java.awt.Color(102, 102, 102));
         txtTipo1.setEnabled(false);
 
         lblCodigo6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -349,7 +363,7 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigo6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

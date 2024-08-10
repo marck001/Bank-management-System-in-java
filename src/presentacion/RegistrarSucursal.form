@@ -533,6 +533,7 @@
                 <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="38" green="38" red="7e" type="rgb"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="35" green="35" red="7e" type="rgb"/>
                 </Property>
@@ -568,6 +569,7 @@
                 <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="38" green="38" red="7e" type="rgb"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="35" green="35" red="7e" type="rgb"/>
                 </Property>
@@ -592,6 +594,7 @@
                 <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="38" green="38" red="7e" type="rgb"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="35" green="35" red="7e" type="rgb"/>
                 </Property>
@@ -608,6 +611,7 @@
                 <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="38" green="38" red="7e" type="rgb"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="35" green="35" red="7e" type="rgb"/>
                 </Property>
@@ -644,6 +648,7 @@
                 <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="38" green="38" red="7e" type="rgb"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="35" green="35" red="7e" type="rgb"/>
                 </Property>
@@ -668,6 +673,7 @@
                 <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="38" green="38" red="7e" type="rgb"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="35" green="35" red="7e" type="rgb"/>
                 </Property>
