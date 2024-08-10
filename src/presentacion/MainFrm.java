@@ -1350,6 +1350,7 @@ public class MainFrm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_firstPanelTab1MousePressed
 
+
     private void firstPanelTab2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab2MousePressed
         // TODO add your handling code here:
 
@@ -1640,6 +1641,21 @@ public class MainFrm extends javax.swing.JFrame {
 
         interna.show();
 
+    }
+    
+    public static void centrarInternalFrameExterno(JInternalFrame interna) {
+        centrarInternalFrame(interna);
+    }
+        static void centrarInternalFrame(JInternalFrame interna) {
+        int x = dspFondo.getWidth()/2 - interna.getWidth()/2;
+        int y = dspFondo.getHeight()/2 - interna.getHeight()/2;
+        if(interna.isShowing())
+            interna.setLocation(x, y);
+        else {
+            dspFondo.add(interna);
+            interna.setLocation(x, y);
+            interna.show();
+        }        
     }
 
     public static void main(String args[]) {

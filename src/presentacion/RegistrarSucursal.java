@@ -563,8 +563,8 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-//        IFrmActualizarSucursal ifrmActualizarSucursal = new IFrmActualizarSucursal();
-//        FrmPrincipal.centrarInternalFrameExterno(ifrmActualizarSucursal);
+                IFrmActualizarSucursal ifrmActualizarSucursal = new IFrmActualizarSucursal();
+                MainFrm.centrarInternalFrame(ifrmActualizarSucursal);
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
