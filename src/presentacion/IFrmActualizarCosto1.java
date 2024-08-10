@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
-
 import entidades.*;
 import javax.swing.*;
 import logica.*;
@@ -11,17 +10,16 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Gaby Zanabria
  */
-public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
+public class IFrmActualizarCosto1 extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form IFrmInteres
+     * Creates new form IFrmActualizarCosto
      */
-    public IFrmActualizarInteres() {
+    public IFrmActualizarCosto1() {
         initComponents();
     }
 
@@ -35,20 +33,20 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtInteres = new javax.swing.JTextField();
+        txtMonto = new javax.swing.JTextField();
         btnNuevo = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblInteres = new javax.swing.JTable();
+        tblCosto = new javax.swing.JTable();
         labelDes1 = new javax.swing.JLabel();
         txtNueva = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -71,11 +69,7 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Actualizar Interes Mensual");
-
-        jPanel2.setBackground(new java.awt.Color(225, 242, 242));
+        jPanel2.setBackground(new java.awt.Color(255, 247, 206));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -99,15 +93,23 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Interes:");
+        jLabel4.setText("Costo:");
 
-        txtInteres.setEnabled(false);
+        txtMonto.setEnabled(false);
 
         btnNuevo.setMnemonic('N');
         btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
+            }
+        });
+
+        btnSalir.setMnemonic('S');
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -120,15 +122,7 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSalir.setMnemonic('S');
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-
-        tblInteres.setModel(new javax.swing.table.DefaultTableModel(
+        tblCosto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -136,15 +130,15 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
                 {null, null}
             },
             new String [] {
-                "Código", "Interes"
+                "Código", "Importe"
             }
         ));
-        tblInteres.setEnabled(false);
-        jScrollPane1.setViewportView(tblInteres);
+        tblCosto.setEnabled(false);
+        jScrollPane1.setViewportView(tblCosto);
 
         labelDes1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelDes1.setForeground(new java.awt.Color(0, 0, 0));
-        labelDes1.setText("Nuevo interes:");
+        labelDes1.setText("Nuevo costo:");
 
         txtNueva.setEnabled(false);
         txtNueva.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -157,97 +151,102 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnActualizar)
-                .addGap(129, 129, 129)
-                .addComponent(btnSalir)
-                .addGap(78, 78, 78))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(236, 236, 236))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
                         .addComponent(jLabel2)
-                        .addGap(39, 39, 39)
+                        .addGap(18, 18, 18)
                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelDes1)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4)))
-                .addGap(103, 103, 103))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelDes1)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnActualizar)
+                                .addGap(121, 121, 121)))))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir))
+                .addGap(121, 121, 121))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(75, 75, 75)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtInteres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelDes1)
                     .addComponent(txtNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(28, 28, 28)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Actualizar Cargo de Mantenimiento");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(266, 266, 266))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 894, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -256,12 +255,15 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         String respuesta;
         codigo = txtCodigo.getText();
+        float costo;
+
         try {
-            
-            inte = Float.parseFloat(txtNueva.getText());
-            respuesta = BLInteresMensual.actualizarInteres(codigo, inte);
+            costo = Float.parseFloat(txtNueva.getText());
+
+            respuesta = BLCostoMovimiento.actualizarCostoMovimiento(codigo, costo);
             JOptionPane.showMessageDialog(this, respuesta, "Resultado", JOptionPane.INFORMATION_MESSAGE);
-            lista = BLInteresMensual.listarInteres();
+
+            lista = BLCostoMovimiento.listarCostoMovimiento();
             llenarTabla();
             activar(false);
             limpiar();
@@ -269,33 +271,31 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un valor numérico válido en el campo.", "Error", JOptionPane.ERROR_MESSAGE);
-}
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
-        char c=evt.getKeyChar();
-        if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)
-            && (c!= '.' || txtInteres.getText().contains(".")))
-        evt.consume();
-    }//GEN-LAST:event_txtNuevaKeyTyped
-
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-         limpiar();
-         activar(true);
-         txtCodigo.requestFocus();
+        limpiar();
+        activar(true);
+        txtCodigo.requestFocus();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        lista = BLCostoMovimiento.listarCostoMovimiento();
+        llenarTabla();
+    }//GEN-LAST:event_formInternalFrameOpened
+
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        codigo = txtCodigo.getText();
-        interes=BLInteresMensual.obtenerInteres(codigo);
-        if(interes != null) {
-            if(interes.getMoneda().getCodigo().compareTo("00") != 0) {
-                codigo = interes.getMoneda().getCodigo();
-                txtInteres.setText(String.valueOf(interes.getInteImporte()));
+          codigo = txtCodigo.getText();
+          costoMov= BLCostoMovimiento.obtenerCostoMovimiento(codigo);
+        if(costoMov != null) {
+            if(costoMov.getMoneda().getCodigo().compareTo("00") != 0) {
+                codigo = costoMov.getMoneda().getCodigo();
+                txtMonto.setText(String.valueOf(costoMov.getCostImporte()));
                 txtCodigo.setEnabled(false);
                 btnBuscar.setEnabled(false);
                 txtNueva.requestFocus();
@@ -313,18 +313,20 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        lista = BLInteresMensual.listarInteres();
-        llenarTabla();
-    }//GEN-LAST:event_formInternalFrameOpened
-
     private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
          char c=evt.getKeyChar();
         String text = txtCodigo.getText();
         if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)|| text.length() >= 2)
             evt.consume();
     }//GEN-LAST:event_txtCodigoKeyTyped
-     private void activar(boolean estado) {
+
+    private void txtNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNuevaKeyTyped
+       char c=evt.getKeyChar();
+       if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)
+                && (c!= '.' || txtMonto.getText().contains(".")))
+            evt.consume();
+    }//GEN-LAST:event_txtNuevaKeyTyped
+    private void activar(boolean estado) {
         txtCodigo.setEnabled(estado);
         txtNueva.setEnabled(estado);
         btnBuscar.setEnabled(estado);
@@ -334,7 +336,7 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
     
     private void limpiar() {
         txtCodigo.setText(null);
-        txtInteres.setText(null);
+        txtMonto.setText(null);
          txtNueva.setText(null);
     }
     private void llenarTabla() {
@@ -342,14 +344,14 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
         modelo.setColumnIdentifiers(columnas);
         iterador = lista.iterator();
         while (iterador.hasNext()) {
-            interes = iterador.next();
-            fila[0] = interes.getMoneda().getCodigo();
-            fila[1] = interes.getInteImporte();
+            costoMov = iterador.next();
+            fila[0] = costoMov.getMoneda().getCodigo();
+            fila[1] = costoMov.getCostImporte();
             modelo.addRow(fila);
         }
-        tblInteres.setModel(modelo);
+        tblCosto.setModel(modelo);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
@@ -362,18 +364,19 @@ public class IFrmActualizarInteres extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelDes1;
-    private javax.swing.JTable tblInteres;
+    private javax.swing.JTable tblCosto;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtInteres;
+    private javax.swing.JTextField txtMonto;
     private javax.swing.JTextField txtNueva;
     // End of variables declaration//GEN-END:variables
     private String codigo;
-    private float inte;
-    private InteresMensual interes;
+    private float costo;
+    private CostoMovimiento costoMov;
     private DefaultTableModel modelo;
     
-    private ArrayList<InteresMensual > lista;
-    private String columnas[] = {"Código", "Interes"};
+    private ArrayList<CostoMovimiento> lista;
+    private String columnas[] = {"Código", "Importe"};
     private Object fila[] = new Object[columnas.length];
-    private Iterator<InteresMensual > iterador;
+    private Iterator<CostoMovimiento> iterador;
+    
 }

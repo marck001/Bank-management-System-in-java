@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
-
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
+import logica.*;
 /**
  *
  * @author Gaby Zanabria
@@ -16,7 +19,30 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
     public IFrmMonedas() {
         initComponents();
     }
-
+    
+    private void activar(boolean estado) {
+        txtCodigo.setEnabled(estado);
+        cbxDescripcion.setEnabled(estado);
+        txtMonto.setEnabled(estado);
+        txtImporte.setEnabled(estado);
+        txtCosto.setEnabled(estado);
+        txtInteres.setEnabled(estado);
+        btnRegistrar.setEnabled(estado);
+        btnActualizar1.setEnabled(estado);
+        btnActualizar2.setEnabled(estado);
+        btnActualizar3.setEnabled(estado);
+        btnNuevo.setEnabled(!estado);               
+    }
+    
+    private void limpiar() {
+        txtCodigo.setText(null);
+        txtMonto.setText(null);
+        txtImporte.setText(null);
+        txtCosto.setText(null);
+        txtInteres.setText(null);
+        cbxDescripcion.setSelectedIndex(0);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,8 +58,8 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         labelDes = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
         btnActualizar1 = new javax.swing.JButton();
+        cbxDescripcion = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtImporte = new javax.swing.JTextField();
@@ -55,9 +81,9 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         btnActualizar4 = new javax.swing.JButton();
         tipoMov = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(219, 219, 219));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(234, 224, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -73,9 +99,20 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         labelDes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelDes.setForeground(new java.awt.Color(0, 0, 0));
         labelDes.setText("Descripcion:");
-        jPanel2.add(labelDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+        jPanel2.add(labelDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
+
+        txtCodigo.setEnabled(false);
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
+            }
+        });
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 171, -1));
-        jPanel2.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 171, -1));
 
         btnActualizar1.setMnemonic('A');
         btnActualizar1.setText("Actualizar");
@@ -87,14 +124,32 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnActualizar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, 32));
 
-        jPanel4.setBackground(new java.awt.Color(163, 190, 215));
+        cbxDescripcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Moneda>", "PESOS ARGENTINOS", "PESOS CHILENOS", "EUROS" }));
+        cbxDescripcion.setEnabled(false);
+        jPanel2.add(cbxDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 170, -1));
+
+        jPanel4.setBackground(new java.awt.Color(201, 173, 161));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Importe:");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+
+        txtImporte.setEnabled(false);
+        txtImporte.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtImporteKeyTyped(evt);
+            }
+        });
         jPanel4.add(txtImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 168, -1));
+
+        txtMonto.setEnabled(false);
+        txtMonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMontoKeyTyped(evt);
+            }
+        });
         jPanel4.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 168, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -117,8 +172,16 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         });
         jPanel4.add(btnActualizar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, 32));
 
-        jPanel3.setBackground(new java.awt.Color(167, 214, 201));
+        jPanel3.setBackground(new java.awt.Color(213, 203, 234));
+        jPanel3.setToolTipText("");
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtCosto.setEnabled(false);
+        txtCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCostoKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 57, 167, 32));
 
         btnActualizar3.setMnemonic('A');
@@ -141,17 +204,27 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         jLabel7.setText("Costo:");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 60, -1, -1));
 
-        jPanel5.setBackground(new java.awt.Color(185, 206, 195));
+        jPanel5.setBackground(new java.awt.Color(140, 172, 185));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnNuevo.setMnemonic('N');
         btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
         jPanel5.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 87, 32));
 
         btnRegistrar.setMnemonic('R');
         btnRegistrar.setText("Registrar");
         btnRegistrar.setEnabled(false);
-        jPanel5.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 91, 32));
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 91, 32));
 
         btnSalir.setMnemonic('S');
         btnSalir.setText("Salir");
@@ -166,11 +239,17 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Interes:");
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 68, -1, -1));
+
+        txtInteres.setEnabled(false);
+        txtInteres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInteresKeyTyped(evt);
+            }
+        });
         jPanel5.add(txtInteres, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 68, 232, -1));
 
         btnActualizar4.setMnemonic('A');
         btnActualizar4.setText("Actualizar");
-        btnActualizar4.setEnabled(false);
         btnActualizar4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizar4ActionPerformed(evt);
@@ -202,14 +281,14 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,26 +305,168 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar1ActionPerformed
-
-    }//GEN-LAST:event_btnActualizar1ActionPerformed
-
-    private void btnActualizar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizar2ActionPerformed
-
-    private void btnActualizar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizar3ActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnActualizar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar4ActionPerformed
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizar4ActionPerformed
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+       limpiar();
+       activar(true);
+       txtCodigo.requestFocus();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        char c=evt.getKeyChar();
+        String text = txtCodigo.getText();
+        if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)|| text.length() >= 2)
+            evt.consume();
+    }//GEN-LAST:event_txtCodigoKeyTyped
+
+    private void txtMontoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoKeyTyped
+       char c=evt.getKeyChar();
+        if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)
+                && (c!= '.' || txtMonto.getText().contains(".")))
+            evt.consume();
+    }//GEN-LAST:event_txtMontoKeyTyped
+
+    private void txtImporteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtImporteKeyTyped
+        char c=evt.getKeyChar();
+        if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)
+                && (c!= '.' || txtImporte.getText().contains(".")))
+            evt.consume();
+    }//GEN-LAST:event_txtImporteKeyTyped
+
+    private void txtCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoKeyTyped
+        char c=evt.getKeyChar();
+        if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)
+                && (c!= '.' || txtCosto.getText().contains(".")))
+            evt.consume();
+    }//GEN-LAST:event_txtCostoKeyTyped
+
+    private void txtInteresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInteresKeyTyped
+        char c=evt.getKeyChar();
+        if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)
+                && (c!= '.' || txtInteres.getText().contains(".")))
+            evt.consume();
+    }//GEN-LAST:event_txtInteresKeyTyped
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        int respuesta;
+        boolean exito = true; // Bandera para verificar si todas las operaciones son exitosas.
+
+        codigo = txtCodigo.getText();
+        descripcion = String.valueOf(cbxDescripcion.getSelectedItem());
+        if ("<Moneda>".equals(descripcion)) {
+            mostrarMensajeError("Debe seleccionar una descripción válida que no sea <Moneda>.");
+            cbxDescripcion.requestFocus();
+            return;
+        }
+        try {
+            monto = Float.parseFloat(txtMonto.getText().trim());
+        } catch (NumberFormatException e) {
+            mostrarMensajeError("El campo Monto no puede estar vacío o contener valores no válidos.");
+            txtMonto.requestFocus();
+            return;
+        }
+
+        try {
+            importe = Float.parseFloat(txtImporte.getText().trim());
+        } catch (NumberFormatException e) {
+            mostrarMensajeError("El campo Importe no puede estar vacío o contener valores no válidos.");
+            txtImporte.requestFocus();
+            return;
+        }
+
+        try {
+            costo = Float.parseFloat(txtCosto.getText().trim());
+        } catch (NumberFormatException e) {
+            mostrarMensajeError("El campo Costo no puede estar vacío o contener valores no válidos.");
+            txtCosto.requestFocus();
+            return;
+        }
+
+        try {
+            interes = Float.parseFloat(txtInteres.getText().trim());
+        } catch (NumberFormatException e) {
+            mostrarMensajeError("El campo Interés no puede estar vacío o contener valores no válidos.");
+            txtInteres.requestFocus();
+            return;
+        }
+
+        respuesta = BLMoneda.insertarMoneda(codigo, descripcion);
+        if (respuesta != 0) { // Si la respuesta no es exitosa, detén el proceso.
+            exito = false;
+            manejarRespuesta(respuesta);
+        }
+
+        if (exito) {
+            respuesta = BLCargoMantenimiento.insertarCargoMantenimiento(codigo, monto, importe);
+            if (respuesta != 0) {
+                exito = false;
+                manejarRespuesta(respuesta);
+            }
+        }
+
+        if (exito) {
+            respuesta = BLCostoMovimiento.insertarCostoMovimiento(codigo, costo);
+            if (respuesta != 0) {
+                exito = false;
+                manejarRespuesta(respuesta);
+            }
+        }
+
+        if (exito) {
+            respuesta = BLInteresMensual.insertarInteres(codigo, interes);
+            manejarRespuesta(respuesta);
+            if (respuesta == 0 || respuesta == 3) {
+                limpiar();
+                activar(false);
+                btnNuevo.requestFocus();
+            } else if (respuesta == 2) {
+                txtCodigo.setText(null);
+                txtCodigo.requestFocus();
+            }
+    }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar1ActionPerformed
+//        IFrmActualizarMoneda ifrmActualizarMoneda = new IFrmActualizarMoneda();
+//        FrmPrincipal.centrarInternalFrameExterno(ifrmActualizarMoneda);
+    }//GEN-LAST:event_btnActualizar1ActionPerformed
+
+    private void btnActualizar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar2ActionPerformed
+//        IFrmActualizarMantenimiento ifrmActualizarMantenimiento = new IFrmActualizarMantenimiento();
+//        FrmPrincipal.centrarInternalFrameExterno(ifrmActualizarMantenimiento );
+    }//GEN-LAST:event_btnActualizar2ActionPerformed
+
+    private void btnActualizar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar3ActionPerformed
+//       IFrmActualizarCosto ifrmActualizarCosto = new IFrmActualizarCosto();
+//        FrmPrincipal.centrarInternalFrameExterno(ifrmActualizarCosto);
+    }//GEN-LAST:event_btnActualizar3ActionPerformed
+
+    private void btnActualizar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar4ActionPerformed
+//        IFrmActualizarInteres ifrmActualizarInteres = new IFrmActualizarInteres();
+//        FrmPrincipal.centrarInternalFrameExterno(ifrmActualizarInteres);
+    }//GEN-LAST:event_btnActualizar4ActionPerformed
+    private void mostrarMensajeError(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+
+    private void manejarRespuesta(int respuesta) {
+        if (respuesta == 3) {
+            limpiar();
+            activar(false);
+            btnNuevo.requestFocus();
+        } else if (respuesta == 2) {
+            txtCodigo.setText(null);
+            txtCodigo.requestFocus();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar1;
@@ -255,6 +476,7 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<String> cbxDescripcion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -272,9 +494,10 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel tipoMov2;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCosto;
-    private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtImporte;
     private javax.swing.JTextField txtInteres;
     private javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables
+    private String codigo, descripcion;
+    private float monto=0.0f, importe=0.0f,costo=0.0f,interes=0.0f;
 }
