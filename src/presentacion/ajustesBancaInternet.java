@@ -6,7 +6,7 @@ package presentacion;
 import patronAdapter.*;
 /**
  *
- * @author Imanoll
+ * @author Imanol
  */
 public class ajustesBancaInternet extends javax.swing.JInternalFrame {
      private String codCuentica;

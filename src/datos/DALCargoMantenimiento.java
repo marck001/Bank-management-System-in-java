@@ -1,22 +1,31 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package datos;
+
 import entidades.*;
 import java.util.*;
 import java.sql.*;
 import static javax.swing.JOptionPane.showMessageDialog;
-
-public class DALInteresMensual {
+/**
+ *
+ * @author Gaby Zanabria
+ */
+public class DALCargoMantenimiento {
     private static Connection cn = null;
     private static ResultSet rs = null;
     private static CallableStatement cs = null;
-
-    public static String insertarInteres(InteresMensual interes) {
-    String mensaje=null, sql;
+    
+    public static String insertarCargoMantenimiento(CargoMantenimiento cargo) {
+        String mensaje=null, sql;
         try {
             cn = Conexion.realizarConexion();
-            sql ="{call sp_insertar_interes(?, ?)}";
-            cs = cn.prepareCall(sql); 
-            cs.setString(1, interes.getMoneda().getCodigo());
-            cs.setFloat(2, interes.getInteImporte());
+            sql = "{call sp_insertar_cargo(?, ?, ?)}";   
+            cs = cn.prepareCall(sql);
+            cs.setString(1, cargo.getMoneda().getCodigo());
+            cs.setFloat(2, cargo.getCargMontoMaximo());
+            cs.setFloat(3, cargo.getCargImporte());
             cs.executeUpdate();            
         } catch(ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
@@ -28,14 +37,14 @@ public class DALInteresMensual {
                 mensaje = ex.getMessage();
             }
         }
-        return mensaje;  
+        return mensaje;
     }
-
-    public static String buscarInteres(String codigo) {
+    
+    public static String buscarCargoMantenimiento(String codigo) {
         String sql;
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_buscar_interes(?)}";
+            sql = "{call sp_buscar_cargo(?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, codigo);
             rs = cs.executeQuery();
@@ -55,17 +64,17 @@ public class DALInteresMensual {
         }
         return null;
     }
-
-    public static ArrayList<InteresMensual> listarInteres() {
+    
+    public static ArrayList<CargoMantenimiento> listarCargoMantenimiento() {
         String sql;
-        ArrayList<InteresMensual> interes = new ArrayList<>();
+        ArrayList<CargoMantenimiento> cargo = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_listar_interes()}";
+            sql = "{call sp_listar_cargo()}";
             cs = cn.prepareCall(sql);
-            rs = cs.executeQuery(sql);
+            rs = cs.executeQuery();
             while(rs.next()) {
-                interes.add(new InteresMensual(new Moneda(rs.getString(1)), rs.getFloat(2)));
+                cargo.add(new CargoMantenimiento(new Moneda(rs.getString(1)), rs.getFloat(2), rs.getFloat(3)));
             }
         }catch(ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -78,17 +87,18 @@ public class DALInteresMensual {
                 showMessageDialog(null, ex.getMessage(), "Error", 0);
             }
         }
-        return interes;
+        return cargo;
     }
-
-    public static String actualizarInteres(InteresMensual interes) {
+    
+    public static String actualizarCargoMantenimiento(CargoMantenimiento cargo) {
         String mensaje = null;
         try {
             cn = Conexion.realizarConexion();
-            String sql = "{call sp_actualizar_interes(?, ?)}";
+            String sql = "{call sp_actualizar_cargo(?, ?,?)}";
             cs = cn.prepareCall(sql);
-            cs.setFloat(1,  interes.getInteImporte());
-            cs.setString(2, interes.getMoneda().getCodigo());
+            cs.setFloat(1, cargo.getCargMontoMaximo());
+            cs.setFloat(2, cargo.getCargImporte());
+            cs.setString(3, cargo.getMoneda().getCodigo());
             cs.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
@@ -102,18 +112,19 @@ public class DALInteresMensual {
         }
         return mensaje;        
     }
-
-    public static InteresMensual obtenerInteres(String codigo) {
-        InteresMensual inter = new InteresMensual();
+    
+    public static CargoMantenimiento obtenerCargoMantenimiento(String codigo) {
+        CargoMantenimiento cargo = new CargoMantenimiento();
         try {
             cn = Conexion.realizarConexion();
-            String sql = "{call sp_buscar_interes(?)}";
+            String sql = "{call sp_buscar_cargo(?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, codigo);
             rs = cs.executeQuery();
             while (rs.next()) {
-                inter.setMoneda(new Moneda(rs.getString(1)));
-                inter.setInteImporte(rs.getFloat(2));
+                cargo.setMoneda(new Moneda (rs.getString(1)));
+                cargo.setCargMontoMaximo(rs.getFloat(2));
+                cargo.setCargImporte(rs.getFloat(3));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -126,6 +137,6 @@ public class DALInteresMensual {
                 showMessageDialog(null, ex.getMessage(), "Error", 0);
             }
         }
-        return inter;
+        return cargo;
     }
 }

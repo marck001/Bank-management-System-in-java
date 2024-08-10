@@ -2,10 +2,10 @@ package patronBuilder;
 
 import java.util.GregorianCalendar;
 
-public class ConstructorCrearCuentaAhorro extends ConstructorCrearCuenta {
+public class ConstructorCrearCuentaCredito extends ConstructorCrearCuenta {
 
-    public ConstructorCrearCuentaAhorro() {
-        cuenta = new CuentaAhorro();
+    public ConstructorCrearCuentaCredito() {
+        cuenta = new CuentaCredito();
     }
 
     @Override
@@ -57,4 +57,12 @@ public class ConstructorCrearCuentaAhorro extends ConstructorCrearCuenta {
     public void setClieCodigo(String clieCodigo) {
         cuenta.setClieCodigo(clieCodigo);
     }
+
+    @Override
+    public void setCuenTipo(String cuenTipo) {
+      cuenta.setCuenTipo(cuenTipo);
+    }
+
+   
+    
 }

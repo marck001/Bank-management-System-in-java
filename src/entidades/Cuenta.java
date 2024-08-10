@@ -21,6 +21,8 @@ public abstract class Cuenta {
     private String sucuCodigo;
     private String emplCreaCuenta;
     private String clieCodigo;
+    private String cuenTipo;
+
     
     public Cuenta(){
         this("", 0.0f, new GregorianCalendar(2000, 0, 1), "", 0, ""); 
@@ -46,11 +48,29 @@ public abstract class Cuenta {
         this.emplCreaCuenta = emplCreaCuenta;
         this.clieCodigo = clieCodigo;
     }
-    
     public Cuenta(String codigo){
         this(codigo, 0.0f, new GregorianCalendar(2000, 0, 1), "", 0, "");        
     }
+   
+    
 
+    public Cuenta(String codigo, float saldo, GregorianCalendar fechaCreacion, String estado, int contMovimientos,
+            String clave, String moneCodigo, String sucuCodigo, String emplCreaCuenta, String clieCodigo,
+            String cuenTipo) {
+        this.codigo = codigo;
+        this.saldo = saldo;
+        this.fechaCreacion = fechaCreacion;
+        this.estado = estado;
+        this.contMovimientos = contMovimientos;
+        this.clave = clave;
+        this.moneCodigo = moneCodigo;
+        this.sucuCodigo = sucuCodigo;
+        this.emplCreaCuenta = emplCreaCuenta;
+        this.clieCodigo = clieCodigo;
+        this.cuenTipo = cuenTipo;
+    }
+
+    
     public String getClave() {
         return clave;
     }
@@ -146,5 +166,13 @@ public abstract class Cuenta {
 
     public void setClieCodigo(String clieCodigo) {
         this.clieCodigo = clieCodigo;
+    }
+
+    public String getCuenTipo() {
+        return cuenTipo;
+    }
+
+    public void setCuenTipo(String cuenTipo) {
+        this.cuenTipo = cuenTipo;
     }
 }

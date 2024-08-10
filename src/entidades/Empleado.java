@@ -60,7 +60,42 @@ public class Empleado {
         constructor.setSucuCodigo(cuenta.getSucuCodigo());
         constructor.setEmplCreaCuenta(cuenta.getEmplCreaCuenta());
         constructor.setClieCodigo(cuenta.getClieCodigo());
+        constructor.setClieCodigo(cuenta.getCuenTipo());
+        
     }
+
+    /* 
+
+    public void construyeCuentaCredito(CuentaCredito cuenta){
+        constructor.setClave(cuenta.getClave());
+        constructor.setSaldo(cuenta.getSaldo());
+        constructor.setFechaCreacion(cuenta.getFechaCreacion());
+        constructor.setEstado(cuenta.getEstado());
+        constructor.setContMovimientos(cuenta.getContMovimientos());
+        constructor.setClave(cuenta.getClave());
+        constructor.setMoneCodigo(cuenta.getMoneCodigo());
+        constructor.setSucuCodigo(cuenta.getSucuCodigo());
+        constructor.setEmplCreaCuenta(cuenta.getEmplCreaCuenta());
+        constructor.setClieCodigo(cuenta.getClieCodigo());
+        constructor.setPuntos(cuenta.getPuntos());
+    }
+     public void construirCuentaDebito(CuentaDebito cuenta) {
+        constructor.setClave(cuenta.getClave());
+        constructor.setSaldo(cuenta.getSaldo());
+        constructor.setFechaCreacion(cuenta.getFechaCreacion());
+        constructor.setEstado(cuenta.getEstado());
+        constructor.setContMovimientos(cuenta.getContMovimientos());
+        constructor.setClave(cuenta.getClave());
+        constructor.setMoneCodigo(cuenta.getMoneCodigo());
+        constructor.setSucuCodigo(cuenta.getSucuCodigo());
+        constructor.setEmplCreaCuenta(cuenta.getEmplCreaCuenta());
+        constructor.setClieCodigo(cuenta.getClieCodigo());
+        constructor.setNumTarjeta(cuenta.getNumTarjeta());
+        
+    }
+
+    */
+
 
     public Cuenta getCuenta() {
         return constructor.getCuenta();
