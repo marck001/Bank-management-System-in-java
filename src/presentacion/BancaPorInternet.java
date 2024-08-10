@@ -27,6 +27,9 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
         lblNombreCliente.setText(cliente.getNombre());
         cuentaSaldo.setText(String.valueOf(cuenta.getSaldo())+" "+moneda.getDescripcion());
         //banca
+        panelPuntos.setVisible(false);
+        if(cuenta.getCuenTipo().trim().equals("CREDITO"))
+            panelPuntos.setVisible(true);
     }
     
       
@@ -55,6 +58,9 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
         iconoVolver = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lblNombreCliente = new javax.swing.JLabel();
+        panelPuntos = new javax.swing.JPanel();
+        iconPuntos = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         iconRecargar = new javax.swing.JLabel();
         iconRetirar = new javax.swing.JLabel();
         iconTransferir = new javax.swing.JLabel();
@@ -70,20 +76,25 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
 
         panelFondo.setBackground(new java.awt.Color(255, 255, 255));
         panelFondo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+        panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nombreeCliente.setBackground(new java.awt.Color(139, 38, 38));
+        nombreeCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 26)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BIENVENIDO");
+        nombreeCliente.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 6, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Hola, ");
+        nombreeCliente.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 36, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("   ");
+        nombreeCliente.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 40, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
@@ -128,7 +139,10 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
+        nombreeCliente.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+
         jLabel8.setText(" ");
+        nombreeCliente.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 160, -1, -1));
 
         iconAjustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ajustesPng.png"))); // NOI18N
         iconAjustes.setToolTipText("Ajustes");
@@ -137,6 +151,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
                 iconAjustesMouseClicked(evt);
             }
         });
+        nombreeCliente.add(iconAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         iconoVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
         iconoVolver.setText("  ");
@@ -146,68 +161,56 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
                 iconoVolverMouseClicked(evt);
             }
         });
+        nombreeCliente.add(iconoVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 14, 20, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("   ");
+        nombreeCliente.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 36, -1, -1));
 
         lblNombreCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNombreCliente.setForeground(new java.awt.Color(0, 0, 0));
         lblNombreCliente.setText("Imanol");
+        nombreeCliente.add(lblNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 36, -1, -1));
 
-        javax.swing.GroupLayout nombreeClienteLayout = new javax.swing.GroupLayout(nombreeCliente);
-        nombreeCliente.setLayout(nombreeClienteLayout);
-        nombreeClienteLayout.setHorizontalGroup(
-            nombreeClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nombreeClienteLayout.createSequentialGroup()
-                .addGroup(nombreeClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(nombreeClienteLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(nombreeClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNombreCliente)
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel9))
-                    .addGroup(nombreeClienteLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(127, 127, 127))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nombreeClienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(iconAjustes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(121, 121, 121)
-                .addComponent(iconoVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
-        );
-        nombreeClienteLayout.setVerticalGroup(
-            nombreeClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nombreeClienteLayout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(jLabel8)
+        panelPuntos.setBackground(new java.awt.Color(255, 255, 255));
+        panelPuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.yellow, java.awt.Color.yellow));
+
+        iconPuntos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/puntos.png"))); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Mis puntos");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelPuntosLayout = new javax.swing.GroupLayout(panelPuntos);
+        panelPuntos.setLayout(panelPuntosLayout);
+        panelPuntosLayout.setHorizontalGroup(
+            panelPuntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPuntosLayout.createSequentialGroup()
+                .addComponent(jLabel10)
+                .addGap(0, 4, Short.MAX_VALUE))
+            .addGroup(panelPuntosLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(iconPuntos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(nombreeClienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(nombreeClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(nombreeClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(iconoVolver))
-                    .addComponent(iconAjustes))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(nombreeClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel9)
-                    .addComponent(lblNombreCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
         );
+        panelPuntosLayout.setVerticalGroup(
+            panelPuntosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPuntosLayout.createSequentialGroup()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(iconPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        nombreeCliente.add(panelPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 80, 80));
+
+        panelFondo.add(nombreeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, -1, 210));
 
         iconRecargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/recargarSaldo.png"))); // NOI18N
         iconRecargar.setText("  ");
@@ -217,6 +220,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
                 iconRecargarMouseClicked(evt);
             }
         });
+        panelFondo.add(iconRecargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 229, -1, 61));
 
         iconRetirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/retirarSaldo.png"))); // NOI18N
         iconRetirar.setText("   ");
@@ -226,6 +230,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
                 iconRetirarMouseClicked(evt);
             }
         });
+        panelFondo.add(iconRetirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 234, 50, -1));
 
         iconTransferir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/transferirSaldo.png"))); // NOI18N
         iconTransferir.setText("    ");
@@ -235,6 +240,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
                 iconTransferirMouseClicked(evt);
             }
         });
+        panelFondo.add(iconTransferir, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 234, -1, -1));
 
         lblRecargar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblRecargar.setForeground(new java.awt.Color(0, 0, 0));
@@ -244,6 +250,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
                 lblRecargarMouseClicked(evt);
             }
         });
+        panelFondo.add(lblRecargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 296, -1, -1));
 
         lblTransferir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTransferir.setForeground(new java.awt.Color(0, 0, 0));
@@ -253,6 +260,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
                 lblTransferirMouseClicked(evt);
             }
         });
+        panelFondo.add(lblTransferir, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 296, -1, -1));
 
         lblRetirar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblRetirar.setForeground(new java.awt.Color(0, 0, 0));
@@ -262,81 +270,32 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
                 lblRetirarMouseClicked(evt);
             }
         });
+        panelFondo.add(lblRetirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 296, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Sos la razón de nuestro trabajo diario");
+        panelFondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 217, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("¡Gracias por elegirnos!");
-
-        javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
-        panelFondo.setLayout(panelFondoLayout);
-        panelFondoLayout.setHorizontalGroup(
-            panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(nombreeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(iconRecargar)
-                    .addComponent(lblRecargar))
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(iconTransferir))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(lblTransferir)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblRetirar)
-                    .addComponent(iconRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(141, 141, 141))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(192, 192, 192))))
-        );
-        panelFondoLayout.setVerticalGroup(
-            panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addComponent(nombreeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(iconTransferir)
-                    .addComponent(iconRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(iconRetirar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRecargar)
-                    .addComponent(lblTransferir)
-                    .addComponent(lblRetirar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(12, 12, 12))
-        );
+        panelFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -381,15 +340,22 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
         new TransferirDinero(codCuentica);
     }//GEN-LAST:event_lblTransferirMouseClicked
 
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        // TODO add your handling code here:
+        new InfPuntos(codCuentica);
+    }//GEN-LAST:event_jLabel10MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cuentaSaldo;
     private javax.swing.JLabel iconAjustes;
+    private javax.swing.JLabel iconPuntos;
     private javax.swing.JLabel iconRecargar;
     private javax.swing.JLabel iconRetirar;
     private javax.swing.JLabel iconTransferir;
     private javax.swing.JLabel iconoVolver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -405,5 +371,6 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTransferir;
     private javax.swing.JPanel nombreeCliente;
     private javax.swing.JPanel panelFondo;
+    private javax.swing.JPanel panelPuntos;
     // End of variables declaration//GEN-END:variables
 }

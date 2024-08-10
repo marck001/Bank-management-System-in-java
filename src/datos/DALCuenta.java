@@ -438,5 +438,81 @@ public class DALCuenta {
         }
         return mensaje;
     }
+    
+    public static String obtenerPuntosCredito(String codCuenta){
+        String sql;
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_obtenerPuntos(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, codCuenta);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                return rs.getString("cuenPuntos");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return null;
+    }
+    
+    public static String actualizarPuntosCredito(String codCuenta, float saldo){
+        String mensaje = null;
+        String puntosStr = obtenerPuntosCredito(codCuenta);
+        float puntos =Float.parseFloat(puntosStr);
+        float nuevosPuntos = puntos + (saldo*0.2f);
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_actualizar_puntos(?, ?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, codCuenta);
+            cs.setString(2, String.valueOf(nuevosPuntos));
+            cs.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;
+    }
+    
+    public static String converterPuntosCreditoASaldo(String codCuenta, float puntosAconvertir){
+        String mensaje = null;
+        String puntosStr = obtenerPuntosCredito(codCuenta);
+        float puntos =Float.parseFloat(puntosStr);
+        Cuenta cuenta = obtenerCuenta(codCuenta);
+        float nuevoSaldo = cuenta.getSaldo()+((puntos + puntosAconvertir)*0.02f);
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_actualizar_Saldo(?, ?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, cuenta.getCodigo());
+            cs.setString(2, String.valueOf(nuevoSaldo));
+            cs.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;
+    }
 
 }

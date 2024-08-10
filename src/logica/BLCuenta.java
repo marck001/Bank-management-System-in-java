@@ -204,5 +204,23 @@ public class BLCuenta {
     public static String reactivarCuenta(String codCuenta) {
         return DALCuenta.reactivarCuenta(codCuenta);
     }
+    
+    public static String obtenerPuntosCredito(String codCuenta){
+        return DALCuenta.obtenerPuntosCredito(codCuenta);
+    }
+    
+    public static String actualizarPuntosCreditoPorSaldo(String codCuenta, float saldo){
+        return DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
+    }
+    
+    public static String converterPuntosCreditoASaldo(String codCuenta, float puntosAconvertir){
+        String mensaje;
+        if(puntosAconvertir <= Float.parseFloat(obtenerPuntosCredito(codCuenta))){
+            mensaje = DALCuenta.converterPuntosCreditoASaldo(codCuenta, puntosAconvertir);
+        }else{
+            mensaje= "Puntos a convertir insuficiente. ";
+        }
+        return mensaje;
+    }
 
 }
