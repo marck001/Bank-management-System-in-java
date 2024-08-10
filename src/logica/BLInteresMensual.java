@@ -16,25 +16,25 @@ import java.util.*;
 public class BLInteresMensual {
     private static InteresMensual interes;
 
-    public static int insertarInteres(Moneda moneda, float inteImporte) {
+    public static int insertarInteres(String codigo, float inteImporte) {
         String mensaje;
-        if(moneda.getCodigo().trim().length()==2 && inteImporte>0) {
-            if(buscarInteres(interes.getMoneda().getCodigo()) == null) {
-                interes = new InteresMensual(moneda, inteImporte);
+        if (codigo.trim().length() == 2 && inteImporte > 0.0f) {
+            interes = new InteresMensual(new Moneda(codigo), inteImporte);
+            if (buscarInteres(interes.getMoneda().getCodigo()) == null) {
                 mensaje = DALInteresMensual.insertarInteres(interes);
                 if (mensaje == null) {
-                    showMessageDialog(null, "Registro insertado", "Resultado", 1);
+                    showMessageDialog(null, "Registro insertado en interes mensual", "Resultado", 1);
                     return 0;
                 } else {
-                    showMessageDialog(null, mensaje, "Error", 0);
+                    showMessageDialog(null, mensaje, "Error en registrar interes mensual", 0);
                     return 1;
                 }
             } else {
-            showMessageDialog(null, "Codigo ya existe", "Error", 0);
-            return 2;
+                showMessageDialog(null, "Codigo ya existe", "Error", 0);
+                return 2;
             }
         } else {
-            showMessageDialog(null, "Datos no validos", "Error", 0);
+            showMessageDialog(null, "Datos no validos en registrar interes mensual", "Error", 0);
             return 3;
         }
     }
@@ -52,10 +52,10 @@ public class BLInteresMensual {
     }
     
 
-    public static String actualizarInteres(Moneda moneda, float inteImporte) {
+    public static String actualizarInteres(String codigo, float inteImporte) {
         String mensaje;
-        if(moneda.getCodigo().trim().length()==2 && inteImporte>0) {
-            interes = new InteresMensual(moneda, inteImporte);
+        if(codigo.trim().length()==2 && inteImporte>0) {
+            interes = new InteresMensual(new Moneda(codigo), inteImporte);
             mensaje = DALInteresMensual.actualizarInteres(interes);
             if(mensaje==null)
                 mensaje = "Registro actualizado";
