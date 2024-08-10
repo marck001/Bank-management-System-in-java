@@ -67,7 +67,7 @@ public class RegistrarCuenta extends javax.swing.JInternalFrame {
 
         jLabel3.setText("¿En qué moneda desea abrir la cuenta?");
 
-        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "AHORRO", "CORRIENTE" }));
+        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "CREDITO", "DEBITO" }));
         cbxTipo.setEnabled(false);
 
         jLabel1.setText("Datos del cliente ");
