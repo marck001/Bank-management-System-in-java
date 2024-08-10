@@ -47,6 +47,14 @@ public class BLCliente {
             return null;
         }
     }
+    
+    public static String obtenerCodCuentaPorCliente(String codigo) {
+        if (codigo.trim().length() == 5) {
+            return DALCliente.obtenerCodCuentaPorCliente(codigo);
+        } else {
+            return null;
+        }
+    }
      
     public static String buscarClienteLogin(String codigo, String dni) {
         if (codigo.trim().length() == 5 && dni.trim().length() == 8) {
