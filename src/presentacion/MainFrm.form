@@ -23,17 +23,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="1" pref="1184" max="32767" attributes="0"/>
+          <Component id="tabedPanel1" alignment="1" pref="1161" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="1" pref="832" max="32767" attributes="0"/>
+          <Component id="tabedPanel1" alignment="1" pref="832" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+    <Container class="javax.swing.JTabbedPane" name="tabedPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="18" green="31" red="ed" type="rgb"/>
@@ -68,7 +68,7 @@
                   <Group type="102" attributes="0">
                       <Component id="FirstPanelMenu" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel21" pref="922" max="32767" attributes="0"/>
+                      <Component id="jPanel21" pref="899" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -106,7 +106,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel16" min="-2" pref="74" max="-2" attributes="0"/>
-                          <EmptySpace pref="636" max="32767" attributes="0"/>
+                          <EmptySpace pref="613" max="32767" attributes="0"/>
                           <Component id="jLabel15" min="-2" pref="64" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                       </Group>
@@ -1142,7 +1142,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="918" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="895" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1657,7 +1657,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="912" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="889" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1677,7 +1677,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="922" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="899" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">

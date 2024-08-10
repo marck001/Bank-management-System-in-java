@@ -4,6 +4,9 @@
  */
 package presentacion;
 
+import javax.swing.BorderFactory;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author marck
@@ -15,6 +18,9 @@ public class Menu extends javax.swing.JInternalFrame {
      */
     public Menu() {
         initComponents();
+         this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
@@ -103,26 +109,27 @@ public class Menu extends javax.swing.JInternalFrame {
         d4_l3 = new javax.swing.JLabel();
         st9 = new javax.swing.JLabel();
 
-        home_pnl.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Dashboard", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 153))); // NOI18N
+        home_pnl.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Main Menu", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 153))); // NOI18N
         home_pnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Welcome to Dashboard", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 15), new java.awt.Color(0, 0, 153))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Menu", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 15), new java.awt.Color(0, 0, 153))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         slo.setFont(new java.awt.Font("Segoe Print", 1, 20)); // NOI18N
         slo.setForeground(new java.awt.Color(102, 0, 102));
         slo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel2.add(slo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 410, 30));
+        jPanel2.add(slo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 410, 30));
 
         profile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 11, 55, 45));
+        jPanel2.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 55, 45));
 
-        home_pnl.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 490, 60));
+        home_pnl.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 490, 60));
         jPanel2.getAccessibleContext().setAccessibleName("Menu");
 
+        jPanel22.setBackground(new java.awt.Color(255, 51, 51));
         jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        d2_1.setBackground(new java.awt.Color(102, 102, 255));
+        d2_1.setBackground(new java.awt.Color(136, 67, 67));
         d2_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         d2_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -163,11 +170,12 @@ public class Menu extends javax.swing.JInternalFrame {
 
         jPanel22.add(d2_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 30));
 
-        home_pnl.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 100, 200, 120));
+        home_pnl.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 200, 120));
 
+        jPanel25.setBackground(new java.awt.Color(255, 51, 51));
         jPanel25.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        d3_1.setBackground(new java.awt.Color(102, 102, 255));
+        d3_1.setBackground(new java.awt.Color(136, 67, 67));
         d3_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         d3_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -208,11 +216,12 @@ public class Menu extends javax.swing.JInternalFrame {
 
         jPanel25.add(d3_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 30));
 
-        home_pnl.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 100, 200, 120));
+        home_pnl.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 200, 120));
 
+        jPanel8.setBackground(new java.awt.Color(255, 51, 51));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        d6_1.setBackground(new java.awt.Color(102, 102, 255));
+        d6_1.setBackground(new java.awt.Color(136, 67, 67));
         d6_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         d6_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -253,11 +262,12 @@ public class Menu extends javax.swing.JInternalFrame {
 
         jPanel8.add(d6_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 30));
 
-        home_pnl.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 230, 200, 120));
+        home_pnl.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 200, 120));
 
+        jPanel28.setBackground(new java.awt.Color(255, 51, 51));
         jPanel28.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        d5_1.setBackground(new java.awt.Color(102, 102, 255));
+        d5_1.setBackground(new java.awt.Color(136, 67, 67));
         d5_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         d5_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -298,11 +308,12 @@ public class Menu extends javax.swing.JInternalFrame {
 
         jPanel28.add(d5_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 30));
 
-        home_pnl.add(jPanel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 230, 200, 120));
+        home_pnl.add(jPanel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 200, 120));
 
+        jPanel31.setBackground(new java.awt.Color(255, 51, 51));
         jPanel31.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        d9_1.setBackground(new java.awt.Color(102, 102, 255));
+        d9_1.setBackground(new java.awt.Color(136, 67, 67));
         d9_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         d9_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -343,11 +354,12 @@ public class Menu extends javax.swing.JInternalFrame {
 
         jPanel31.add(d9_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 30));
 
-        home_pnl.add(jPanel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 360, 200, 120));
+        home_pnl.add(jPanel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 200, 120));
 
+        jPanel14.setBackground(new java.awt.Color(255, 51, 51));
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        d8_1.setBackground(new java.awt.Color(102, 102, 255));
+        d8_1.setBackground(new java.awt.Color(136, 67, 67));
         d8_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         d8_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -388,11 +400,12 @@ public class Menu extends javax.swing.JInternalFrame {
 
         jPanel14.add(d8_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 30));
 
-        home_pnl.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 360, 200, 120));
+        home_pnl.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 200, 120));
 
+        jPanel17.setBackground(new java.awt.Color(255, 51, 51));
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        d7_1.setBackground(new java.awt.Color(102, 102, 255));
+        d7_1.setBackground(new java.awt.Color(136, 67, 67));
         d7_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         d7_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -433,12 +446,13 @@ public class Menu extends javax.swing.JInternalFrame {
 
         jPanel17.add(d7_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 30));
 
-        home_pnl.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 360, 200, 120));
+        home_pnl.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 200, 120));
 
+        jPanel34.setBackground(new java.awt.Color(255, 51, 51));
         jPanel34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel34.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        d1_1.setBackground(new java.awt.Color(102, 102, 255));
+        d1_1.setBackground(new java.awt.Color(136, 67, 67));
         d1_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         d1_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -479,11 +493,12 @@ public class Menu extends javax.swing.JInternalFrame {
 
         jPanel34.add(d1_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 30));
 
-        home_pnl.add(jPanel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 100, 200, 120));
+        home_pnl.add(jPanel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 200, 120));
 
+        jPanel37.setBackground(new java.awt.Color(255, 51, 51));
         jPanel37.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        d4_1.setBackground(new java.awt.Color(102, 102, 255));
+        d4_1.setBackground(new java.awt.Color(136, 67, 67));
         d4_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         d4_1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -523,25 +538,22 @@ public class Menu extends javax.swing.JInternalFrame {
 
         jPanel37.add(d4_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 30));
 
-        home_pnl.add(jPanel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 230, 200, 120));
+        home_pnl.add(jPanel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 200, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 688, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(home_pnl, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE))
+            .addComponent(home_pnl, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(home_pnl, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(home_pnl, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
         );
+
+        home_pnl.getAccessibleContext().setAccessibleName("Menu");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

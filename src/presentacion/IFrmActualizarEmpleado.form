@@ -59,7 +59,7 @@
                           <Component id="btnSalir" min="-2" pref="89" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace pref="266" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -74,7 +74,7 @@
                       <Component id="btnActualizar" max="32767" attributes="0"/>
                       <Component id="btnSalir" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="38" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
