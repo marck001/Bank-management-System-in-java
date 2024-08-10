@@ -4,6 +4,9 @@
  */
 package presentacion;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+import logica.BLSucursal;
+
 /**
  *
  * @author User
@@ -16,6 +19,28 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
     public RegistrarSucursal() {
         initComponents();
     }
+        private void activar(boolean estado) {
+            txtCodigo.setEnabled(estado);
+            txtNombre.setEnabled(estado);
+            txtCiudad.setEnabled(estado);
+            txtDireccion.setEnabled(estado);
+            txtCuenta.setEnabled(estado);
+            txtTipo.setEnabled(estado);
+            btnRegistrar.setEnabled(estado);
+            btnBuscar.setEnabled(estado);
+            btnActualizar.setEnabled(estado);
+            btnEliminar.setEnabled(estado);
+            btnNuevo.setEnabled(!estado);               
+        }
+
+        private void limpiar() {
+            txtCodigo.setText(null);
+            txtNombre.setText(null);
+            txtCiudad.setText(null);
+            txtDireccion.setText(null);
+            txtCuenta.setText(null);
+            txtTipo.setText(null);
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,21 +68,26 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        txtSaldoRecargado = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         iconoVolver1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txtSaldoRecargado1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txtSaldoRecargado2 = new javax.swing.JTextField();
-        btnSalir = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
-        btnNuevo = new javax.swing.JButton();
-        txtSaldoRecargado3 = new javax.swing.JTextField();
+        txtCiudad = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         btnBuscarDni = new javax.swing.JButton();
         btnValidar = new javax.swing.JButton();
-        txtSaldoRecargado4 = new javax.swing.JTextField();
+        txtTipo = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
+        txtCuenta = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        btnNuevo = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), new java.awt.Color(153, 0, 51)));
@@ -211,9 +241,6 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         setTitle("   EurekaBank");
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -230,7 +257,7 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(246, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(230, 230, 230))
         );
@@ -247,10 +274,10 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Código de Sucursal");
 
-        txtSaldoRecargado.setBackground(new java.awt.Color(102, 102, 102));
-        txtSaldoRecargado.setForeground(new java.awt.Color(255, 255, 255));
-        txtSaldoRecargado.setDisabledTextColor(new java.awt.Color(126, 56, 56));
-        txtSaldoRecargado.setSelectionColor(new java.awt.Color(126, 53, 53));
+        txtCodigo.setBackground(new java.awt.Color(102, 102, 102));
+        txtCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        txtCodigo.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtCodigo.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         iconoVolver1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
         iconoVolver1.setToolTipText("Salir");
@@ -263,33 +290,23 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("¿Cual es el nombre de la nueva sucursal?");
 
-        txtSaldoRecargado1.setBackground(new java.awt.Color(102, 102, 102));
-        txtSaldoRecargado1.setForeground(new java.awt.Color(255, 255, 255));
-        txtSaldoRecargado1.setDisabledTextColor(new java.awt.Color(126, 56, 56));
-        txtSaldoRecargado1.setSelectionColor(new java.awt.Color(126, 53, 53));
+        txtNombre.setBackground(new java.awt.Color(102, 102, 102));
+        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombre.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtNombre.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel14.setText("¿En que ciudad se encuentra?");
 
-        txtSaldoRecargado2.setBackground(new java.awt.Color(102, 102, 102));
-        txtSaldoRecargado2.setForeground(new java.awt.Color(255, 255, 255));
-        txtSaldoRecargado2.setDisabledTextColor(new java.awt.Color(126, 56, 56));
-        txtSaldoRecargado2.setSelectionColor(new java.awt.Color(126, 53, 53));
+        txtCiudad.setBackground(new java.awt.Color(102, 102, 102));
+        txtCiudad.setForeground(new java.awt.Color(255, 255, 255));
+        txtCiudad.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtCiudad.setSelectionColor(new java.awt.Color(126, 53, 53));
 
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Salir.gif"))); // NOI18N
-        btnSalir.setText("Salir");
-
-        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.gif"))); // NOI18N
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.setEnabled(false);
-
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Nuevo.gif"))); // NOI18N
-        btnNuevo.setText("Nuevo");
-
-        txtSaldoRecargado3.setBackground(new java.awt.Color(102, 102, 102));
-        txtSaldoRecargado3.setForeground(new java.awt.Color(255, 255, 255));
-        txtSaldoRecargado3.setDisabledTextColor(new java.awt.Color(126, 56, 56));
-        txtSaldoRecargado3.setSelectionColor(new java.awt.Color(126, 53, 53));
+        txtDireccion.setBackground(new java.awt.Color(102, 102, 102));
+        txtDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtDireccion.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel15.setText("¿Cual es la direccion?");
@@ -300,13 +317,64 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
         btnValidar.setText("Validar");
         btnValidar.setEnabled(false);
 
-        txtSaldoRecargado4.setBackground(new java.awt.Color(102, 102, 102));
-        txtSaldoRecargado4.setForeground(new java.awt.Color(255, 255, 255));
-        txtSaldoRecargado4.setDisabledTextColor(new java.awt.Color(126, 56, 56));
-        txtSaldoRecargado4.setSelectionColor(new java.awt.Color(126, 53, 53));
+        txtTipo.setBackground(new java.awt.Color(102, 102, 102));
+        txtTipo.setForeground(new java.awt.Color(255, 255, 255));
+        txtTipo.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtTipo.setSelectionColor(new java.awt.Color(126, 53, 53));
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel16.setText("Tipo de Sucursal");
+
+        txtCuenta.setBackground(new java.awt.Color(102, 102, 102));
+        txtCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        txtCuenta.setDisabledTextColor(new java.awt.Color(126, 56, 56));
+        txtCuenta.setSelectionColor(new java.awt.Color(126, 53, 53));
+
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel17.setText("Cuenta");
+
+        btnNuevo.setMnemonic('N');
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        btnRegistrar.setMnemonic('R');
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.setEnabled(false);
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+
+        btnBuscar.setMnemonic('B');
+        btnBuscar.setText("Buscar");
+        btnBuscar.setEnabled(false);
+
+        btnActualizar.setMnemonic('A');
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setEnabled(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setMnemonic('E');
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setToolTipText("");
+        btnEliminar.setEnabled(false);
+
+        btnSalir.setMnemonic('S');
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -314,39 +382,46 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(162, 162, 162))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(48, 48, 48)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtCiudad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                    .addComponent(txtNombre)
+                                    .addComponent(txtCodigo))
+                                .addGap(46, 46, 46)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSaldoRecargado3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txtSaldoRecargado2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                            .addComponent(txtSaldoRecargado1)
-                                            .addComponent(txtSaldoRecargado))
-                                        .addGap(46, 46, 46)
-                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnValidar)
-                                            .addComponent(btnBuscarDni, javax.swing.GroupLayout.Alignment.TRAILING))))
-                                .addGap(35, 35, 35)
-                                .addComponent(iconoVolver1))
-                            .addComponent(txtSaldoRecargado4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110))))
+                                    .addComponent(btnValidar)
+                                    .addComponent(btnBuscarDni, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(35, 35, 35)
+                        .addComponent(iconoVolver1))
+                    .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,31 +432,40 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(txtSaldoRecargado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnValidar))
                         .addGap(6, 6, 6)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(txtSaldoRecargado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBuscarDni))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(txtSaldoRecargado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(txtSaldoRecargado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSaldoRecargado4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                    .addComponent(jLabel17)
+                    .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -391,9 +475,9 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,7 +496,7 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -441,10 +525,57 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
     private void iconoVolver1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolver1MouseClicked
 
     }//GEN-LAST:event_iconoVolver1MouseClicked
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        limpiar();
+        activar(true);
+        txtCodigo.requestFocus();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        String respuesta;
+        codigosuc = txtCodigo.getText();
+        nombresuc = txtNombre.getText();
+        ciudadsuc = txtCiudad.getText();
+        direccionsuc = txtDireccion.getText();
+
+        try {
+            cuentasuc = Integer.parseInt(txtCuenta.getText()); 
+        } catch (NumberFormatException e) {
+            showMessageDialog(null, "El número de cuenta debe ser un entero válido", "Error", 0);
+            txtCuenta.requestFocus();
+            return;
+        }
+        tiposuc = txtTipo.getText();
+
+        respuesta = BLSucursal.insertarSucursal(codigosuc, nombresuc, ciudadsuc, direccionsuc, cuentasuc,tiposuc);
+        if ("Registro insertado".equals(respuesta)) {
+            limpiar();
+            activar(false);
+            btnNuevo.requestFocus();
+        } else {
+            if ("Código ya existe".equals(respuesta)) {
+                txtCodigo.setText(null);
+                txtCodigo.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+//        IFrmActualizarSucursal ifrmActualizarSucursal = new IFrmActualizarSucursal();
+//        FrmPrincipal.centrarInternalFrameExterno(ifrmActualizarSucursal);
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscarDni;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalir;
@@ -461,6 +592,7 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -470,11 +602,14 @@ public class RegistrarSucursal extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JTextField txtSaldoRecargado;
-    private javax.swing.JTextField txtSaldoRecargado1;
-    private javax.swing.JTextField txtSaldoRecargado2;
-    private javax.swing.JTextField txtSaldoRecargado3;
-    private javax.swing.JTextField txtSaldoRecargado4;
+    private javax.swing.JTextField txtCiudad;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtCuenta;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtSaldoTransferido;
+    private javax.swing.JTextField txtTipo;
     // End of variables declaration//GEN-END:variables
+ private String codigosuc, nombresuc,ciudadsuc, direccionsuc, tiposuc;
+ private int cuentasuc;
 }

@@ -425,6 +425,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         firstPanelTab9.setBackground(new java.awt.Color(255, 255, 255));
         firstPanelTab9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        firstPanelTab9.setForeground(new java.awt.Color(255, 255, 255));
         firstPanelTab9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Buscar.gif"))); // NOI18N
         firstPanelTab9.setText("Registrar Sucursal");
 
@@ -1237,7 +1238,8 @@ public class MainFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_firstPanelTab12MouseClicked
 
     private void firstPanelTab7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab7MouseClicked
-        // TODO add your handling code here:
+        RegistrarSucursal ifrmMoneda = new RegistrarSucursal();
+        centrarInternalFrame1(ifrmMoneda);
 
     }//GEN-LAST:event_firstPanelTab7MouseClicked
 
