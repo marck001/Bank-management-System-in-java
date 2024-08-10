@@ -25,7 +25,9 @@ public class MainFrm extends javax.swing.JFrame {
 
     public MainFrm() {
         initComponents();
+
         centrarInternalFrame1(main);
+
 
          this.setLocationRelativeTo(null);
         defaultColor = new Color(163, 78, 78);
