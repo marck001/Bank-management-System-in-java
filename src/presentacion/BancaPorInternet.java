@@ -64,7 +64,6 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
-        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setTitle("    ");

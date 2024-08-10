@@ -283,6 +283,7 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
 
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Usuario.gif"))); // NOI18N
         btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.setToolTipText("");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);

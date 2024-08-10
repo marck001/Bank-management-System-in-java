@@ -425,6 +425,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         firstPanelTab9.setBackground(new java.awt.Color(255, 255, 255));
         firstPanelTab9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        firstPanelTab9.setForeground(new java.awt.Color(255, 255, 255));
         firstPanelTab9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Buscar.gif"))); // NOI18N
         firstPanelTab9.setText("Registrar Sucursal");
 
@@ -1237,7 +1238,8 @@ public class MainFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_firstPanelTab12MouseClicked
 
     private void firstPanelTab7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab7MouseClicked
-        // TODO add your handling code here:
+        RegistrarSucursal ifrmMoneda = new RegistrarSucursal();
+        centrarInternalFrame1(ifrmMoneda);
 
     }//GEN-LAST:event_firstPanelTab7MouseClicked
 
@@ -1347,6 +1349,7 @@ public class MainFrm extends javax.swing.JFrame {
         firstPanelTab12.setBackground(defaultColor);
 
     }//GEN-LAST:event_firstPanelTab1MousePressed
+
 
     private void firstPanelTab2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab2MousePressed
         // TODO add your handling code here:
@@ -1638,6 +1641,21 @@ public class MainFrm extends javax.swing.JFrame {
 
         interna.show();
 
+    }
+    
+    public static void centrarInternalFrameExterno(JInternalFrame interna) {
+        centrarInternalFrame(interna);
+    }
+        static void centrarInternalFrame(JInternalFrame interna) {
+        int x = dspFondo.getWidth()/2 - interna.getWidth()/2;
+        int y = dspFondo.getHeight()/2 - interna.getHeight()/2;
+        if(interna.isShowing())
+            interna.setLocation(x, y);
+        else {
+            dspFondo.add(interna);
+            interna.setLocation(x, y);
+            interna.show();
+        }        
     }
 
     public static void main(String args[]) {
