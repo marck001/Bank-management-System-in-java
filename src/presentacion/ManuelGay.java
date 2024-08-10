@@ -8,12 +8,12 @@ package presentacion;
  *
  * @author Manuel Arteaga
  */
-public class ATheFelix extends javax.swing.JInternalFrame {
+public class ManuelGay extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form thefelix
      */
-    public ATheFelix() {
+    public ManuelGay() {
         initComponents();
     }
 

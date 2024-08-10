@@ -416,7 +416,7 @@ public class IFrmRegEmpleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        IFrmActualizarEmpleado frm = new IFrmActualizarEmpleado();
+        //IFrmActualizarEmpleado frm = new IFrmActualizarEmpleado();
         //FrmPrincipal.centrarInternalFrameExterno(frm);
     }//GEN-LAST:event_btnActualizarActionPerformed
 
