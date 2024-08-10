@@ -73,7 +73,6 @@ public class RecargarSaldo extends javax.swing.JInternalFrame {
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ingresa monto");
 
         txtSaldoRecargado.setBackground(new java.awt.Color(102, 102, 102));

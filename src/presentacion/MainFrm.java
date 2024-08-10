@@ -5,7 +5,11 @@
 package presentacion;
 
 import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
+import java.awt.Graphics;
+import java.awt.Image;
 
 /**
  *
@@ -21,7 +25,7 @@ public class MainFrm extends javax.swing.JFrame {
 
     public MainFrm() {
         initComponents();
-
+         this.setLocationRelativeTo(null);
         defaultColor = new Color(163, 78, 78);
         clickedColor = new Color(189, 87, 87);
 
@@ -1666,7 +1670,7 @@ public class MainFrm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FirstPanelMenu;
-    private javax.swing.JDesktopPane dspFondo;
+    public static javax.swing.JDesktopPane dspFondo;
     private javax.swing.JDesktopPane dspFondo1;
     private javax.swing.JDesktopPane dspFondo2;
     private javax.swing.JPanel firstPanelTab1;
