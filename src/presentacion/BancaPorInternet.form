@@ -330,7 +330,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/ajustesPng.png"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="toolTipText" type="java.lang.String" value="Ajustes"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconAjustesMouseClicked"/>
@@ -342,6 +342,7 @@
                   <Image iconType="3" name="/img/regresarMini.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
+                <Property name="toolTipText" type="java.lang.String" value="Salir"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconoVolverMouseClicked"/>
@@ -377,6 +378,7 @@
               <Image iconType="3" name="/img/recargarSaldo.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="  "/>
+            <Property name="toolTipText" type="java.lang.String" value="Recargar"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconRecargarMouseClicked"/>
@@ -388,6 +390,7 @@
               <Image iconType="3" name="/img/retirarSaldo.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="   "/>
+            <Property name="toolTipText" type="java.lang.String" value="Retirar"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconRetirarMouseClicked"/>
@@ -399,6 +402,7 @@
               <Image iconType="3" name="/img/transferirSaldo.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="    "/>
+            <Property name="toolTipText" type="java.lang.String" value="Transferir"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconTransferirMouseClicked"/>

@@ -82,6 +82,7 @@ public class ajustesBancaInternet extends javax.swing.JInternalFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/24-em-cross.png"))); // NOI18N
         btnCancelar.setText("CANCELAR");
+        btnCancelar.setToolTipText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -93,6 +94,7 @@ public class ajustesBancaInternet extends javax.swing.JInternalFrame {
         btnReactivar.setForeground(new java.awt.Color(255, 255, 255));
         btnReactivar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/24-em-check.png"))); // NOI18N
         btnReactivar.setText("ACTIVAR");
+        btnReactivar.setToolTipText("Cancelar");
         btnReactivar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReactivarActionPerformed(evt);
@@ -100,6 +102,7 @@ public class ajustesBancaInternet extends javax.swing.JInternalFrame {
         });
 
         iconoVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
+        iconoVolver.setToolTipText("Salir");
         iconoVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconoVolverMouseClicked(evt);

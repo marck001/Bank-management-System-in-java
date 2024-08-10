@@ -220,6 +220,7 @@
                   <Image iconType="3" name="/img/monedas.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="   TRANSFERIR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Transferir"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTransferirActionPerformed"/>
@@ -266,6 +267,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/regresarMini.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Salir"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconoVolverMouseClicked"/>

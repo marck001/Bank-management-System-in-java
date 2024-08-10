@@ -88,6 +88,7 @@ public class TransferirDinero extends javax.swing.JInternalFrame {
 
         btnTransferir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/monedas.png"))); // NOI18N
         btnTransferir.setText("   TRANSFERIR");
+        btnTransferir.setToolTipText("Transferir");
         btnTransferir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTransferirActionPerformed(evt);
@@ -105,6 +106,7 @@ public class TransferirDinero extends javax.swing.JInternalFrame {
         cbxDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "  ", "Cuenta EurekaBank", "Otro Banco" }));
 
         iconoVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
+        iconoVolver.setToolTipText("Salir");
         iconoVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconoVolverMouseClicked(evt);

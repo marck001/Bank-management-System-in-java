@@ -217,6 +217,7 @@
                   <Image iconType="3" name="/img/24-em-cross.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="CANCELAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
@@ -237,6 +238,7 @@
                   <Image iconType="3" name="/img/24-em-check.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ACTIVAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReactivarActionPerformed"/>
@@ -247,6 +249,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/regresarMini.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Salir"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconoVolverMouseClicked"/>

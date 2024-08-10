@@ -211,6 +211,7 @@
                   <Image iconType="3" name="/img/icono_ayuda_msocios.gif"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="  RETIRAR"/>
+                <Property name="toolTipText" type="java.lang.String" value="Retirar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRetirarActionPerformed"/>
@@ -232,6 +233,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/regresarMini.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Salir"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconoVolverMouseClicked"/>

@@ -132,7 +132,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
         jLabel8.setText(" ");
 
         iconAjustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ajustesPng.png"))); // NOI18N
-        iconAjustes.setToolTipText("");
+        iconAjustes.setToolTipText("Ajustes");
         iconAjustes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconAjustesMouseClicked(evt);
@@ -141,6 +141,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
 
         iconoVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
         iconoVolver.setText("  ");
+        iconoVolver.setToolTipText("Salir");
         iconoVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconoVolverMouseClicked(evt);
@@ -211,6 +212,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
 
         iconRecargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/recargarSaldo.png"))); // NOI18N
         iconRecargar.setText("  ");
+        iconRecargar.setToolTipText("Recargar");
         iconRecargar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconRecargarMouseClicked(evt);
@@ -219,6 +221,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
 
         iconRetirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/retirarSaldo.png"))); // NOI18N
         iconRetirar.setText("   ");
+        iconRetirar.setToolTipText("Retirar");
         iconRetirar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconRetirarMouseClicked(evt);
@@ -227,6 +230,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
 
         iconTransferir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/transferirSaldo.png"))); // NOI18N
         iconTransferir.setText("    ");
+        iconTransferir.setToolTipText("Transferir");
         iconTransferir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconTransferirMouseClicked(evt);
@@ -395,18 +399,7 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblNombreCliente;
     private javax.swing.JLabel lblRecargar;
     private javax.swing.JLabel lblRetirar;

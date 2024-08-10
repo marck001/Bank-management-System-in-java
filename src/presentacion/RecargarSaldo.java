@@ -83,6 +83,7 @@ public class RecargarSaldo extends javax.swing.JInternalFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/monedas.png"))); // NOI18N
         jButton1.setText("RECARGAR");
+        jButton1.setToolTipText("Recargar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -94,6 +95,7 @@ public class RecargarSaldo extends javax.swing.JInternalFrame {
         jLabel3.setText("\"Cada centavo cuenta.\" ");
 
         iconoVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
+        iconoVolver.setToolTipText("Salir");
         iconoVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconoVolverMouseClicked(evt);

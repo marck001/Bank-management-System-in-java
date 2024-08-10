@@ -79,6 +79,7 @@ public class RetirarSaldo extends javax.swing.JInternalFrame {
 
         btnRetirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_ayuda_msocios.gif"))); // NOI18N
         btnRetirar.setText("  RETIRAR");
+        btnRetirar.setToolTipText("Retirar");
         btnRetirar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRetirarActionPerformed(evt);
@@ -90,6 +91,7 @@ public class RetirarSaldo extends javax.swing.JInternalFrame {
         jLabel3.setText("\"Cuida de los pequeños gastos; un pequeño agujero, hunde un barco\" ");
 
         iconoVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
+        iconoVolver.setToolTipText("Salir");
         iconoVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconoVolverMouseClicked(evt);
