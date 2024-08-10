@@ -3,10 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
-
+import entidades.Cliente;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
+import logica.BLCliente;
 /**
  *
- * @author gta_2
+ * @author Celeste
  */
 public class InfActualizarCliente extends javax.swing.JInternalFrame {
 
@@ -15,6 +22,9 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
      */
     public InfActualizarCliente() {
         initComponents();
+        this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
@@ -41,15 +51,27 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
         txtMail = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnNuevo = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(218, 231, 231));
+        jPanel1.setBackground(new java.awt.Color(136, 67, 67));
 
         lblCodigo.setText("Codigo");
 
         txtCodigo.setForeground(new java.awt.Color(204, 204, 204));
         txtCodigo.setText("********");
+        txtCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCodigoMousePressed(evt);
+            }
+        });
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
+            }
+        });
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Buscar.gif"))); // NOI18N
         btnBuscar.setText("BUSCAR");
@@ -82,15 +104,41 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
                 txtCiudadActionPerformed(evt);
             }
         });
+        txtCiudad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCiudadKeyTyped(evt);
+            }
+        });
 
         txtDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDireccionActionPerformed(evt);
             }
         });
+        txtDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDireccionKeyTyped(evt);
+            }
+        });
 
         txtMail.setForeground(new java.awt.Color(204, 204, 204));
         txtMail.setText("ej: nombre@ejemplo.com");
+        txtMail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtMailMousePressed(evt);
+            }
+        });
+        txtMail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMailKeyTyped(evt);
+            }
+        });
+
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -162,11 +210,33 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Modificar.gif"))); // NOI18N
-        jButton1.setText("ACTUALIZAR");
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Modificar.gif"))); // NOI18N
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel1.setText("ACTUALIZAR DATOS DE CLIENTE");
+
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Nuevo.gif"))); // NOI18N
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Salir.gif"))); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.setToolTipText("");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,8 +248,12 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
                         .addGap(48, 48, 48)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(283, 283, 283)
-                        .addComponent(jButton1)))
+                        .addGap(106, 106, 106)
+                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(btnActualizar)
+                        .addGap(81, 81, 81)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -189,12 +263,15 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(24, 24, 24)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizar)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnSalir))
                 .addContainerGap())
         );
 
@@ -202,7 +279,30 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        codigo = txtCodigo.getText();
+        cliente = BLCliente.obtenerCliente(codigo);
+        if(cliente != null) {
+            if(cliente.getCodigo().compareTo("00000") != 0) {
+                codigo = cliente.getCodigo();
+                llenarTabla(cliente);
+                txtCodigo.setEnabled(false);
+                btnBuscar.setEnabled(false);
+                txtCiudad.requestFocus();
+                txtDireccion.requestFocus();
+                txtMail.requestFocus();
+                txtTelefono.requestFocus();
+            } else {
+                JOptionPane.showMessageDialog(this, "El código no existe", "Resultado", 1);
+                limpiar();
+                activar(false);
+                btnNuevo.requestFocus();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "El código no es valido", "Resultado", 0);
+            limpiar();
+            activar(false);
+            btnNuevo.requestFocus();
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadActionPerformed
@@ -213,10 +313,131 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDireccionActionPerformed
 
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        limpiar();
+        activar(true);
+        txtCodigo.requestFocus();
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c!=KeyEvent.VK_BACK_SPACE) ){
+            evt.consume();
+        }
+        
+        if (txtCodigo.getText().length() > 4)
+            evt.consume();
+    }//GEN-LAST:event_txtCodigoKeyTyped
+
+    private void txtCiudadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCiudadKeyTyped
+        char c=evt.getKeyChar();
+        if(!Character.isLetter(c)&& !(c == KeyEvent.VK_SPACE)&& !(c==KeyEvent.VK_BACK_SPACE) && !(c==KeyEvent.VK_DELETE))
+           evt.consume();
+    }//GEN-LAST:event_txtCiudadKeyTyped
+
+    private void txtDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyTyped
+        char c=evt.getKeyChar();
+        if (!(Character.isLetter(c) || Character.isDigit(c) ||
+          c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE || 
+          c == KeyEvent.VK_TAB || c == KeyEvent.VK_SPACE)) {
+        evt.consume();
+              
+          }
+    }//GEN-LAST:event_txtDireccionKeyTyped
+
+    private void txtMailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMailKeyTyped
+        char c=evt.getKeyChar();
+        if (!(Character.isLetter(c) || Character.isDigit(c) ||
+          c == '@' || c == '.' || c == '_' || c == '+' || c == '-' ||
+          c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE || 
+          c == KeyEvent.VK_TAB || c == KeyEvent.VK_SPACE)) {
+        evt.consume();
+              
+          }
+    }//GEN-LAST:event_txtMailKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c!=KeyEvent.VK_BACK_SPACE) ){
+          evt.consume();  
+        }
+        
+        if (txtTelefono.getText().length() > 8)
+            evt.consume();
+    }//GEN-LAST:event_txtTelefonoKeyTyped
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        String respuesta;
+        codigo = txtCodigo.getText();
+        ciudad = txtCiudad.getText();
+        direccion = txtDireccion.getText();
+        email = txtMail.getText();
+        telefono = txtTelefono.getText();
+        respuesta = BLCliente.actualizarCliente(codigo, apellidoP, apellidoM, nombre, dni, ciudad, direccion, email, telefono);
+        JOptionPane.showMessageDialog(this, respuesta, "Resultado", 1);
+        activar(false);
+        limpiar();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void txtCodigoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCodigoMousePressed
+        if(txtCodigo.getText().equals("********")){
+           txtCodigo.setText("");
+           txtCodigo.setForeground(Color.black);
+        
+        }
+        if(txtMail.getText().isEmpty()){
+           txtMail.setText("ej: nombre@ejemplo.com");
+           txtMail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_txtCodigoMousePressed
+
+    private void txtMailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMailMousePressed
+        if(txtMail.getText().equals("ej: nombre@ejemplo.com")){
+           txtMail.setText("");
+           txtMail.setForeground(Color.black);
+        }
+        if(txtCodigo.getText().isEmpty()){
+           txtCodigo.setText("********");
+           txtCodigo.setForeground(Color.gray);
+        } 
+
+    }//GEN-LAST:event_txtMailMousePressed
+  private void activar(boolean estado) {
+        txtCodigo.setEnabled(estado);
+        txtCiudad.setEnabled(estado);
+        txtDireccion.setEnabled(estado);
+        txtMail.setEnabled(estado);
+        txtTelefono.setEnabled(estado);    
+      
+        btnBuscar.setEnabled(estado);
+        btnActualizar.setEnabled(estado);
+        btnNuevo.setEnabled(!estado);
+    }
+    
+    private void limpiar() {
+        txtCodigo.setText(null);
+        txtCiudad.setText(null);
+        txtDireccion.setText(null);
+        txtMail.setText(null);
+        txtTelefono.setText(null);
+    }
+    
+    private void llenarTabla(Cliente cliente) {
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+            modelo.setRowCount(0);
+
+        Object[] fila = { cliente.getNombre(), cliente.getApellidoPaterno(), cliente.getApellidoMaterno(), cliente.getDni() };
+            modelo.addRow(fila);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -233,4 +454,8 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtMail;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
+    private String codigo, apellidoP, apellidoM, nombre, dni, ciudad, direccion, email, telefono;
+    private Cliente cliente;
+
+    
 }
