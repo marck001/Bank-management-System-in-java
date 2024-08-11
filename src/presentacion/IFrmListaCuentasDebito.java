@@ -10,22 +10,20 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
+import patronBuilder.CuentaCredito;
+import patronBuilder.CuentaDebito;
 
 /**
  *
  * @author Sistemas
  */
-public class IFrmListaEmpleados extends javax.swing.JInternalFrame {
+public class IFrmListaCuentasDebito extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form IFrmListaMonedas
      */
-    public IFrmListaEmpleados() {
+    public IFrmListaCuentasDebito() {
         initComponents();
-          this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
-        ui.setNorthPane(null);
     }
 
     /**
@@ -67,20 +65,20 @@ public class IFrmListaEmpleados extends javax.swing.JInternalFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(230, 230, 230));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista Empleados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista Cuentas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
 
         tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
         tblEmpleados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tblEmpleados.setForeground(new java.awt.Color(0, 0, 0));
+        tblEmpleados.setForeground(new java.awt.Color(253, 253, 253));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nombre empl", "Apellidos", "Ciudad", "Dirección", "Usuario", "Clave"
+                "Código", "Codigo Moneda", "Codigo Sucursal", "Codigo Empleado", "Codigo Cliente", "Estado", "Movimiento", "Clave", "Movimiento", "Tipo", "Saldo"
             }
         ));
         tblEmpleados.setGridColor(new java.awt.Color(204, 204, 204));
@@ -88,7 +86,7 @@ public class IFrmListaEmpleados extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblEmpleados);
 
         jPanel2.setBackground(new java.awt.Color(226, 89, 53));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Lista Empleados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 15), new java.awt.Color(0, 0, 153))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Lista Cuentas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 15), new java.awt.Color(0, 0, 153))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         slo.setFont(new java.awt.Font("Segoe Print", 1, 20)); // NOI18N
@@ -104,19 +102,18 @@ public class IFrmListaEmpleados extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(115, 115, 115))))
+                .addContainerGap(248, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,7 +135,7 @@ public class IFrmListaEmpleados extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        lista = BLEmpleado.listarEmpleados();
+        lista = BLCuenta.listarCuentasDebito();
         llenarTabla();
     }//GEN-LAST:event_formInternalFrameOpened
 
@@ -147,15 +144,19 @@ public class IFrmListaEmpleados extends javax.swing.JInternalFrame {
         modelo.setColumnIdentifiers(columnas);
         iterador = lista.iterator();
         while (iterador.hasNext()) {
-            empl = iterador.next();
+            cuen = iterador.next();
            
-            fila[0] = empl.getCodigo();
-            fila[1] = empl.getNombre();
-            fila[2] = empl.getApePaterno() + " "+empl.getApeMaterno();
-            fila[3] = empl.getCiudad();
-            fila[4] = empl.getDireccion();
-            fila[5] = empl.getUser();
-            fila[6] = empl.getClave();
+            fila[0] = cuen.getCodigo();
+            fila[1] = cuen.getMoneCodigo();
+            fila[2] = cuen.getSucuCodigo();
+            fila[3] = cuen.getEmplCreaCuenta();
+            fila[4] = cuen.getClieCodigo();
+            fila[5] = cuen.getFechaCreacionCorta();
+            fila[6] = cuen.getEstado();
+            fila[7] = cuen.getContMovimientos();
+            fila[8] = cuen.getClave();
+            fila[9] = cuen.getCuenTipo();
+            fila[10] = cuen.getSaldo();
             modelo.addRow(fila);
         }
         tblEmpleados.setModel(modelo);
@@ -171,10 +172,10 @@ public class IFrmListaEmpleados extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblEmpleados;
     // End of variables declaration//GEN-END:variables
     private DefaultTableModel modelo;
-    private ArrayList<Empleado> lista;
-    private String columnas[] = {"Código", "Nombre empl", "Apellidos", "Ciudad", "Dirección", "Usuario","Clave"};
+    private ArrayList<CuentaDebito> lista;
+    private String columnas[] = {"Código", "Codigo moneda", "Codigo Sucursal", "Cuenta Empleado", "Codigo Cliente", "Fecha","estado", "Movimiento","Clave","Tipo", "Saldo"};
     private Object fila[] = new Object[columnas.length];
-    private Iterator<Empleado> iterador;
+    private Iterator<CuentaDebito> iterador;
  
-    private Empleado empl;
+    private CuentaDebito cuen;
 }

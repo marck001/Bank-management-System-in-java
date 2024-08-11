@@ -66,11 +66,11 @@ public class BLCuenta {
         }
     }
 
-    public static ArrayList<Cuenta> listarCuentasDebito(){
+    public static ArrayList<CuentaDebito> listarCuentasDebito(){
         return DALCuenta.listarCuentasDebito();
     }
 
-    public static ArrayList<Cuenta> listarCuentasCredito(){
+    public static ArrayList<CuentaCredito> listarCuentasCredito(){
         return DALCuenta.listarCuentasCredito();
     
     }

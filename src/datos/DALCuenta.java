@@ -224,9 +224,9 @@ public class DALCuenta {
         return obj;
     }
 
-    public static ArrayList<Cuenta> listarCuentasDebito() {
+    public static ArrayList<CuentaDebito> listarCuentasDebito() {
         String sql;
-        ArrayList<Cuenta> list = new ArrayList<>();
+        ArrayList<CuentaDebito> list = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
             sql = "{call sp_listar_cuentas()}";
@@ -260,9 +260,9 @@ public class DALCuenta {
         return list;
     }
 
-    public static ArrayList<Cuenta> listarCuentasCredito() {
+    public static ArrayList<CuentaCredito> listarCuentasCredito() {
         String sql;
-        ArrayList<Cuenta> list = new ArrayList<>();
+        ArrayList<CuentaCredito> list = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
             sql = "{call sp_listar_cuentas()}";

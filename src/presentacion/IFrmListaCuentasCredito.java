@@ -10,17 +10,18 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
+import patronBuilder.CuentaCredito;
 
 /**
  *
  * @author Sistemas
  */
-public class IFrmListaCuentas extends javax.swing.JInternalFrame {
+public class IFrmListaCuentasCredito extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form IFrmListaMonedas
      */
-    public IFrmListaCuentas() {
+    public IFrmListaCuentasCredito() {
         initComponents();
     }
 
@@ -170,10 +171,10 @@ public class IFrmListaCuentas extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblEmpleados;
     // End of variables declaration//GEN-END:variables
     private DefaultTableModel modelo;
-    private ArrayList<Cuenta> lista;
+    private ArrayList<CuentaCredito> lista;
     private String columnas[] = {"Código", "Codigo moneda", "Codigo Sucursal", "Cuenta Empleado", "Codigo Cliente", "Fecha","estado", "Movimiento","Clave","Tipo", "Saldo"};
     private Object fila[] = new Object[columnas.length];
-    private Iterator<Cuenta> iterador;
+    private Iterator<CuentaCredito> iterador;
  
-    private Cuenta cuen;
+    private CuentaCredito cuen;
 }

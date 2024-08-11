@@ -1622,7 +1622,8 @@ public class MainFrm extends javax.swing.JFrame {
         interna.setLocation(x, y);
         interna.show();
     }
-
+    
+   
     private void centrarInternalFrame2(JInternalFrame interna) {
         if (currentInternalFrame != null) {
             currentInternalFrame.dispose();
