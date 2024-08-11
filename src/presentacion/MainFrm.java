@@ -541,10 +541,10 @@ public class MainFrm extends javax.swing.JFrame {
         mnuTab2.setLayout(mnuTab2Layout);
         mnuTab2Layout.setHorizontalGroup(
             mnuTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mnuTab2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(54, 54, 54))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mnuTab2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         mnuTab2Layout.setVerticalGroup(
             mnuTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -575,10 +575,10 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab1.setLayout(secondPanelTab1Layout);
         secondPanelTab1Layout.setHorizontalGroup(
             secondPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondPanelTab1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab1Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(58, 58, 58))
+                .addContainerGap())
         );
         secondPanelTab1Layout.setVerticalGroup(
             secondPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -606,10 +606,10 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab2.setLayout(secondPanelTab2Layout);
         secondPanelTab2Layout.setHorizontalGroup(
             secondPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondPanelTab2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(17, 17, 17))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         secondPanelTab2Layout.setVerticalGroup(
             secondPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1163,25 +1163,25 @@ public class MainFrm extends javax.swing.JFrame {
         interna.setLocation(x, y);
         interna.show();
     }
-/*
-    private void centrarInternalFrame3(JInternalFrame interna) {
-        if (currentInternalFrame != null) {
-            currentInternalFrame.dispose();
-        }
 
-        currentInternalFrame = interna;
-
-        dspFondo2.removeAll();
-        dspFondo2.add(interna);
-
-
-        int x = dspFondo2.getWidth() / 2 - interna.getWidth() / 2;
-        int y = dspFondo2.getHeight() / 2 - interna.getHeight() / 2;
-
-        interna.setLocation(x, y);
-        interna.show();
-    } */
-
+//    private void centrarInternalFrame3(JInternalFrame interna) {
+//        if (currentInternalFrame != null) {
+//            currentInternalFrame.dispose();
+//        }
+//
+//        currentInternalFrame = interna;
+//
+//        dspFondo2.removeAll();
+//        dspFondo2.add(interna);
+//
+//
+//        int x = dspFondo2.getWidth() / 2 - interna.getWidth() / 2;
+//        int y = dspFondo2.getHeight() / 2 - interna.getHeight() / 2;
+//
+//        interna.setLocation(x, y);
+//        interna.show();
+//    } 
+//
     public static void centrarInternalFrameExterno(JInternalFrame interna) {
         centrarInternalFrame(interna);
     }
@@ -1238,8 +1238,8 @@ public class MainFrm extends javax.swing.JFrame {
     private javax.swing.JPanel FirstPanelMenu;
     private javax.swing.JPanel Header;
     private javax.swing.JPanel Header1;
-    private javax.swing.JDesktopPane dspFondo;
-    private javax.swing.JDesktopPane dspFondo1;
+    private static javax.swing.JDesktopPane dspFondo;
+    private static javax.swing.JDesktopPane dspFondo1;
     private javax.swing.JLabel fecha;
     private javax.swing.JLabel fecha1;
     private javax.swing.JPanel firstPanelTab1;
