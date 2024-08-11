@@ -195,10 +195,12 @@ public class MainFrm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tabbedPanel1.setBackground(new java.awt.Color(237, 49, 24));
+        tabbedPanel1.setBackground(new java.awt.Color(64, 4, 4));
         tabbedPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tabbedPanel1.setForeground(java.awt.SystemColor.controlDkShadow);
         tabbedPanel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(64, 4, 4));
 
         FirstPanelMenu.setBackground(new java.awt.Color(68, 4, 4));
         FirstPanelMenu.setPreferredSize(new java.awt.Dimension(254, 637));
@@ -482,7 +484,9 @@ public class MainFrm extends javax.swing.JFrame {
         fecha1.setForeground(new java.awt.Color(255, 255, 255));
         fecha1.setText("Hoy es Sábado 28 de Abril de 2018");
 
+        txtUserAdmin.setBackground(new java.awt.Color(255, 255, 255));
         txtUserAdmin.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtUserAdmin.setForeground(new java.awt.Color(255, 255, 255));
         txtUserAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Usuario.gif"))); // NOI18N
         txtUserAdmin.setText("User");
 
@@ -531,10 +535,12 @@ public class MainFrm extends javax.swing.JFrame {
                 .addComponent(Header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dspFondo))
-            .addComponent(FirstPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
+            .addComponent(FirstPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
         );
 
         tabbedPanel1.addTab("Admin", jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(64, 4, 4));
 
         jPanel4.setBackground(new java.awt.Color(68, 4, 4));
         jPanel4.setPreferredSize(new java.awt.Dimension(254, 637));
@@ -562,9 +568,9 @@ public class MainFrm extends javax.swing.JFrame {
         mnuTab2Layout.setHorizontalGroup(
             mnuTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mnuTab2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
         mnuTab2Layout.setVerticalGroup(
             mnuTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,10 +601,10 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab1.setLayout(secondPanelTab1Layout);
         secondPanelTab1Layout.setHorizontalGroup(
             secondPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondPanelTab1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
         secondPanelTab1Layout.setVerticalGroup(
             secondPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -626,10 +632,10 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab2.setLayout(secondPanelTab2Layout);
         secondPanelTab2Layout.setHorizontalGroup(
             secondPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondPanelTab2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         secondPanelTab2Layout.setVerticalGroup(
             secondPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -658,9 +664,9 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab3Layout.setHorizontalGroup(
             secondPanelTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab3Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap())
         );
         secondPanelTab3Layout.setVerticalGroup(
             secondPanelTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -688,10 +694,10 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4.setLayout(secondPanelTab4Layout);
         secondPanelTab4Layout.setHorizontalGroup(
             secondPanelTab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondPanelTab4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(74, 74, 74))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         secondPanelTab4Layout.setVerticalGroup(
             secondPanelTab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -719,10 +725,10 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab5.setLayout(secondPanelTab5Layout);
         secondPanelTab5Layout.setHorizontalGroup(
             secondPanelTab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondPanelTab5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
         secondPanelTab5Layout.setVerticalGroup(
             secondPanelTab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -753,7 +759,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
+                .addGap(53, 53, 53))
         );
         secondPanelTab6Layout.setVerticalGroup(
             secondPanelTab6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -822,6 +828,7 @@ public class MainFrm extends javax.swing.JFrame {
         fecha.setText("Hoy es Sábado 28 de Abril de 2018");
 
         txtUserEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtUserEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         txtUserEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Usuario.gif"))); // NOI18N
         txtUserEmpleado.setText("User");
 
@@ -837,20 +844,24 @@ public class MainFrm extends javax.swing.JFrame {
                         .addContainerGap(696, Short.MAX_VALUE))
                     .addGroup(HeaderLayout.createSequentialGroup()
                         .addComponent(fecha)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                         .addComponent(txtUserEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22))))
         );
         HeaderLayout.setVerticalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeaderLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUserEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HeaderLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(txtUserEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(38, Short.MAX_VALUE))
+                    .addGroup(HeaderLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -868,7 +879,7 @@ public class MainFrm extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -877,6 +888,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         tabbedPanel1.addTab("Empleado", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(64, 4, 4));
         jPanel3.setPreferredSize(new java.awt.Dimension(1220, 1354));
 
         jPanel22.setBackground(new java.awt.Color(68, 4, 4));
@@ -904,10 +916,10 @@ public class MainFrm extends javax.swing.JFrame {
         mnuTab3.setLayout(mnuTab3Layout);
         mnuTab3Layout.setHorizontalGroup(
             mnuTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mnuTab3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mnuTab3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         mnuTab3Layout.setVerticalGroup(
             mnuTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -939,9 +951,9 @@ public class MainFrm extends javax.swing.JFrame {
         thirdPanelTab1Layout.setHorizontalGroup(
             thirdPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdPanelTab1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
         thirdPanelTab1Layout.setVerticalGroup(
             thirdPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -969,10 +981,10 @@ public class MainFrm extends javax.swing.JFrame {
         thirdPanelTab2.setLayout(thirdPanelTab2Layout);
         thirdPanelTab2Layout.setHorizontalGroup(
             thirdPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(thirdPanelTab2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdPanelTab2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
         thirdPanelTab2Layout.setVerticalGroup(
             thirdPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1000,10 +1012,10 @@ public class MainFrm extends javax.swing.JFrame {
         thirdPanelTab3.setLayout(thirdPanelTab3Layout);
         thirdPanelTab3Layout.setHorizontalGroup(
             thirdPanelTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(thirdPanelTab3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdPanelTab3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
         thirdPanelTab3Layout.setVerticalGroup(
             thirdPanelTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1032,8 +1044,9 @@ public class MainFrm extends javax.swing.JFrame {
         thirdPanelTab4Layout.setHorizontalGroup(
             thirdPanelTab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(thirdPanelTab4Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(labelInfo)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         thirdPanelTab4Layout.setVerticalGroup(
             thirdPanelTab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1060,10 +1073,10 @@ public class MainFrm extends javax.swing.JFrame {
         thirdPanelTab5.setLayout(thirdPanelTab5Layout);
         thirdPanelTab5Layout.setHorizontalGroup(
             thirdPanelTab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(thirdPanelTab5Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdPanelTab5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
         thirdPanelTab5Layout.setVerticalGroup(
             thirdPanelTab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1117,7 +1130,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel26)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1165,6 +1178,7 @@ public class MainFrm extends javax.swing.JFrame {
         fecha7.setText("Hoy es Sábado 28 de Abril de 2018");
 
         txtUserCliente.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtUserCliente.setForeground(new java.awt.Color(255, 255, 255));
         txtUserCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Usuario.gif"))); // NOI18N
         txtUserCliente.setText("User");
 
@@ -1173,27 +1187,27 @@ public class MainFrm extends javax.swing.JFrame {
         Header7Layout.setHorizontalGroup(
             Header7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Header7Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(47, 47, 47)
                 .addGroup(Header7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Header7Layout.createSequentialGroup()
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(691, Short.MAX_VALUE))
-                    .addGroup(Header7Layout.createSequentialGroup()
                         .addComponent(fecha7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                        .addComponent(txtUserCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
+                        .addComponent(txtUserCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87))
+                    .addGroup(Header7Layout.createSequentialGroup()
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         Header7Layout.setVerticalGroup(
             Header7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Header7Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(Header7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fecha7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtUserCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(45, 45, 45))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1215,7 +1229,7 @@ public class MainFrm extends javax.swing.JFrame {
                 .addComponent(Header7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(dspFondo2))
-            .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
+            .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
         );
 
         tabbedPanel1.addTab("Cliente", jPanel3);
