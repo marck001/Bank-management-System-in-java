@@ -66,6 +66,11 @@ public class BLMovimiento {
             mensaje = "No válido";
         return mensaje;
     }
+    
+    public static ArrayList<Movimiento> listarMovimientos() {
+        return DALMovimiento.listarMovimientos();
+    }
+    
 
     public static Movimiento obtenerMovimiento(String cuenCodigo) {
         if (cuenCodigo.trim().length() == 8) {

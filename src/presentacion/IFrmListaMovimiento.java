@@ -43,9 +43,26 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setClosable(true);
         setTitle("Listado de Movimientos");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista Movimientos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista Movimientos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
 
         tblMovimientos.setBackground(new java.awt.Color(204, 204, 204));
         tblMovimientos.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -169,8 +186,13 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
             Collections.sort(lista);
             llenarTabla(); // TODO add your handling code here:
     }//GEN-LAST:event_rbtncodEmpleadoActionPerformed
-    
-  }
+}
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        lista = BLMovimiento.listarMovimientos();
+        llenarTabla();// TODO add your handling code here:
+    }//GEN-LAST:event_formInternalFrameOpened
+ 
+
     private void llenarTabla(){
         modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(columnas);
@@ -186,7 +208,8 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
             fila[6]=movimiento.getTipoMovimiento();  
               
         }
-    }
+}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -205,3 +228,4 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
     private Iterator<Movimiento> iterador;
     private Movimiento movimiento;
 }
+

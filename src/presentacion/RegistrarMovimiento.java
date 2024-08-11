@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
+import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import logica.*;
@@ -138,6 +139,29 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
 
         lblcuenReferencia.setText("Cuenta Referencia:");
 
+        txtcodCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcodCuentaActionPerformed(evt);
+            }
+        });
+        txtcodCuenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcodCuentaKeyTyped(evt);
+            }
+        });
+
+        txtcuenReferencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcuenReferenciaKeyTyped(evt);
+            }
+        });
+
+        txtcodEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcodEmpleadoKeyTyped(evt);
+            }
+        });
+
         cbxDiaN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
 
         cbxMesN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
@@ -207,7 +231,6 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
                         .addGap(55, 55, 55)
                         .addComponent(btnRegistrar)
                         .addGap(54, 54, 54)))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtImporMov, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
                     .addComponent(txtcuenReferencia)
@@ -459,7 +482,41 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         } // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar2ActionPerformed
 
+    private void txtcodCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodCuentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcodCuentaActionPerformed
 
+    private void txtcodCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodCuentaKeyTyped
+           char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c!=KeyEvent.VK_BACK_SPACE) ){
+            evt.consume();
+        }
+        
+        if (txtcodCuenta.getText().length() > 4)
+            evt.consume();// TODO add your handling code here:
+    }//GEN-LAST:event_txtcodCuentaKeyTyped
+
+    private void txtcodEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodEmpleadoKeyTyped
+         char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c!=KeyEvent.VK_BACK_SPACE) ){
+            evt.consume();
+        }
+        
+        if (txtcodEmpleado.getText().length() > 4)
+            evt.consume(); // TODO add your handling code here:
+    }//GEN-LAST:event_txtcodEmpleadoKeyTyped
+
+    private void txtcuenReferenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcuenReferenciaKeyTyped
+        char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c!=KeyEvent.VK_BACK_SPACE) ){
+            evt.consume();
+        }
+        
+        if (txtcuenReferencia.getText().length() > 4)
+            evt.consume();// TODO add your handling code here:
+    }//GEN-LAST:event_txtcuenReferenciaKeyTyped
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevo2;
