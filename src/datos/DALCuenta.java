@@ -19,12 +19,14 @@ public class DALCuenta {
     private static Connection cn = null;
     private static ResultSet rs = null;
     private static CallableStatement cs = null;
+    private static CallableStatement cs2 = null;
 
     public static String insertarCuentaCredito(CuentaCredito obj) {
-        String mensaje = null, sql;
+        String mensaje = null, sql, sql2;
         try {
             cn = Conexion.realizarConexion();
             sql = "{call sp_insertar_cuenta_(?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)}";
+
             cs = cn.prepareCall(sql);
             cs.setString(1, obj.getCodigo());
             cs.setString(2, obj.getMoneCodigo());
@@ -34,11 +36,16 @@ public class DALCuenta {
             cs.setString(6, String.valueOf(obj.getSaldo()));
             cs.setString(7, obj.getFechaCreacionCorta());
             cs.setString(8, obj.getEstado());
-            
+
             cs.setString(9, String.valueOf(obj.getContMovimientos()));
             cs.setString(10, obj.getClave());
             cs.setString(11, obj.getCuenTipo());
-           
+
+            sql2 = "{call sp_insertarCuentaCredito(?)}";
+            cs2 = cn.prepareCall(sql2);
+            cs2.setString(1, obj.getCodigo());
+            cs2.executeUpdate();
+
             cs.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
@@ -46,6 +53,7 @@ public class DALCuenta {
             try {
                 cs.close();
                 cn.close();
+                cs2.close();
             } catch (SQLException ex) {
                 mensaje = ex.getMessage();
             }
@@ -54,7 +62,7 @@ public class DALCuenta {
     }
 
     public static String insertarCuentaDebito(CuentaDebito obj) {
-        String mensaje = null, sql;
+        String mensaje = null, sql, sql2;
         try {
             cn = Conexion.realizarConexion();
             sql = "{call sp_insertar_cuenta_(?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)}";
@@ -67,19 +75,23 @@ public class DALCuenta {
             cs.setString(6, String.valueOf(obj.getSaldo()));
             cs.setString(7, obj.getFechaCreacionCorta());
             cs.setString(8, obj.getEstado());
-            
+
             cs.setString(9, String.valueOf(obj.getContMovimientos()));
             cs.setString(10, obj.getClave());
             cs.setString(11, obj.getCuenTipo());
-           
-
             cs.executeUpdate();
+
+            sql2 = "{call sp_insertarCuentaDebito(?)}";
+            cs2 = cn.prepareCall(sql2);
+            cs2.setString(1, obj.getCodigo());
+            cs2.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
         } finally {
             try {
                 cs.close();
                 cn.close();
+                cs2.close();
             } catch (SQLException ex) {
                 mensaje = ex.getMessage();
             }
@@ -104,6 +116,7 @@ public class DALCuenta {
             try {
                 rs.close();
                 cs.close();
+
                 cn.close();
             } catch (SQLException ex) {
                 showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -184,15 +197,17 @@ public class DALCuenta {
             rs = cs.executeQuery(sql);
             while (rs.next()) {
 
-                String[] string = rs.getString(3).split("-");
+                 if(rs.getString(11).equalsIgnoreCase("DEBITO")){
+                String[] string = rs.getString(7).split("-");
                 // String codigo, float saldo, GregorianCalendar fechaCreacion, String estado,
                 // int contMovimientos, String clave, String moneCodigo, String sucuCodigo,
                 // String emplCreaCuenta, String clieCodigo
-                list.add(new CuentaDebito(rs.getString(1), Float.parseFloat(rs.getString(2)),
+                list.add(new CuentaDebito(rs.getString(1), rs.getFloat(6),
                         new GregorianCalendar(Integer.parseInt(string[0]), Integer.parseInt(string[1]),
                                 Integer.parseInt(string[2])),
-                        rs.getString(4), Integer.parseInt(rs.getString(5)), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11)));
+                        rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(2),
+                        rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(11)));
+                 }
 
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -219,12 +234,15 @@ public class DALCuenta {
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery(sql);
             while (rs.next()) {
-                String[] string = rs.getString(3).split("-");
-                list.add(new CuentaCredito(rs.getString(1), Float.parseFloat(rs.getString(2)),
+                if(rs.getString(11).equalsIgnoreCase("CREDITO")){
+                String[] string = rs.getString(7).split("-");
+                list.add(new CuentaCredito(rs.getString(1), rs.getFloat(6),
                         new GregorianCalendar(Integer.parseInt(string[0]), Integer.parseInt(string[1]),
                                 Integer.parseInt(string[2])),
-                        rs.getString(4), Integer.parseInt(rs.getString(5)), rs.getString(6), rs.getString(7),
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11)));
+                        rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(2),
+                        rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(11)));
+                }
+                
             }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -388,8 +406,8 @@ public class DALCuenta {
         }
         return mensaje;
     }
-    
-    public static String obtenerPuntosCredito(String codCuenta){
+
+    public static String obtenerPuntosCredito(String codCuenta) {
         String sql;
         try {
             cn = Conexion.realizarConexion();
@@ -413,12 +431,12 @@ public class DALCuenta {
         }
         return null;
     }
-    
-    public static String actualizarPuntosCredito(String codCuenta, float saldo){
+
+    public static String actualizarPuntosCredito(String codCuenta, float saldo) {
         String mensaje = null;
         String puntosStr = obtenerPuntosCredito(codCuenta);
-        float puntos =Float.parseFloat(puntosStr);
-        float nuevosPuntos = puntos + (saldo*0.2f);
+        float puntos = Float.parseFloat(puntosStr);
+        float nuevosPuntos = puntos + (saldo * 0.2f);
         try {
             cn = Conexion.realizarConexion();
             String sql = "{call sp_actualizar_puntos(?, ?)}";
@@ -438,13 +456,13 @@ public class DALCuenta {
         }
         return mensaje;
     }
-    
-    public static String converterPuntosCreditoASaldo(String codCuenta, float puntosAconvertir){
+
+    public static String converterPuntosCreditoASaldo(String codCuenta, float puntosAconvertir) {
         String mensaje = null;
         String puntosStr = obtenerPuntosCredito(codCuenta);
-        float puntos =Float.parseFloat(puntosStr);
+        float puntos = Float.parseFloat(puntosStr);
         Cuenta cuenta = obtenerCuenta(codCuenta);
-        float nuevoSaldo = cuenta.getSaldo()+((puntos + puntosAconvertir)*0.02f);
+        float nuevoSaldo = cuenta.getSaldo() + ((puntos + puntosAconvertir) * 0.02f);
         try {
             cn = Conexion.realizarConexion();
             String sql = "{call sp_actualizar_Saldo(?, ?)}";
