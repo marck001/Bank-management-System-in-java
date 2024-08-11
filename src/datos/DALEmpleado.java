@@ -73,17 +73,17 @@ public class DALEmpleado {
         return null;
     }
     
-    public static String buscarEmpleadoLogin(String codigo, String clave) {
+    public static String buscarEmpleadoLogin(String usuario, String clave) {
         String sql;
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_buscar_empleado(?, ?)}";
+            sql = "{call sp_buscar_empleado_login(?, ?)}";
             cs = cn.prepareCall(sql);
-            cs.setString(1, codigo);
-            cs.setString(1, clave);
+            cs.setString(1, usuario);
+            cs.setString(2, clave);
             rs = cs.executeQuery();
             while (rs.next()) {
-                return rs.getString("emplcodigo");
+                return rs.getString("emplusuario");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -104,7 +104,7 @@ public class DALEmpleado {
         ArrayList<Empleado> empl = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_listar_empl}";
+            sql = "{call sp_listar_empleados}";
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery();
             while (rs.next()) {

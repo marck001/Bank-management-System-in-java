@@ -40,9 +40,9 @@ public class BLEmpleado {
         }
     }
     
-    public static String buscarEmpleadoLogin(String codigo, String clave) {
-        if (codigo.trim().length() == 4 && clave == null) {
-            return DALEmpleado.buscarEmpleadoLogin(codigo, clave);
+    public static String buscarEmpleadoLogin(String usuario, String clave) {
+        if (usuario !=null && clave !=null) {
+            return DALEmpleado.buscarEmpleadoLogin(usuario, clave);
         } else {
             return null;
         }

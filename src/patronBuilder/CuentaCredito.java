@@ -3,7 +3,7 @@ import entidades.*;
 import java.util.GregorianCalendar;
 
 public class CuentaCredito extends Cuenta {
-   private int puntos;
+   private float puntos;
   
 
     public CuentaCredito() {
@@ -11,7 +11,7 @@ public class CuentaCredito extends Cuenta {
     }
 
     public CuentaCredito(String codigo, float saldo, GregorianCalendar fechaCreacion, String estado, int contMovimientos, String clave, String moneCodigo,
-     String sucuCodigo, String emplCreaCuenta, String clieCodigo, String cuentipo, int puntos) {
+     String sucuCodigo, String emplCreaCuenta, String clieCodigo, String cuentipo, float puntos) {
         super(codigo, saldo, fechaCreacion, estado, contMovimientos, clave, moneCodigo, sucuCodigo,emplCreaCuenta,clieCodigo, cuentipo);
         this.puntos = puntos;
     }
@@ -20,20 +20,14 @@ public class CuentaCredito extends Cuenta {
     String sucuCodigo, String emplCreaCuenta, String clieCodigo, String cuentipo) {
        super(codigo, saldo, fechaCreacion, estado, contMovimientos, clave, moneCodigo, sucuCodigo,emplCreaCuenta,clieCodigo, cuentipo);
        
-   }
+    }
 
-
-    public int getPuntos() {
+    public float getPuntos() {
         return puntos;
     }
 
-    public void setPuntos(int puntos) {
+    public void setPuntos(float puntos) {
         this.puntos = puntos;
     }
-   
-    //String codigo, float saldo, GregorianCalendar fechaCreacion, String estado, int contMovimientos,
-    //String clave, String moneCodigo, String sucuCodigo, String emplCreaCuenta, String clieCodigo,
-    //String cuenTipo
-
 
 }

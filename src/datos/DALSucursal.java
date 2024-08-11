@@ -80,7 +80,7 @@ public class DALSucursal {
         ArrayList<Sucursal> sucursales = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_listar_sucursales}";
+            sql = "{call sp_listar_sucursal}";
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery();
             while (rs.next()) {

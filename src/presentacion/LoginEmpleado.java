@@ -34,12 +34,12 @@ public class LoginEmpleado extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        txtClave = new javax.swing.JTextField();
         lblClave = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        lblUsuario = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        passCodigo = new javax.swing.JPasswordField();
+        passClave = new javax.swing.JPasswordField();
         panelBtnEntrar = new javax.swing.JPanel();
         lblEntrar = new javax.swing.JLabel();
         panelBtnVolver = new javax.swing.JPanel();
@@ -69,25 +69,25 @@ public class LoginEmpleado extends javax.swing.JFrame {
         jLabel1.setText("LOGIN");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
-        lblNombre.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        lblNombre.setText("Código");
-        lblNombre.setToolTipText("");
-        jPanel3.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 72, 22));
-
-        txtClave.setForeground(new java.awt.Color(204, 204, 204));
-        txtClave.setText("Ingrese su clave");
-        txtClave.setBorder(null);
-        txtClave.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtClaveMousePressed(evt);
-            }
-        });
-        jPanel3.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 210, 30));
-
         lblClave.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         lblClave.setText("Clave");
         lblClave.setToolTipText("");
-        jPanel3.add(lblClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 130, 22));
+        jPanel3.add(lblClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 72, 22));
+
+        txtUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        txtUsuario.setText("Ingrese su usuario");
+        txtUsuario.setBorder(null);
+        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtUsuarioMousePressed(evt);
+            }
+        });
+        jPanel3.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 210, 30));
+
+        lblUsuario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        lblUsuario.setText("Usuario");
+        lblUsuario.setToolTipText("");
+        jPanel3.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 130, 22));
 
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 210, 10));
@@ -95,15 +95,15 @@ public class LoginEmpleado extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(51, 51, 51));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 210, -1));
 
-        passCodigo.setForeground(new java.awt.Color(204, 204, 204));
-        passCodigo.setText("********");
-        passCodigo.setBorder(null);
-        passCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
+        passClave.setForeground(new java.awt.Color(204, 204, 204));
+        passClave.setText("********");
+        passClave.setBorder(null);
+        passClave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                passCodigoMousePressed(evt);
+                passClaveMousePressed(evt);
             }
         });
-        jPanel3.add(passCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 210, 30));
+        jPanel3.add(passClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 210, 30));
 
         panelBtnEntrar.setBackground(new java.awt.Color(68, 171, 181));
 
@@ -175,44 +175,45 @@ public class LoginEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtClaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtClaveMousePressed
-        if(txtClave.getText().equals("Ingrese su clave")) {
-            txtClave.setText("");
-            txtClave.setForeground(Color.black);
+    private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
+        if(txtUsuario.getText().equals("Ingrese su usuario")) {
+            txtUsuario.setText("");
+            txtUsuario.setForeground(Color.black);
         }
-        if(String.valueOf(passCodigo.getPassword()).isEmpty()) {
-            passCodigo.setText("********");
-            passCodigo.setForeground(Color.gray);
+        if(String.valueOf(passClave.getPassword()).isEmpty()) {
+            passClave.setText("********");
+            passClave.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_txtClaveMousePressed
+    }//GEN-LAST:event_txtUsuarioMousePressed
 
-    private void passCodigoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passCodigoMousePressed
-        if(String.valueOf(passCodigo.getPassword()).equals("********")) {
-            passCodigo.setText("");
-            passCodigo.setForeground(Color.black);
+    private void passClaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passClaveMousePressed
+        if(String.valueOf(passClave.getPassword()).equals("********")) {
+            passClave.setText("");
+            passClave.setForeground(Color.black);
         }
-        if(txtClave.getText().isEmpty()) {
-            txtClave.setText("Ingrese su clave");
-            txtClave.setForeground(Color.gray);
+        if(txtUsuario.getText().isEmpty()) {
+            txtUsuario.setText("Ingrese su usuario");
+            txtUsuario.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_passCodigoMousePressed
+    }//GEN-LAST:event_passClaveMousePressed
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
-        clave = txtClave.getText();
-        codigo = String.valueOf(passCodigo.getPassword());
-        respuesta = BLEmpleado.buscarEmpleadoLogin(codigo, clave);
+        usuario = txtUsuario.getText();
+        clave = String.valueOf(passClave.getPassword());
+        respuesta = BLEmpleado.buscarEmpleadoLogin(usuario, clave);
         if(respuesta!=null) {
             MainFrm frm = new MainFrm();
+            frm.setUser(1, respuesta, false);
             frm.setVisible(true);
             frm.pack();
             frm.setLocationRelativeTo(null);
             this.dispose();
         } else {
             showMessageDialog(null, "Codigo o clave erronea, intente nuevamente", "Login Empleado",0);
-            txtClave.setText("Ingrese su clave");
-            txtClave.setForeground(Color.gray);
-            passCodigo.setText("********");
-            passCodigo.setForeground(Color.gray);
+            txtUsuario.setText("Ingrese su clave");
+            txtUsuario.setForeground(Color.gray);
+            passClave.setText("********");
+            passClave.setForeground(Color.gray);
         }
     }//GEN-LAST:event_lblEntrarMouseClicked
 
@@ -234,12 +235,12 @@ public class LoginEmpleado extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblClave;
     private javax.swing.JLabel lblEntrar;
-    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel panelBtnEntrar;
     private javax.swing.JPanel panelBtnVolver;
-    private javax.swing.JPasswordField passCodigo;
-    private javax.swing.JTextField txtClave;
+    private javax.swing.JPasswordField passClave;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
-    private String codigo, clave, respuesta;
+    private String usuario, clave, respuesta;
 }

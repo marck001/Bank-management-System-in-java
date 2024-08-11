@@ -82,7 +82,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="dspFondo" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="FirstPanelMenu" alignment="0" pref="827" max="32767" attributes="0"/>
+                  <Component id="FirstPanelMenu" alignment="0" pref="823" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -623,7 +623,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel4" pref="827" max="32767" attributes="0"/>
+                  <Component id="jPanel4" pref="823" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="Header" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1187,7 +1187,7 @@
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Component id="dspFondo2" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jPanel22" pref="827" max="32767" attributes="0"/>
+                  <Component id="jPanel22" pref="823" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1609,7 +1609,7 @@
             <Container class="javax.swing.JDesktopPane" name="dspFondo2">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Southwest Resize Cursor"/>
+                  <Color id="Cursor Por defecto"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -1648,8 +1648,8 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="fecha7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtUserCliente" min="-2" pref="204" max="-2" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
+                                  <Component id="txtUserCliente" min="-2" pref="355" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               </Group>
                           </Group>

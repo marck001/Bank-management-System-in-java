@@ -196,8 +196,9 @@ public class LoginAdministrador extends javax.swing.JFrame {
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
         user = txtAdmi.getText();
         password = String.valueOf(txtContra.getPassword());
-        if(user=="admin" && password=="admin") {
+        if(user.compareToIgnoreCase("admin")==0 && password.compareToIgnoreCase("admin")==0) {
             MainFrm frm = new MainFrm();
+            frm.setUser(0, "administrador", true);
             frm.setVisible(true);
             frm.pack();
             frm.setLocationRelativeTo(null);

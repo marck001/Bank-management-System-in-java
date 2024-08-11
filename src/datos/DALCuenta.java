@@ -32,13 +32,13 @@ public class DALCuenta {
             cs.setString(4, obj.getEmplCreaCuenta());
             cs.setString(5, obj.getClieCodigo());
             cs.setString(6, String.valueOf(obj.getSaldo()));
-            cs.setString(7, obj.getFechaCreacion().toString());
+            cs.setString(7, obj.getFechaCreacionCorta());
             cs.setString(8, obj.getEstado());
+            
             cs.setString(9, String.valueOf(obj.getContMovimientos()));
             cs.setString(10, obj.getClave());
             cs.setString(11, obj.getCuenTipo());
            
-
             cs.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
@@ -65,8 +65,9 @@ public class DALCuenta {
             cs.setString(4, obj.getEmplCreaCuenta());
             cs.setString(5, obj.getClieCodigo());
             cs.setString(6, String.valueOf(obj.getSaldo()));
-            cs.setString(7, obj.getFechaCreacion().toString());
+            cs.setString(7, obj.getFechaCreacionCorta());
             cs.setString(8, obj.getEstado());
+            
             cs.setString(9, String.valueOf(obj.getContMovimientos()));
             cs.setString(10, obj.getClave());
             cs.setString(11, obj.getCuenTipo());
@@ -85,57 +86,6 @@ public class DALCuenta {
         }
         return mensaje;
     }
-
-
-
-  /*
-    public static String insertarCuentaDebito(CuentaDebito obj) {
-        String mensaje = null, sql;
-        try {
-            cn = Conexion.realizarConexion();
-            sql = "{call sp_insertar_cuentaDebito(?, ?, ?)}";
-            cs = cn.prepareCall(sql);
-            cs.setString(1, obj.getCodigo());
-            cs.setString(2, obj.getCuenTipo());
-            cs.setInt(3, obj.getNumTarjeta());
-            cs.executeUpdate();
-        } catch (ClassNotFoundException | SQLException ex) {
-            mensaje = ex.getMessage();
-        } finally {
-            try {
-                cs.close();
-                cn.close();
-            } catch (SQLException ex) {
-                mensaje = ex.getMessage();
-            }
-        }
-        return mensaje;
-    }
-
-    public static String insertarCuentaCredito(CuentaCredito obj) {
-        String mensaje = null, sql;
-        try {
-            cn = Conexion.realizarConexion();
-            sql = "{call sp_insertar_cuentaCredito(?, ?, ?)}";
-            cs = cn.prepareCall(sql);
-            cs.setString(1, obj.getCodigo());
-            cs.setString(2, obj.getCuenTipo());
-            cs.setInt(11, obj.getPuntos());
-            cs.executeUpdate();
-        } catch (ClassNotFoundException | SQLException ex) {
-            mensaje = ex.getMessage();
-        } finally {
-            try {
-                cs.close();
-                cn.close();
-            } catch (SQLException ex) {
-                mensaje = ex.getMessage();
-            }
-        }
-        return mensaje;
-    }
-
-     */
 
     public static String buscarCuenta(String codigo) {
         String sql;
@@ -191,7 +141,7 @@ public class DALCuenta {
         Cuenta obj = new CuentaDebito();
         try {
             cn = Conexion.realizarConexion();
-            String sql = "{call sp_busca_cuenta(?)}";
+            String sql = "{call sp_buscar_cuenta(?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, cuenCodigo);
             rs = cs.executeQuery();

@@ -77,13 +77,13 @@ public class DALCliente {
         String sql;
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_buscar_cliente(?, ?)}";
+            sql = "{call sp_buscar_cliente_login(?, ?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, codigo);
             cs.setString(2, dni);
             rs = cs.executeQuery();
             while (rs.next()) {
-                return rs.getString("cliecodigo");
+                return rs.getString("clieemail");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
