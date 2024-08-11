@@ -538,31 +538,27 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar1ActionPerformed
-        IFrmActualizarMoneda internalFrame = new IFrmActualizarMoneda();
-        internalFrame.setVisible(true);
-//        IFrmActualizarMoneda ifrmActualizarMoneda = new IFrmActualizarMoneda();
-//        MainFrm.centrarInternalFrameExterno(ifrmActualizarMoneda);
+
+        IFrmActualizarMoneda ifrmActualizarMoneda = new IFrmActualizarMoneda();
+        MainFrm.centrarInternalFrameExterno(ifrmActualizarMoneda);
     }//GEN-LAST:event_btnActualizar1ActionPerformed
 
     private void btnActualizar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar2ActionPerformed
-        IFrmActualizarMantenimiento internalFrame = new IFrmActualizarMantenimiento();
-        internalFrame.setVisible(true);
-//        IFrmActualizarMantenimiento ifrmActualizarMantenimiento = new IFrmActualizarMantenimiento();
-//        FrmPrincipal.centrarInternalFrameExterno(ifrmActualizarMantenimiento );
+
+        IFrmActualizarMantenimiento ifrmActualizarMantenimiento = new IFrmActualizarMantenimiento();
+        MainFrm.centrarInternalFrameExterno(ifrmActualizarMantenimiento );
     }//GEN-LAST:event_btnActualizar2ActionPerformed
 
     private void btnActualizar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar3ActionPerformed
-        IFrmActualizarCosto internalFrame = new  IFrmActualizarCosto();
-        internalFrame.setVisible(true);
-//       IFrmActualizarCosto ifrmActualizarCosto = new IFrmActualizarCosto();
-//        FrmPrincipal.centrarInternalFrameExterno(ifrmActualizarCosto);
+       
+       IFrmActualizarCosto ifrmActualizarCosto = new IFrmActualizarCosto();
+       MainFrm.centrarInternalFrameExterno(ifrmActualizarCosto);
     }//GEN-LAST:event_btnActualizar3ActionPerformed
 
     private void btnActualizar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar4ActionPerformed
-        IFrmActualizarInteres internalFrame = new  IFrmActualizarInteres();
-        internalFrame.setVisible(true);        
-//        IFrmActualizarInteres ifrmActualizarInteres = new IFrmActualizarInteres();
-//        FrmPrincipal.centrarInternalFrameExterno(ifrmActualizarInteres);
+  
+        IFrmActualizarInteres ifrmActualizarInteres = new IFrmActualizarInteres();
+        MainFrm.centrarInternalFrameExterno(ifrmActualizarInteres);
     }//GEN-LAST:event_btnActualizar4ActionPerformed
     private void mostrarMensajeError(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
