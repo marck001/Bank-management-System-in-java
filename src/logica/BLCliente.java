@@ -14,13 +14,13 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class BLCliente {
     private static Cliente obj;
 
-    public static int insertarCliente(String codigo, String apellidoP, String apellidoM, String nombre, String dni, String ciudad, String direccion, String email, String telefono) {
+    public static int insertarCliente(String codigo, String apePaterno, String apeMaterno, String nombre, String dni, String ciudad, String direccion, String email, String telefono) {
         String mensaje;
-        if (codigo.trim().length() == 5 && apellidoP.trim().length() > 0 && apellidoM.trim().length() > 0&& nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && email.trim().length() > 0 && telefono.trim().length() ==9) {
+        if (codigo.trim().length() == 5 && apePaterno.trim().length() > 0 && apeMaterno.trim().length() > 0&& nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && email.trim().length() > 0 && telefono.trim().length() ==9) {
          
               if (buscarCliente(codigo) == null) {
             //String codigo, String apellidoPaterno, String apellidoMaterno, String nombre, String dni, String ciudad, String direccion, String email, String telefono
-                obj = new Cliente(codigo, apellidoP,apellidoM, nombre,dni, ciudad, direccion, email, telefono);
+                obj = new Cliente(codigo, apePaterno,apeMaterno, nombre,dni, ciudad, direccion, email, telefono);
                 mensaje = DALCliente.insertaCliente(obj);
                 if (mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
@@ -68,10 +68,10 @@ public class BLCliente {
         return DALCliente.listarClientes();
     }
 
-    public static String actualizarCliente(String codigo, String apellidoP, String apellidoM, String nombre, String dni, String ciudad, String direccion, String email, String telefono) {
+    public static String actualizarCliente(String codigo, String apePaterno, String apeMaterno, String nombre, String dni, String ciudad, String direccion, String email, String telefono) {
         String mensaje;
-        if (codigo.trim().length() == 5 && apellidoP.trim().length() > 0 && apellidoM.trim().length() > 0&& nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && email.trim().length() > 0 && telefono.trim().length() <= 20) {
-            obj = new Cliente(codigo, apellidoP,apellidoM, nombre,dni, ciudad, direccion, email, telefono);
+        if (codigo.trim().length() == 5 && apePaterno.trim().length() > 0 && apeMaterno.trim().length() > 0&& nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && email.trim().length() > 0 && telefono.trim().length() <= 20) {
+            obj = new Cliente(codigo, apePaterno,apeMaterno, nombre,dni, ciudad, direccion, email, telefono);
             mensaje = DALCliente.actualizarCliente(obj);
             if (mensaje == null) {
                 mensaje = "Registro actualizado";

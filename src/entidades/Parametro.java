@@ -9,7 +9,7 @@ package entidades;
  * @author Manuel Arteaga
  */
 public class Parametro {
-        private String paraCodigo;
+    private String paraCodigo;
     private String paraDescripcion;
     private String paraValor;
     private String paraEstado;

@@ -63,9 +63,8 @@ public class IFrmListaTipoMovimiento extends javax.swing.JInternalFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(230, 230, 230));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista Empleados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista Empleados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
 
-        tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
         tblEmpleados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblEmpleados.setForeground(new java.awt.Color(253, 253, 253));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(

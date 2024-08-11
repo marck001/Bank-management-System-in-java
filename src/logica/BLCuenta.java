@@ -74,13 +74,6 @@ public class BLCuenta {
         return DALCuenta.listarCuentasCredito();
     
     }
-    public static String buscarEmpleado(String codigo) {
-        if (codigo.trim().length() == 4) {
-            return DALEmpleado.buscarEmpleado(codigo);
-        } else {
-            return null;
-        }
-    }
 
     public static Cuenta obtenerCuenta(String codigo) {
         if (codigo.trim().length() == 8 && buscar(codigo) != null) {

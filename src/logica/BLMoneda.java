@@ -65,8 +65,6 @@ public class BLMoneda {
         return mensaje;
     }
 
-    
-
     public static Moneda obtenerMoneda(String codigo) {
         if (codigo.trim().length() == 2) {
             moneda = DALMoneda.obtenerMoneda(codigo);
