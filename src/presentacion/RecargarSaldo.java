@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
+import java.awt.event.*;
 import patronAdapter.*;
 
 /**
@@ -73,12 +74,18 @@ public class RecargarSaldo extends javax.swing.JInternalFrame {
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ingresa monto");
 
         txtSaldoRecargado.setBackground(new java.awt.Color(102, 102, 102));
         txtSaldoRecargado.setForeground(new java.awt.Color(255, 255, 255));
         txtSaldoRecargado.setDisabledTextColor(new java.awt.Color(126, 56, 56));
         txtSaldoRecargado.setSelectionColor(new java.awt.Color(126, 53, 53));
+        txtSaldoRecargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSaldoRecargadoKeyTyped(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/monedas.png"))); // NOI18N
         jButton1.setText("RECARGAR");
@@ -191,6 +198,12 @@ public class RecargarSaldo extends javax.swing.JInternalFrame {
         this.dispose();
         new BancaPorInternet(codCuentica);
     }//GEN-LAST:event_iconoVolverMouseClicked
+
+    private void txtSaldoRecargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoRecargadoKeyTyped
+        char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtSaldoRecargado.getText().contains(".")))
+           evt.consume();
+    }//GEN-LAST:event_txtSaldoRecargadoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

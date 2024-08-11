@@ -164,7 +164,14 @@ public class InfPuntos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void btnConvertirSaldoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConvertirSaldoMouseClicked
-        String saldo = JOptionPane.showInputDialog("Ingrese los puntos a convertir en saldo:");
+        Float saldoFloat;
+        String saldo;
+        do{
+            saldo = JOptionPane.showInputDialog("Ingrese los puntos a convertir en saldo:");
+            saldoFloat=Float.parseFloat(saldo);
+            if(saldoFloat<=0.0f)
+                showMessageDialog(null, "Saldo no válido " , "Error", 0 );
+        }while(saldoFloat<=0.0f);
         String mensaje = BLCuenta.converterPuntosCreditoASaldo(codCuentica, Float.parseFloat(saldo));
         Float saldoNuevo;
         if(mensaje == null){

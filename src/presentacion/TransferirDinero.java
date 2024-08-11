@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
+import java.awt.event.KeyEvent;
 import static javax.swing.JOptionPane.showMessageDialog;
 import patronAdapter.*;
 /**
@@ -83,6 +84,11 @@ public class TransferirDinero extends javax.swing.JInternalFrame {
         txtSaldoTransferido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtSaldoTransferidoMouseClicked(evt);
+            }
+        });
+        txtSaldoTransferido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSaldoTransferidoKeyTyped(evt);
             }
         });
 
@@ -222,6 +228,12 @@ public class TransferirDinero extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         txtSaldoTransferido.setText(null);
     }//GEN-LAST:event_txtSaldoTransferidoMouseClicked
+
+    private void txtSaldoTransferidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoTransferidoKeyTyped
+        char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtSaldoTransferido.getText().contains(".")))
+           evt.consume();
+    }//GEN-LAST:event_txtSaldoTransferidoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
