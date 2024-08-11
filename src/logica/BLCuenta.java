@@ -202,6 +202,14 @@ public class BLCuenta {
         return DALCuenta.obtenerPuntosCredito(codCuenta);
     }
     
+      public static String obtenerPuntosCredito2(String codCuenta){
+        return DALCuenta.obtenerPuntosCredito2(codCuenta);
+    }
+    
+     public static String obtenerNumTarjetaDebito(String codCuenta){
+        return DALCuenta.obtenerTarjetaDebito(codCuenta);
+    }
+    
     public static String actualizarPuntosCreditoPorSaldo(String codCuenta, float saldo){
         return DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
     }

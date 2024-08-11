@@ -431,6 +431,59 @@ public class DALCuenta {
         }
         return null;
     }
+    
+    public static String obtenerPuntosCredito2(String codCuenta) {
+        String sql;
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_obtenerPuntos(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, codCuenta);
+            rs = cs.executeQuery();
+           if (rs.next()) {
+                return rs.getString("cuenPuntos");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return null;
+    }
+    
+     public static String obtenerTarjetaDebito(String codCuenta) {
+        String sql;
+        String tarjetaNumero = null;
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{sp_obtener_numTarjeta(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, codCuenta);
+            rs = cs.executeQuery();
+            if (rs.next()) {
+            tarjetaNumero = rs.getString("cuenNumtarjeta");
+        }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return  tarjetaNumero ;
+    }
+    
+    
 
     public static String actualizarPuntosCredito(String codCuenta, float saldo) {
         String mensaje = null;

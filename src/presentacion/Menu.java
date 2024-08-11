@@ -18,7 +18,7 @@ public class Menu extends javax.swing.JInternalFrame {
      */
     public Menu() {
         initComponents();
-         this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
     }
@@ -560,12 +560,12 @@ public class Menu extends javax.swing.JInternalFrame {
 
     private void d2_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2MouseClicked
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_d2_2MouseClicked
 
     private void d2_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2dash_h
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_d2_2dash_h
 
     private void d2_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2dash_e
@@ -575,118 +575,125 @@ public class Menu extends javax.swing.JInternalFrame {
 
     private void d3_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d3_2MouseClicked
         // TODO add your handling code here:
-      IFrmListaCuentasCredito tab = new IFrmListaCuentasCredito();
-          MainFrm.centrarInternalFrameExterno(tab);
-      
+        IFrmListaCuentasCredito tab = new IFrmListaCuentasCredito();
+        MainFrm.centrarInternalFrameExterno(tab);
+
     }//GEN-LAST:event_d3_2MouseClicked
 
     private void d3_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d3_2dash_h
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_d3_2dash_h
 
     private void d3_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d3_2dash_e
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_d3_2dash_e
 
     private void d6_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d6_2MouseClicked
         // TODO add your handling code here:
-    
+
+        IFrmListaMonedas tab = new IFrmListaMonedas();
+        MainFrm.centrarInternalFrameExterno(tab);
+
     }//GEN-LAST:event_d6_2MouseClicked
 
     private void d6_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d6_2dash_h
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_d6_2dash_h
 
     private void d6_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d6_2dash_e
         // TODO add your handling code here:
- 
+
     }//GEN-LAST:event_d6_2dash_e
 
     private void d5_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d5_2MouseClicked
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_d5_2MouseClicked
 
     private void d5_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d5_2dash_h
-     
-        
+
+
     }//GEN-LAST:event_d5_2dash_h
 
     private void d5_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d5_2dash_e
-   
+
     }//GEN-LAST:event_d5_2dash_e
 
     private void d9_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d9_2MouseClicked
         // TODO add your handling code here:
-      
+
+        IFrmListaMovimiento tab = new IFrmListaMovimiento();
+        MainFrm.centrarInternalFrameExterno(tab);
+
     }//GEN-LAST:event_d9_2MouseClicked
 
     private void d9_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d9_2dash_h
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_d9_2dash_h
 
     private void d9_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d9_2dash_e
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_d9_2dash_e
 
     private void d8_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d8_2MouseClicked
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_d8_2MouseClicked
 
     private void d8_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d8_2dash_h
-       
+
     }//GEN-LAST:event_d8_2dash_h
 
     private void d8_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d8_2dash_e
-      
+
     }//GEN-LAST:event_d8_2dash_e
 
     private void d7_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d7_2MouseClicked
-       
+        IFrmListaTipoMovimiento tab = new IFrmListaTipoMovimiento();
+        MainFrm.centrarInternalFrameExterno(tab);
     }//GEN-LAST:event_d7_2MouseClicked
 
     private void d7_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d7_2dash_h
-    
+
     }//GEN-LAST:event_d7_2dash_h
 
     private void d7_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d7_2dash_e
-    
+
     }//GEN-LAST:event_d7_2dash_e
 
     private void d1_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d1_2MouseClicked
-          // TODO add your handling code here:
-       IFrmListaEmpleados tab = new IFrmListaEmpleados();
-     MainFrm.centrarInternalFrameExterno(tab);
+        // TODO add your handling code here:
+        IFrmListaEmpleados tab = new IFrmListaEmpleados();
+        MainFrm.centrarInternalFrameExterno(tab);
     }//GEN-LAST:event_d1_2MouseClicked
 
     private void d1_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d1_2dash_h
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_d1_2dash_h
 
     private void d1_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d1_2dash_e
-      
+
     }//GEN-LAST:event_d1_2dash_e
 
     private void d4_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d4_2MouseClicked
 
-           IFrmListaCuentasDebito tab = new IFrmListaCuentasDebito();
-          MainFrm.centrarInternalFrameExterno(tab);
+        IFrmListaCuentasDebito tab = new IFrmListaCuentasDebito();
+        MainFrm.centrarInternalFrameExterno(tab);
     }//GEN-LAST:event_d4_2MouseClicked
 
     private void d4_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d4_2dash_h
-     
+
     }//GEN-LAST:event_d4_2dash_h
 
     private void d4_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d4_2dash_e
-     
-          
+
+
     }//GEN-LAST:event_d4_2dash_e
 
 
