@@ -41,7 +41,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         
         //Tipo Movimiento 
         txtTipoCodigo.setEnabled(estado);
-        txtDescripcion.setEnabled(estado);
+        cbxDescripcion.setEnabled(true);
         txtAccion.setEnabled(estado);
         txtEstado.setEnabled(estado);
         btnNuevo2.setEnabled(estado);
@@ -56,7 +56,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         cbxAñoN.setSelectedIndex(0);
         cbxnumMov.setSelectedIndex(0);
         txtTipoCodigo.setText(null);
-        txtDescripcion.setText(null);
+        cbxDescripcion.setSelectedIndex(0);
         txtAccion.setText(null);
     }
     
@@ -96,12 +96,12 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         lblAccion = new javax.swing.JLabel();
         lblEstado = new javax.swing.JLabel();
         txtTipoCodigo = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
         txtAccion = new javax.swing.JTextField();
         btnNuevo2 = new javax.swing.JButton();
         btnRegistrar2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txtEstado = new javax.swing.JTextField();
+        cbxDescripcion = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -271,12 +271,6 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
 
         lblEstado.setText("Accion:");
 
-        txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescripcionActionPerformed(evt);
-            }
-        });
-
         txtAccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAccionActionPerformed(evt);
@@ -305,6 +299,8 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Estado:");
 
+        cbxDescripcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -321,16 +317,16 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
                         .addGap(62, 62, 62)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTipoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtEstado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                                .addComponent(txtAccion, javax.swing.GroupLayout.Alignment.LEADING))))
+                                .addComponent(txtAccion, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(cbxDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addComponent(btnNuevo2)
                         .addGap(48, 48, 48)
                         .addComponent(btnRegistrar2)))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel6)
@@ -350,8 +346,8 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
                         .addGap(26, 26, 26)
                         .addComponent(lblAccion))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(25, 25, 25)
+                        .addComponent(cbxDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -367,7 +363,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo2)
                     .addComponent(btnRegistrar2))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -412,10 +408,6 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAccionActionPerformed
 
-    private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescripcionActionPerformed
-
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         //movimiento
         int respuesta;
@@ -451,7 +443,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
     private void btnRegistrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar2ActionPerformed
         int respuesta;
         tipoCodigo = txtTipoCodigo.getText();
-        tipoDescripcion = txtDescripcion.getText();
+        tipoDescripcion = String.valueOf(cbxDescripcion.getSelectedItem());
         tipoAccion = txtAccion.getText();
         tipoEstado = txtEstado.getText();
         respuesta = BLTipoMovimiento.insertarTipoMovimiento(tipoCodigo, tipoDescripcion, tipoAccion, tipoEstado);
@@ -474,6 +466,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegistrar2;
     private javax.swing.JComboBox<String> cbxAñoN;
+    private javax.swing.JComboBox<String> cbxDescripcion;
     private javax.swing.JComboBox<String> cbxDiaN;
     private javax.swing.JComboBox<String> cbxMesN;
     private javax.swing.JComboBox<String> cbxnumMov;
@@ -494,7 +487,6 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblcuenReferencia;
     private javax.swing.JLabel lblnumMov;
     private javax.swing.JTextField txtAccion;
-    private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtImporMov;
     private javax.swing.JTextField txtTipoCodigo;
