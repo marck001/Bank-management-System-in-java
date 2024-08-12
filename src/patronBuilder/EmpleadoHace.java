@@ -1,4 +1,5 @@
 
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -113,87 +114,105 @@ public class EmpleadoHace {
         } else {
             showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
         }
-       //XD
     }
-        public void transferirSaldo(String codEmpleado, String codCuentaOrigen, String codCuentaDestino, float monto) {
-            String codBuscadoOrigen, codBuscadoDestino, clave, mensajeRetiro, mensajeDeposito, mensaje;
-            int contIntentos = 0, numMovOrigen, numMovDestino;
-            float saldoNuevoOrigen, saldoNuevoDestino;
-            float impuesto = 0.0008f; // ES DE 0.08%
-            float montoImpuesto;
-            float montoNeto;
-            Cuenta cuentaOrigen, cuentaDestino;
-            Cliente cliente;
+        public void transferirSaldo(String codEmpleado, String codCuenta, String codCuentaDestino, float saldo) {
+                   String codBuscado, clave, mensaje, mensaje2,mensaje3, mensaje4;
+                   int contIntentos = 0, numMov, numMov1, aux1, aux2, aux3;
+                   float saldoNuevo, retiroRemitente, saldoDestino;
+                   float impuestoITF=Float.parseFloat(BLParametro.obtenerITF());
+                   Cuenta cuenta;
+                   Cliente cliente;
+                   codBuscado = BLCuenta.buscar(codCuenta);
 
-            // Buscamos la cuenta ORIGEN
-            codBuscadoOrigen = BLCuenta.buscar(codCuentaOrigen);
-            if (codBuscadoOrigen != null) {
-                cuentaOrigen = BLCuenta.obtenerCuenta(codBuscadoOrigen);
-                cliente = BLCliente.obtenerCliente(codEmpleado);
+                   if (codBuscado != null) {
+                       cuenta = BLCuenta.obtenerCuenta(codCuenta);
+                       cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
+                       clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", 1);
+                       while (!cuenta.getClave().equals(clave) && contIntentos < 3) {
+                           contIntentos++;
+                           if (contIntentos < 3) {
+                               showMessageDialog(null, "Clave incorrecta. Le quedan " + (3 - contIntentos) + " intentos.",
+                                       "Clave incorrecta", 0);
+                               clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", 1);
+                           } else {
+                               showMessageDialog(null, "Ha superado el limite de intentos, intente más tarde.", "ERROR", 0);
+                               return;
+                           }
+                       }
+                           String codBuscadoDestino = BLCuenta.buscar(codCuentaDestino);
+                           MonedaConverter[] monedas = new MonedaConverter[5];
+                                   monedas[0] = new MonedaConverter("01", "SOLES", 1.0f);
+                                   monedas[1] = new MonedaConverter("02", "DÓLARES", 3.70f);
+                                   monedas[2] = new MonedaConverter("03", "PESOS ARGENTINOS", 0.00397919165f);
+                                   monedas[3] = new MonedaConverter("04", "PESOS CHILENOS", 0.0039815961f);
+                                   monedas[4] = new MonedaConverter("05", "EUROS", 4.07f);
 
-                do {
-                    clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", JOptionPane.INFORMATION_MESSAGE);
-                    if (cuentaOrigen.getClave().equals(clave)) {
+                           if (codBuscadoDestino != null) {
+                               Cuenta cuentaDestino= BLCuenta.obtenerCuenta(codBuscadoDestino);
+                               String moneDestino=cuentaDestino.getMoneCodigo();
+                               String moneRemitente=cuenta.getMoneCodigo();
+                               retiroRemitente=saldo;
+                               saldoDestino=cuentaDestino.getSaldo();
+                                   if(moneDestino.trim().equals(moneRemitente)){
+                                       mensaje = BLCuenta.depositoCuenta(saldo, codCuentaDestino);
+                                       mensaje2 = BLCuenta.retiroCuenta(saldo, codCuenta);                    
+                                   } else{
+                                       for (MonedaConverter moneda : monedas) {
+                                              if (moneda.getCodigo().equals(moneRemitente)) {
+                                                  saldo=saldo*moneda.getEquivalenciaEnSoles();
+                                                  break; 
+                                              }
+                                       }
+                                       for (MonedaConverter moneda : monedas) {
+                                              if (moneda.getCodigo().equals(moneDestino)) {
+                                                  saldo=saldo/moneda.getEquivalenciaEnSoles();
+                                                  break; 
+                                              }
+                                       }
+                                       mensaje = BLCuenta.depositoCuenta(saldo, codCuentaDestino);
+                                       mensaje2 = BLCuenta.retiroCuenta(retiroRemitente, codCuenta);                             
+                                   }
 
-                        // Buscamos la cuenta DESTINO
-                        codBuscadoDestino = BLCuenta.buscar(codCuentaDestino);
-                        if (codBuscadoDestino != null) {
-                            cuentaDestino = BLCuenta.obtenerCuenta(codBuscadoDestino);
-
-                            // Calculamos el impuesto y el monto neto a transferir
-                            montoImpuesto = monto * impuesto;
-                            montoNeto = monto - montoImpuesto;
-
-                            // Realizamos el retiro de la cuenta origen
-                            mensajeRetiro = BLCuenta.retiroCuenta(monto, codCuentaOrigen);
-                            if (mensajeRetiro == null) {
-                                saldoNuevoOrigen = Float.parseFloat(BLCuenta.obtenerSaldo(codCuentaOrigen));
-
-                                // Realizamos el depósito en la cuenta destino
-                                mensajeDeposito = BLCuenta.depositoCuenta(montoNeto, codCuentaDestino);
-                                if (mensajeDeposito == null) {
-                                    saldoNuevoDestino = Float.parseFloat(BLCuenta.obtenerSaldo(codCuentaDestino));
-
-                                    showMessageDialog(null, cliente.getNombre() + " su nuevo saldo es: " + saldoNuevoOrigen,
-                                            "Transferencia exitosa", JOptionPane.INFORMATION_MESSAGE);
-
-                                    // Registramos los movimientos en la base de datos
-                                    GregorianCalendar fechaActual = new GregorianCalendar();
-                                    CostoMovimiento costo = BLCostoMovimiento.obtenerCostoMovimiento(cuentaOrigen.getMoneCodigo());
-                                    numMovOrigen = BLMovimiento.NumeroMaxMovimiento(codBuscadoOrigen) + 1;
-                                    numMovDestino = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino) + 1;
-                                    BLMovimiento.insertarMovimiento(numMovOrigen, fechaActual, monto, "SALIDA", cuentaOrigen.getCodigo(), codEmpleado, "009");
-                                    BLMovimiento.insertarMovimiento(numMovDestino, fechaActual, montoNeto, "ENTRADA", cuentaDestino.getCodigo(), codEmpleado, "008");
-
-                                    // Verificamos si se aplica costo por movimiento adicional
-                                    if (numMovOrigen > 15) {
-                                        mensaje = BLCuenta.retiroCuenta(costo.getCostImporte(), codCuentaOrigen);
+                               if (mensaje == null && mensaje2 == null) {
+                                   saldoNuevo = Float.parseFloat(BLCuenta.obtenerSaldo(codCuenta));
+                                   showMessageDialog(null, cliente.getNombre() + " su nuevo saldo es: " + saldoNuevo,
+                                           "Depósito exitoso", 1);
+                                   
+                                   //cobramos ITF
+                                   mensaje4=BLParametro.cobrarItf(cuenta.getCodigo(), impuestoITF, retiroRemitente);
+                                   if(mensaje4==null)
+                                       showMessageDialog(null, cliente.getNombre() + " se ha cobrado un ITF de " + impuestoITF +"% al monto de su transacción",
+                                           "Cobro ITF", 1);
+                                   
+                                   //Sumamos puntos:
+                                   if(cuenta.getCuenTipo().trim().equals("CREDITO")){
+                                       mensaje3=DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
+                                   }
+                                   //Realizamos movimientos
+                                   GregorianCalendar fechaActual = new GregorianCalendar();
+                                   numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado);
+                                   numMov1 = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino);
+                                   aux1 = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999","009");                        
+                                   aux2 = BLMovimiento.insertarMovimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino,"9999", "008");
+                                   
+                                   //verificamos si se aplica costo por movimiento
+                                   if (numMov++ > Integer.parseInt(BLParametro.obtenerMaxMov())) {
+                                       CostoMovimiento costo = BLCostoMovimiento.obtenerCostoMovimiento(cuenta.getMoneCodigo());
+                                        mensaje = BLCuenta.retiroCuenta(costo.getCostImporte(), codCuenta);
                                         if (mensaje == null) {
-                                            showMessageDialog(null, "Ha superado los 15 movimientos gratuitos, se ha aplicado el costo movimiento de " + costo.getCostImporte(), "Costo Movimiento", JOptionPane.INFORMATION_MESSAGE);
+                                            showMessageDialog(null, "Ha superado los " +Integer.parseInt(BLParametro.obtenerMaxMov()) +" movimientos gratuitos, se ha aplicado el costo movimiento de " + costo.getCostImporte(), "Costo Movimiento", JOptionPane.INFORMATION_MESSAGE);
                                         }
                                     }
-                                } else {
-                                    showMessageDialog(null, "Error en el depósito: " + mensajeDeposito, "Error", JOptionPane.ERROR_MESSAGE);
-                                }
-                            } else {
-                                showMessageDialog(null, "Error en el retiro: " + mensajeRetiro, "Error", JOptionPane.ERROR_MESSAGE);
-                            }
-                        } else {
-                            showMessageDialog(null, "La cuenta destino no existe o no está registrada.", "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-                        break;
-                    } else {
-                        contIntentos++;
-                        showMessageDialog(null, "Clave incorrecta. Le quedan " + (3 - contIntentos) + " intentos.", "Clave incorrecta", JOptionPane.WARNING_MESSAGE);
-                        if (contIntentos == 3) {
-                            showMessageDialog(null, "Ha superado el límite de intentos, intente más tarde.", "ERROR", JOptionPane.ERROR_MESSAGE);
-                            return;
-                        }
-                    }
-                } while (contIntentos < 3);
-            } else {
-                showMessageDialog(null, "La cuenta origen no existe o no está registrada.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+                               } else {
+                                   showMessageDialog(null, "Error 1: "+ mensaje + "\n" + "Error 2: "+mensaje2, "Error", 0);
+                               }
+                           } else {
+                               showMessageDialog(null, "La cuenta destino no existe o no está registrada.", "Error", 0);
+                           } 
+                   } else {
+                       showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
+                   }
+
+               }
         }
     
-}
