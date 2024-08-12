@@ -20,7 +20,7 @@ public class BLCuenta {
     private static CuentaCredito obj2;
 
     public static int insertarCuenta(String codigo, String emplcod, String cliente, String monecode, String sucursal,
-            float saldo, GregorianCalendar fechaCreacion, String estado, int contMov, String clave, String numTarjeta,
+            float saldo, GregorianCalendar fechaCreacion, String estado, int contMov, String clave,
             String cuentipo) {
         String mensaje = null;
         if (codigo.trim().length() == 8 && emplcod.trim().length() == 4 && cliente.trim().length() == 5
@@ -30,12 +30,12 @@ public class BLCuenta {
             if (buscar(codigo) == null) {
                 // got it
 
-                if (cuentipo == "DEBITO") {
+                if (cuentipo.equalsIgnoreCase("DEBITO")) {
 
                     obj1 = new CuentaDebito(codigo, saldo, fechaCreacion, estado, contMov, clave, monecode, sucursal,
                             cliente, emplcod, cuentipo);
                     mensaje = DALCuenta.insertarCuentaDebito(obj1);
-                } else if (cuentipo == "CREDITO") {
+                } else if (cuentipo.equalsIgnoreCase("CREDITO")) {
                     obj2 = new CuentaCredito(codigo, saldo, fechaCreacion, estado, contMov, clave, monecode, sucursal,
                             cliente, emplcod, cuentipo);
                     mensaje = DALCuenta.insertarCuentaCredito(obj2);
