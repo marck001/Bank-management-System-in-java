@@ -60,6 +60,8 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         txtCodigo = new javax.swing.JTextField();
         btnActualizar1 = new javax.swing.JButton();
         cbxDescripcion = new javax.swing.JComboBox<>();
+        btnNuevo = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtImporte = new javax.swing.JTextField();
@@ -71,9 +73,7 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         btnActualizar3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        btnNuevo = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtInteres = new javax.swing.JTextField();
         btnActualizar4 = new javax.swing.JButton();
@@ -92,21 +92,14 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Codigo:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         labelDes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        labelDes.setForeground(new java.awt.Color(0, 0, 0));
         labelDes.setText("Descripcion:");
         jPanel2.add(labelDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
         txtCodigo.setEnabled(false);
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
         txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCodigoKeyTyped(evt);
@@ -129,11 +122,30 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         cbxDescripcion.setEnabled(false);
         jPanel2.add(cbxDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 170, -1));
 
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Nuevo.gif"))); // NOI18N
+        btnNuevo.setMnemonic('N');
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, 32));
+
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Salir.gif"))); // NOI18N
+        btnSalir.setMnemonic('S');
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 110, 32));
+
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Importe:");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
@@ -154,7 +166,6 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         jPanel4.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 168, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Monto Maximo:");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
@@ -193,22 +204,11 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         jPanel3.add(btnActualizar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, 32));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Costo:");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(221, 221, 221));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Nuevo.gif"))); // NOI18N
-        btnNuevo.setMnemonic('N');
-        btnNuevo.setText("Nuevo");
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 110, 32));
 
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Guardar.gif"))); // NOI18N
         btnRegistrar.setMnemonic('R');
@@ -221,18 +221,7 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
         });
         jPanel5.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 110, 32));
 
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Salir.gif"))); // NOI18N
-        btnSalir.setMnemonic('S');
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 110, 32));
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Interes:");
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
@@ -412,10 +401,6 @@ public class IFrmMonedas extends javax.swing.JInternalFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
        limpiar();

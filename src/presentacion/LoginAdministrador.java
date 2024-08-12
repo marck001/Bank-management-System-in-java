@@ -5,6 +5,7 @@
 package presentacion;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
@@ -75,6 +76,11 @@ public class LoginAdministrador extends javax.swing.JFrame {
                 txtAdmiMousePressed(evt);
             }
         });
+        txtAdmi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAdmiKeyTyped(evt);
+            }
+        });
         jPanel4.add(txtAdmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 210, 30));
 
         lblUser.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
@@ -94,6 +100,11 @@ public class LoginAdministrador extends javax.swing.JFrame {
         txtContra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtContraMousePressed(evt);
+            }
+        });
+        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraKeyTyped(evt);
             }
         });
         jPanel4.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 210, 30));
@@ -219,6 +230,18 @@ public class LoginAdministrador extends javax.swing.JFrame {
         frm.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_lblVolverMouseClicked
+
+    private void txtAdmiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAdmiKeyTyped
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE)
+            evt.consume();
+    }//GEN-LAST:event_txtAdmiKeyTyped
+
+    private void txtContraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyTyped
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE)
+            evt.consume();
+    }//GEN-LAST:event_txtContraKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

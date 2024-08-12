@@ -5,6 +5,7 @@
 package presentacion;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import static javax.swing.JOptionPane.showMessageDialog;
 import logica.*;
 /**
@@ -82,6 +83,11 @@ public class LoginEmpleado extends javax.swing.JFrame {
                 txtUsuarioMousePressed(evt);
             }
         });
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 210, 30));
 
         lblUsuario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
@@ -101,6 +107,11 @@ public class LoginEmpleado extends javax.swing.JFrame {
         passClave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 passClaveMousePressed(evt);
+            }
+        });
+        passClave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passClaveKeyTyped(evt);
             }
         });
         jPanel3.add(passClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 210, 30));
@@ -224,6 +235,18 @@ public class LoginEmpleado extends javax.swing.JFrame {
         frm.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_lblVolverMouseClicked
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE)
+            evt.consume();
+    }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void passClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passClaveKeyTyped
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE)
+            evt.consume();
+    }//GEN-LAST:event_passClaveKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
