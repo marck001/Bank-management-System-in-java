@@ -133,7 +133,7 @@ public class DALCliente {
         ArrayList<Cliente> obj = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_listar_cliente}";
+            sql = "{call sp_listar_clientes()}";
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery();
             while (rs.next()) {

@@ -91,15 +91,12 @@ public class MainFrm extends javax.swing.JFrame {
         if (number == 0) {
             txtUserAdmin.setText("Administrador");
             txtUserEmpleado.setText("Administrador");
-            // txtUserCliente.setText("Administrador");
+           
 
         } else if (number == 1) {
             txtUserEmpleado.setText(name);
             setPanel(isAdmin, 1);
-        } else if (number == 2) {
-            //   txtUserCliente.setText(name);
-            setPanel(isAdmin, 2);
-        }
+        } 
 
     }
 
@@ -186,7 +183,7 @@ public class MainFrm extends javax.swing.JFrame {
         FirstPanelMenu.setBackground(new java.awt.Color(68, 4, 4));
         FirstPanelMenu.setPreferredSize(new java.awt.Dimension(254, 637));
 
-        mnuTab1.setBackground(new java.awt.Color(235, 239, 243));
+        mnuTab1.setBackground(new java.awt.Color(102, 0, 0));
         mnuTab1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnuTab1MouseClicked(evt);
@@ -199,7 +196,7 @@ public class MainFrm extends javax.swing.JFrame {
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Circulo.gif"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sistema.gif"))); // NOI18N
         jLabel10.setText(" Datos Sistema");
 
         javax.swing.GroupLayout mnuTab1Layout = new javax.swing.GroupLayout(mnuTab1);
@@ -207,8 +204,8 @@ public class MainFrm extends javax.swing.JFrame {
         mnuTab1Layout.setHorizontalGroup(
             mnuTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mnuTab1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mnuTab1Layout.setVerticalGroup(
@@ -232,7 +229,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sistema.gif"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Buscar.gif"))); // NOI18N
         jLabel11.setText("Registrar Sucursal");
 
         javax.swing.GroupLayout firstPanelTab1Layout = new javax.swing.GroupLayout(firstPanelTab1);
@@ -240,8 +237,8 @@ public class MainFrm extends javax.swing.JFrame {
         firstPanelTab1Layout.setHorizontalGroup(
             firstPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(firstPanelTab1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         firstPanelTab1Layout.setVerticalGroup(
@@ -249,7 +246,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        firstPanelTab2.setBackground(new java.awt.Color(131, 244, 252));
+        firstPanelTab2.setBackground(new java.awt.Color(102, 0, 0));
         firstPanelTab2.setForeground(new java.awt.Color(255, 255, 255));
         firstPanelTab2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -271,8 +268,8 @@ public class MainFrm extends javax.swing.JFrame {
         firstPanelTab2Layout.setHorizontalGroup(
             firstPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, firstPanelTab2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         firstPanelTab2Layout.setVerticalGroup(
@@ -280,7 +277,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        firstPanelTab3.setBackground(new java.awt.Color(131, 244, 252));
+        firstPanelTab3.setBackground(new java.awt.Color(102, 0, 0));
         firstPanelTab3.setForeground(new java.awt.Color(255, 255, 255));
         firstPanelTab3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -301,9 +298,9 @@ public class MainFrm extends javax.swing.JFrame {
         firstPanelTab3.setLayout(firstPanelTab3Layout);
         firstPanelTab3Layout.setHorizontalGroup(
             firstPanelTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, firstPanelTab3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(firstPanelTab3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
         firstPanelTab3Layout.setVerticalGroup(
@@ -311,7 +308,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        firstPanelTab4.setBackground(new java.awt.Color(131, 244, 252));
+        firstPanelTab4.setBackground(new java.awt.Color(102, 0, 0));
         firstPanelTab4.setForeground(new java.awt.Color(255, 255, 255));
         firstPanelTab4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -333,8 +330,8 @@ public class MainFrm extends javax.swing.JFrame {
         firstPanelTab4Layout.setHorizontalGroup(
             firstPanelTab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(firstPanelTab4Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         firstPanelTab4Layout.setVerticalGroup(
@@ -342,7 +339,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        firstPanelTab11.setBackground(new java.awt.Color(131, 244, 252));
+        firstPanelTab11.setBackground(new java.awt.Color(102, 0, 0));
         firstPanelTab11.setForeground(new java.awt.Color(255, 255, 255));
         firstPanelTab11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -363,9 +360,9 @@ public class MainFrm extends javax.swing.JFrame {
         firstPanelTab11.setLayout(firstPanelTab11Layout);
         firstPanelTab11Layout.setHorizontalGroup(
             firstPanelTab11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, firstPanelTab11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(firstPanelTab5, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(firstPanelTab11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(firstPanelTab5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(14, 14, 14))
         );
         firstPanelTab11Layout.setVerticalGroup(
@@ -373,7 +370,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(firstPanelTab5, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        firstPanelTab12.setBackground(new java.awt.Color(131, 244, 252));
+        firstPanelTab12.setBackground(new java.awt.Color(102, 0, 0));
         firstPanelTab12.setForeground(new java.awt.Color(255, 255, 255));
         firstPanelTab12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -420,7 +417,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addGroup(FirstPanelMenuLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel17)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         FirstPanelMenuLayout.setVerticalGroup(
             FirstPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -526,7 +523,7 @@ public class MainFrm extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(68, 4, 4));
         jPanel4.setPreferredSize(new java.awt.Dimension(254, 637));
 
-        mnuTab2.setBackground(new java.awt.Color(255, 0, 51));
+        mnuTab2.setBackground(new java.awt.Color(102, 0, 0));
         mnuTab2.setForeground(new java.awt.Color(255, 51, 51));
         mnuTab2.setPreferredSize(new java.awt.Dimension(180, 49));
         mnuTab2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -541,7 +538,7 @@ public class MainFrm extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Circulo.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Aula.gif"))); // NOI18N
         jLabel1.setText("Menu");
 
         javax.swing.GroupLayout mnuTab2Layout = new javax.swing.GroupLayout(mnuTab2);
@@ -550,7 +547,7 @@ public class MainFrm extends javax.swing.JFrame {
             mnuTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mnuTab2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
         mnuTab2Layout.setVerticalGroup(
@@ -576,14 +573,14 @@ public class MainFrm extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Aula.gif"))); // NOI18N
-        jLabel2.setText("Asignado");
+        jLabel2.setText("Realizar Movimiento");
 
         javax.swing.GroupLayout secondPanelTab1Layout = new javax.swing.GroupLayout(secondPanelTab1);
         secondPanelTab1.setLayout(secondPanelTab1Layout);
         secondPanelTab1Layout.setHorizontalGroup(
             secondPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -592,7 +589,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        secondPanelTab2.setBackground(new java.awt.Color(131, 244, 252));
+        secondPanelTab2.setBackground(new java.awt.Color(102, 0, 0));
         secondPanelTab2.setForeground(new java.awt.Color(255, 51, 51));
         secondPanelTab2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -613,9 +610,9 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab2.setLayout(secondPanelTab2Layout);
         secondPanelTab2Layout.setHorizontalGroup(
             secondPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(secondPanelTab2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
         );
         secondPanelTab2Layout.setVerticalGroup(
@@ -623,7 +620,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        secondPanelTab3.setBackground(new java.awt.Color(131, 244, 252));
+        secondPanelTab3.setBackground(new java.awt.Color(102, 0, 0));
         secondPanelTab3.setForeground(new java.awt.Color(255, 51, 51));
         secondPanelTab3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -645,8 +642,8 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab3Layout.setHorizontalGroup(
             secondPanelTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab3Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         secondPanelTab3Layout.setVerticalGroup(
@@ -654,7 +651,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        secondPanelTab4.setBackground(new java.awt.Color(131, 244, 252));
+        secondPanelTab4.setBackground(new java.awt.Color(102, 0, 0));
         secondPanelTab4.setForeground(new java.awt.Color(255, 51, 51));
         secondPanelTab4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -676,8 +673,8 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4Layout.setHorizontalGroup(
             secondPanelTab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(secondPanelTab4Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         secondPanelTab4Layout.setVerticalGroup(
@@ -685,7 +682,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        secondPanelTab5.setBackground(new java.awt.Color(131, 244, 252));
+        secondPanelTab5.setBackground(new java.awt.Color(102, 0, 0));
         secondPanelTab5.setForeground(new java.awt.Color(255, 51, 51));
         secondPanelTab5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -716,7 +713,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        secondPanelTab6.setBackground(new java.awt.Color(131, 244, 252));
+        secondPanelTab6.setBackground(new java.awt.Color(102, 0, 0));
         secondPanelTab6.setForeground(new java.awt.Color(255, 51, 51));
         secondPanelTab6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -748,7 +745,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/al.jpg"))); // NOI18N
 
-        secondPanelTab7.setBackground(new java.awt.Color(131, 244, 252));
+        secondPanelTab7.setBackground(new java.awt.Color(102, 0, 0));
         secondPanelTab7.setForeground(new java.awt.Color(255, 51, 51));
         secondPanelTab7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -778,7 +775,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        secondPanelTab8.setBackground(new java.awt.Color(131, 244, 252));
+        secondPanelTab8.setBackground(new java.awt.Color(102, 0, 0));
         secondPanelTab8.setForeground(new java.awt.Color(255, 51, 51));
         secondPanelTab8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -822,7 +819,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
             .addComponent(secondPanelTab7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(secondPanelTab8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -873,6 +870,7 @@ public class MainFrm extends javax.swing.JFrame {
         fecha.setForeground(new java.awt.Color(255, 255, 255));
         fecha.setText("Hoy es Sábado 28 de Abril de 2018");
 
+        txtUserEmpleado.setBackground(new java.awt.Color(72, 4, 4));
         txtUserEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         txtUserEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         txtUserEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Usuario.gif"))); // NOI18N

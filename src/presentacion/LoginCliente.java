@@ -216,6 +216,7 @@ public class LoginCliente extends javax.swing.JFrame {
         respuesta2 = BLCliente.obtenerCodCuentaPorCliente(codigo);
         if(respuesta1!=null && respuesta2!= null) {
             new BancaPorInternet(respuesta2);
+            System.out.print("Registered");
         } else {
             if(respuesta2==null) {
                 showMessageDialog(null, "No tiene cuenta registrada", "Login Cliente",0);

@@ -125,6 +125,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d4_l3 = new javax.swing.JLabel();
         st9 = new javax.swing.JLabel();
 
+        home_pnl.setBackground(new java.awt.Color(255, 255, 255));
         home_pnl.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Main Menu", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 153))); // NOI18N
         home_pnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -577,12 +578,13 @@ public class Menu extends javax.swing.JInternalFrame {
     private void d2_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2MouseClicked
         // TODO add your handling code here:
         IFrmListaClientes tab = new IFrmListaClientes();
+         MainFrm.centrarInternalFrameExterno(tab);
 
     }//GEN-LAST:event_d2_2MouseClicked
 
     private void d2_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2dash_h
         // TODO add your handling code here:
-
+       //  MainFrm.centrarInternalFrameExterno(tab);
     }//GEN-LAST:event_d2_2dash_h
 
     private void d2_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2dash_e
