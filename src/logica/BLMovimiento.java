@@ -84,4 +84,7 @@ public class BLMovimiento {
         return DALMovimiento.NumeroMaxMovimiento(cuenCodigo);
     }
 
+    public static void verificarYReiniciarContador() {
+        DALMovimiento.verificarYReiniciarContador();
+    }
 }

@@ -194,4 +194,36 @@ public class DALMovimiento {
         }return max;
         
     }
+      public static void verificarYReiniciarContador() {
+        GregorianCalendar fechaActual = new GregorianCalendar();
+        int diaDelMes = fechaActual.get(Calendar.DAY_OF_MONTH);
+
+        if (diaDelMes == 1) {
+            String mensaje = reiniciarContadorMovimientos();
+            if (mensaje == null) {
+                System.out.println("Contador de movimientos reiniciado automáticamente.");
+            } else {
+                System.err.println("Error al reiniciar el contador de movimientos: " + mensaje);
+            }
+        }
+    }
+        public static String reiniciarContadorMovimientos() {
+        String mensaje = null;
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_reiniciar_contador_movimientos()}";
+            cs = cn.prepareCall(sql);
+            cs.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;
+    }
 }
