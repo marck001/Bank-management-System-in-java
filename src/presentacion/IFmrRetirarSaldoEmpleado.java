@@ -245,9 +245,8 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
  
     private void txtCodCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodCuentaKeyTyped
         char c = evt.getKeyChar();
-        if(((c<'0') || (c>'9')) && (c!=KeyEvent.VK_BACK_SPACE)|| c == '.' ){
-            evt.consume();
-        }
+        if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtMontoRetirado.getText().contains(".")))
+           evt.consume();
         
         if (txtCodCuenta.getText().length() > 7)
             evt.consume();

@@ -105,7 +105,7 @@ public class DALMovimiento {
                 int month = Integer.parseInt(dateParts[1]) - 1;
                 int day = Integer.parseInt(dateParts[2]);
                 obj.setFechaMov(new GregorianCalendar(year, month, day));
-                obj.setImporte(rs.getFloat(3));
+               /* obj.setImporte(rs.getFloat(3));
                 obj.setReferencia(rs.getString(4));
                 obj.setCuenCodigo(rs.getString(5));
                 obj.setEmpleado(rs.getString(6));
@@ -113,7 +113,7 @@ public class DALMovimiento {
                 obj.setNumero(rs.getInt(1));
                 String[] date = rs.getString(2).split("-");
                 obj.setFechaMov(Integer.parseInt(date[0]), Integer.parseInt(date[1]) - 1,
-                        Integer.parseInt(date[2]));
+                        Integer.parseInt(date[2]));*/
                 obj.setImporte(Float.parseFloat(rs.getString(3)));
                 obj.setReferencia(rs.getString(4));
                 obj.setCuenCodigo(rs.getString(5));

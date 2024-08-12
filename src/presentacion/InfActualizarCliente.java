@@ -484,9 +484,7 @@ public class InfActualizarCliente extends javax.swing.JInternalFrame {
                 txtMaterno.setEnabled(false);
                 txtDnii.setEnabled(false);
                 txtCiudad.requestFocus();
-                txtDireccion.requestFocus();
-                txtTelefono.requestFocus();
-                txtCiudad.requestFocus();
+                
             } else {
                 JOptionPane.showMessageDialog(this, "El código no existe", "Resultado", 1);
                 limpiar();

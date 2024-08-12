@@ -18,7 +18,7 @@ import logica.*;
  */
 public class EmpleadoHace {
     
-    public void retirarSaldo(String codCuenta, float saldo, String codigoEmpleado) {
+    public void retirarSaldo(String codCuenta, float saldo, String codEmpleado) {
         String codBuscado, clave, mensaje;
         int contIntentos = 0, numMov;
         float saldoNuevo;
@@ -45,7 +45,7 @@ public class EmpleadoHace {
                         GregorianCalendar fechaActual = new GregorianCalendar();
                         numMov= BLMovimiento.NumeroMaxMovimiento(codBuscado);
                     // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
-                        int aux = BLMovimiento.insertarMovimiento(numMov++,fechaActual,saldo, "SALIDA", cuenta.getCodigo(), codigoEmpleado , "004");
+                        int aux = BLMovimiento.insertarMovimiento(numMov++,fechaActual,saldo, "SALIDA", cuenta.getCodigo(), codEmpleado , "004");
                         System.out.println(aux);                        
                     }else{
                         showMessageDialog(null, mensaje, "Error",0);
