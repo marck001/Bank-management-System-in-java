@@ -185,9 +185,9 @@ public class RetirarSaldo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirarActionPerformed
-        ComponenteSolicitudVirtual componente = new ComponenteSolicitudVirtual();
+        SolicitudesPorInternetDetalladas solicitudVirtual = new SolicitudesPorInternetDetalladas();
         saldo=Float.parseFloat(txtSaldoRetirado.getText());
-        componente.retirarSaldoPorEmpleado(codCuentica, TOP_ALIGNMENT);
+        solicitudVirtual.retirarSaldo(codCuentica, saldo);
     }//GEN-LAST:event_btnRetirarActionPerformed
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked

@@ -189,9 +189,9 @@ public class RecargarSaldo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ComponenteSolicitudVirtual componente = new ComponenteSolicitudVirtual();
+        SolicitudesPorInternetDetalladas solicitudVirtual = new SolicitudesPorInternetDetalladas();
         saldo=Float.parseFloat(txtSaldoRecargado.getText());
-        componente.recargarSaldoPorEmpleado(codCuentica, saldo);
+        solicitudVirtual.recargarSaldo(codCuentica, saldo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked

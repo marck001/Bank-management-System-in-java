@@ -193,13 +193,13 @@ public class ajustesBancaInternet extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        ComponenteSolicitudVirtual componente = new ComponenteSolicitudVirtual();
-        componente.cancelarCuentaPorEmpleado(codCuentica);
+        SolicitudesPorInternetDetalladas solicitudVirtual = new SolicitudesPorInternetDetalladas();
+        solicitudVirtual.cancelarCuenta(codCuentica);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnReactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReactivarActionPerformed
-        ComponenteSolicitudVirtual componente = new ComponenteSolicitudVirtual();
-        componente.reactivarCuentaPorEmpleado(codCuentica);
+        SolicitudesPorInternetDetalladas solicitudVirtual = new SolicitudesPorInternetDetalladas();
+        solicitudVirtual.reactivarCuenta(codCuentica);
     }//GEN-LAST:event_btnReactivarActionPerformed
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked

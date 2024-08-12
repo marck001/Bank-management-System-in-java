@@ -122,7 +122,7 @@ public class LoginEmpleado extends javax.swing.JFrame {
         lblEntrar.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEntrar.setText("ENTRAR");
-        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblEntrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -149,7 +149,7 @@ public class LoginEmpleado extends javax.swing.JFrame {
         lblVolver.setForeground(new java.awt.Color(255, 255, 255));
         lblVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVolver.setText("VOLVER");
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblVolver.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -214,6 +214,7 @@ public class LoginEmpleado extends javax.swing.JFrame {
         respuesta = BLEmpleado.buscarEmpleadoLogin(usuario, clave);
         if(respuesta!=null) {
             MainFrm frm = new MainFrm();
+            frm.setCodigoEmpleado(BLEmpleado.buscarEmpleadoPorUser(usuario));
             frm.setUser(1, respuesta, false);
             frm.setVisible(true);
             frm.pack();
