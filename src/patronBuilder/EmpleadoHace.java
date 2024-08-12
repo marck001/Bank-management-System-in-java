@@ -117,4 +117,76 @@ public class EmpleadoHace {
         }
        
     }
+    public void transferirSaldo(String codEmpleado, String codCuentaOrigen, String codCuentaDestino, float monto) {
+        String codBuscadoOrigen, codBuscadoDestino, clave, mensajeRetiro, mensajeDeposito;
+        int contIntentos = 0, numMovOrigen, numMovDestino;
+        float saldoNuevoOrigen, saldoNuevoDestino;
+        Cuenta cuentaOrigen, cuentaDestino;
+        Cliente cliente;
+
+        codBuscadoOrigen = BLCuenta.buscar(codCuentaOrigen);
+        if (codBuscadoOrigen != null) {
+            cuentaOrigen = BLCuenta.obtenerCuenta(codBuscadoOrigen);
+            cliente = BLCliente.obtenerCliente(codEmpleado);
+
+            do {
+                clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", JOptionPane.INFORMATION_MESSAGE);
+                if (cuentaOrigen.getClave().equals(clave)) {
+
+                    codBuscadoDestino = BLCuenta.buscar(codCuentaDestino);
+                    if (codBuscadoDestino != null) {
+                        cuentaDestino = BLCuenta.obtenerCuenta(codBuscadoDestino);
+
+                        mensajeRetiro = BLCuenta.retiroCuenta(monto, codCuentaOrigen);
+                        if (mensajeRetiro == null) {
+                            saldoNuevoOrigen = Float.parseFloat(BLCuenta.obtenerSaldo(codCuentaOrigen));
+
+                            mensajeDeposito = BLCuenta.depositoCuenta(monto, codCuentaDestino);
+                            if (mensajeDeposito == null) {
+                                saldoNuevoDestino = Float.parseFloat(BLCuenta.obtenerSaldo(codCuentaDestino));
+
+                                showMessageDialog(null, cliente.getNombre() + " su nuevo saldo es: " + saldoNuevoOrigen,
+                                        "Transferencia exitosa", JOptionPane.INFORMATION_MESSAGE);
+
+                                GregorianCalendar fechaActual = new GregorianCalendar();
+                                numMovOrigen = BLMovimiento.NumeroMaxMovimiento(codBuscadoOrigen) + 1;
+                                numMovDestino = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino) + 1;
+
+                                BLMovimiento.insertarMovimiento(numMovOrigen, fechaActual, monto, "SALIDA", cuentaOrigen.getCodigo(), codEmpleado, "009");
+                                BLMovimiento.insertarMovimiento(numMovDestino, fechaActual, monto, "ENTRADA", cuentaDestino.getCodigo(), codEmpleado, "008");
+
+                            } else {
+                                showMessageDialog(null, "Error en el depósito: " + mensajeDeposito, "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        } else {
+                            showMessageDialog(null, "Error en el retiro: " + mensajeRetiro, "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } else {
+                        showMessageDialog(null, "La cuenta destino no existe o no está registrada.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    break;
+                } else {
+                    contIntentos++;
+                    showMessageDialog(null, "Clave incorrecta. Le quedan " + (3 - contIntentos) + " intentos.", "Clave incorrecta", JOptionPane.WARNING_MESSAGE);
+                    if (contIntentos == 3) {
+                        showMessageDialog(null, "Ha superado el límite de intentos, intente más tarde.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                }
+            } while (contIntentos < 3);
+        } else {
+            showMessageDialog(null, "La cuenta origen no existe o no está registrada.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
