@@ -91,19 +91,15 @@ public class IFrmRegEmpleado extends javax.swing.JInternalFrame {
         });
 
         lblCodigo1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        lblCodigo1.setForeground(new java.awt.Color(0, 0, 0));
         lblCodigo1.setText("Nombre:");
 
         lblCodigo.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        lblCodigo.setForeground(new java.awt.Color(0, 0, 0));
         lblCodigo.setText("Codigo:");
 
         lblDescripcion1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        lblDescripcion1.setForeground(new java.awt.Color(0, 0, 0));
         lblDescripcion1.setText("Ciudad:");
 
         lblDescripcion.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        lblDescripcion.setForeground(new java.awt.Color(0, 0, 0));
         lblDescripcion.setText("Apellido Materno");
 
         txtNombres.setEnabled(false);
@@ -135,11 +131,9 @@ public class IFrmRegEmpleado extends javax.swing.JInternalFrame {
         });
 
         lblCodigo2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        lblCodigo2.setForeground(new java.awt.Color(0, 0, 0));
         lblCodigo2.setText("Direccion:");
 
         lblDescripcion2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        lblDescripcion2.setForeground(new java.awt.Color(0, 0, 0));
         lblDescripcion2.setText("Usuario:");
 
         txtDireccion.setEnabled(false);
@@ -152,11 +146,9 @@ public class IFrmRegEmpleado extends javax.swing.JInternalFrame {
         txtUser.setEnabled(false);
 
         lblCodigo3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        lblCodigo3.setForeground(new java.awt.Color(0, 0, 0));
         lblCodigo3.setText("Clave:");
 
         lblDescripcion3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        lblDescripcion3.setForeground(new java.awt.Color(0, 0, 0));
         lblDescripcion3.setText("Apellido Paterno");
 
         txtApellidoP.setEnabled(false);
