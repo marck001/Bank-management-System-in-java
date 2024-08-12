@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author Felix
  */
-public class Sucursal {
+public  class Sucursal {
 
     private String codigo;
     private String nombre;

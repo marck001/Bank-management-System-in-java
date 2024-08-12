@@ -9,14 +9,15 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class BLEmpleado {
     private static Empleado obj;
 
-    public static int insertarEmpleado(String codigo, String apellidoP, String apellidoM, String nombre, String ciudad, String direccion, String user, String clave) {
+    public static int insertarEmpleado(String codigo, String apePaterno, String apeMaterno, String nombre, String ciudad, String direccion, String user, String clave) {
         String mensaje;
-        if (codigo.trim().length() == 4 && apellidoP.trim().length() > 0 && apellidoM.trim().length() > 0 && nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && user.trim().length() > 0 && clave.trim().length() <= 20) {
+        if (codigo.trim().length() == 4 && apePaterno.trim().length() > 0 && apeMaterno.trim().length() > 0 && nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && user.trim().length() > 0 && clave.trim().length() <= 20) {
             if (buscarEmpleado(codigo) == null) {
-                obj = new Empleado(codigo, apellidoP, apellidoM, nombre, ciudad, direccion, user, clave);
+                obj = new Empleado(codigo, apePaterno, apeMaterno, nombre, ciudad, direccion, user, clave);
                 mensaje = DALEmpleado.insertaEmpleado(obj);
                 if (mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
+                    BLContador.aumentarContador("Empleado");
                     return 0;
                 } else {
                     showMessageDialog(null, mensaje, "Error", 0);
@@ -40,9 +41,13 @@ public class BLEmpleado {
         }
     }
     
-    public static String buscarEmpleadoLogin(String codigo, String clave) {
-        if (codigo.trim().length() == 4 && clave == null) {
-            return DALEmpleado.buscarEmpleadoLogin(codigo, clave);
+    public static String buscarEmpleadoPorUser(String usuario) {
+        return DALEmpleado.buscarEmpleadoPorUser(usuario);
+    }
+    
+    public static String buscarEmpleadoLogin(String usuario, String clave) {
+        if (usuario !=null && clave !=null) {
+            return DALEmpleado.buscarEmpleadoLogin(usuario, clave);
         } else {
             return null;
         }
@@ -52,10 +57,10 @@ public class BLEmpleado {
         return DALEmpleado.listarEmpleados();
     }
 
-    public static String actualizarEmpleado(String codigo, String apellidoP, String apellidoM, String nombre, String ciudad, String direccion, String user, String clave) {
+    public static String actualizarEmpleado(String codigo, String apePaterno, String apeMaterno, String nombre, String ciudad, String direccion, String user, String clave) {
         String mensaje;
-        if (codigo.trim().length() == 4 && apellidoP.trim().length() > 0 && apellidoM.trim().length() > 0 && nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && user.trim().length() > 0 && clave.trim().length() <= 20) {
-            obj = new Empleado(codigo, apellidoP, apellidoM, nombre, ciudad, direccion, user, clave);
+        if (codigo.trim().length() == 4 && apePaterno.trim().length() > 0 && apeMaterno.trim().length() > 0 && nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && user.trim().length() > 0 && clave.trim().length() <= 20) {
+            obj = new Empleado(codigo, apePaterno, apeMaterno, nombre, ciudad, direccion, user, clave);
             mensaje = DALEmpleado.actualizarEmpleado(obj);
             if (mensaje == null) {
                 mensaje = "Registro actualizado";

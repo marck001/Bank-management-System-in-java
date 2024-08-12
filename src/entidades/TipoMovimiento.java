@@ -9,7 +9,7 @@ package entidades;
  * @author Manuel Arteaga
  */
 public class TipoMovimiento {
-     private String tipoCodigo;
+    private String tipoCodigo;
     private String tipoDescripcion;
     private String tipoAccion;
     private String tipoEstado;

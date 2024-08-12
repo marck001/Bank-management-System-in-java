@@ -18,7 +18,7 @@ public class Menu extends javax.swing.JInternalFrame {
      */
     public Menu() {
         initComponents();
-         this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
     }
@@ -124,7 +124,6 @@ public class Menu extends javax.swing.JInternalFrame {
         jPanel2.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 55, 45));
 
         home_pnl.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 490, 60));
-        jPanel2.getAccessibleContext().setAccessibleName("Menu");
 
         jPanel22.setBackground(new java.awt.Color(255, 51, 51));
         jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -182,7 +181,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d3_l2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         d3_l2.setForeground(new java.awt.Color(255, 255, 255));
         d3_l2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d3_l2.setText("Cuentas");
+        d3_l2.setText("Cuentas Credito");
         d3_1.add(d3_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 120, 30));
         d3_1.add(emp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
@@ -320,7 +319,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d9_l2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         d9_l2.setForeground(new java.awt.Color(255, 255, 255));
         d9_l2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d9_l2.setText("Lista");
+        d9_l2.setText("Movimientos");
         d9_1.add(d9_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 60, 130, 30));
         d9_1.add(emp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
@@ -366,7 +365,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d8_l2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         d8_l2.setForeground(new java.awt.Color(255, 255, 255));
         d8_l2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d8_l2.setText("Lista");
+        d8_l2.setText("Costos");
         d8_1.add(d8_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 60, 120, 30));
         d8_1.add(emp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
@@ -412,8 +411,8 @@ public class Menu extends javax.swing.JInternalFrame {
         d7_l2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         d7_l2.setForeground(new java.awt.Color(255, 255, 255));
         d7_l2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d7_l2.setText("Lista");
-        d7_1.add(d7_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 60, 120, 30));
+        d7_l2.setText("Tipos Movimiento");
+        d7_1.add(d7_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 120, 30));
         d7_1.add(emp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
         d7_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -505,7 +504,8 @@ public class Menu extends javax.swing.JInternalFrame {
         d4_l2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         d4_l2.setForeground(new java.awt.Color(255, 255, 255));
         d4_l2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d4_1.add(d4_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 60, 130, 30));
+        d4_l2.setText("Cuentas debito");
+        d4_1.add(d4_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 130, 30));
         d4_1.add(emp9, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
         d4_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -560,12 +560,13 @@ public class Menu extends javax.swing.JInternalFrame {
 
     private void d2_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2MouseClicked
         // TODO add your handling code here:
-       
+        IFrmListaClientes tab = new  IFrmListaClientes();
+
     }//GEN-LAST:event_d2_2MouseClicked
 
     private void d2_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2dash_h
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_d2_2dash_h
 
     private void d2_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2dash_e
@@ -575,113 +576,125 @@ public class Menu extends javax.swing.JInternalFrame {
 
     private void d3_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d3_2MouseClicked
         // TODO add your handling code here:
-      
+        IFrmListaCuentasCredito tab = new IFrmListaCuentasCredito();
+        MainFrm.centrarInternalFrameExterno(tab);
+
     }//GEN-LAST:event_d3_2MouseClicked
 
     private void d3_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d3_2dash_h
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_d3_2dash_h
 
     private void d3_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d3_2dash_e
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_d3_2dash_e
 
     private void d6_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d6_2MouseClicked
         // TODO add your handling code here:
-    
+
+        IFrmListaMonedas tab = new IFrmListaMonedas();
+        MainFrm.centrarInternalFrameExterno(tab);
+
     }//GEN-LAST:event_d6_2MouseClicked
 
     private void d6_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d6_2dash_h
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_d6_2dash_h
 
     private void d6_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d6_2dash_e
         // TODO add your handling code here:
- 
+
     }//GEN-LAST:event_d6_2dash_e
 
     private void d5_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d5_2MouseClicked
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_d5_2MouseClicked
 
     private void d5_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d5_2dash_h
-     
-        
+
+
     }//GEN-LAST:event_d5_2dash_h
 
     private void d5_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d5_2dash_e
-   
+
     }//GEN-LAST:event_d5_2dash_e
 
     private void d9_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d9_2MouseClicked
         // TODO add your handling code here:
-      
+
+        IFrmListaMovimiento tab = new IFrmListaMovimiento();
+        MainFrm.centrarInternalFrameExterno(tab);
+
     }//GEN-LAST:event_d9_2MouseClicked
 
     private void d9_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d9_2dash_h
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_d9_2dash_h
 
     private void d9_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d9_2dash_e
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_d9_2dash_e
 
     private void d8_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d8_2MouseClicked
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_d8_2MouseClicked
 
     private void d8_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d8_2dash_h
-       
+
     }//GEN-LAST:event_d8_2dash_h
 
     private void d8_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d8_2dash_e
-      
+
     }//GEN-LAST:event_d8_2dash_e
 
     private void d7_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d7_2MouseClicked
-       
+        IFrmListaTipoMovimiento tab = new IFrmListaTipoMovimiento();
+        MainFrm.centrarInternalFrameExterno(tab);
     }//GEN-LAST:event_d7_2MouseClicked
 
     private void d7_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d7_2dash_h
-        // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_d7_2dash_h
 
     private void d7_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d7_2dash_e
-    
+
     }//GEN-LAST:event_d7_2dash_e
 
     private void d1_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d1_2MouseClicked
-      
+        // TODO add your handling code here:
+        IFrmListaEmpleados tab = new IFrmListaEmpleados();
+        MainFrm.centrarInternalFrameExterno(tab);
     }//GEN-LAST:event_d1_2MouseClicked
 
     private void d1_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d1_2dash_h
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_d1_2dash_h
 
     private void d1_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d1_2dash_e
-      
+
     }//GEN-LAST:event_d1_2dash_e
 
     private void d4_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d4_2MouseClicked
-    
+
+        IFrmListaCuentasDebito tab = new IFrmListaCuentasDebito();
+        MainFrm.centrarInternalFrameExterno(tab);
     }//GEN-LAST:event_d4_2MouseClicked
 
     private void d4_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d4_2dash_h
-     
+
     }//GEN-LAST:event_d4_2dash_h
 
     private void d4_2dash_e(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d4_2dash_e
-     
-          
+
+
     }//GEN-LAST:event_d4_2dash_e
 
 

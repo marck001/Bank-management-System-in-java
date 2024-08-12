@@ -87,8 +87,8 @@ public class DALInteresMensual {
             cn = Conexion.realizarConexion();
             String sql = "{call sp_actualizar_interes(?, ?)}";
             cs = cn.prepareCall(sql);
-            cs.setString(1, interes.getMoneda().getCodigo());
-            cs.setFloat(2,  interes.getInteImporte());
+            cs.setFloat(1,  interes.getInteImporte());
+            cs.setString(2, interes.getMoneda().getCodigo());
             cs.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
@@ -128,4 +128,27 @@ public class DALInteresMensual {
         }
         return inter;
     }
+    
+    public static String realizarInteres(String fecha, float interes) {
+        String mensaje = null;
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_ganar_interes(?, ?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1,  fecha);
+            cs.setFloat(2, interes);
+            cs.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;        
+    }
+    
 }

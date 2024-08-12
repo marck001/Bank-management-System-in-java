@@ -8,7 +8,7 @@ package entidades;
  *
  * @author Gaby
  */
-public class Moneda {
+public class Moneda implements Comparable<Moneda> {
     private String codigo;
     private String descripcion;
 
@@ -39,4 +39,9 @@ public class Moneda {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+    
+    @Override
+    public int compareTo(Moneda moneda) {
+        return this.getCodigo().compareTo(moneda.getCodigo());
+    }    
 }

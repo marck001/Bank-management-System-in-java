@@ -31,6 +31,7 @@ public class BLSucursal {
                 mensaje = DALSucursal.insertarSucursal(sucursal);
                 if (mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
+                    BLContador.aumentarContador("Sucursal");
                     return "Registro insertado";
                 } else {
                     showMessageDialog(null, mensaje, "Error", 0);
@@ -88,5 +89,20 @@ public class BLSucursal {
             return null;
         }
     }
-
+   public static int asignarEmpleado(String codigoEmpleado, String usuario, String codigoSucursal) {
+        String mensaje;
+        if(codigoEmpleado.trim().length() > 0 && usuario.trim().length() > 0 && codigoSucursal.trim().length() > 0) {
+            mensaje = DALSucursal.asignarEmpleado(codigoEmpleado, usuario, codigoSucursal);
+            if(mensaje == null) {
+                showMessageDialog(null, "Empleado asignado", "Resultado", 1);
+                return 0;
+            } else {
+                showMessageDialog(null, mensaje, "Error", 0);
+                return 1;
+            }
+        } else {
+            showMessageDialog(null, "Datos no válidos", "Error", 0);
+            return 3;
+        }
+    }
 }

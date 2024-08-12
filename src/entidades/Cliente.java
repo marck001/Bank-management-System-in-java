@@ -109,16 +109,5 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    @Override
-    public String toString() {
-        return "Cliente [getCodigo()=" + getCodigo() + ", getApellidoPaterno()=" + getApellidoPaterno()
-                + ", getApellidoMaterno()=" + getApellidoMaterno() + ", getNombre()=" + getNombre() + ", getDni()="
-                + getDni() + ", getCiudad()=" + getCiudad() + ", getDireccion()=" + getDireccion() + ", getEmail()="
-                + getEmail() + ", getTelefono()=" + getTelefono() + "]";
-    }
-
-   
-
-
+    
 }

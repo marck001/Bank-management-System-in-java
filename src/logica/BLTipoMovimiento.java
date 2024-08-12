@@ -17,6 +17,7 @@ public class BLTipoMovimiento {
                 mensaje = DALTipoMovimiento.insertarTipoMovimiento(tipoMov);
                 if(mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
+                    BLContador.aumentarContador("TipoMovimiento");
                     return 0;
                 } else {
                     showMessageDialog(null, mensaje, "Error", 0);
@@ -43,7 +44,7 @@ public class BLTipoMovimiento {
         return DALTipoMovimiento.listarTipoMovimiento();
     }
     
-    public static String actualizarTipoMoviento(String tipoCodigo, String tipoDescripcion, String tipoAccion, String tipoEstado) {
+    public static String actualizarTipoMovimiento(String tipoCodigo, String tipoDescripcion, String tipoAccion, String tipoEstado) {
         String mensaje;
         if(tipoCodigo.trim().length()==3 && tipoDescripcion.trim().length()<=40 && tipoAccion.trim().length()<=10 && tipoEstado.trim().length()<=15) {
             tipoMov = new TipoMovimiento(tipoCodigo,tipoDescripcion,tipoAccion,tipoEstado);

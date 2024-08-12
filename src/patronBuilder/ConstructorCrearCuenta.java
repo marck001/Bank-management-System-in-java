@@ -17,6 +17,7 @@ public abstract class ConstructorCrearCuenta{
     public abstract void setSucuCodigo(String sucuCodigo);
     public abstract void setEmplCreaCuenta(String emplCreaCuenta);
     public abstract void setClieCodigo(String clieCodigo);
+    public abstract void setCuenTipo(String cuenTipo);
 
     public Cuenta getCuenta() {
         return cuenta;

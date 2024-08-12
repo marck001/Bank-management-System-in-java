@@ -5,7 +5,6 @@
 package logica;
 
 import datos.*;
-import logica.*;
 import patronBuilder.*;
 import entidades.*;
 import java.util.*;
@@ -16,18 +15,31 @@ import static javax.swing.JOptionPane.showMessageDialog;
  * @author marck e imaa
  */
 public class BLCuenta {
-    private static String[] monedas = {"Soles", "Dolares", "Pesos Argentinos", "Pesos chilenos", "Euros"};
-    private static CuentaCorriente obj;
+    private static String[] monedas = { "Soles", "Dolares", "Pesos Argentinos", "Pesos chilenos", "Euros" };
+    private static CuentaDebito obj1;
+    private static CuentaCredito obj2;
+
     public static int insertarCuenta(String codigo, String emplcod, String cliente, String monecode, String sucursal,
-            float saldo, GregorianCalendar fechaCreacion, String estado, int contMov, String clave) {
+            float saldo, GregorianCalendar fechaCreacion, String estado, int contMov, String clave,
+            String cuentipo) {
         String mensaje = null;
         if (codigo.trim().length() == 8 && emplcod.trim().length() == 4 && cliente.trim().length() == 5
-                && sucursal.trim().length() == 3 && saldo > 0.0f && fechaCreacion != null && estado.trim().length() > 0
-                && estado.trim().length() < 16 && contMov > 0 && clave.trim().length() == 6) {
+                && sucursal.trim().length() == 3 && saldo > 0.0f && fechaCreacion != null 
+                && estado.trim().length() < 16 && contMov > 0 && clave.trim().length() == 6
+                && cuentipo.trim().length() > 0) {
             if (buscar(codigo) == null) {
-                //got it
-            obj = new CuentaCorriente(codigo, saldo, fechaCreacion, estado,contMov,clave, monecode,sucursal, cliente ,emplcod);
-                mensaje = DALCuenta.insertaCuenta(obj);
+                // got it
+
+                if (cuentipo.equalsIgnoreCase("DEBITO")) {
+
+                    obj1 = new CuentaDebito(codigo, saldo, fechaCreacion, estado, contMov, clave, monecode, sucursal,
+                            cliente, emplcod, cuentipo);
+                    mensaje = DALCuenta.insertarCuentaDebito(obj1);
+                } else if (cuentipo.equalsIgnoreCase("CREDITO")) {
+                    obj2 = new CuentaCredito(codigo, saldo, fechaCreacion, estado, contMov, clave, monecode, sucursal,
+                            cliente, emplcod, cuentipo);
+                    mensaje = DALCuenta.insertarCuentaCredito(obj2);
+                }
 
                 if (mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
@@ -54,12 +66,13 @@ public class BLCuenta {
         }
     }
 
-    public static String buscarEmpleado(String codigo) {
-        if (codigo.trim().length() == 4) {
-            return DALEmpleado.buscarEmpleado(codigo);
-        } else {
-            return null;
-        }
+    public static ArrayList<CuentaDebito> listarCuentasDebito(){
+        return DALCuenta.listarCuentasDebito();
+    }
+
+    public static ArrayList<CuentaCredito> listarCuentasCredito(){
+        return DALCuenta.listarCuentasCredito();
+    
     }
 
     public static Cuenta obtenerCuenta(String codigo) {
@@ -125,48 +138,48 @@ public class BLCuenta {
     }
 
     public static String depositoCuenta(float deposito, String codigo) {
-        Cuenta cuenta=obtenerCuenta(codigo);
-        Moneda moneda=BLMoneda.obtenerMoneda(cuenta.getMoneCodigo());
-        String nombreMoneda=moneda.getDescripcion();
-        String mensaje="";
+        Cuenta cuenta = obtenerCuenta(codigo);
+        Moneda moneda = BLMoneda.obtenerMoneda(cuenta.getMoneCodigo());
+        String nombreMoneda = moneda.getDescripcion();
+        String mensaje = "";
         if (deposito > 0) {
-            switch(nombreMoneda){
+            switch (nombreMoneda) {
                 case "Soles":
-                    if(deposito<=1000){
-                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
-                    }else{
-                      mensaje = "El limite es de 1000.00 soles";  
+                    if (deposito <= 1000) {
+                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                    } else {
+                        mensaje = "El limite es de 1000.00 soles";
                     }
                     break;
                 case "Dolares":
-                    if(deposito<=268){
-                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
-                    }else{
-                      mensaje = "El limite es de 268 dólares. ";  
+                    if (deposito <= 268) {
+                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                    } else {
+                        mensaje = "El limite es de 268 dólares. ";
                     }
                     break;
                 case "Pesos argentinos":
-                    if(deposito<=250282){
-                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
-                    }else{
-                      mensaje = "El limite es de 250282 Pesos Argentinos ";  
+                    if (deposito <= 250282) {
+                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                    } else {
+                        mensaje = "El limite es de 250282 Pesos Argentinos ";
                     }
                     break;
                 case "Pesos chilenos":
-                    if(deposito<=252457){
-                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
-                    }else{
-                      mensaje = "El limite es de 252457.00 Pesos Chilenos";  
+                    if (deposito <= 252457) {
+                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                    } else {
+                        mensaje = "El limite es de 252457.00 Pesos Chilenos";
                     }
                     break;
                 case "Euro":
-                    if(deposito<=245){
-                      mensaje = DALCuenta.retiroCuenta(deposito, codigo);  
-                    }else{
-                      mensaje = "El limite es de 245.00 Euros";  
+                    if (deposito <= 245) {
+                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                    } else {
+                        mensaje = "El limite es de 245.00 Euros";
                     }
                     break;
-            }     
+            }
         } else {
             mensaje = "Monto del depósito inválido.";
         }
@@ -183,6 +196,32 @@ public class BLCuenta {
 
     public static String reactivarCuenta(String codCuenta) {
         return DALCuenta.reactivarCuenta(codCuenta);
+    }
+    
+    public static String obtenerPuntosCredito(String codCuenta){
+        return DALCuenta.obtenerPuntosCredito(codCuenta);
+    }
+    
+      public static String obtenerPuntosCredito2(String codCuenta){
+        return DALCuenta.obtenerPuntosCredito2(codCuenta);
+    }
+    
+     public static String obtenerNumTarjetaDebito(String codCuenta){
+        return DALCuenta.obtenerTarjetaDebito(codCuenta);
+    }
+    
+    public static String actualizarPuntosCreditoPorSaldo(String codCuenta, float saldo){
+        return DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
+    }
+    
+    public static String converterPuntosCreditoASaldo(String codCuenta, float puntosAconvertir){
+        String mensaje;
+        if(puntosAconvertir <= Float.parseFloat(obtenerPuntosCredito(codCuenta))){
+            mensaje = DALCuenta.converterPuntosCreditoASaldo(codCuenta, puntosAconvertir);
+        }else{
+            mensaje= "Puntos a convertir insuficiente. ";
+        }
+        return mensaje;
     }
 
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author Manuel Arteaga
  */
 public class SucursalProvincial extends Sucursal {
-    private ArrayList<Sucursal> sucursales;
+        private ArrayList<Sucursal> sucursales;
 
     public SucursalProvincial(String codigo, String nombre, String ciudad, String direccion, int contCuenta) {
         super(codigo, nombre, ciudad, direccion, contCuenta);

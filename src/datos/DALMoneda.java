@@ -65,6 +65,32 @@ public class DALMoneda {
         return null;
     }
     
+        public static String buscarMonedaDescripcion(String descripcion) {
+        String sql;
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_buscar_monedadescripcion(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, descripcion);
+            rs = cs.executeQuery();
+            while(rs.next()) {
+                return rs.getString("monedescripcion");
+            }
+        } catch(ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch(SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return null;
+    }
+    
+    
     public static ArrayList<Moneda> listarMonedas() {
         String sql;
         ArrayList<Moneda> monedas = new ArrayList<>();
@@ -111,29 +137,7 @@ public class DALMoneda {
         }
         return mensaje;        
     }
-    
-    public static String eliminarMoneda(String codigo){
-        String mensaje = null;
-        
-        try{
-            cn = Conexion.realizarConexion();
-            String sql = "{call sp_eliminar_moneda(?)}";
-            cs = cn.prepareCall(sql);
-            cs.setString(1, codigo);
-            cs.executeUpdate();
-            mensaje = "Moneda con "+ codigo +"eliminada";
-        }catch(ClassNotFoundException | SQLException ex){
-                mensaje = ex.getMessage();
-        }finally {
-            try {
-                cs.close();
-                cn.close();
-            } catch (SQLException ex) {
-                mensaje = ex.getMessage();
-            }
-        }
-        return mensaje;
-    }
+   
     
     public static Moneda obtenerMoneda(String codigo) {
         Moneda moneda = new Moneda();

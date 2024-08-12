@@ -9,7 +9,7 @@ package entidades;
  * @author Manuel Arteaga
  */
 public class Contador {
-       private String contTabla;
+    private String contTabla;
     private int contItem;
     private int contLongitud;
 

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
+import java.awt.event.*;
 import patronAdapter.*;
 
 /**
@@ -80,6 +81,11 @@ public class RecargarSaldo extends javax.swing.JInternalFrame {
         txtSaldoRecargado.setForeground(new java.awt.Color(255, 255, 255));
         txtSaldoRecargado.setDisabledTextColor(new java.awt.Color(126, 56, 56));
         txtSaldoRecargado.setSelectionColor(new java.awt.Color(126, 53, 53));
+        txtSaldoRecargado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSaldoRecargadoKeyTyped(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/monedas.png"))); // NOI18N
         jButton1.setText("RECARGAR");
@@ -183,15 +189,21 @@ public class RecargarSaldo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ComponenteSolicitudVirtual componente = new ComponenteSolicitudVirtual();
+        SolicitudesPorInternetDetalladas solicitudVirtual = new SolicitudesPorInternetDetalladas();
         saldo=Float.parseFloat(txtSaldoRecargado.getText());
-        componente.recargarSaldoPorEmpleado(codCuentica, saldo);
+        solicitudVirtual.recargarSaldo(codCuentica, saldo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked
         this.dispose();
         new BancaPorInternet(codCuentica);
     }//GEN-LAST:event_iconoVolverMouseClicked
+
+    private void txtSaldoRecargadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoRecargadoKeyTyped
+        char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtSaldoRecargado.getText().contains(".")))
+           evt.consume();
+    }//GEN-LAST:event_txtSaldoRecargadoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

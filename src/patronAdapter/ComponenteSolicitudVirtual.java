@@ -66,7 +66,7 @@ public class ComponenteSolicitudVirtual {
     }
 
     public void depositarSaldoPorEmpleado(String codCuenta, float saldo, int op) {
-        String codBuscado, clave, mensaje, mensaje2;
+        String codBuscado, clave, mensaje, mensaje2,mensaje3;
         int contIntentos = 0, numMov, numMov1, aux1, aux2, aux3;
         float saldoNuevo, retiroRemitente, saldoDestino;
         Cuenta cuenta;
@@ -135,7 +135,10 @@ public class ComponenteSolicitudVirtual {
                         numMov1 = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino);
                         aux1 = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999","009");                        
                         aux2 = BLMovimiento.insertarMovimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino,"9999", "008");
-
+                        //Sumamos puntos:
+                        if(cuenta.getCuenTipo().trim().equals("CREDITO")){
+                            mensaje3=DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
+                        }
                     } else {
                         showMessageDialog(null, "Error 1: "+ mensaje + "\n" + "Error 2: "+mensaje2, "Error", 0);
                     }
@@ -186,7 +189,7 @@ public class ComponenteSolicitudVirtual {
     // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENTO
 
     public void recargarSaldoPorEmpleado(String codCuenta, float saldo) {
-        String codBuscado, clave, mensaje;
+        String codBuscado, clave, mensaje, mensaje2;
         int contIntentos = 0, numMov, aux;
         float saldoNuevo;
         Cuenta cuenta;
@@ -217,6 +220,10 @@ public class ComponenteSolicitudVirtual {
                         aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "ENTRADA", cuenta.getCodigo(),
                                 "9999", "003"); 
                                 System.out.println(aux);  
+                        //Sumamos puntos:
+                        if(cuenta.getCuenTipo().trim().equals("CREDITO")){
+                            mensaje2=DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
+                        }
                     } else {
                         showMessageDialog(null,  mensaje , "Error", 0);
                     }

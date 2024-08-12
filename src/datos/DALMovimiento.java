@@ -105,7 +105,7 @@ public class DALMovimiento {
                 int month = Integer.parseInt(dateParts[1]) - 1;
                 int day = Integer.parseInt(dateParts[2]);
                 obj.setFechaMov(new GregorianCalendar(year, month, day));
-                obj.setImporte(rs.getFloat(3));
+               /* obj.setImporte(rs.getFloat(3));
                 obj.setReferencia(rs.getString(4));
                 obj.setCuenCodigo(rs.getString(5));
                 obj.setEmpleado(rs.getString(6));
@@ -113,7 +113,7 @@ public class DALMovimiento {
                 obj.setNumero(rs.getInt(1));
                 String[] date = rs.getString(2).split("-");
                 obj.setFechaMov(Integer.parseInt(date[0]), Integer.parseInt(date[1]) - 1,
-                        Integer.parseInt(date[2]));
+                        Integer.parseInt(date[2]));*/
                 obj.setImporte(Float.parseFloat(rs.getString(3)));
                 obj.setReferencia(rs.getString(4));
                 obj.setCuenCodigo(rs.getString(5));
@@ -140,17 +140,19 @@ public class DALMovimiento {
         ArrayList<Movimiento> movimientos = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_listar_movimiento()}";
+            sql = "{call sp_listar_mov()}";
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery();
             while (rs.next()) {
 
-                String[] string = rs.getString(2).split("-");
+                String[] string = rs.getString(3).split("-");
 
-                movimientos.add(new Movimiento(rs.getInt(1),
+                //int numero, GregorianCalendar fechaMov, float importe, String referencia, 
+        //String cuenCodigo, String empCodigo, String tipoMovimiento
+                movimientos.add(new Movimiento(rs.getInt(2),
                         new GregorianCalendar(Integer.parseInt(string[0]), Integer.parseInt(string[1]),
                                 Integer.parseInt(string[2])),
-                        rs.getFloat(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+                        rs.getFloat(6), rs.getString(7), rs.getString(1), rs.getString(4), rs.getString(5)));
 
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -193,5 +195,37 @@ public class DALMovimiento {
         
         }return max;
         
+    }
+      public static void verificarYReiniciarContador() {
+        GregorianCalendar fechaActual = new GregorianCalendar();
+        int diaDelMes = fechaActual.get(Calendar.DAY_OF_MONTH);
+
+        if (diaDelMes == 1) {
+            String mensaje = reiniciarContadorMovimientos();
+            if (mensaje == null) {
+                System.out.println("Contador de movimientos reiniciado automáticamente.");
+            } else {
+                System.err.println("Error al reiniciar el contador de movimientos: " + mensaje);
+            }
+        }
+    }
+        public static String reiniciarContadorMovimientos() {
+        String mensaje = null;
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_reiniciar_contador_movimientos()}";
+            cs = cn.prepareCall(sql);
+            cs.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;
     }
 }

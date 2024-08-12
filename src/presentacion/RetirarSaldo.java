@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
+import java.awt.event.KeyEvent;
 import patronAdapter.*;
 /**
  *
@@ -76,6 +77,11 @@ public class RetirarSaldo extends javax.swing.JInternalFrame {
         txtSaldoRetirado.setForeground(new java.awt.Color(255, 255, 255));
         txtSaldoRetirado.setDisabledTextColor(new java.awt.Color(126, 56, 56));
         txtSaldoRetirado.setSelectionColor(new java.awt.Color(126, 53, 53));
+        txtSaldoRetirado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSaldoRetiradoKeyTyped(evt);
+            }
+        });
 
         btnRetirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_ayuda_msocios.gif"))); // NOI18N
         btnRetirar.setText("  RETIRAR");
@@ -179,15 +185,21 @@ public class RetirarSaldo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirarActionPerformed
-        ComponenteSolicitudVirtual componente = new ComponenteSolicitudVirtual();
+        SolicitudesPorInternetDetalladas solicitudVirtual = new SolicitudesPorInternetDetalladas();
         saldo=Float.parseFloat(txtSaldoRetirado.getText());
-        componente.retirarSaldoPorEmpleado(codCuentica, TOP_ALIGNMENT);
+        solicitudVirtual.retirarSaldo(codCuentica, saldo);
     }//GEN-LAST:event_btnRetirarActionPerformed
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked
         this.dispose();
         new BancaPorInternet(codCuentica);
     }//GEN-LAST:event_iconoVolverMouseClicked
+
+    private void txtSaldoRetiradoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoRetiradoKeyTyped
+         char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtSaldoRetirado.getText().contains(".")))
+           evt.consume();
+    }//GEN-LAST:event_txtSaldoRetiradoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
