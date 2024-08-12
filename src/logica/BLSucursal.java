@@ -55,10 +55,6 @@ public class BLSucursal {
         }
     }
 
-    public static ArrayList<Sucursal> listarSucursales() {
-        return DALSucursal.listarSucursales();
-    }
-
     public static String actualizarSucursal(String codigo, String nombre, String ciudad, String direccion, int contCuenta, String tipo) {
         String mensaje;
         if (codigo.trim().length() > 0 && nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0) {
@@ -104,5 +100,9 @@ public class BLSucursal {
             showMessageDialog(null, "Datos no válidos", "Error", 0);
             return 3;
         }
+    }
+   
+       public static ArrayList<Sucursal> listarSucursales() {
+        return DALSucursal.listarSucursales();
     }
 }

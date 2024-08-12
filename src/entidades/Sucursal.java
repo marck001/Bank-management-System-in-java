@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author Felix
  */
-public  class Sucursal {
+public  class Sucursal implements Comparable <Sucursal>{
 
     private String codigo;
     private String nombre;
@@ -191,4 +191,9 @@ public  class Sucursal {
                ", ciudad=" + ciudad + ", direccion=" + direccion +
                ", contCuenta=" + contCuenta + ", asignado=" + asignado + '}';
     }
+  
+    @Override
+    public int compareTo(Sucursal sucursal) {
+        return this.getCodigo().compareTo(sucursal.getCodigo());
+    }    
 }

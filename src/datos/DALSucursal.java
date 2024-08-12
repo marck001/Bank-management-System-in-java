@@ -76,22 +76,40 @@ public class DALSucursal {
     }
 
     public static ArrayList<Sucursal> listarSucursales() {
-        String sql;
         ArrayList<Sucursal> sucursales = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_listar_sucursal}";
+            String sql = "{call sp_listar_sucursal()}"; 
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery();
+
             while (rs.next()) {
                 String tipo = rs.getString("tipo");
                 Sucursal sucursal;
                 if ("Departamental".equalsIgnoreCase(tipo)) {
-                    sucursal = new SucursalDepartamental(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+                    sucursal = new SucursalDepartamental(
+                        rs.getString("sucucodigo"), 
+                        rs.getString("sucunombre"), 
+                        rs.getString("sucuciudad"), 
+                        rs.getString("sucudireccion"), 
+                        rs.getInt("sucucontcuenta")
+                    );
                 } else if ("Provincial".equalsIgnoreCase(tipo)) {
-                    sucursal = new SucursalProvincial(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+                    sucursal = new SucursalProvincial(
+                        rs.getString("sucucodigo"), 
+                        rs.getString("sucunombre"), 
+                        rs.getString("sucuciudad"), 
+                        rs.getString("sucudireccion"), 
+                        rs.getInt("sucucontcuenta")
+                    );
                 } else {
-                    sucursal = new Sucursal(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+                    sucursal = new Sucursal(
+                        rs.getString("sucucodigo"), 
+                        rs.getString("sucunombre"), 
+                        rs.getString("sucuciudad"), 
+                        rs.getString("sucudireccion"), 
+                        rs.getInt("sucucontcuenta")
+                    );
                 }
                 sucursales.add(sucursal);
             }
@@ -99,9 +117,9 @@ public class DALSucursal {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
         } finally {
             try {
-                rs.close();
-                cs.close();
-                cn.close();
+                if (rs != null) rs.close();
+                if (cs != null) cs.close();
+                if (cn != null) cn.close();
             } catch (SQLException ex) {
                 showMessageDialog(null, ex.getMessage(), "Error", 0);
             }
@@ -189,7 +207,7 @@ public class DALSucursal {
                 rs.close();
                 cs.close();
 
-                String verificarUsuarioSql = "{call sp_buscar_usuario(?)}";
+                String verificarUsuarioSql = "{call sp_buscar_cliente(?)}";
                 cs = cn.prepareCall(verificarUsuarioSql);
                 cs.setString(1, usuario);
                 rs = cs.executeQuery();
