@@ -1003,7 +1003,7 @@ public class MainFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_secondPanelTab4MousePressed
 
     private void secondPanelTab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab4MouseClicked
-        // TODO add your handling code here:
+            
     }//GEN-LAST:event_secondPanelTab4MouseClicked
 
     private void secondPanelTab3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab3MousePressed
@@ -1020,7 +1020,9 @@ public class MainFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_secondPanelTab3MousePressed
 
     private void secondPanelTab3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab3MouseClicked
-        // TODO add your handling code here:
+        FrmDatosPersonales tab = new FrmDatosPersonales();
+        centrarInternalFrame2(tab);
+        
     }//GEN-LAST:event_secondPanelTab3MouseClicked
 
     private void secondPanelTab2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab2MousePressed
