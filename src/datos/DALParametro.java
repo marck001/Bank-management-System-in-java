@@ -4,27 +4,29 @@
  */
 package datos;
 
-import static datos.DALCuenta.*;
 import entidades.*;
 import java.sql.*;
-import java.util.*;
 import static javax.swing.JOptionPane.showMessageDialog;
+import static logica.BLCuenta.*;
 
 /**
  *
- * @author ima
+ * @author User
  */
-public class DALContador {
-     private static Connection cn = null;
+public class DALParametro {
+    private static Connection cn = null;
     private static ResultSet rs = null;
     private static CallableStatement cs = null;
-    public static String aumentarContador(String nombreItem) {
+    public static String cobrarItf(String codigo, float impuesto, float montoTransf) {
         String mensaje = null;
+        Cuenta cuenta = obtenerCuenta(codigo);
         try {
             cn = Conexion.realizarConexion();
-            String sql = "{call sp_aumentarContador(?)}";
+            String sql = "{call sp_cobrarITF(?, ?, ?)}";
             cs = cn.prepareCall(sql);
-            cs.setString(1, nombreItem);
+            cs.setString(1, cuenta.getCodigo());
+            cs.setFloat(2, impuesto);
+            cs.setFloat(3, montoTransf);
             cs.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
@@ -39,16 +41,15 @@ public class DALContador {
         return mensaje;
     }
     
-    public static ArrayList<Contador> listarContador() {
+    public static String obtenerITF() {
         String sql;
-        ArrayList<Contador> obj = new ArrayList<>();
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_listar_contador}";
+            sql = "{call sp_obtenerITF()}";
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery();
             while (rs.next()) {
-                obj.add(new Contador(rs.getString(1), rs.getInt(2) , rs.getInt(3)));
+                return rs.getString("paravalor");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -61,6 +62,31 @@ public class DALContador {
                 showMessageDialog(null, ex.getMessage(), "Error", 0);
             }
         }
-        return obj;
+        return null;
     }
+    
+    public static String obtenerMaxMov() {
+        String sql;
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_obtenerMaxMovimientos()}";
+            cs = cn.prepareCall(sql);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                return rs.getString("paravalor");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return null;
+    }
+    
 }

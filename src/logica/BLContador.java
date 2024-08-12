@@ -4,6 +4,8 @@
  */
 package logica;
 import datos.*;
+import entidades.*;
+import java.util.*;
 /**
  *
  * @author ima
@@ -11,5 +13,9 @@ import datos.*;
 public class BLContador {
     public static String aumentarContador(String nombreItem) {
         return DALContador.aumentarContador(nombreItem);
+    }
+    
+    public static ArrayList<Contador> listarContador(){
+        return DALContador.listarContador();
     }
 }
