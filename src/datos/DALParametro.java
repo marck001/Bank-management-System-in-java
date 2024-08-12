@@ -6,6 +6,7 @@ package datos;
 
 import entidades.*;
 import java.sql.*;
+import java.util.ArrayList;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static logica.BLCuenta.*;
 
@@ -89,4 +90,29 @@ public class DALParametro {
         return null;
     }
     
+    public static ArrayList<Parametro> listarParametro() {
+        String sql;
+        ArrayList<Parametro> obj = new ArrayList<>();
+        try {
+            // Parametro(String paraCodigo, String paraDescripcion, String paraValor, String paraEstado)
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_listar_parametro}";
+            cs = cn.prepareCall(sql);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                obj.add(new Parametro(rs.getString(1), rs.getString(2) , rs.getString(3),rs.getString(4)));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return obj;
+    }
 }

@@ -63,4 +63,29 @@ public class DALContador {
         }
         return obj;
     }
+    
+    public static String obtenerConteo(String tabla) {
+        String sql;
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_obtener_conteo(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, tabla);
+            rs = cs.executeQuery();
+           if (rs.next()) {
+                return rs.getString("contitem");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return "0";
+    }
 }

@@ -6,6 +6,7 @@ package presentacion;
 
 import javax.swing.BorderFactory;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import logica.BLContador;
 
 /**
  *
@@ -21,6 +22,21 @@ public class Menu extends javax.swing.JInternalFrame {
         this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
+
+        setTables();
+
+    }
+
+    public void setTables() {
+        lbl_empleado.setText(BLContador.obtenerConteo("Empleado"));
+        lbl_cliente.setText(BLContador.obtenerConteo("Cliente"));
+        lbl_debito.setText(BLContador.obtenerConteo("Debito"));
+        lbl_credito.setText(BLContador.obtenerConteo("Credito"));
+        lbl_sucursal.setText(BLContador.obtenerConteo("Sucursal"));
+        lbl_tipo.setText(BLContador.obtenerConteo("TipoMovimiento"));
+        lbl_movimiento.setText(BLContador.obtenerConteo("Movimiento"));
+        lbl_parametro.setText(BLContador.obtenerConteo("Parametro"));
+        lbl_moneda.setText(BLContador.obtenerConteo("Moneda"));
     }
 
     /**
@@ -40,7 +56,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d2_1 = new javax.swing.JPanel();
         d2_l2 = new javax.swing.JLabel();
         emp4 = new javax.swing.JLabel();
-        d2_l1 = new javax.swing.JLabel();
+        lbl_cliente = new javax.swing.JLabel();
         d2_2 = new javax.swing.JPanel();
         d2_l3 = new javax.swing.JLabel();
         st4 = new javax.swing.JLabel();
@@ -48,7 +64,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d3_1 = new javax.swing.JPanel();
         d3_l2 = new javax.swing.JLabel();
         emp5 = new javax.swing.JLabel();
-        d3_l1 = new javax.swing.JLabel();
+        lbl_credito = new javax.swing.JLabel();
         d3_2 = new javax.swing.JPanel();
         d3_l3 = new javax.swing.JLabel();
         st5 = new javax.swing.JLabel();
@@ -56,7 +72,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d6_1 = new javax.swing.JPanel();
         d6_l2 = new javax.swing.JLabel();
         emp1 = new javax.swing.JLabel();
-        d6_l1 = new javax.swing.JLabel();
+        lbl_moneda = new javax.swing.JLabel();
         d6_2 = new javax.swing.JPanel();
         d6_l3 = new javax.swing.JLabel();
         st1 = new javax.swing.JLabel();
@@ -64,7 +80,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d5_1 = new javax.swing.JPanel();
         d5_l2 = new javax.swing.JLabel();
         emp6 = new javax.swing.JLabel();
-        d5_l1 = new javax.swing.JLabel();
+        lbl_sucursal = new javax.swing.JLabel();
         d5_2 = new javax.swing.JPanel();
         d5_l3 = new javax.swing.JLabel();
         st6 = new javax.swing.JLabel();
@@ -72,7 +88,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d9_1 = new javax.swing.JPanel();
         d9_l2 = new javax.swing.JLabel();
         emp7 = new javax.swing.JLabel();
-        d9_l1 = new javax.swing.JLabel();
+        lbl_movimiento = new javax.swing.JLabel();
         d9_2 = new javax.swing.JPanel();
         d9_l3 = new javax.swing.JLabel();
         st7 = new javax.swing.JLabel();
@@ -80,7 +96,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d8_1 = new javax.swing.JPanel();
         d8_l2 = new javax.swing.JLabel();
         emp2 = new javax.swing.JLabel();
-        d8_l1 = new javax.swing.JLabel();
+        lbl_parametro = new javax.swing.JLabel();
         d8_2 = new javax.swing.JPanel();
         d8_l3 = new javax.swing.JLabel();
         st2 = new javax.swing.JLabel();
@@ -88,7 +104,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d7_1 = new javax.swing.JPanel();
         d7_l2 = new javax.swing.JLabel();
         emp3 = new javax.swing.JLabel();
-        d7_l1 = new javax.swing.JLabel();
+        lbl_tipo = new javax.swing.JLabel();
         d7_2 = new javax.swing.JPanel();
         d7_l3 = new javax.swing.JLabel();
         st3 = new javax.swing.JLabel();
@@ -96,7 +112,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d1_1 = new javax.swing.JPanel();
         d1_l2 = new javax.swing.JLabel();
         emp8 = new javax.swing.JLabel();
-        d1_l1 = new javax.swing.JLabel();
+        lbl_empleado = new javax.swing.JLabel();
         d1_2 = new javax.swing.JPanel();
         d1_l3 = new javax.swing.JLabel();
         st8 = new javax.swing.JLabel();
@@ -104,7 +120,7 @@ public class Menu extends javax.swing.JInternalFrame {
         d4_1 = new javax.swing.JPanel();
         d4_l2 = new javax.swing.JLabel();
         emp9 = new javax.swing.JLabel();
-        d4_l1 = new javax.swing.JLabel();
+        lbl_debito = new javax.swing.JLabel();
         d4_2 = new javax.swing.JPanel();
         d4_l3 = new javax.swing.JLabel();
         st9 = new javax.swing.JLabel();
@@ -139,11 +155,11 @@ public class Menu extends javax.swing.JInternalFrame {
         d2_1.add(d2_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 60, 130, 30));
         d2_1.add(emp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
-        d2_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        d2_l1.setForeground(new java.awt.Color(255, 255, 255));
-        d2_l1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d2_l1.setText("0");
-        d2_1.add(d2_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
+        lbl_cliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_cliente.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_cliente.setText("0");
+        d2_1.add(lbl_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
 
         jPanel22.add(d2_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 92));
 
@@ -185,11 +201,11 @@ public class Menu extends javax.swing.JInternalFrame {
         d3_1.add(d3_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 120, 30));
         d3_1.add(emp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
-        d3_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        d3_l1.setForeground(new java.awt.Color(255, 255, 255));
-        d3_l1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d3_l1.setText("0");
-        d3_1.add(d3_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
+        lbl_credito.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_credito.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_credito.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_credito.setText("0");
+        d3_1.add(lbl_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
 
         jPanel25.add(d3_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 92));
 
@@ -231,11 +247,11 @@ public class Menu extends javax.swing.JInternalFrame {
         d6_1.add(d6_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 60, 120, 30));
         d6_1.add(emp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
-        d6_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        d6_l1.setForeground(new java.awt.Color(255, 255, 255));
-        d6_l1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d6_l1.setText("0");
-        d6_1.add(d6_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
+        lbl_moneda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_moneda.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_moneda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_moneda.setText("0");
+        d6_1.add(lbl_moneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
 
         jPanel8.add(d6_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 92));
 
@@ -277,11 +293,11 @@ public class Menu extends javax.swing.JInternalFrame {
         d5_1.add(d5_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 60, 120, 30));
         d5_1.add(emp6, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
-        d5_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        d5_l1.setForeground(new java.awt.Color(255, 255, 255));
-        d5_l1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d5_l1.setText("0");
-        d5_1.add(d5_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
+        lbl_sucursal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_sucursal.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_sucursal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_sucursal.setText("0");
+        d5_1.add(lbl_sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
 
         jPanel28.add(d5_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 92));
 
@@ -323,11 +339,11 @@ public class Menu extends javax.swing.JInternalFrame {
         d9_1.add(d9_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 60, 130, 30));
         d9_1.add(emp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
-        d9_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        d9_l1.setForeground(new java.awt.Color(255, 255, 255));
-        d9_l1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d9_l1.setText("0.00");
-        d9_1.add(d9_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 10, 155, 40));
+        lbl_movimiento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_movimiento.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_movimiento.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_movimiento.setText("0.00");
+        d9_1.add(lbl_movimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 10, 155, 40));
 
         jPanel31.add(d9_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 92));
 
@@ -365,15 +381,15 @@ public class Menu extends javax.swing.JInternalFrame {
         d8_l2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         d8_l2.setForeground(new java.awt.Color(255, 255, 255));
         d8_l2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d8_l2.setText("Costos");
+        d8_l2.setText("Parametros");
         d8_1.add(d8_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 60, 120, 30));
         d8_1.add(emp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
-        d8_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        d8_l1.setForeground(new java.awt.Color(255, 255, 255));
-        d8_l1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d8_l1.setText("0.00");
-        d8_1.add(d8_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 10, 155, 40));
+        lbl_parametro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_parametro.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_parametro.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_parametro.setText("0.00");
+        d8_1.add(lbl_parametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 10, 155, 40));
 
         jPanel14.add(d8_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 92));
 
@@ -415,11 +431,11 @@ public class Menu extends javax.swing.JInternalFrame {
         d7_1.add(d7_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 120, 30));
         d7_1.add(emp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
-        d7_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        d7_l1.setForeground(new java.awt.Color(255, 255, 255));
-        d7_l1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d7_l1.setText("0.00");
-        d7_1.add(d7_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 10, 155, 40));
+        lbl_tipo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_tipo.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_tipo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_tipo.setText("0.00");
+        d7_1.add(lbl_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 10, 155, 40));
 
         jPanel17.add(d7_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 92));
 
@@ -462,11 +478,11 @@ public class Menu extends javax.swing.JInternalFrame {
         d1_1.add(d1_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 120, 30));
         d1_1.add(emp8, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
-        d1_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        d1_l1.setForeground(new java.awt.Color(255, 255, 255));
-        d1_l1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d1_l1.setText("0");
-        d1_1.add(d1_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
+        lbl_empleado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_empleado.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_empleado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_empleado.setText("0");
+        d1_1.add(lbl_empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
 
         jPanel34.add(d1_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 92));
 
@@ -508,11 +524,11 @@ public class Menu extends javax.swing.JInternalFrame {
         d4_1.add(d4_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 130, 30));
         d4_1.add(emp9, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 50, 40));
 
-        d4_l1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        d4_l1.setForeground(new java.awt.Color(255, 255, 255));
-        d4_l1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        d4_l1.setText("0");
-        d4_1.add(d4_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
+        lbl_debito.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_debito.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_debito.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_debito.setText("0");
+        d4_1.add(lbl_debito, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 10, 155, 40));
 
         jPanel37.add(d4_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 92));
 
@@ -560,7 +576,7 @@ public class Menu extends javax.swing.JInternalFrame {
 
     private void d2_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d2_2MouseClicked
         // TODO add your handling code here:
-        IFrmListaClientes tab = new  IFrmListaClientes();
+        IFrmListaClientes tab = new IFrmListaClientes();
 
     }//GEN-LAST:event_d2_2MouseClicked
 
@@ -644,6 +660,9 @@ public class Menu extends javax.swing.JInternalFrame {
     private void d8_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d8_2MouseClicked
         // TODO add your handling code here:
 
+        IFrmListaParametros tab = new IFrmListaParametros();
+        MainFrm.centrarInternalFrameExterno(tab);
+
     }//GEN-LAST:event_d8_2MouseClicked
 
     private void d8_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d8_2dash_h
@@ -701,47 +720,38 @@ public class Menu extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel d1_1;
     private javax.swing.JPanel d1_2;
-    public javax.swing.JLabel d1_l1;
     private javax.swing.JLabel d1_l2;
     private javax.swing.JLabel d1_l3;
     private javax.swing.JPanel d2_1;
     private javax.swing.JPanel d2_2;
-    public javax.swing.JLabel d2_l1;
     private javax.swing.JLabel d2_l2;
     private javax.swing.JLabel d2_l3;
     private javax.swing.JPanel d3_1;
     private javax.swing.JPanel d3_2;
-    public javax.swing.JLabel d3_l1;
     private javax.swing.JLabel d3_l2;
     private javax.swing.JLabel d3_l3;
     private javax.swing.JPanel d4_1;
     private javax.swing.JPanel d4_2;
-    public javax.swing.JLabel d4_l1;
     private javax.swing.JLabel d4_l2;
     private javax.swing.JLabel d4_l3;
     private javax.swing.JPanel d5_1;
     private javax.swing.JPanel d5_2;
-    public javax.swing.JLabel d5_l1;
     private javax.swing.JLabel d5_l2;
     private javax.swing.JLabel d5_l3;
     private javax.swing.JPanel d6_1;
     private javax.swing.JPanel d6_2;
-    public javax.swing.JLabel d6_l1;
     private javax.swing.JLabel d6_l2;
     private javax.swing.JLabel d6_l3;
     private javax.swing.JPanel d7_1;
     private javax.swing.JPanel d7_2;
-    public javax.swing.JLabel d7_l1;
     private javax.swing.JLabel d7_l2;
     private javax.swing.JLabel d7_l3;
     private javax.swing.JPanel d8_1;
     private javax.swing.JPanel d8_2;
-    public javax.swing.JLabel d8_l1;
     private javax.swing.JLabel d8_l2;
     private javax.swing.JLabel d8_l3;
     private javax.swing.JPanel d9_1;
     private javax.swing.JPanel d9_2;
-    public javax.swing.JLabel d9_l1;
     private javax.swing.JLabel d9_l2;
     private javax.swing.JLabel d9_l3;
     private javax.swing.JLabel emp1;
@@ -764,6 +774,15 @@ public class Menu extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel8;
+    public javax.swing.JLabel lbl_cliente;
+    public javax.swing.JLabel lbl_credito;
+    public javax.swing.JLabel lbl_debito;
+    public javax.swing.JLabel lbl_empleado;
+    public javax.swing.JLabel lbl_moneda;
+    public javax.swing.JLabel lbl_movimiento;
+    public javax.swing.JLabel lbl_parametro;
+    public javax.swing.JLabel lbl_sucursal;
+    public javax.swing.JLabel lbl_tipo;
     private javax.swing.JLabel profile;
     private javax.swing.JLabel slo;
     private javax.swing.JLabel st1;

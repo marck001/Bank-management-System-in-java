@@ -5,6 +5,8 @@
 package logica;
 
 import datos.*;
+import entidades.Parametro;
+import java.util.ArrayList;
 
 /**
  *
@@ -22,4 +24,8 @@ public class BLParametro {
     public static String obtenerMaxMov(){
         return DALParametro.obtenerMaxMov();
     }
+    
+     public static ArrayList<Parametro> listarParametro(){
+         return DALParametro.listarParametro();
+     }
 }

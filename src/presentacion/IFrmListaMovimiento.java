@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
+
 import entidades.*;
 import logica.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
+
 /**
  *
  * @author CRISTHIAN
@@ -175,40 +177,41 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbtncodCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtncodCuentaActionPerformed
-          if(rbtncodCuenta.isSelected()) {
-            Collections.sort(lista , new MovimientoComparar());
+        if (rbtncodCuenta.isSelected()) {
+            Collections.sort(lista, new MovimientoComparar());
             llenarTabla();
         }// TODO add your handling code here:
     }//GEN-LAST:event_rbtncodCuentaActionPerformed
 
     private void rbtncodEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtncodEmpleadoActionPerformed
-           if(rbtncodEmpleado.isSelected()) {
+        if (rbtncodEmpleado.isSelected()) {
             Collections.sort(lista);
             llenarTabla(); // TODO add your handling code here:
     }//GEN-LAST:event_rbtncodEmpleadoActionPerformed
-}
+    }
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         lista = BLMovimiento.listarMovimientos();
         llenarTabla();// TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
- 
 
-    private void llenarTabla(){
+    private void llenarTabla() {
         modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(columnas);
-        iterador=lista.iterator();
-        while(iterador.hasNext()){
-            movimiento=iterador.next();
-            fila[0]=movimiento.getCuenCodigo();
-            fila[1]=movimiento.getNumero();
-            fila[2]=movimiento.getFechaMovCorta();
-            fila[3]=movimiento.getEmpCodigo();
-            fila[4]=movimiento.getImporte();
-            fila[5]=movimiento.getReferencia();
-            fila[6]=movimiento.getTipoMovimiento();  
-              
+        iterador = lista.iterator();
+        while (iterador.hasNext()) {
+            movimiento = iterador.next();
+            fila[0] = movimiento.getCuenCodigo();
+            fila[1] = movimiento.getNumero();
+            fila[2] = movimiento.getFechaMovCorta();
+            fila[3] = movimiento.getEmpCodigo();
+            fila[4] = movimiento.getImporte();
+            fila[5] = movimiento.getReferencia();
+            fila[6] = movimiento.getTipoMovimiento();
+            modelo.addRow(fila);
+
         }
-}
+        tblMovimientos.setModel(modelo);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -223,9 +226,8 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
     private DefaultTableModel modelo;
     private ArrayList<Movimiento> lista;
-    private String columnas [] = {"codigo cuenta , numero , Fecha mov , codigo empleado , importe , referencia , tipo Movimiento"};
-    private Object fila[] = new Object [columnas.length];
+    private String columnas[] = {"codigo cuenta , numero , Fecha mov , codigo empleado , importe , referencia , tipo Movimiento"};
+    private Object fila[] = new Object[columnas.length];
     private Iterator<Movimiento> iterador;
     private Movimiento movimiento;
 }
-

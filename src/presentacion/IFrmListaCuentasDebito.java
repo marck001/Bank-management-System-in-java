@@ -69,7 +69,7 @@ public class IFrmListaCuentasDebito extends javax.swing.JInternalFrame {
 
         tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
         tblEmpleados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tblEmpleados.setForeground(new java.awt.Color(253, 253, 253));
+        tblEmpleados.setForeground(new java.awt.Color(0, 0, 0));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
