@@ -72,8 +72,8 @@ public class Movimiento implements Comparable<Movimiento> {
     private String getFechaCorta(GregorianCalendar fecha) {
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
         int mes = fecha.get(Calendar.MONTH) + 1;
-        int año = fecha.get(Calendar.YEAR);
-        return (dia <= 9 ? "0" + dia : dia) + "/" + (mes <= 9 ? "0" + mes : mes) + "/" + año;
+        int year = fecha.get(Calendar.YEAR);
+      return year + "-" + (mes <= 9 ? "0" + mes : mes) + "-" + (dia <= 9 ? "0" + dia : dia);
     }
 
     public void setFechaMov(int dia, int mes, int año) {

@@ -201,7 +201,7 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
             movimiento=iterador.next();
             fila[0]=movimiento.getCuenCodigo();
             fila[1]=movimiento.getNumero();
-            fila[2]=movimiento.getFechaMov();
+            fila[2]=movimiento.getFechaMovCorta();
             fila[3]=movimiento.getEmpCodigo();
             fila[4]=movimiento.getImporte();
             fila[5]=movimiento.getReferencia();

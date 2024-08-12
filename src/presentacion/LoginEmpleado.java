@@ -10,7 +10,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import logica.*;
 /**
  *
- * @author Usuario
+ * @author Felix Chávez
  */
 public class LoginEmpleado extends javax.swing.JFrame {
 

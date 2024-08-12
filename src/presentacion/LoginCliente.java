@@ -10,15 +10,14 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import logica.*;
 /**
  *
- * @author Usuarrrio
+ * @author Felix Chávez
  */
 public class LoginCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginCliente
      */
-    int xMouse, yMouse;
-    
+      
     public LoginCliente() {
         initComponents();
     }
