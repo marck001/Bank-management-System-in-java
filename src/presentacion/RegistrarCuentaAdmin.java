@@ -355,8 +355,9 @@ public class RegistrarCuentaAdmin extends javax.swing.JInternalFrame {
 
     private void txtCodCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodCuentaKeyTyped
         // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if (!Character.isLetter(c) && !(c == KeyEvent.VK_SPACE) && !(c == KeyEvent.VK_BACK_SPACE) && !(c == KeyEvent.VK_DELETE))
+    
+            char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE))
             evt.consume();
     }//GEN-LAST:event_txtCodCuentaKeyTyped
 
@@ -390,6 +391,9 @@ public class RegistrarCuentaAdmin extends javax.swing.JInternalFrame {
 
     private void txtSaldoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoKeyTyped
         // TODO add your handling code here:
+            char c = evt.getKeyChar();
+        if(((c<'0')||(c>'9'))&&(c!=KeyEvent.VK_BACK_SPACE)&&(c!='.'||txtSaldo.getText().contains(".")))
+            evt.consume();
     }//GEN-LAST:event_txtSaldoKeyTyped
 
     private void txtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClaveKeyTyped
@@ -433,7 +437,8 @@ public class RegistrarCuentaAdmin extends javax.swing.JInternalFrame {
 
             GregorianCalendar fecha = new GregorianCalendar(year, mes, dia);
 
-            respuesta = BLCuenta.insertarCuenta(codigo, emplCode, cliente, codeMone, sucursal, saldo, fecha, "ACTIVO", 0, clave, tipo);
+            System.out.print(fecha.toZonedDateTime());
+            respuesta = BLCuenta.insertarCuenta(codigo, emplCode, cliente, codeMone, sucursal, saldo, fecha, "ACTIVO", 1, clave, tipo);
 
             if (respuesta == 0 || respuesta == 3) {
                 limpiar();
@@ -466,7 +471,7 @@ public class RegistrarCuentaAdmin extends javax.swing.JInternalFrame {
         txtSaldo.setEnabled(estado);
         txtClave.setEnabled(estado);
         txtCodCliente.setEnabled(estado);
-     
+        
         txtDni.setEnabled(estado);
 
         btnRegistrar.setEnabled(estado);
@@ -478,7 +483,7 @@ public class RegistrarCuentaAdmin extends javax.swing.JInternalFrame {
         txtCodCuenta.setText(null);
         txtCodCuenta.setText(null);
         txtCodEmple.setText(null);
-       
+         txtCodSucu.setText(null);
         txtCodCliente.setText(null);
 
         txtSaldo.setText(null);

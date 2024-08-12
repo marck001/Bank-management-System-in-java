@@ -24,7 +24,7 @@ public class BLCuenta {
             String cuentipo) {
         String mensaje = null;
         if (codigo.trim().length() == 8 && emplcod.trim().length() == 4 && cliente.trim().length() == 5
-                && sucursal.trim().length() == 3 && saldo > 0.0f && fechaCreacion != null && estado.trim().length() > 0
+                && sucursal.trim().length() == 3 && saldo > 0.0f && fechaCreacion != null 
                 && estado.trim().length() < 16 && contMov > 0 && clave.trim().length() == 6
                 && cuentipo.trim().length() > 0) {
             if (buscar(codigo) == null) {

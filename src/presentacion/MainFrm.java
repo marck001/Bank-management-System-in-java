@@ -907,8 +907,9 @@ public class MainFrm extends javax.swing.JFrame {
     private void secondPanelTab5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab5MouseClicked
         // TODO add your handling code here:
 
-        IFrmListaAmbasCuentas tab = new IFrmListaAmbasCuentas();
+        RegistrarCuenta tab = new RegistrarCuenta();
         centrarInternalFrame2(tab);
+        
     }//GEN-LAST:event_secondPanelTab5MouseClicked
 
     private void secondPanelTab4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab4MousePressed
@@ -1041,7 +1042,7 @@ public class MainFrm extends javax.swing.JFrame {
     private void firstPanelTab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab4MouseClicked
         // TODO add your handling code here:
 
-        RegistrarCuenta tab = new  RegistrarCuenta();
+        RegistrarCuentaAdmin tab = new  RegistrarCuentaAdmin();
         centrarInternalFrame1(tab);
     }//GEN-LAST:event_firstPanelTab4MouseClicked
 
