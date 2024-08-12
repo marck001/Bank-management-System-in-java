@@ -24,6 +24,7 @@ public class BLCliente {
                 mensaje = DALCliente.insertaCliente(obj);
                 if (mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
+                    BLContador.aumentarContador("Cliente");
                     return 0;
                 } else {
                     showMessageDialog(null, mensaje, "Error", 0);

@@ -31,6 +31,7 @@ public class BLSucursal {
                 mensaje = DALSucursal.insertarSucursal(sucursal);
                 if (mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
+                    BLContador.aumentarContador("Sucursal");
                     return "Registro insertado";
                 } else {
                     showMessageDialog(null, mensaje, "Error", 0);
