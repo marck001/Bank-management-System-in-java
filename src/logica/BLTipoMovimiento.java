@@ -17,6 +17,7 @@ public class BLTipoMovimiento {
                 mensaje = DALTipoMovimiento.insertarTipoMovimiento(tipoMov);
                 if(mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
+                    BLContador.aumentarContador("TipoMovimiento");
                     return 0;
                 } else {
                     showMessageDialog(null, mensaje, "Error", 0);
