@@ -83,11 +83,34 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 750, 30));
 
         txtDni.setToolTipText("");
+        txtDni.setEnabled(false);
+        txtDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDniActionPerformed(evt);
+            }
+        });
+        txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDniKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 260, -1));
+
+        txtDireccion.setEnabled(false);
         jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 530, -1));
+
+        txtCiudad.setEnabled(false);
         jPanel1.add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 400, -1));
+
+        txtTelefono.setEnabled(false);
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 250, -1));
 
+        txtMail.setEnabled(false);
         txtMail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtMailMousePressed(evt);
@@ -99,6 +122,8 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 510, -1));
+
+        txtNombre.setEnabled(false);
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 640, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Lista.gif"))); // NOI18N
@@ -116,6 +141,7 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
 
         txtCodigo.setText("********");
         txtCodigo.setToolTipText("Escriba el código del cliente a buscar");
+        txtCodigo.setEnabled(false);
         txtCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtCodigoMousePressed(evt);
@@ -131,6 +157,7 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Buscar.gif"))); // NOI18N
         btnBuscar.setText("BUSCAR");
         btnBuscar.setToolTipText("Buscar cliente");
+        btnBuscar.setEnabled(false);
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -241,13 +268,16 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
                 txtMail.setText(cliente.getEmail());
                 txtCodigo.setEnabled(false);
                 
-                txtNombre.requestFocus();
+                txtCodigo.requestFocus();
+                
                 txtCiudad.requestFocus();
-                txtDireccion.requestFocus();
-                txtTelefono.requestFocus();
-                txtMail.requestFocus();
-               
+                txtDni.setEnabled(false);
+                txtNombre.setEnabled(false);
+                txtCiudad.setEnabled(false);
+                txtDireccion.setEnabled(false);
+                txtTelefono.setEnabled(false);
                 btnBuscar.setEnabled(false);
+                
                 
             } else {
                 JOptionPane.showMessageDialog(this, "El código ingresado no existe", "Resultado", 1);
@@ -300,18 +330,31 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
     private void txtMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMailActionPerformed
+
+    private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
+        
+    }//GEN-LAST:event_txtDniKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoKeyTyped
+
+    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDniActionPerformed
     
     private void activar(boolean estado) {
         txtCodigo.setEnabled(estado);
-        txtNombre.setEnabled(estado);
+        /*txtNombre.setEnabled(estado);
         txtDni.setEnabled(estado);
         txtCiudad.setEnabled(estado);
         txtDireccion.setEnabled(estado);
         txtMail.setEnabled(estado);
         txtTelefono.setEnabled(estado);    
-      
+      */
         btnBuscar.setEnabled(estado);
-        btnNuevo.setEnabled(!estado);
+        
+        
     }
     
     private void limpiar() {
