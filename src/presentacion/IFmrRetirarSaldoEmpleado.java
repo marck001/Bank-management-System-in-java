@@ -14,7 +14,7 @@ import patronBuilder.*;
  * @author MrMeW
  */
 public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
-    private String codigoEmp;
+    private String codEmpleado;
     /**
      * Creates new form IFmrRetirarSaldoEmpleado
      */
@@ -22,9 +22,9 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
         initComponents();
     }
     
-    public IFmrRetirarSaldoEmpleado(String codigoEmpleado){
+    public IFmrRetirarSaldoEmpleado(String codEmpleado){
         initComponents();
-        codigoEmp = codigoEmpleado;
+        this.codEmpleado = codEmpleado;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -235,7 +235,7 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
         EmpleadoHace componente = new EmpleadoHace();
         String codCuenta = BLCliente.obtenerCodCuentaPorCliente(txtCodigo.getText());
         if(Float.parseFloat(txtMontoRetirado.getText())>0)
-        componente.retirarSaldo(codCuenta, Float.parseFloat(txtMontoRetirado.getText()), codigoEmp);
+        componente.retirarSaldo(codCuenta, Float.parseFloat(txtMontoRetirado.getText()), codEmpleado);
         else
              showMessageDialog(null, "Saldo inválido", "Error",0);
         
