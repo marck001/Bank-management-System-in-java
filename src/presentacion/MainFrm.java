@@ -19,8 +19,9 @@ import javax.swing.JDesktopPane;
  * @author marck
  */
 public class MainFrm extends javax.swing.JFrame {
+
     private static Menu main = new Menu();
-    private static BancaPorInternet  main2 = new BancaPorInternet();
+    private static BancaPorInternet main2 = new BancaPorInternet();
     private JInternalFrame currentInternalFrame = null;
     private String codEmpleado;
     /**
@@ -30,18 +31,18 @@ public class MainFrm extends javax.swing.JFrame {
 
     public MainFrm() {
         initComponents();
-         this.setLocationRelativeTo(null);
-                 LocalDate now = LocalDate.now();
+        this.setLocationRelativeTo(null);
+        LocalDate now = LocalDate.now();
         int year = now.getYear();
         int dia = now.getDayOfMonth();
         int month = now.getMonthValue();
-        String[] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"," ;Septiembre"
-            ,"Octubre","Noviembre","Diciemrbre"};
+        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", " ;Septiembre",
+             "Octubre", "Noviembre", "Diciemrbre"};
         //fecha7.setText("Hoy es "+dia+" de "+meses[month - 1]+" de "+year);
-        fecha.setText("Hoy es "+dia+" de "+meses[month - 1]+" de "+year);
-         fecha1.setText("Hoy es "+dia+" de "+meses[month - 1]+" de "+year);
-         centrarInternalFrame1(main);
-          //centrarInternalFrame3(main2);
+        fecha.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
+        fecha1.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
+        centrarInternalFrame1(main);
+        //centrarInternalFrame3(main2);
         defaultColor = new Color(64, 4, 4);
         clickedColor = new Color(104, 7, 7);
 
@@ -53,7 +54,6 @@ public class MainFrm extends javax.swing.JFrame {
         firstPanelTab11.setBackground(defaultColor);
         firstPanelTab6.setBackground(defaultColor);
         firstPanelTab12.setBackground(defaultColor);
-
 
         mnuTab2.setBackground(defaultColor);
         secondPanelTab1.setBackground(defaultColor);
@@ -70,38 +70,37 @@ public class MainFrm extends javax.swing.JFrame {
         thirdPanelTab4.setBackground(defaultColor);
         thirdPanelTab5.setBackground(defaultColor);
         thirdPanelTab6.setBackground(defaultColor);
-        */
-         //tabbedPanel1.setEnabledAt(1, false);
-         //   tabbedPanel1.setEnabledAt(2, false);
+         */
+        //tabbedPanel1.setEnabledAt(1, false);
+        //   tabbedPanel1.setEnabledAt(2, false);
     }
-    public void setCodigoEmpleado(String codEmple){
-        this.codEmpleado=codEmple;
+
+    public void setCodigoEmpleado(String codEmple) {
+        this.codEmpleado = codEmple;
     }
-    
-    
-    public void setPanel(boolean isAdmin, int index){
-        if(!isAdmin){
+
+    public void setPanel(boolean isAdmin, int index) {
+        if (!isAdmin) {
             tabbedPanel1.setEnabledAt(0, false);
             tabbedPanel1.setSelectedIndex(index);
         }
     }
-    
-    public void setUser(int number, String name, boolean isAdmin){
-        
-        if(number==0){
+
+    public void setUser(int number, String name, boolean isAdmin) {
+
+        if (number == 0) {
             txtUserAdmin.setText("Administrador");
-             txtUserEmpleado.setText("Administrador");
-             // txtUserCliente.setText("Administrador");
-            
-        }else if(number==1){
+            txtUserEmpleado.setText("Administrador");
+            // txtUserCliente.setText("Administrador");
+
+        } else if (number == 1) {
             txtUserEmpleado.setText(name);
             setPanel(isAdmin, 1);
-        }else if(number==2){
-         //   txtUserCliente.setText(name);
-            setPanel( isAdmin,2);
+        } else if (number == 2) {
+            //   txtUserCliente.setText(name);
+            setPanel(isAdmin, 2);
         }
-        
-        
+
     }
 
     /**
@@ -160,6 +159,10 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        secondPanelTab7 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        secondPanelTab8 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         dspFondo1 =  new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
                 g.drawImage(image,0,0,getWidth(),getHeight(),this);
@@ -672,10 +675,10 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4.setLayout(secondPanelTab4Layout);
         secondPanelTab4Layout.setHorizontalGroup(
             secondPanelTab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+            .addGroup(secondPanelTab4Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         secondPanelTab4Layout.setVerticalGroup(
             secondPanelTab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -703,10 +706,10 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab5.setLayout(secondPanelTab5Layout);
         secondPanelTab5Layout.setHorizontalGroup(
             secondPanelTab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(secondPanelTab5Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         secondPanelTab5Layout.setVerticalGroup(
             secondPanelTab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -728,16 +731,15 @@ public class MainFrm extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/InicioSesion.gif"))); // NOI18N
-        jLabel7.setText(" Login Cliente");
+        jLabel7.setText("Recargar Saldo");
 
         javax.swing.GroupLayout secondPanelTab6Layout = new javax.swing.GroupLayout(secondPanelTab6);
         secondPanelTab6.setLayout(secondPanelTab6Layout);
         secondPanelTab6Layout.setHorizontalGroup(
             secondPanelTab6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(secondPanelTab6Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         secondPanelTab6Layout.setVerticalGroup(
             secondPanelTab6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -745,6 +747,66 @@ public class MainFrm extends javax.swing.JFrame {
         );
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/al.jpg"))); // NOI18N
+
+        secondPanelTab7.setBackground(new java.awt.Color(131, 244, 252));
+        secondPanelTab7.setForeground(new java.awt.Color(255, 51, 51));
+        secondPanelTab7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                secondPanelTab7MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                secondPanelTab7MousePressed(evt);
+            }
+        });
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/InicioSesion.gif"))); // NOI18N
+        jLabel9.setText("Transferencia");
+
+        javax.swing.GroupLayout secondPanelTab7Layout = new javax.swing.GroupLayout(secondPanelTab7);
+        secondPanelTab7.setLayout(secondPanelTab7Layout);
+        secondPanelTab7Layout.setHorizontalGroup(
+            secondPanelTab7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(secondPanelTab7Layout.createSequentialGroup()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        secondPanelTab7Layout.setVerticalGroup(
+            secondPanelTab7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+        );
+
+        secondPanelTab8.setBackground(new java.awt.Color(131, 244, 252));
+        secondPanelTab8.setForeground(new java.awt.Color(255, 51, 51));
+        secondPanelTab8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                secondPanelTab8MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                secondPanelTab8MousePressed(evt);
+            }
+        });
+
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/InicioSesion.gif"))); // NOI18N
+        jLabel15.setText("Retirar Saldo");
+
+        javax.swing.GroupLayout secondPanelTab8Layout = new javax.swing.GroupLayout(secondPanelTab8);
+        secondPanelTab8.setLayout(secondPanelTab8Layout);
+        secondPanelTab8Layout.setHorizontalGroup(
+            secondPanelTab8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(secondPanelTab8Layout.createSequentialGroup()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        secondPanelTab8Layout.setVerticalGroup(
+            secondPanelTab8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -761,6 +823,8 @@ public class MainFrm extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(secondPanelTab7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(secondPanelTab8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -781,7 +845,11 @@ public class MainFrm extends javax.swing.JFrame {
                 .addComponent(secondPanelTab5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(secondPanelTab6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(secondPanelTab7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(secondPanelTab8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dspFondo1Layout = new javax.swing.GroupLayout(dspFondo1);
@@ -889,12 +957,15 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4.setBackground(defaultColor);
         secondPanelTab5.setBackground(defaultColor);
         secondPanelTab6.setBackground(clickedColor);
+         secondPanelTab7.setBackground(defaultColor);
+        secondPanelTab8.setBackground(defaultColor);
     }//GEN-LAST:event_secondPanelTab6MousePressed
 
     private void secondPanelTab6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab6MouseClicked
         // TODO add your handling code here:
-        LoginCliente tab = new LoginCliente();
-          //centrarInternalFrame2(tab);
+        InfRecargarSaldoEmpleado tab = new InfRecargarSaldoEmpleado(codEmpleado);
+        centrarInternalFrame2(tab);
+
     }//GEN-LAST:event_secondPanelTab6MouseClicked
 
     private void secondPanelTab5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab5MousePressed
@@ -906,6 +977,8 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4.setBackground(defaultColor);
         secondPanelTab5.setBackground(clickedColor);
         secondPanelTab6.setBackground(defaultColor);
+         secondPanelTab7.setBackground(defaultColor);
+        secondPanelTab8.setBackground(defaultColor);
     }//GEN-LAST:event_secondPanelTab5MousePressed
 
     private void secondPanelTab5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab5MouseClicked
@@ -913,7 +986,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         RegistrarCuenta tab = new RegistrarCuenta();
         centrarInternalFrame2(tab);
-        
+
     }//GEN-LAST:event_secondPanelTab5MouseClicked
 
     private void secondPanelTab4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab4MousePressed
@@ -925,6 +998,8 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4.setBackground(clickedColor);
         secondPanelTab5.setBackground(defaultColor);
         secondPanelTab6.setBackground(defaultColor);
+        secondPanelTab7.setBackground(defaultColor);
+        secondPanelTab8.setBackground(defaultColor);
     }//GEN-LAST:event_secondPanelTab4MousePressed
 
     private void secondPanelTab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab4MouseClicked
@@ -940,6 +1015,8 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4.setBackground(defaultColor);
         secondPanelTab5.setBackground(defaultColor);
         secondPanelTab6.setBackground(defaultColor);
+         secondPanelTab7.setBackground(defaultColor);
+        secondPanelTab8.setBackground(defaultColor);
     }//GEN-LAST:event_secondPanelTab3MousePressed
 
     private void secondPanelTab3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab3MouseClicked
@@ -955,11 +1032,13 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4.setBackground(defaultColor);
         secondPanelTab5.setBackground(defaultColor);
         secondPanelTab6.setBackground(defaultColor);
+         secondPanelTab7.setBackground(defaultColor);
+        secondPanelTab8.setBackground(defaultColor);
     }//GEN-LAST:event_secondPanelTab2MousePressed
 
     private void secondPanelTab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab2MouseClicked
         // TODO add your handling code here:
-        InfRegCliente tab = new  InfRegCliente();
+        InfRegCliente tab = new InfRegCliente();
         centrarInternalFrame2(tab);
     }//GEN-LAST:event_secondPanelTab2MouseClicked
 
@@ -972,6 +1051,8 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4.setBackground(defaultColor);
         secondPanelTab5.setBackground(defaultColor);
         secondPanelTab6.setBackground(defaultColor);
+         secondPanelTab7.setBackground(defaultColor);
+        secondPanelTab8.setBackground(defaultColor);
     }//GEN-LAST:event_secondPanelTab1MousePressed
 
     private void secondPanelTab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab1MouseClicked
@@ -987,6 +1068,8 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab4.setBackground(defaultColor);
         secondPanelTab5.setBackground(defaultColor);
         secondPanelTab6.setBackground(defaultColor);
+         secondPanelTab7.setBackground(defaultColor);
+        secondPanelTab8.setBackground(defaultColor);
     }//GEN-LAST:event_mnuTab2MousePressed
 
     private void mnuTab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuTab2MouseClicked
@@ -1025,10 +1108,10 @@ public class MainFrm extends javax.swing.JFrame {
     private void firstPanelTab11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab11MouseClicked
         // TODO add your handling code here:
 
-        IFrmMonedas tab = new  IFrmMonedas();
+        IFrmMonedas tab = new IFrmMonedas();
         centrarInternalFrame1(tab);
 
-        
+
     }//GEN-LAST:event_firstPanelTab11MouseClicked
 
     private void firstPanelTab4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab4MousePressed
@@ -1046,7 +1129,7 @@ public class MainFrm extends javax.swing.JFrame {
     private void firstPanelTab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab4MouseClicked
         // TODO add your handling code here:
 
-        RegistrarCuentaAdmin tab = new  RegistrarCuentaAdmin();
+        RegistrarCuentaAdmin tab = new RegistrarCuentaAdmin();
         centrarInternalFrame1(tab);
     }//GEN-LAST:event_firstPanelTab4MouseClicked
 
@@ -1127,9 +1210,49 @@ public class MainFrm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_mnuTab1MouseClicked
 
+    private void secondPanelTab7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab7MouseClicked
+        // TODO add your handling code here:
+        TransferirDinero tab = new TransferirDinero(codEmpleado);
+        centrarInternalFrame1(tab);
 
-    
-    
+    }//GEN-LAST:event_secondPanelTab7MouseClicked
+
+    private void secondPanelTab7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab7MousePressed
+        // TODO add your handling code here:
+
+        ///
+        mnuTab2.setBackground(defaultColor);
+        secondPanelTab1.setBackground(defaultColor);
+        secondPanelTab2.setBackground(defaultColor);
+        secondPanelTab3.setBackground(defaultColor);
+        secondPanelTab4.setBackground(defaultColor);
+        secondPanelTab5.setBackground(defaultColor);
+        secondPanelTab6.setBackground(defaultColor);
+        secondPanelTab7.setBackground(clickedColor);
+        secondPanelTab8.setBackground(defaultColor);
+
+    }//GEN-LAST:event_secondPanelTab7MousePressed
+
+    private void secondPanelTab8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab8MouseClicked
+        // TODO add your handling code here:
+        RetirarSaldo tab = new RetirarSaldo(codEmpleado);
+        centrarInternalFrame1(tab);
+    }//GEN-LAST:event_secondPanelTab8MouseClicked
+
+    private void secondPanelTab8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab8MousePressed
+        // TODO add your handling code here:
+        mnuTab2.setBackground(defaultColor);
+        secondPanelTab1.setBackground(defaultColor);
+        secondPanelTab2.setBackground(defaultColor);
+        secondPanelTab3.setBackground(defaultColor);
+        secondPanelTab4.setBackground(defaultColor);
+        secondPanelTab5.setBackground(defaultColor);
+        secondPanelTab6.setBackground(defaultColor);
+        secondPanelTab7.setBackground(defaultColor);
+        secondPanelTab8.setBackground(clickedColor);
+
+    }//GEN-LAST:event_secondPanelTab8MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -1149,8 +1272,7 @@ public class MainFrm extends javax.swing.JFrame {
         interna.setLocation(x, y);
         interna.show();
     }
-    
-   
+
     private void centrarInternalFrame2(JInternalFrame interna) {
         if (currentInternalFrame != null) {
             currentInternalFrame.dispose();
@@ -1160,7 +1282,6 @@ public class MainFrm extends javax.swing.JFrame {
 
         dspFondo1.removeAll();
         dspFondo1.add(interna);
-
 
         int x = dspFondo1.getWidth() / 2 - interna.getWidth() / 2;
         int y = dspFondo1.getHeight() / 2 - interna.getHeight() / 2;
@@ -1190,20 +1311,33 @@ public class MainFrm extends javax.swing.JFrame {
     public static void centrarInternalFrameExterno(JInternalFrame interna) {
         centrarInternalFrame(interna);
     }
-    
-    
-    
+
+    public static void centrarInternalFrameExterno2(JInternalFrame interna) {
+        centrarInternalFrameParaExterna(interna);
+    }
 
     private static void centrarInternalFrame(JInternalFrame interna) {
-        int x = dspFondo.getWidth()/2 - interna.getWidth()/2;
-        int y = dspFondo.getHeight()/2 - interna.getHeight()/2;
-        if(interna.isShowing())
+        int x = dspFondo.getWidth() / 2 - interna.getWidth() / 2;
+        int y = dspFondo.getHeight() / 2 - interna.getHeight() / 2;
+        if (interna.isShowing()) {
             interna.setLocation(x, y);
-        else {
+        } else {
             dspFondo.add(interna);
             interna.setLocation(x, y);
-             interna.setVisible(true);
-        }        
+            interna.setVisible(true);
+        }
+    }
+
+    private static void centrarInternalFrameParaExterna(JInternalFrame interna) {
+        int x = dspFondo1.getWidth() / 2 - interna.getWidth() / 2;
+        int y = dspFondo1.getHeight() / 2 - interna.getHeight() / 2;
+        if (interna.isShowing()) {
+            interna.setLocation(x, y);
+        } else {
+            dspFondo1.add(interna);
+            interna.setLocation(x, y);
+            interna.setVisible(true);
+        }
     }
 
     public static void main(String args[]) {
@@ -1261,6 +1395,7 @@ public class MainFrm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -1271,6 +1406,7 @@ public class MainFrm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -1282,6 +1418,8 @@ public class MainFrm extends javax.swing.JFrame {
     private javax.swing.JPanel secondPanelTab4;
     private javax.swing.JPanel secondPanelTab5;
     private javax.swing.JPanel secondPanelTab6;
+    private javax.swing.JPanel secondPanelTab7;
+    private javax.swing.JPanel secondPanelTab8;
     private javax.swing.JTabbedPane tabbedPanel1;
     private javax.swing.JLabel txtUserAdmin;
     private javax.swing.JLabel txtUserEmpleado;
