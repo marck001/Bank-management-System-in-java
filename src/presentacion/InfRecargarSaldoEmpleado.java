@@ -90,7 +90,6 @@ public class InfRecargarSaldoEmpleado extends javax.swing.JInternalFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Datos del Cliente");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
@@ -121,7 +120,6 @@ public class InfRecargarSaldoEmpleado extends javax.swing.JInternalFrame {
         jPanel3.add(txtCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 189, 37));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Ingrese Monto");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
@@ -179,6 +177,8 @@ public class InfRecargarSaldoEmpleado extends javax.swing.JInternalFrame {
         char c = evt.getKeyChar();
         if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtSaldoRecargado.getText().contains(".")))
            evt.consume();
+        if (txtCuenta.getText().length() > 7)
+            evt.consume();
     }//GEN-LAST:event_txtSaldoRecargadoKeyTyped
 
     private void btnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargarActionPerformed
