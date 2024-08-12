@@ -20,6 +20,7 @@ public class BLMoneda {
                 mensaje = DALMoneda.insertarMoneda(moneda);
                 if (mensaje == null) {
                     showMessageDialog(null, "Registro insertado en moneda", "Resultado", 1);
+                    BLContador.aumentarContador("Moneda");
                     return 0;
                 } else {
                     showMessageDialog(null, mensaje, "Error en registrar moneda", 0);

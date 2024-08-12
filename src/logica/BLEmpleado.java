@@ -17,6 +17,7 @@ public class BLEmpleado {
                 mensaje = DALEmpleado.insertaEmpleado(obj);
                 if (mensaje == null) {
                     showMessageDialog(null, "Registro insertado", "Resultado", 1);
+                    BLContador.aumentarContador("Empleado");
                     return 0;
                 } else {
                     showMessageDialog(null, mensaje, "Error", 0);

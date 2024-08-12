@@ -4,15 +4,12 @@
  */
 package patronBuilder;
 
-import datos.DALCuenta;
-import entidades.Cliente;
-import entidades.Cuenta;
+import datos.*;
+import entidades.*;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
-import logica.BLCliente;
-import logica.BLCuenta;
-import logica.BLMovimiento;
+import logica.*;
 
 /**
  *
@@ -118,7 +115,7 @@ public class EmpleadoHace {
        
     }
     public void transferirSaldo(String codEmpleado, String codCuentaOrigen, String codCuentaDestino, float monto) {
-        String codBuscadoOrigen, codBuscadoDestino, clave, mensajeRetiro, mensajeDeposito;
+        String codBuscadoOrigen, codBuscadoDestino, clave, mensajeRetiro, mensajeDeposito,mensaje;
         int contIntentos = 0, numMovOrigen, numMovDestino;
         float saldoNuevoOrigen, saldoNuevoDestino;
         Cuenta cuentaOrigen, cuentaDestino;
@@ -149,12 +146,16 @@ public class EmpleadoHace {
                                         "Transferencia exitosa", JOptionPane.INFORMATION_MESSAGE);
 
                                 GregorianCalendar fechaActual = new GregorianCalendar();
+                                CostoMovimiento costo=BLCostoMovimiento.obtenerCostoMovimiento(cuentaOrigen.getMoneCodigo());
                                 numMovOrigen = BLMovimiento.NumeroMaxMovimiento(codBuscadoOrigen) + 1;
                                 numMovDestino = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino) + 1;
-
                                 BLMovimiento.insertarMovimiento(numMovOrigen, fechaActual, monto, "SALIDA", cuentaOrigen.getCodigo(), codEmpleado, "009");
                                 BLMovimiento.insertarMovimiento(numMovDestino, fechaActual, monto, "ENTRADA", cuentaDestino.getCodigo(), codEmpleado, "008");
-
+                                if(numMovOrigen>15){
+                                    mensaje=BLCuenta.retiroCuenta(costo.getCostImporte(), codCuentaOrigen);
+                                   if(mensaje==null)
+                                       showMessageDialog(null, "Ha superado los 15 movimientos gratuitos, se ha aplicado el costo movimiento de " + costo.getCostImporte(), "Costo Movimiento", 1);
+                                }
                             } else {
                                 showMessageDialog(null, "Error en el depósito: " + mensajeDeposito, "Error", JOptionPane.ERROR_MESSAGE);
                             }
