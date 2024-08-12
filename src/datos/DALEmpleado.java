@@ -98,6 +98,31 @@ public class DALEmpleado {
         }
         return null;
     }
+    
+    public static String buscarEmpleadoPorUser(String usuario) {
+        String sql;
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_buscar_empleadoPorUsuario(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, usuario);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                return rs.getString("emplcodigo");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return null;
+    }
 
     public static ArrayList<Empleado> listarEmpleados() {
         String sql;

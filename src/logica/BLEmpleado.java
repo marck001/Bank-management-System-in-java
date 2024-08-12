@@ -40,6 +40,10 @@ public class BLEmpleado {
         }
     }
     
+    public static String buscarEmpleadoPorUser(String usuario) {
+        return DALEmpleado.buscarEmpleadoPorUser(usuario);
+    }
+    
     public static String buscarEmpleadoLogin(String usuario, String clave) {
         if (usuario !=null && clave !=null) {
             return DALEmpleado.buscarEmpleadoLogin(usuario, clave);

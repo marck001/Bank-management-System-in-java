@@ -22,6 +22,7 @@ public class MainFrm extends javax.swing.JFrame {
     private static Menu main = new Menu();
     private static BancaPorInternet  main2 = new BancaPorInternet();
     private JInternalFrame currentInternalFrame = null;
+    private String codEmpleado;
     /**
      * Creates new form MainFrmTest
      */
@@ -72,6 +73,9 @@ public class MainFrm extends javax.swing.JFrame {
         */
          //tabbedPanel1.setEnabledAt(1, false);
          //   tabbedPanel1.setEnabledAt(2, false);
+    }
+    public void setCodigoEmpleado(String codEmple){
+        this.codEmpleado=codEmple;
     }
     
     

@@ -205,14 +205,14 @@ public class TransferirDinero extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
-        ComponenteSolicitudVirtual componente = new ComponenteSolicitudVirtual();
+        SolicitudesPorInternetDetalladas solicitudVirtual = new SolicitudesPorInternetDetalladas();
         saldo=Float.parseFloat(txtSaldoTransferido.getText());
         String op=(String)cbxDestino.getSelectedItem();
         if(op.equals("Cuenta EurekaBank"))
-            componente.depositarSaldoPorEmpleado(codCuentica, saldo, 1);
+            solicitudVirtual.depositarSaldo(codCuentica, saldo, 1);
         else{
             if(op.equals("Otro Banco"))
-                componente.depositarSaldoPorEmpleado(codCuentica, saldo, 2);
+                solicitudVirtual.depositarSaldo(codCuentica, saldo, 2);
             else
                 showMessageDialog(null, "Seleccione su destino por favor",
                             "Error en la transacción", 0);
