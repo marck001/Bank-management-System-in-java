@@ -20,7 +20,7 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
         initComponents();
     }
     
-    private IFrmTransferirSaldoEmpleado(String codEmpleado){
+    public IFrmTransferirSaldoEmpleado(String codEmpleado){
         initComponents();
         this.codEmpleado=codEmpleado;
     }

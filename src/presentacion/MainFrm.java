@@ -1212,7 +1212,7 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void secondPanelTab7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab7MouseClicked
         // TODO add your handling code here:
-        TransferirDinero tab = new TransferirDinero(codEmpleado);
+        IFrmTransferirSaldoEmpleado tab = new IFrmTransferirSaldoEmpleado(codEmpleado);
         centrarInternalFrame1(tab);
 
     }//GEN-LAST:event_secondPanelTab7MouseClicked
@@ -1235,7 +1235,7 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void secondPanelTab8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab8MouseClicked
         // TODO add your handling code here:
-        RetirarSaldo tab = new RetirarSaldo(codEmpleado);
+        IFmrRetirarSaldoEmpleado tab = new IFmrRetirarSaldoEmpleado(codEmpleado);
         centrarInternalFrame1(tab);
     }//GEN-LAST:event_secondPanelTab8MouseClicked
 
