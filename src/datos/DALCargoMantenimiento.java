@@ -144,7 +144,7 @@ public class DALCargoMantenimiento {
         String mensaje = null;
         try {
             cn = Conexion.realizarConexion();
-            String sql = "{call sp_actualizar_cargo(?, ?,?)}";
+            String sql = "{call sp_realizar_mantenimiento`(?, ?, ?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1,fechaActual);
             cs.setFloat(2, montoMax);
