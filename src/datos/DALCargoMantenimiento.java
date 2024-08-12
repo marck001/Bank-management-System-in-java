@@ -139,4 +139,28 @@ public class DALCargoMantenimiento {
         }
         return cargo;
     }
+    
+        public static String realizarMantenimiento(String fechaActual , float montoMax, float cargImporte ) {
+        String mensaje = null;
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_actualizar_cargo(?, ?,?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1,fechaActual);
+            cs.setFloat(2, montoMax);
+            cs.setFloat(3, cargImporte);
+            cs.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;        
+    }
+    
 }

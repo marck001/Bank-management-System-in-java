@@ -69,5 +69,8 @@ public class BLCargoMantenimiento {
         } else
         return null;
     }
+    public static String realizarMantenimiento(String fechaActual , float montoMax, float cargImporte ) {
+        return DALCargoMantenimiento.realizarMantenimiento(fechaActual, montoMax, cargImporte);
+    }
         
 }

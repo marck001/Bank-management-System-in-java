@@ -4,10 +4,11 @@
  */
 package presentacion;
 
-import entidades.InteresMensual;
+
 import java.util.*;
 import javax.swing.JInternalFrame;
 import logica.*;
+import entidades.*;
 
 /**
  *
@@ -265,6 +266,7 @@ public class LoginMenu extends javax.swing.JFrame {
             public void run() {
                 new LoginMenu().setVisible(true);
                 sumarInteresCuentas();
+                realizarMantenimiento();
             }
         });
     }
@@ -275,6 +277,15 @@ public class LoginMenu extends javax.swing.JFrame {
         if(diaActual==1)
             for(InteresMensual interes : listaInteres)
                 BLInteresMensual.realizarInteres("01", interes.getInteImporte());
+    }
+    
+    public static void realizarMantenimiento(){
+        GregorianCalendar fechaActual = new GregorianCalendar();
+        int diaActual=fechaActual.get(Calendar.DAY_OF_MONTH);
+        ArrayList<CargoMantenimiento> listarMantenimiento = BLCargoMantenimiento.listarCargoMantenimiento();
+        if(diaActual==1)
+            for(CargoMantenimiento cargo : listarMantenimiento)
+                BLCargoMantenimiento.realizarMantenimiento("01",cargo.getCargMontoMaximo(),cargo.getCargImporte());
     }
     
 
