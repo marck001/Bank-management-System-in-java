@@ -205,7 +205,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
                             .addComponent(lblnumMov)
                             .addComponent(lblCodEmpleado)
                             .addComponent(lblFechaMovi))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,7 +235,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
                     .addComponent(txtImporMov, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
                     .addComponent(txtcuenReferencia)
                     .addComponent(txtTipoMovimiento))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(259, 259, 259)
                 .addComponent(jLabel1)
@@ -322,7 +322,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Estado:");
 
-        cbxDescripcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxDescripcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apertura de cuenta", "Cancelacion Cuenta", "Depositos", "Retiros", "Interes", "Mantenimiento", "Transferencias", "Cargo por Mantenimiento ", "ITF" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
