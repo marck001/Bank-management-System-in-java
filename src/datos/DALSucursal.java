@@ -173,5 +173,51 @@ public class DALSucursal {
         }
         return sucursal;
     }
+     public static String asignarEmpleado(String codigoEmpleado, String usuario, String codigoSucursal) {
+            String mensaje = null;
+            try {
+                cn = Conexion.realizarConexion();
 
+
+                String verificarEmpleadoSql = "{call sp_buscar_empleado(?)}";
+                cs = cn.prepareCall(verificarEmpleadoSql);
+                cs.setString(1, codigoEmpleado);
+                rs = cs.executeQuery();
+                if (rs.next()) {
+                    return "El código del empleado ya existe.";
+                }
+                rs.close();
+                cs.close();
+
+                String verificarUsuarioSql = "{call sp_buscar_usuario(?)}";
+                cs = cn.prepareCall(verificarUsuarioSql);
+                cs.setString(1, usuario);
+                rs = cs.executeQuery();
+                if (rs.next()) {
+                    return "El usuario ya existe.";
+                }
+                rs.close();
+                cs.close();
+
+                String sql = "{call sp_asignar_empleado(?, ?, ?)}";
+                cs = cn.prepareCall(sql);
+                cs.setString(1, codigoEmpleado);
+                cs.setString(2, usuario);
+                cs.setString(3, codigoSucursal);
+                cs.executeUpdate();
+
+                mensaje = "Empleado asignado exitosamente";
+            } catch (ClassNotFoundException | SQLException ex) {
+                mensaje = ex.getMessage();
+            } finally {
+                try {
+                    if (rs != null) rs.close();
+                    if (cs != null) cs.close();
+                    if (cn != null) cn.close();
+                } catch (SQLException ex) {
+                    mensaje = ex.getMessage();
+                }
+            }
+            return mensaje;
+        }
 }
