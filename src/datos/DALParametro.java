@@ -6,6 +6,7 @@ package datos;
 
 import entidades.*;
 import java.sql.*;
+import java.util.ArrayList;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static logica.BLCuenta.*;
 
@@ -88,5 +89,80 @@ public class DALParametro {
         }
         return null;
     }
-    
+        public static String actualizarParametro(Parametro parametro) {
+        String mensaje = null;
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_actualizar_parametro(?, ?, ?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, parametro.getParaCodigo());
+            cs.setString(2, parametro.getParaValor());
+            cs.setString(3, parametro.getParaEstado());
+            cs.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;        
+    }
+   
+    public static ArrayList<Parametro> listarParametro() {
+        String sql;
+        ArrayList<Parametro> obj = new ArrayList<>();
+        try {
+            // Parametro(String paraCodigo, String paraDescripcion, String paraValor, String paraEstado)
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_listar_parametro()}";
+            cs = cn.prepareCall(sql);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                obj.add(new Parametro(rs.getString(1), rs.getString(2) , rs.getString(3),rs.getString(4)));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return obj;
+    }
+        public static Parametro obtenerParametro(String codigo) {
+        Parametro parametro = new Parametro();
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_buscar_parametro(?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1, codigo);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                parametro.setParaCodigo(rs.getString(1));
+                parametro.setParaDescripcion(rs.getString(2));
+                parametro.setParaValor(rs.getString(3));
+                parametro.setParaValor(rs.getString(4));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return parametro;
+            
+    } 
 }

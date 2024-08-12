@@ -12,6 +12,8 @@ import static javax.swing.JOptionPane.showMessageDialog;
  * @author marck
  */
 public class BLCliente {
+    
+    
     private static Cliente obj;
 
     public static int insertarCliente(String codigo, String apePaterno, String apeMaterno, String nombre, String dni, String ciudad, String direccion, String email, String telefono) {

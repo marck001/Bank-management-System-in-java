@@ -18,4 +18,8 @@ public class BLContador {
     public static ArrayList<Contador> listarContador(){
         return DALContador.listarContador();
     }
+    
+    public static String obtenerConteo(String tabla) {
+        return DALContador.obtenerConteo(tabla);
+    }
 }
