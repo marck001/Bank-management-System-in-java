@@ -479,7 +479,7 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
     InfActualizarCliente ifrmA= new InfActualizarCliente();
-    MainFrm.centrarInternalFrameExterno(ifrmA);
+    MainFrm.centrarInternalFrameExterno2(ifrmA);
           
     }//GEN-LAST:event_btnActualizarActionPerformed
 
