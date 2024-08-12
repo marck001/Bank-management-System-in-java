@@ -72,7 +72,7 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(164, 84, 84));
+        jPanel1.setBackground(new java.awt.Color(93, 30, 34));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
 
         lblCodigo.setBackground(new java.awt.Color(255, 255, 255));
@@ -95,8 +95,8 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
         lblDireccion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDireccion.setText("Dirección: ");
 
-        txtCodigo.setForeground(new java.awt.Color(204, 204, 204));
         txtCodigo.setText("********");
+        txtCodigo.setEnabled(false);
         txtCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtCodigoMousePressed(evt);
@@ -113,8 +113,7 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        txtNombres.setForeground(new java.awt.Color(204, 204, 204));
-        txtNombres.setText("Nombres");
+        txtNombres.setEnabled(false);
         txtNombres.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtNombresMousePressed(evt);
@@ -126,8 +125,8 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        txtPaterno.setForeground(new java.awt.Color(204, 204, 204));
         txtPaterno.setText("Apellido paterno");
+        txtPaterno.setEnabled(false);
         txtPaterno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtPaternoMousePressed(evt);
@@ -139,20 +138,22 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        txtDni.setEnabled(false);
         txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDniKeyTyped(evt);
             }
         });
 
+        txtCiudad.setEnabled(false);
         txtCiudad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCiudadKeyTyped(evt);
             }
         });
 
-        txtMail.setForeground(new java.awt.Color(204, 204, 204));
         txtMail.setText("ej: nombre@ejemplo.com");
+        txtMail.setEnabled(false);
         txtMail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtMailMousePressed(evt);
@@ -169,12 +170,14 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        txtTelefono.setEnabled(false);
         txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelefonoKeyTyped(evt);
             }
         });
 
+        txtDireccion.setEnabled(false);
         txtDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDireccionActionPerformed(evt);
@@ -196,8 +199,8 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
         lblNombreCompleto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNombreCompleto.setText("Nombre Completo");
 
-        txtMaterno.setForeground(new java.awt.Color(204, 204, 204));
         txtMaterno.setText("Apellido materno");
+        txtMaterno.setEnabled(false);
         txtMaterno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtMaternoMousePressed(evt);
@@ -226,7 +229,7 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,28 +246,27 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCiudad)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCodigo))
-                                .addGap(65, 65, 65)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblDni)
-                                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(lblCodigo))
+                                .addGap(104, 104, 104)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(242, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
-                    .addComponent(lblDni))
-                .addGap(2, 2, 2)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCodigo))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDni))
+                .addGap(2, 2, 2)
                 .addComponent(lblApellidos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -291,13 +293,13 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTelefono)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Usuario.gif"))); // NOI18N
         btnRegistrar.setText("REGISTRAR");
         btnRegistrar.setToolTipText("");
+        btnRegistrar.setEnabled(false);
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -326,13 +328,14 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Modificar.gif"))); // NOI18N
         btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.setEnabled(false);
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(128, 53, 53));
+        jPanel2.setBackground(new java.awt.Color(93, 30, 34));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clienteSim.png"))); // NOI18N
@@ -388,9 +391,9 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDes)
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -442,21 +445,22 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
         limpiar();
         activar(true);
         txtCodigo.requestFocus();
+
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         int respuesta;
         codigo = txtCodigo.getText();
-        apellidoP = txtPaterno.getText();
-        apellidoM = txtMaterno.getText();
+        apePaterno = txtPaterno.getText();
+        apeMaterno = txtMaterno.getText();
         nombre = txtNombres.getText();
         dni = txtDni.getText();
         ciudad = txtCiudad.getText();
         direccion = txtDireccion.getText();
-        email = txtTelefono.getText();
-        telefono =txtMail.getText();
+        email = txtMail.getText();
+        telefono =txtTelefono.getText();
 
-        respuesta = BLCliente.insertarCliente(codigo, apellidoP, apellidoM, nombre, dni, ciudad, direccion, email, telefono);
+        respuesta = BLCliente.insertarCliente(codigo, apePaterno, apeMaterno, nombre, dni, ciudad, direccion, email, telefono);
         if(respuesta==0 || respuesta==3) {
             limpiar();
             activar(false);
@@ -475,10 +479,8 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
     InfActualizarCliente ifrmA= new InfActualizarCliente();
-    // MainFrm.JInternalFrame(ifrmA);
-    
-      
-       
+    MainFrm.centrarInternalFrameExterno(ifrmA);
+          
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void txtCodigoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCodigoMousePressed
@@ -528,11 +530,11 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtPaternoMousePressed
 
     private void txtMaternoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMaternoMousePressed
-        if(txtMaterno.getText().equals("Apellido materno")){
+       if(txtMaterno.getText().equals("Apellido materno")){
            txtMaterno.setText("");
            txtMaterno.setForeground(Color.black);
         }
-        if(txtCodigo.getText().isEmpty()){
+       if(txtCodigo.getText().isEmpty()){
            txtCodigo.setText("********");
            txtCodigo.setForeground(Color.gray);
         } 
@@ -547,11 +549,11 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
         if(txtMail.getText().isEmpty()){
            txtMail.setText("ej: nombre@ejemplo.com");
            txtMail.setForeground(Color.gray);
-        }           
+        }          
     }//GEN-LAST:event_txtMaternoMousePressed
 
     private void txtNombresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombresMousePressed
-         if(txtNombres.getText().equals("Nombres")){
+        if(txtNombres.getText().equals("Nombres")){
            txtNombres.setText("");
            txtNombres.setForeground(Color.black);
         }
@@ -574,7 +576,7 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNombresMousePressed
 
     private void txtMailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMailMousePressed
-        if(txtMail.getText().equals("ej: nombre@ejemplo.com")){
+       if(txtMail.getText().equals("ej: nombre@ejemplo.com")){
            txtMail.setText("");
            txtMail.setForeground(Color.black);
         }
@@ -602,8 +604,8 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
             evt.consume();
         }
         
-        if (txtCodigo.getText().length() > 4)
-            evt.consume();
+       if (txtCodigo.getText().length() > 4)
+           evt.consume();
     }//GEN-LAST:event_txtCodigoKeyTyped
 
     private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
@@ -664,8 +666,8 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
           evt.consume();  
         }
         
-        if (txtTelefono.getText().length() > 8)
-            evt.consume();
+       if (txtTelefono.getText().length() > 8)
+           evt.consume();
     }//GEN-LAST:event_txtTelefonoKeyTyped
 
 private void activar(boolean estado) {
@@ -680,7 +682,7 @@ private void activar(boolean estado) {
         txtMail.setEnabled(estado);
        
         btnActualizar.setEnabled(estado);
-        btnActualizar.setEnabled(estado);
+        btnRegistrar.setEnabled(estado);
         btnSalir.setEnabled(estado);
         btnNuevo.setEnabled(!estado);               
     }
@@ -730,5 +732,5 @@ private void activar(boolean estado) {
     private javax.swing.JTextField txtPaterno;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
-private String codigo, apellidoP, apellidoM, nombre, dni, ciudad, direccion, email, telefono;
+private String codigo, apePaterno, apeMaterno, nombre, dni, ciudad, direccion, email, telefono;
 }

@@ -6,6 +6,7 @@ package presentacion;
 
 import entidades.Cliente;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import logica.BLCliente;
 
@@ -86,6 +87,17 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
         jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 530, -1));
         jPanel1.add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 400, -1));
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 250, -1));
+
+        txtMail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtMailMousePressed(evt);
+            }
+        });
+        txtMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMailActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 510, -1));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 640, -1));
 
@@ -102,12 +114,16 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
 
-        txtCodigo.setForeground(new java.awt.Color(204, 204, 204));
         txtCodigo.setText("********");
         txtCodigo.setToolTipText("Escriba el código del cliente a buscar");
         txtCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtCodigoMousePressed(evt);
+            }
+        });
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
             }
         });
         jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 200, -1));
@@ -216,7 +232,9 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
         if(cliente != null) {
             if(cliente.getCodigo().compareTo("00000") != 0) {
                 codigo = cliente.getCodigo();
+                
                 txtNombre.setText(cliente.getNombre()+ cliente.getApellidoPaterno()+cliente.getApellidoMaterno());
+                txtDni.setText(cliente.getDni());
                 txtCiudad.setText(cliente.getCiudad());
                 txtDireccion.setText(cliente.getDireccion());
                 txtTelefono.setText(cliente.getTelefono());
@@ -260,9 +278,28 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
         if(txtCodigo.getText().equals("********")){
            txtCodigo.setText("");
            txtCodigo.setForeground(Color.black);
-        
         }
+        
+       
     }//GEN-LAST:event_txtCodigoMousePressed
+
+    private void txtMailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMailMousePressed
+       
+    }//GEN-LAST:event_txtMailMousePressed
+
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        char c = evt.getKeyChar();
+        if(((c<'0') || (c>'9')) && (c!=KeyEvent.VK_BACK_SPACE) ){
+            evt.consume();
+        }
+        
+        if (txtCodigo.getText().length() > 4)
+            evt.consume();
+    }//GEN-LAST:event_txtCodigoKeyTyped
+
+    private void txtMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMailActionPerformed
     
     private void activar(boolean estado) {
         txtCodigo.setEnabled(estado);

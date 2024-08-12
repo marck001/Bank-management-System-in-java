@@ -16,7 +16,7 @@ public class BLCliente {
 
     public static int insertarCliente(String codigo, String apePaterno, String apeMaterno, String nombre, String dni, String ciudad, String direccion, String email, String telefono) {
         String mensaje;
-        if (codigo.trim().length() == 5 && apePaterno.trim().length() > 0 && apeMaterno.trim().length() > 0&& nombre.trim().length() > 0 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && email.trim().length() > 0 && telefono.trim().length() ==9) {
+        if (codigo.trim().length() == 5 && apePaterno.trim().length() > 0 && apeMaterno.trim().length() > 0&& nombre.trim().length() > 0 && dni.trim().length()==8 && ciudad.trim().length() > 0 && direccion.trim().length() > 0 && email.trim().length() > 0 && telefono.trim().length() ==9) {
          
               if (buscarCliente(codigo) == null) {
             //String codigo, String apellidoPaterno, String apellidoMaterno, String nombre, String dni, String ciudad, String direccion, String email, String telefono
