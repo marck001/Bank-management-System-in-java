@@ -121,6 +121,9 @@ public class EmpleadoHace {
         String codBuscadoOrigen, codBuscadoDestino, clave, mensajeRetiro, mensajeDeposito;
         int contIntentos = 0, numMovOrigen, numMovDestino;
         float saldoNuevoOrigen, saldoNuevoDestino;
+        float impuesto = 0.0008f; // ES DEL 0.08%
+        float montoImpuesto;
+        float montoNeto;
         Cuenta cuentaOrigen, cuentaDestino;
         Cliente cliente;
 
@@ -137,11 +140,14 @@ public class EmpleadoHace {
                     if (codBuscadoDestino != null) {
                         cuentaDestino = BLCuenta.obtenerCuenta(codBuscadoDestino);
 
+                        montoImpuesto = monto * impuesto;
+                        montoNeto = monto - montoImpuesto;
+
                         mensajeRetiro = BLCuenta.retiroCuenta(monto, codCuentaOrigen);
                         if (mensajeRetiro == null) {
                             saldoNuevoOrigen = Float.parseFloat(BLCuenta.obtenerSaldo(codCuentaOrigen));
 
-                            mensajeDeposito = BLCuenta.depositoCuenta(monto, codCuentaDestino);
+                            mensajeDeposito = BLCuenta.depositoCuenta(montoNeto, codCuentaDestino);
                             if (mensajeDeposito == null) {
                                 saldoNuevoDestino = Float.parseFloat(BLCuenta.obtenerSaldo(codCuentaDestino));
 
@@ -153,7 +159,7 @@ public class EmpleadoHace {
                                 numMovDestino = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino) + 1;
 
                                 BLMovimiento.insertarMovimiento(numMovOrigen, fechaActual, monto, "SALIDA", cuentaOrigen.getCodigo(), codEmpleado, "009");
-                                BLMovimiento.insertarMovimiento(numMovDestino, fechaActual, monto, "ENTRADA", cuentaDestino.getCodigo(), codEmpleado, "008");
+                                BLMovimiento.insertarMovimiento(numMovDestino, fechaActual, montoNeto, "ENTRADA", cuentaDestino.getCodigo(), codEmpleado, "008");
 
                             } else {
                                 showMessageDialog(null, "Error en el depósito: " + mensajeDeposito, "Error", JOptionPane.ERROR_MESSAGE);
@@ -178,15 +184,6 @@ public class EmpleadoHace {
             showMessageDialog(null, "La cuenta origen no existe o no está registrada.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+   
 }
