@@ -138,6 +138,7 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
             }
         });
 
+        lblCodigo.setBackground(new java.awt.Color(0, 0, 0));
         lblCodigo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo.setText("Código de Sucursal:");
 
@@ -151,9 +152,11 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
             }
         });
 
+        lblCodigo1.setBackground(new java.awt.Color(0, 0, 0));
         lblCodigo1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo1.setText("Ciudad:");
 
+        lblDescripcion.setBackground(new java.awt.Color(0, 0, 0));
         lblDescripcion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblDescripcion.setText("Nombre:");
 
@@ -165,6 +168,7 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         txtNombre.setForeground(new java.awt.Color(255, 255, 255));
         txtNombre.setEnabled(false);
 
+        lblDescripcion1.setBackground(new java.awt.Color(0, 0, 0));
         lblDescripcion1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblDescripcion1.setText("Direccion:");
 
@@ -172,6 +176,7 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         txtDireccion.setForeground(new java.awt.Color(255, 255, 255));
         txtDireccion.setEnabled(false);
 
+        lblCodigo2.setBackground(new java.awt.Color(0, 0, 0));
         lblCodigo2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo2.setText("CuCuenta:");
 
@@ -179,6 +184,7 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         txtcuentasuc.setForeground(new java.awt.Color(255, 255, 255));
         txtcuentasuc.setEnabled(false);
 
+        lblDescripcion2.setBackground(new java.awt.Color(0, 0, 0));
         lblDescripcion2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblDescripcion2.setText("Nuevo Nombre:");
 
@@ -186,6 +192,7 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         txtNombre1.setForeground(new java.awt.Color(255, 255, 255));
         txtNombre1.setEnabled(false);
 
+        lblCodigo4.setBackground(new java.awt.Color(0, 0, 0));
         lblCodigo4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo4.setText("Nueva Ciudad:");
 
@@ -197,9 +204,11 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         txtDireccion1.setForeground(new java.awt.Color(255, 255, 255));
         txtDireccion1.setEnabled(false);
 
+        lblDescripcion3.setBackground(new java.awt.Color(0, 0, 0));
         lblDescripcion3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblDescripcion3.setText("Nueva Direccion:");
 
+        lblCodigo3.setBackground(new java.awt.Color(0, 0, 0));
         lblCodigo3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo3.setText("Nueva CuCuenta:");
 
@@ -232,6 +241,7 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
             }
         });
 
+        lblCodigo5.setBackground(new java.awt.Color(0, 0, 0));
         lblCodigo5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo5.setText("Tipo:");
 
@@ -243,6 +253,7 @@ public class IFrmActualizarSucursal extends javax.swing.JInternalFrame {
         txtTipo1.setForeground(new java.awt.Color(255, 255, 255));
         txtTipo1.setEnabled(false);
 
+        lblCodigo6.setBackground(new java.awt.Color(0, 0, 0));
         lblCodigo6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lblCodigo6.setText("Nuevo Tipo:");
 
