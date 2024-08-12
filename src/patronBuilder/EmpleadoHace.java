@@ -113,7 +113,7 @@ public class EmpleadoHace {
         } else {
             showMessageDialog(null, "La cuenta no existe o no está registrada.", "Error", 0);
         }
-       
+       //XD
     }
     public void transferirSaldo(String codEmpleado, String codCuentaOrigen, String codCuentaDestino, float monto) {
         String codBuscadoOrigen, codBuscadoDestino, clave, mensajeRetiro, mensajeDeposito,mensaje;
