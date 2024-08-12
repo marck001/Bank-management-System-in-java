@@ -5,6 +5,7 @@
 package presentacion;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import static javax.swing.JOptionPane.showMessageDialog;
 import logica.*;
 /**
@@ -75,13 +76,17 @@ public class LoginCliente extends javax.swing.JFrame {
         lblNombre.setToolTipText("");
         jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 72, 22));
 
-        txtDni.setBackground(new java.awt.Color(255, 255, 255));
         txtDni.setForeground(new java.awt.Color(204, 204, 204));
         txtDni.setText("Ingrese su numero de Dni");
         txtDni.setBorder(null);
         txtDni.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtDniMousePressed(evt);
+            }
+        });
+        txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDniKeyTyped(evt);
             }
         });
         jPanel2.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 210, 30));
@@ -97,13 +102,17 @@ public class LoginCliente extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(51, 51, 51));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 210, -1));
 
-        passCodigo.setBackground(new java.awt.Color(255, 255, 255));
         passCodigo.setForeground(new java.awt.Color(204, 204, 204));
         passCodigo.setText("********");
         passCodigo.setBorder(null);
         passCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 passCodigoMousePressed(evt);
+            }
+        });
+        passCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passCodigoKeyTyped(evt);
             }
         });
         jPanel2.add(passCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 210, 30));
@@ -207,12 +216,7 @@ public class LoginCliente extends javax.swing.JFrame {
         respuesta1 = BLCliente.buscarClienteLogin(codigo, dni);
         respuesta2 = BLCliente.obtenerCodCuentaPorCliente(codigo);
         if(respuesta1!=null && respuesta2!= null) {
-            MainFrm frm = new MainFrm();
-            frm.setUser(2, respuesta1, false);
-            frm.setVisible(true);
-            frm.pack();
-            frm.setLocationRelativeTo(null);
-            this.dispose();
+            new BancaPorInternet(respuesta2);
         } else {
             if(respuesta2==null) {
                 showMessageDialog(null, "No tiene cuenta registrada", "Login Cliente",0);
@@ -232,6 +236,18 @@ public class LoginCliente extends javax.swing.JFrame {
         frm.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_lblVolverMouseClicked
+
+    private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE)
+            evt.consume();
+    }//GEN-LAST:event_txtDniKeyTyped
+
+    private void passCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passCodigoKeyTyped
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE)
+            evt.consume();
+    }//GEN-LAST:event_passCodigoKeyTyped
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

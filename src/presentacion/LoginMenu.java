@@ -29,19 +29,15 @@ public class LoginMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         PanelFondo = new javax.swing.JPanel();
-        btnSalir = new javax.swing.JButton();
-        btnEmpleado = new javax.swing.JButton();
-        btnAdmin = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnCliente = new javax.swing.JButton();
-        btnAyuda = new javax.swing.JButton();
-        txt = new javax.swing.JLabel();
-        lblop = new javax.swing.JLabel();
-        btnAbrir = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnAdmin = new javax.swing.JButton();
+        btnEmpleado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Principal");
@@ -49,8 +45,44 @@ public class LoginMenu extends javax.swing.JFrame {
         PanelFondo.setBackground(new java.awt.Color(255, 255, 255));
         PanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(64, 4, 4));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("EUREKABANK");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Bienvenido/a");
+        jLabel1.setToolTipText("");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/al.jpg"))); // NOI18N
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 220, 170));
+
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 3, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Login");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+
+        btnCliente.setBackground(new java.awt.Color(51, 51, 255));
+        btnCliente.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        btnCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clienteSim.png"))); // NOI18N
+        btnCliente.setText("Cliente");
+        btnCliente.setBorder(null);
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 240, 50));
+
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x.gif"))); // NOI18N
         btnSalir.setText("Salir");
@@ -60,24 +92,11 @@ public class LoginMenu extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        PanelFondo.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 90, -1));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 90, 40));
 
-        btnEmpleado.setBackground(new java.awt.Color(102, 255, 204));
-        btnEmpleado.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        btnEmpleado.setForeground(new java.awt.Color(51, 51, 51));
-        btnEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/empleadoSim.png"))); // NOI18N
-        btnEmpleado.setText("Empleado");
-        btnEmpleado.setBorder(null);
-        btnEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmpleadoActionPerformed(evt);
-            }
-        });
-        PanelFondo.add(btnEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 240, 60));
-
-        btnAdmin.setBackground(new java.awt.Color(102, 255, 204));
+        btnAdmin.setBackground(new java.awt.Color(51, 51, 255));
         btnAdmin.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        btnAdmin.setForeground(new java.awt.Color(51, 51, 51));
+        btnAdmin.setForeground(new java.awt.Color(255, 255, 255));
         btnAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adminSim.png"))); // NOI18N
         btnAdmin.setText("Administrador");
         btnAdmin.setBorder(null);
@@ -86,93 +105,22 @@ public class LoginMenu extends javax.swing.JFrame {
                 btnAdminActionPerformed(evt);
             }
         });
-        PanelFondo.add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 240, 60));
+        jPanel1.add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 240, 60));
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
-
-        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("EUREKABANK");
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Bienvenido/a");
-        jLabel1.setToolTipText("");
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoBanco.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addContainerGap(168, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel13)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(35, 35, 35)
-                            .addComponent(jLabel1))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addComponent(jLabel2))))
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-
-        PanelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 120));
-
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 3, 24)); // NOI18N
-        jLabel3.setText("Login");
-        PanelFondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
-
-        btnCliente.setBackground(new java.awt.Color(102, 255, 204));
-        btnCliente.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        btnCliente.setForeground(new java.awt.Color(51, 51, 51));
-        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clienteSim.png"))); // NOI18N
-        btnCliente.setText("Cliente");
-        btnCliente.setBorder(null);
-        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+        btnEmpleado.setBackground(new java.awt.Color(51, 51, 255));
+        btnEmpleado.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        btnEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        btnEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/empleadoSim.png"))); // NOI18N
+        btnEmpleado.setText("Empleado");
+        btnEmpleado.setBorder(null);
+        btnEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClienteActionPerformed(evt);
+                btnEmpleadoActionPerformed(evt);
             }
         });
-        PanelFondo.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 240, 50));
+        jPanel1.add(btnEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 240, 60));
 
-        btnAyuda.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info_1.png"))); // NOI18N
-        btnAyuda.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        PanelFondo.add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 50, 60));
-
-        txt.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        txt.setText("Desea logearse como");
-        PanelFondo.add(txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, -1));
-
-        lblop.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        lblop.setText(". . . . .");
-        PanelFondo.add(lblop, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
-
-        btnAbrir.setBackground(new java.awt.Color(51, 204, 0));
-        btnAbrir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnAbrir.setForeground(new java.awt.Color(255, 255, 255));
-        btnAbrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/24-em-check.png"))); // NOI18N
-        btnAbrir.setText("Sí");
-        btnAbrir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAbrirActionPerformed(evt);
-            }
-        });
-        PanelFondo.add(btnAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, 30));
+        PanelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,7 +130,7 @@ public class LoginMenu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(PanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -194,38 +142,25 @@ public class LoginMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadoActionPerformed
-        lblop.setText("Empleado ?");
+        LoginEmpleado frm = new LoginEmpleado();
+        frm.setVisible(true);
+        frm.pack();
+        frm.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnEmpleadoActionPerformed
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
-        lblop.setText("Administrador ?");
+        LoginAdministrador frm = new LoginAdministrador();
+        frm.setVisible(true);
+        frm.pack();
+        frm.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnAdminActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-        lblop.setText("Cliente ?");
+        LoginCliente frm = new LoginCliente();
+        frm.setVisible(true);
+        frm.pack();
+        frm.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnClienteActionPerformed
-
-    private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
-        if(lblop.getText()=="Cliente ?") {
-            LoginCliente frm = new LoginCliente();
-            frm.setVisible(true);
-            frm.pack();
-            frm.setLocationRelativeTo(null);
-        } else {
-            if(lblop.getText()=="Empleado ?") {
-                LoginEmpleado frm = new LoginEmpleado();
-                frm.setVisible(true);
-                frm.pack();
-                frm.setLocationRelativeTo(null);
-            } else {
-                LoginAdministrador frm = new LoginAdministrador();
-                frm.setVisible(true);
-                frm.pack();
-                frm.setLocationRelativeTo(null);
-            }
-        }
-        this.dispose();
-    }//GEN-LAST:event_btnAbrirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,9 +202,7 @@ public class LoginMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFondo;
-    private javax.swing.JButton btnAbrir;
     private javax.swing.JButton btnAdmin;
-    private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnEmpleado;
     private javax.swing.JButton btnSalir;
@@ -278,7 +211,5 @@ public class LoginMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblop;
-    private javax.swing.JLabel txt;
     // End of variables declaration//GEN-END:variables
 }
