@@ -12,7 +12,7 @@ import entidades.*;
 
 /**
  *
- * @author Usuario
+ * @author Felix Chávez
  */
 public class LoginMenu extends javax.swing.JFrame {
 
@@ -150,6 +150,7 @@ public class LoginMenu extends javax.swing.JFrame {
         frm.setVisible(true);
         frm.pack();
         frm.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnEmpleadoActionPerformed
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
@@ -157,6 +158,7 @@ public class LoginMenu extends javax.swing.JFrame {
         frm.setVisible(true);
         frm.pack();
         frm.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnAdminActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
@@ -164,6 +166,7 @@ public class LoginMenu extends javax.swing.JFrame {
         frm.setVisible(true);
         frm.pack();
         frm.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnClienteActionPerformed
 
     /**

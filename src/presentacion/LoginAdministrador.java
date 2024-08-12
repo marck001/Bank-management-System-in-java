@@ -10,7 +10,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
- * @author Usuario
+ * @author Felix Chávez
  */
 public class LoginAdministrador extends javax.swing.JFrame {
 
