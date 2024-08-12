@@ -4,7 +4,10 @@
  */
 package presentacion;
 
+import entidades.InteresMensual;
+import java.util.*;
 import javax.swing.JInternalFrame;
+import logica.*;
 
 /**
  *
@@ -261,9 +264,19 @@ public class LoginMenu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginMenu().setVisible(true);
+                sumarInteresCuentas();
             }
         });
     }
+    public static void sumarInteresCuentas(){
+        GregorianCalendar fechaActual = new GregorianCalendar();
+        int diaActual=fechaActual.get(Calendar.DAY_OF_MONTH);
+        ArrayList<InteresMensual> listaInteres = BLInteresMensual.listarInteres();
+        if(diaActual==1)
+            for(InteresMensual interes : listaInteres)
+                BLInteresMensual.realizarInteres("01", interes.getInteImporte());
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFondo;

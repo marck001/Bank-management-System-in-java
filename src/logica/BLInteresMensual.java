@@ -5,6 +5,7 @@
 package logica;
 import entidades.*;
 import datos.*;
+import java.sql.SQLException;
 import static javax.swing.JOptionPane.showMessageDialog;
 import java.util.*;
 
@@ -71,5 +72,9 @@ public class BLInteresMensual {
             return interes;
         } else
             return null;
+    }
+    
+    public static String realizarInteres(String fecha, float interes) {
+        return DALInteresMensual.realizarInteres(fecha, interes);
     }
 }

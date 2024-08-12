@@ -128,4 +128,27 @@ public class DALInteresMensual {
         }
         return inter;
     }
+    
+    public static String realizarInteres(String fecha, float interes) {
+        String mensaje = null;
+        try {
+            cn = Conexion.realizarConexion();
+            String sql = "{call sp_ganar_interes(?, ?)}";
+            cs = cn.prepareCall(sql);
+            cs.setString(1,  fecha);
+            cs.setFloat(2, interes);
+            cs.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            mensaje = ex.getMessage();
+        } finally {
+            try {
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                mensaje = ex.getMessage();
+            }
+        }
+        return mensaje;        
+    }
+    
 }
