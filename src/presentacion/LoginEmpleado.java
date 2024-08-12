@@ -48,11 +48,10 @@ public class LoginEmpleado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Empleado");
-        setMaximumSize(new java.awt.Dimension(520, 315));
         setMinimumSize(new java.awt.Dimension(520, 315));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/empleadoicon.png"))); // NOI18N
@@ -118,6 +117,7 @@ public class LoginEmpleado extends javax.swing.JFrame {
 
         panelBtnEntrar.setBackground(new java.awt.Color(68, 171, 181));
 
+        lblEntrar.setBackground(new java.awt.Color(249, 196, 65));
         lblEntrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEntrar.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

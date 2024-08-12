@@ -48,7 +48,7 @@ public class LoginAdministrador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(102, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -115,7 +115,7 @@ public class LoginAdministrador extends javax.swing.JFrame {
         lblEntrar.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEntrar.setText("ENTRAR");
-        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblEntrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -142,7 +142,7 @@ public class LoginAdministrador extends javax.swing.JFrame {
         lblVolver.setForeground(new java.awt.Color(255, 255, 255));
         lblVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVolver.setText("VOLVER");
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblVolver.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

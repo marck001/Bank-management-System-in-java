@@ -70,11 +70,10 @@ public class LoginMenu extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 3, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Login");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 70, -1));
 
-        btnCliente.setBackground(new java.awt.Color(51, 51, 255));
+        btnCliente.setBackground(new java.awt.Color(249, 196, 65));
         btnCliente.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        btnCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clienteSim.png"))); // NOI18N
         btnCliente.setText("Cliente");
         btnCliente.setBorder(null);
@@ -83,24 +82,23 @@ public class LoginMenu extends javax.swing.JFrame {
                 btnClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 240, 50));
+        jPanel1.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 240, 50));
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnSalir.setBackground(new java.awt.Color(153, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x.gif"))); // NOI18N
         btnSalir.setText("Salir");
-        btnSalir.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        btnSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 51)));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 90, 40));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 90, 40));
 
-        btnAdmin.setBackground(new java.awt.Color(51, 51, 255));
+        btnAdmin.setBackground(new java.awt.Color(249, 196, 65));
         btnAdmin.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        btnAdmin.setForeground(new java.awt.Color(255, 255, 255));
         btnAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/adminSim.png"))); // NOI18N
         btnAdmin.setText("Administrador");
         btnAdmin.setBorder(null);
@@ -109,11 +107,10 @@ public class LoginMenu extends javax.swing.JFrame {
                 btnAdminActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 240, 60));
+        jPanel1.add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 240, 60));
 
-        btnEmpleado.setBackground(new java.awt.Color(51, 51, 255));
+        btnEmpleado.setBackground(new java.awt.Color(249, 196, 65));
         btnEmpleado.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        btnEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         btnEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/empleadoSim.png"))); // NOI18N
         btnEmpleado.setText("Empleado");
         btnEmpleado.setBorder(null);
@@ -122,7 +119,7 @@ public class LoginMenu extends javax.swing.JFrame {
                 btnEmpleadoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 240, 60));
+        jPanel1.add(btnEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 240, 60));
 
         PanelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 390));
 
