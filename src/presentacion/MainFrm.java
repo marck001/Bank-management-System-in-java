@@ -462,9 +462,8 @@ public class MainFrm extends javax.swing.JFrame {
         FirstPanelMenuLayout.setVerticalGroup(
             FirstPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FirstPanelMenuLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mnuTab1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(firstPanelTab1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -478,7 +477,7 @@ public class MainFrm extends javax.swing.JFrame {
                 .addComponent(firstPanelTab11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(firstPanelTab12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dspFondoLayout = new javax.swing.GroupLayout(dspFondo);
@@ -622,7 +621,7 @@ public class MainFrm extends javax.swing.JFrame {
             .addGroup(secondPanelTab1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         secondPanelTab1Layout.setVerticalGroup(
             secondPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -856,19 +855,19 @@ public class MainFrm extends javax.swing.JFrame {
             .addComponent(secondPanelTab4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(secondPanelTab5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(secondPanelTab6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel8)
-                .addContainerGap(22, Short.MAX_VALUE))
             .addComponent(secondPanelTab7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(secondPanelTab8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(16, 16, 16))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
                 .addComponent(jLabel8)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mnuTab2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(secondPanelTab1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -886,7 +885,7 @@ public class MainFrm extends javax.swing.JFrame {
                 .addComponent(secondPanelTab7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(secondPanelTab8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dspFondo1Layout = new javax.swing.GroupLayout(dspFondo1);
@@ -1102,24 +1101,6 @@ public class MainFrm extends javax.swing.JFrame {
             centrarInternalFrame2(tab);
     }//GEN-LAST:event_secondPanelTab1MouseClicked
 
-    private void mnuTab2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuTab2MousePressed
-        // TODO add your handling code here:
-        mnuTab2.setBackground(clickedColor);
-        secondPanelTab1.setBackground(defaultColor);
-        secondPanelTab2.setBackground(defaultColor);
-        secondPanelTab3.setBackground(defaultColor);
-        secondPanelTab4.setBackground(defaultColor);
-        secondPanelTab5.setBackground(defaultColor);
-        secondPanelTab6.setBackground(defaultColor);
-         secondPanelTab7.setBackground(defaultColor);
-        secondPanelTab8.setBackground(defaultColor);
-    }//GEN-LAST:event_mnuTab2MousePressed
-
-    private void mnuTab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuTab2MouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_mnuTab2MouseClicked
-
     private void firstPanelTab12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab12MousePressed
         // TODO add your handling code here:
         mnuTab1.setBackground(defaultColor);
@@ -1298,6 +1279,23 @@ public class MainFrm extends javax.swing.JFrame {
         secondPanelTab8.setBackground(clickedColor);
 
     }//GEN-LAST:event_secondPanelTab8MousePressed
+
+    private void mnuTab2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuTab2MousePressed
+        // TODO add your handling code here:
+        mnuTab2.setBackground(clickedColor);
+        secondPanelTab1.setBackground(defaultColor);
+        secondPanelTab2.setBackground(defaultColor);
+        secondPanelTab3.setBackground(defaultColor);
+        secondPanelTab4.setBackground(defaultColor);
+        secondPanelTab5.setBackground(defaultColor);
+        secondPanelTab6.setBackground(defaultColor);
+        secondPanelTab7.setBackground(defaultColor);
+        secondPanelTab8.setBackground(defaultColor);
+    }//GEN-LAST:event_mnuTab2MousePressed
+
+    private void mnuTab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuTab2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuTab2MouseClicked
 
     /**
      * @param args the command line arguments
