@@ -144,15 +144,12 @@ public class DALMovimiento {
             cs = cn.prepareCall(sql);
             rs = cs.executeQuery();
             while (rs.next()) {
-
-                String[] string = rs.getString(3).split("-");
-
-                //int numero, GregorianCalendar fechaMov, float importe, String referencia, 
-        //String cuenCodigo, String empCodigo, String tipoMovimiento
-                movimientos.add(new Movimiento(rs.getInt(2),
-                        new GregorianCalendar(Integer.parseInt(string[0]), Integer.parseInt(string[1]),
-                                Integer.parseInt(string[2])),
-                        rs.getFloat(6), rs.getString(7), rs.getString(1), rs.getString(4), rs.getString(5)));
+                String fecha = rs.getString(3);
+                String[] vector = fecha.split("-");
+                GregorianCalendar fechaImport=new GregorianCalendar(Integer.parseInt(vector[0]), Integer.parseInt(vector[1]),
+                                Integer.parseInt(vector[2]));
+                movimientos.add(new Movimiento(rs.getInt(2),fechaImport,rs.getFloat(6), 
+                        rs.getString(7), rs.getString(1), rs.getString(4), rs.getString(5)));
 
             }
         } catch (ClassNotFoundException | SQLException ex) {

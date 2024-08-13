@@ -37,6 +37,7 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        orden = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMovimientos = new javax.swing.JTable();
@@ -91,11 +92,12 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
         tblMovimientos.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblMovimientos);
 
-        jPanel1.setBackground(new java.awt.Color(68, 15, 14));
+        jPanel1.setBackground(new java.awt.Color(132, 65, 64));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setText("Ordenar por:");
 
+        orden.add(rbtncodCuenta);
         rbtncodCuenta.setText("Codigo Cuenta");
         rbtncodCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +105,7 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
             }
         });
 
+        orden.add(rbtncodEmpleado);
         rbtncodEmpleado.setText("Codigo Empleado");
         rbtncodEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +219,7 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
- this.dispose();        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void llenarTabla() {
@@ -238,7 +241,6 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
         tblMovimientos.setModel(modelo);
     }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
@@ -246,13 +248,14 @@ public class IFrmListaMovimiento extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.ButtonGroup orden;
     private javax.swing.JRadioButton rbtncodCuenta;
     private javax.swing.JRadioButton rbtncodEmpleado;
     private javax.swing.JTable tblMovimientos;
     // End of variables declaration//GEN-END:variables
     private DefaultTableModel modelo;
     private ArrayList<Movimiento> lista;
-    private String columnas[] = {"codigo cuenta , numero , Fecha mov , codigo empleado , importe , referencia , tipo Movimiento"};
+    private String columnas[] = {"Codigo Cuenta" , "Numero" , "Fecha Movimiento" , "Codigo Empleado" , "Importe" , "Referencia" , "Tipo Movimiento"};
     private Object fila[] = new Object[columnas.length];
     private Iterator<Movimiento> iterador;
     private Movimiento movimiento;

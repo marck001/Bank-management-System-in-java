@@ -18,6 +18,7 @@ public  class Sucursal implements Comparable <Sucursal>{
     private String direccion;
     private int contCuenta;
     private ArrayList<Asignado> asignado;
+    private String tipo;
     
     public Sucursal(){
         this("000", "NO", "CI", "DI", 0);
@@ -34,6 +35,23 @@ public  class Sucursal implements Comparable <Sucursal>{
         this.direccion = direccion;
         this.contCuenta = contCuenta;
         asignado = new ArrayList<>();
+    }
+    public Sucursal(String codigo, String nombre, String ciudad, String direccion, int contCuenta, String tipo) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
+        this.contCuenta = contCuenta;
+        this.tipo=tipo;
+        asignado = new ArrayList<>();
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
     
     public String getCodigo() {

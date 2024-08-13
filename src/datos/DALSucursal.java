@@ -127,6 +127,31 @@ public class DALSucursal {
         return sucursales;
     }
 
+    public static ArrayList<Sucursal> listarSucarsalesContenido(){
+        String sql;
+        ArrayList<Sucursal> obj = new ArrayList<>();
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_listar_sucursal()}";
+            cs = cn.prepareCall(sql);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                obj.add(new Sucursal(rs.getString(1), rs.getString(2) , rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6)));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return obj;
+    }
+    
     public static String actualizarSucursal(Sucursal sucursal) {
         String mensaje = null;
         try {
