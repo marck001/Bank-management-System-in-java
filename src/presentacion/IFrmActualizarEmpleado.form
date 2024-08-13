@@ -44,32 +44,35 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
-                          <Component id="btnNuevo" min="-2" pref="98" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                          <Component id="btnActualizar" min="-2" pref="114" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
-                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="184" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
+                  <Component id="btnNuevo" min="-2" pref="98" max="-2" attributes="0"/>
+                  <EmptySpace pref="527" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnActualizar" min="-2" pref="114" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnActualizar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btnNuevo" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace pref="70" max="32767" attributes="0"/>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="285" max="-2" attributes="0"/>
+                          <Component id="btnActualizar" min="-2" pref="36" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
+                  <Component id="btnNuevo" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -107,29 +110,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="lblCodigo3" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lblDescripcion1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblCodigo1" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lblDescripcion2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblCodigo2" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lblDescripcion1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblDescripcion2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCodigo2" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
                                           <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblDescripcion" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
-                                          <Component id="lblDescripcion3" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                                          <Component id="lblDescripcion3" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblDescripcion" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtApellidos" max="32767" attributes="0"/>
-                                              <Component id="txtApellidos1" max="32767" attributes="0"/>
+                                              <Component id="txtApellidoP" max="32767" attributes="0"/>
+                                              <Component id="txtApellidoM" max="32767" attributes="0"/>
                                               <Component id="txtNombreS" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="txtClave" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
@@ -137,7 +135,6 @@
                                               <Component id="txtUser" alignment="0" max="32767" attributes="0"/>
                                               <Component id="txtDireccion" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="txtNombres" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
                                           <Component id="txtCiudad" min="-2" pref="184" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -152,10 +149,10 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="491" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="89" max="32767" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -178,19 +175,14 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblDescripcion" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="txtApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtApellidoP" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblDescripcion3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="txtApellidos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtApellidoM" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblCodigo1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="txtNombres" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="lblDescripcion1" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="txtCiudad" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -216,16 +208,10 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="txtNombres">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="btnBuscar">
               <Properties>
                 <Property name="mnemonic" type="int" value="66"/>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
@@ -235,25 +221,29 @@
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCiudadKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtClave">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtClaveKeyTyped"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtApellidos">
+            <Component class="javax.swing.JTextField" name="txtApellidoP">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtApellidoPKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCodigo2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Direccion:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCodigo1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nombre:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDescripcion2">
@@ -270,6 +260,9 @@
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDireccionKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -280,13 +273,16 @@
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUserKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCodigo3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clave:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtApellidos1">
+            <Component class="javax.swing.JTextField" name="txtApellidoM">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -295,6 +291,9 @@
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombreSKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDescripcion3">
               <Properties>
@@ -312,9 +311,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCodigo">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCodigoKeyTyped"/>
               </Events>
@@ -329,11 +325,14 @@
                 <Component class="javax.swing.JTable" name="tblEmpleado">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                      <Table columnCount="7" rowCount="4">
+                        <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                        <Column editable="true" title="Apellidos" type="java.lang.Object"/>
+                        <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                        <Column editable="true" title="Ciudad" type="java.lang.Object"/>
+                        <Column editable="true" title="Direcci&#xf3;n" type="java.lang.Object"/>
+                        <Column editable="true" title="Usuario" type="java.lang.Object"/>
+                        <Column editable="true" title="Clave" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>

@@ -44,6 +44,8 @@ public class IFrmListaAmbasCuentas extends javax.swing.JInternalFrame {
         profile = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCuentasCredito = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setResizable(true);
@@ -74,13 +76,13 @@ public class IFrmListaAmbasCuentas extends javax.swing.JInternalFrame {
         tblCuentasDebito.setForeground(new java.awt.Color(0, 0, 0));
         tblCuentasDebito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Código", "Codigo Cliente", "Estado", "Tipo", "Saldo", "Numero Tarjeta"
+                "Código", "Codigo Cliente", "Estado", "Tipo", "Saldo"
             }
         ));
         tblCuentasDebito.setGridColor(new java.awt.Color(204, 204, 204));
@@ -104,18 +106,24 @@ public class IFrmListaAmbasCuentas extends javax.swing.JInternalFrame {
         tblCuentasCredito.setForeground(new java.awt.Color(0, 0, 0));
         tblCuentasCredito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Código", "Codigo Cliente", "Estado", "Tipo", "Saldo", "Puntos"
+                "Código", "Codigo Cliente", "Estado", "Tipo", "Saldo"
             }
         ));
         tblCuentasCredito.setGridColor(new java.awt.Color(204, 204, 204));
         tblCuentasCredito.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane2.setViewportView(tblCuentasCredito);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Cuentas Debito");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setText("Cuentas Credito");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -124,33 +132,40 @@ public class IFrmListaAmbasCuentas extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(250, 250, 250))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(195, 195, 195)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(106, 106, 106))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,8 +194,8 @@ public class IFrmListaAmbasCuentas extends javax.swing.JInternalFrame {
             fila1[2] = cuen.getEstado();
             fila2[3] = cuen.getCuenTipo();
             fila2[4] = cuen.getSaldo();
-            fila2[5] = BLCuenta.obtenerNumTarjetaDebito(cuen.getCodigo());
-            System.out.println(BLCuenta.obtenerNumTarjetaDebito(cuen.getCodigo()));
+            //fila2[5] = BLCuenta.obtenerNumTarjetaDebito(cuen.getCodigo());
+         
         }
         tblCuentasDebito.setModel(modelo);
     }
@@ -198,7 +213,7 @@ public class IFrmListaAmbasCuentas extends javax.swing.JInternalFrame {
 
             fila2[3] = cuenC.getCuenTipo();
             fila2[4] = cuenC.getSaldo();
-            fila2[5] = BLCuenta.obtenerPuntosCredito(cuenC.getCodigo());
+            //fila2[5] = BLCuenta.obtenerPuntosCredito(cuenC.getCodigo());
             modelo2.addRow(fila2);
         }
         tblCuentasCredito.setModel(modelo2);
@@ -206,6 +221,8 @@ public class IFrmListaAmbasCuentas extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGrupo1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

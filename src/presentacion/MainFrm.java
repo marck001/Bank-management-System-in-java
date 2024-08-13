@@ -572,17 +572,17 @@ public class MainFrm extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Aula.gif"))); // NOI18N
-        jLabel2.setText("Realizar Movimiento");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Lista.gif"))); // NOI18N
+        jLabel2.setText("Cuentas Disponibles");
 
         javax.swing.GroupLayout secondPanelTab1Layout = new javax.swing.GroupLayout(secondPanelTab1);
         secondPanelTab1.setLayout(secondPanelTab1Layout);
         secondPanelTab1Layout.setHorizontalGroup(
             secondPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelTab1Layout.createSequentialGroup()
+            .addGroup(secondPanelTab1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         secondPanelTab1Layout.setVerticalGroup(
             secondPanelTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1001,7 +1001,8 @@ public class MainFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_secondPanelTab4MousePressed
 
     private void secondPanelTab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab4MouseClicked
-            
+            IFrmListaClientes tab = new IFrmListaClientes();
+                centrarInternalFrame2(tab);
     }//GEN-LAST:event_secondPanelTab4MouseClicked
 
     private void secondPanelTab3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab3MousePressed
@@ -1057,6 +1058,8 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void secondPanelTab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_secondPanelTab1MouseClicked
         // TODO add your handling code here:
+        IFrmListaAmbasCuentas tab = new IFrmListaAmbasCuentas();
+            centrarInternalFrame2(tab);
     }//GEN-LAST:event_secondPanelTab1MouseClicked
 
     private void mnuTab2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuTab2MousePressed
