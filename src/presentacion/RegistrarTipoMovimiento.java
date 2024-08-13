@@ -306,9 +306,19 @@ public class RegistrarTipoMovimiento extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnRegistrar2ActionPerformed
 
     private void txtTipoCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipoCodigoKeyTyped
-        char c = evt.getKeyChar();
-        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE))
-         evt.consume();
+                                       
+    char c = evt.getKeyChar();
+
+   
+    if (((c < '0') || (c > '3')) && (c != KeyEvent.VK_BACK_SPACE)) {
+        evt.consume(); // Evita que el carácter no válido se ingrese
+    }
+
+
+    if (txtTipoCodigo.getText().length() >= 3 && c != KeyEvent.VK_BACK_SPACE) {
+        evt.consume(); 
+    }
+
 // TODO add your handling code here:
     }//GEN-LAST:event_txtTipoCodigoKeyTyped
 
