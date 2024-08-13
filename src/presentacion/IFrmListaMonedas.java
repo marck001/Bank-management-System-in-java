@@ -68,9 +68,9 @@ public class IFrmListaMonedas extends javax.swing.JInternalFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista Monedas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista Monedas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        tblMonedas.setBackground(new java.awt.Color(255, 255, 255));
         tblMonedas.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         tblMonedas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,11 +85,12 @@ public class IFrmListaMonedas extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblMonedas);
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Listar  por", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
-        jPanel2.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(132, 65, 64));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Listar  por", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         btnGrupo1.add(rbtnCodigo);
+        rbtnCodigo.setForeground(new java.awt.Color(255, 255, 255));
         rbtnCodigo.setText("Código");
         rbtnCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +99,7 @@ public class IFrmListaMonedas extends javax.swing.JInternalFrame {
         });
 
         btnGrupo1.add(rbtnDescripcion);
+        rbtnDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         rbtnDescripcion.setText("Descripción");
         rbtnDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,11 +112,11 @@ public class IFrmListaMonedas extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(138, 138, 138)
                 .addComponent(rbtnCodigo)
                 .addGap(32, 32, 32)
                 .addComponent(rbtnDescripcion)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -24,7 +24,7 @@ public class IFrmListaSucursal extends javax.swing.JInternalFrame {
         inicializarDatos(); 
     }
     private void inicializarDatos() {
-    lista = BLSucursal.listarSucursales();
+    lista = BLSucursal.listarSucursalesContenido();
     llenarTabla();
 }
 
@@ -37,16 +37,19 @@ public class IFrmListaSucursal extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        orden = new javax.swing.ButtonGroup();
         lblOrdenar = new javax.swing.JLabel();
         rbtnCodigo = new javax.swing.JRadioButton();
         rbtnNombre = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSucursales = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 0, 0));
 
         lblOrdenar.setText("Ordenar por: ");
 
+        orden.add(rbtnCodigo);
         rbtnCodigo.setText("Código");
         rbtnCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +57,7 @@ public class IFrmListaSucursal extends javax.swing.JInternalFrame {
             }
         });
 
+        orden.add(rbtnNombre);
         rbtnNombre.setText("Nombre");
         rbtnNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,32 +78,42 @@ public class IFrmListaSucursal extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblSucursales);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(lblOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbtnCodigo)
-                        .addGap(32, 32, 32)
-                        .addComponent(rbtnNombre))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(79, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addComponent(lblOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rbtnCodigo)
+                .addGap(32, 32, 32)
+                .addComponent(rbtnNombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rbtnCodigo)
-                    .addComponent(rbtnNombre))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rbtnCodigo)
+                        .addComponent(rbtnNombre)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
                 .addGap(103, 103, 103))
@@ -121,6 +135,10 @@ public class IFrmListaSucursal extends javax.swing.JInternalFrame {
             llenarTabla();
         }
     }//GEN-LAST:event_rbtnNombreActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
     
     private void llenarTabla() {
         modelo = new DefaultTableModel();
@@ -134,22 +152,17 @@ public class IFrmListaSucursal extends javax.swing.JInternalFrame {
             fila[2] = sucursal.getCiudad();
             fila[3] = sucursal.getDireccion();
             fila[4] = sucursal.getContCuenta();
-
-             if (sucursal instanceof SucursalDepartamental) {
-            fila[5] = "Departamental";
-        } else if (sucursal instanceof SucursalProvincial) {
-            fila[5] = "Provincial";
-        } else {
-            fila[5] = "Central";
-        }
+            fila[5] = sucursal.getTipo();
             modelo.addRow(fila);            
         }
         tblSucursales.setModel(modelo);
     }    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblOrdenar;
+    private javax.swing.ButtonGroup orden;
     private javax.swing.JRadioButton rbtnCodigo;
     private javax.swing.JRadioButton rbtnNombre;
     private javax.swing.JTable tblSucursales;

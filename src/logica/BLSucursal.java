@@ -102,7 +102,7 @@ public class BLSucursal {
         }
     }
    
-       public static ArrayList<Sucursal> listarSucursales() {
+    public static ArrayList<Sucursal> listarSucursales() {
         return DALSucursal.listarSucursales();
     }
        

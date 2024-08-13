@@ -40,7 +40,7 @@ public class IFrmListaParametros extends javax.swing.JInternalFrame {
         btnGrupo1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblMonedas = new javax.swing.JTable();
+        tblParametro = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
 
@@ -66,12 +66,10 @@ public class IFrmListaParametros extends javax.swing.JInternalFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista Parametros", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista Parametros", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        tblMonedas.setBackground(new java.awt.Color(255, 255, 255));
-        tblMonedas.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        tblMonedas.setForeground(new java.awt.Color(0, 0, 0));
-        tblMonedas.setModel(new javax.swing.table.DefaultTableModel(
+        tblParametro.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        tblParametro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -82,10 +80,10 @@ public class IFrmListaParametros extends javax.swing.JInternalFrame {
                 "Código", "Descripción", "Valor", "Estado"
             }
         ));
-        jScrollPane1.setViewportView(tblMonedas);
+        jScrollPane1.setViewportView(tblParametro);
 
         jPanel2.setBackground(new java.awt.Color(68, 10, 10));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Listar  por", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Listar Parametros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(255, 51, 51));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -157,12 +155,11 @@ public class IFrmListaParametros extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        //lista = BLParametro
-        //llenarTabla();
+        lista = BLParametro.listarParametro();
+        llenarTabla();
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
@@ -170,16 +167,16 @@ public class IFrmListaParametros extends javax.swing.JInternalFrame {
         modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(columnas);
         iterador = lista.iterator();
-        while(iterador.hasNext()) {
-            obj = iterador.next();
-            fila[0] = obj.getParaCodigo();
-            fila[1] = obj.getParaDescripcion();
-            fila[2] = obj.getParaValor();
-            fila[3] = obj.getParaEstado();
-            modelo.addRow(fila);            
+        while (iterador.hasNext()) {
+            parametro = iterador.next();
+            fila[0] = parametro.getParaCodigo();
+            fila[1] = parametro.getParaDescripcion();
+            fila[2] = parametro.getParaValor();
+            fila[3] = parametro.getParaEstado();
+            modelo.addRow(fila);
         }
-        tblMonedas.setModel(modelo);
-    }    
+        tblParametro.setModel(modelo);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGrupo1;
@@ -187,12 +184,12 @@ public class IFrmListaParametros extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblMonedas;
+    private javax.swing.JTable tblParametro;
     // End of variables declaration//GEN-END:variables
     private DefaultTableModel modelo;
+    private Parametro parametro;
     private ArrayList<Parametro> lista;
-    private String columnas[] = {"Codigo", "Descripción","Valor","Estado"};
+    private String columnas[] = {"Código", "Descripción", "Valor", "Estado"};
     private Object fila[] = new Object[columnas.length];
     private Iterator<Parametro> iterador;
-    private Parametro obj;
 }
