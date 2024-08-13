@@ -41,6 +41,7 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cuentaSaldo1 = new javax.swing.JLabel();
+        btnActualizarSaldo = new javax.swing.JButton();
         iconAjustes = new javax.swing.JLabel();
         iconoVolver = new javax.swing.JLabel();
         lblNombreCliente = new javax.swing.JLabel();
@@ -83,6 +84,14 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
         cuentaSaldo1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         cuentaSaldo1.setText("S/ 1 0000.00");
 
+        btnActualizarSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/actualiza.png"))); // NOI18N
+        btnActualizarSaldo.setBorder(null);
+        btnActualizarSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarSaldoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -97,16 +106,22 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(cuentaSaldo1))
-                            .addComponent(jLabel14))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addComponent(btnActualizarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(14, 14, 14))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel14))
+                    .addComponent(btnActualizarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cuentaSaldo1)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -131,7 +146,7 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
                 iconoVolverMouseClicked(evt);
             }
         });
-        nombreeCliente1.add(iconoVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 14, 20, -1));
+        nombreeCliente1.add(iconoVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 20, -1));
 
         lblNombreCliente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNombreCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -364,6 +379,12 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
         centrarInternalFrameParaExterna(recargarSaldo);
     }//GEN-LAST:event_iconRecargarMouseClicked
 
+    private void btnActualizarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarSaldoActionPerformed
+        String descripcion =BLMoneda.obtenerDescripcion(codCuentica);
+        String saldo = BLCuenta.obtenerSaldo(codCuentica);
+        cuentaSaldo1.setText(saldo +" "+ descripcion);
+    }//GEN-LAST:event_btnActualizarSaldoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -398,6 +419,7 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarSaldo;
     private javax.swing.JLabel cuentaSaldo1;
     private static javax.swing.JDesktopPane dspFondo3;
     private javax.swing.JLabel iconAjustes;

@@ -195,7 +195,6 @@ public class RecargarSaldo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnRecargarActionPerformed
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked
-
         this.dispose();
     }//GEN-LAST:event_iconoVolverMouseClicked
 
