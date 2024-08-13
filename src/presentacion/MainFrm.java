@@ -1295,6 +1295,7 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void mnuTab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuTab2MouseClicked
         // TODO add your handling code here:
+         centrarInternalFrame2(main2);
     }//GEN-LAST:event_mnuTab2MouseClicked
 
     /**
