@@ -69,6 +69,7 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
 
         txtCuenta.setText("(codigo de cuenta)");
         txtCuenta.setToolTipText("(codigo de cuenta )");
+        txtCuenta.setEnabled(false);
         txtCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCuentaActionPerformed(evt);
