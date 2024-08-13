@@ -117,7 +117,7 @@ public class EmpleadoHace {
     }
         public void transferirSaldo(String codEmpleado, String codCuenta, String codCuentaDestino, float saldo) {
                    String codBuscado, clave, mensaje, mensaje2,mensaje3, mensaje4;
-                   int contIntentos = 0, numMov, numMov1, aux1, aux2, aux3;
+                   int contIntentos = 0, numMov, numMov1, numMovCosto, numMovITF, aux1, aux2, aux3,aux4;
                    float saldoNuevo, retiroRemitente, saldoDestino;
                    float impuestoITF=Float.parseFloat(BLParametro.obtenerITF());
                    Cuenta cuenta;
@@ -180,10 +180,13 @@ public class EmpleadoHace {
                                    
                                    //cobramos ITF
                                    mensaje4=BLParametro.cobrarItf(cuenta.getCodigo(), impuestoITF, retiroRemitente);
-                                   if(mensaje4==null)
-                                       showMessageDialog(null, cliente.getNombre() + " se ha cobrado un ITF de " + impuestoITF +"% al monto de su transacción",
+                                   numMovITF = BLMovimiento.NumeroMaxMovimiento(codBuscado);
+                                   if(mensaje4==null){
+                                         showMessageDialog(null, cliente.getNombre() + " se ha cobrado un ITF de " + impuestoITF +"% al monto de su transacción",
                                            "Cobro ITF", 1);
-                                   
+                                         GregorianCalendar fechaActual = new GregorianCalendar();
+                                          aux3 = BLMovimiento.insertarMovimiento(numMovITF++, fechaActual, retiroRemitente * (impuestoITF / 100), "SALIDA", codCuenta, "9999", "007");
+                                   }
                                    //Sumamos puntos:
                                    if(cuenta.getCuenTipo().trim().equalsIgnoreCase("CREDITO")){
                                        mensaje3=DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
@@ -199,8 +202,10 @@ public class EmpleadoHace {
                                    if (numMov++ > Integer.parseInt(BLParametro.obtenerMaxMov())) {
                                        CostoMovimiento costo = BLCostoMovimiento.obtenerCostoMovimiento(cuenta.getMoneCodigo());
                                         mensaje = BLCuenta.retiroCuenta(costo.getCostImporte(), codCuenta);
+                                           numMovCosto = BLMovimiento.NumeroMaxMovimiento(codBuscado);
                                         if (mensaje == null) {
                                             showMessageDialog(null, "Ha superado los " +Integer.parseInt(BLParametro.obtenerMaxMov()) +" movimientos gratuitos, se ha aplicado el costo movimiento de " + costo.getCostImporte(), "Costo Movimiento", JOptionPane.INFORMATION_MESSAGE);
+                                            aux4 = BLMovimiento.insertarMovimiento(numMovCosto++, fechaActual, costo.getCostImporte(), "SALIDA", codCuenta, "9999", "010");
                                         }
                                     }
                                } else {
