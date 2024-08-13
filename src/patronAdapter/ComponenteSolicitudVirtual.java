@@ -48,8 +48,9 @@ public class ComponenteSolicitudVirtual {
                     // CREAMOS MOVIMIENTO CON DATOS DE 2 Y EMPLEADO 9999 y COD DE MOV CORRESPONDIENTE
                         GregorianCalendar fechaActual = new GregorianCalendar();
                         numMov= BLMovimiento.NumeroMaxMovimiento(codBuscado);
+                        numMov=numMov+1;
                     // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
-                        int aux = BLMovimiento.insertarMovimiento(numMov++,fechaActual,saldo, "SALIDA", cuenta.getCodigo(), "9999" , "004");
+                        int aux = BLMovimiento.insertarMovimiento(numMov,fechaActual,saldo, "SALIDA", cuenta.getCodigo(), "9999" , "004");
                         System.out.println(aux);
                     }else{
                         showMessageDialog(null, mensaje, "Error",0);
@@ -103,6 +104,7 @@ public class ComponenteSolicitudVirtual {
                         monedas[4] = new MonedaConverter("05", "EUROS", 4.07f);
 
                 if (codBuscadoDestino != null) {
+                    if(codBuscadoDestino.equalsIgnoreCase(codBuscado)){
                     Cuenta cuentaDestino= BLCuenta.obtenerCuenta(codBuscadoDestino);
                     String moneDestino=cuentaDestino.getMoneCodigo();
                     String moneRemitente=cuenta.getMoneCodigo();
@@ -135,9 +137,11 @@ public class ComponenteSolicitudVirtual {
 
                         GregorianCalendar fechaActual = new GregorianCalendar();
                         numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado);
+                        numMov=numMov+1;
                         numMov1 = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino);
-                        aux1 = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999","009");                        
-                        aux2 = BLMovimiento.insertarMovimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino,"9999", "008");
+                        numMov1=numMov1+1;
+                        aux1 = BLMovimiento.insertarMovimiento(numMov, fechaActual, saldo, "SALIDA", codCuenta, "9999","009");                        
+                        aux2 = BLMovimiento.insertarMovimiento(numMov1, fechaActual, saldo, "ENTRADA", codCuentaDestino,"9999", "008");
                         //Sumamos puntos:
                         if(cuenta.getCuenTipo().trim().equalsIgnoreCase("CREDITO")){
                             mensaje3=DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
@@ -145,6 +149,9 @@ public class ComponenteSolicitudVirtual {
                     } else {
                         showMessageDialog(null, "Error 1: "+ mensaje + "\n" + "Error 2: "+mensaje2, "Error", 0);
                     }
+                    }else {
+                               showMessageDialog(null, "La cuenta destino no puede ser la misma cuenta.", "Error", 0);
+                           }
                 } else {
                     showMessageDialog(null, "La cuenta destino no existe o no está registrada.", "Error", 0);
                 }
@@ -159,7 +166,8 @@ public class ComponenteSolicitudVirtual {
 
                     GregorianCalendar fechaActual = new GregorianCalendar();
                     numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado); // Código de movimiento correspondiente a otro banco
-                    aux3 = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA A OTRO BANCO", cuenta.getCodigo(), "9999",
+                    numMov=numMov+1;
+                    aux3 = BLMovimiento.insertarMovimiento(numMov, fechaActual, saldo, "SALIDA A OTRO BANCO", cuenta.getCodigo(), "9999",
                             "009");
                             System.out.println(aux3); 
                 } else {
@@ -267,8 +275,9 @@ public class ComponenteSolicitudVirtual {
                         // CREAMOS MOVIMIENTO
                         GregorianCalendar fechaActual = new GregorianCalendar();
                         numMov = BLMovimiento.NumeroMaxMovimiento(codCuenta); // puse 1 al comienzo, ta por definir
-                        // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
-                        aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, 0.0f, "CANCELACION", cuenta.getCodigo(),
+                        numMov=numMov+1;
+// REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
+                        aux = BLMovimiento.insertarMovimiento(numMov, fechaActual, 0.0f, "CANCELACION", cuenta.getCodigo(),
                                 "9999", "002");
 
                                 System.out.println(aux); 
@@ -309,8 +318,9 @@ public class ComponenteSolicitudVirtual {
                         // CREAMOS MOVIMIENTO
                         GregorianCalendar fechaActual = new GregorianCalendar();
                         numMov = BLMovimiento.NumeroMaxMovimiento(codCuenta); // puse 1 al comienzo, ta por definir
-                        // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
-                        aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, 0.0f, "REACTIVACION", cuenta.getCodigo(),
+                        numMov=numMov+1;
+// REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
+                        aux = BLMovimiento.insertarMovimiento(numMov, fechaActual, 0.0f, "REACTIVACION", cuenta.getCodigo(),
                                 "9999", "011");
                                 
                                 System.out.println(aux); 

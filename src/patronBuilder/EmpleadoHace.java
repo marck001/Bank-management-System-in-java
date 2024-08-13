@@ -148,6 +148,7 @@ public class EmpleadoHace {
                                    monedas[4] = new MonedaConverter("05", "EUROS", 4.07f);
 
                            if (codBuscadoDestino != null) {
+                               if(codBuscadoDestino.equalsIgnoreCase(codBuscado)){
                                Cuenta cuentaDestino= BLCuenta.obtenerCuenta(codBuscadoDestino);
                                String moneDestino=cuentaDestino.getMoneCodigo();
                                String moneRemitente=cuenta.getMoneCodigo();
@@ -181,11 +182,12 @@ public class EmpleadoHace {
                                    //cobramos ITF
                                    mensaje4=BLParametro.cobrarItf(cuenta.getCodigo(), impuestoITF, retiroRemitente);
                                    numMovITF = BLMovimiento.NumeroMaxMovimiento(codBuscado);
+                                   numMovITF=numMovITF+1;
                                    if(mensaje4==null){
                                          showMessageDialog(null, cliente.getNombre() + " se ha cobrado un ITF de " + impuestoITF +"% al monto de su transacción",
                                            "Cobro ITF", 1);
                                          GregorianCalendar fechaActual = new GregorianCalendar();
-                                          aux3 = BLMovimiento.insertarMovimiento(numMovITF++, fechaActual, retiroRemitente * (impuestoITF / 100), "SALIDA", codCuenta, "9999", "007");
+                                          aux3 = BLMovimiento.insertarMovimiento(numMovITF, fechaActual, retiroRemitente * (impuestoITF / 100), "SALIDA", "9999", codEmpleado, "007");
                                    }
                                    //Sumamos puntos:
                                    if(cuenta.getCuenTipo().trim().equalsIgnoreCase("CREDITO")){
@@ -195,22 +197,26 @@ public class EmpleadoHace {
                                    GregorianCalendar fechaActual = new GregorianCalendar();
                                    numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado);
                                    numMov1 = BLMovimiento.NumeroMaxMovimiento(codBuscadoDestino);
-                                   aux1 = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999","009");                        
-                                   aux2 = BLMovimiento.insertarMovimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino,"9999", "008");
+                                   aux1 = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, codEmpleado,"009");                        
+                                   aux2 = BLMovimiento.insertarMovimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino,codEmpleado, "008");
                                    
                                    //verificamos si se aplica costo por movimiento
                                    if (numMov++ > Integer.parseInt(BLParametro.obtenerMaxMov())) {
                                        CostoMovimiento costo = BLCostoMovimiento.obtenerCostoMovimiento(cuenta.getMoneCodigo());
                                         mensaje = BLCuenta.retiroCuenta(costo.getCostImporte(), codCuenta);
-                                           numMovCosto = BLMovimiento.NumeroMaxMovimiento(codBuscado);
+                                        numMovCosto = BLMovimiento.NumeroMaxMovimiento(codBuscado);
+                                        numMovCosto=numMovCosto+1;
                                         if (mensaje == null) {
                                             showMessageDialog(null, "Ha superado los " +Integer.parseInt(BLParametro.obtenerMaxMov()) +" movimientos gratuitos, se ha aplicado el costo movimiento de " + costo.getCostImporte(), "Costo Movimiento", JOptionPane.INFORMATION_MESSAGE);
-                                            aux4 = BLMovimiento.insertarMovimiento(numMovCosto++, fechaActual, costo.getCostImporte(), "SALIDA", codCuenta, "9999", "010");
+                                            aux4 = BLMovimiento.insertarMovimiento(numMovCosto, fechaActual, costo.getCostImporte(), "SALIDA", codCuenta, "9999", "010");
                                         }
                                     }
                                } else {
                                    showMessageDialog(null, "Error 1: "+ mensaje + "\n" + "Error 2: "+mensaje2, "Error", 0);
                                }
+                               }else {
+                               showMessageDialog(null, "La cuenta destino no puede ser la misma cuenta.", "Error", 0);
+                           }
                            } else {
                                showMessageDialog(null, "La cuenta destino no existe o no está registrada.", "Error", 0);
                            } 
