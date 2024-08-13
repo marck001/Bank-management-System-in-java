@@ -1092,7 +1092,7 @@ public class MainFrm extends javax.swing.JFrame {
     private void firstPanelTab12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab12MouseClicked
         // TODO add your handling code here:
         
-        IFrmListaMovimiento tab = new IFrmListaMovimiento();
+        IFrmActualizarParametro tab = new IFrmActualizarParametro();
          centrarInternalFrame1(tab);
     }//GEN-LAST:event_firstPanelTab12MouseClicked
 
@@ -1171,7 +1171,7 @@ public class MainFrm extends javax.swing.JFrame {
     private void firstPanelTab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstPanelTab2MouseClicked
         // TODO add your handling code here:
 
-        RegistrarMovimiento tab = new RegistrarMovimiento();
+        RegistrarTipoMovimiento tab = new RegistrarTipoMovimiento();
         centrarInternalFrame1(tab);
 
         //

@@ -13,12 +13,12 @@ import java.util.GregorianCalendar;
  *
  * @author CRISTHIAN
  */
-public class RegistrarMovimiento extends javax.swing.JInternalFrame {
+public class RegistrarTipoMovimiento extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form RegistrarMovimiento
      */
-    public RegistrarMovimiento() {
+    public RegistrarTipoMovimiento() {
         initComponents();
           this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
@@ -101,6 +101,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setText("         Estado");
 
+        txtTipoCodigo.setEnabled(false);
         txtTipoCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipoCodigoActionPerformed(evt);
@@ -121,6 +122,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         btnRegistrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.gif"))); // NOI18N
         btnRegistrar2.setText("Registrar");
         btnRegistrar2.setToolTipText("Registrar");
+        btnRegistrar2.setEnabled(false);
         btnRegistrar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrar2ActionPerformed(evt);
@@ -128,8 +130,12 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         });
 
         cbxAccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingreso", "Salida" }));
+        cbxAccion.setEnabled(false);
 
         cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Anulado", "Cancelado" }));
+        cbxEstado.setEnabled(false);
+
+        txtDescripcion.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -172,7 +178,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(txtTipoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
