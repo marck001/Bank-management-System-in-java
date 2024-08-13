@@ -3,26 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package presentacion;
+
 import logica.*;
 import static javax.swing.JOptionPane.showMessageDialog;
 import patronBuilder.*;
 import java.awt.event.KeyEvent;
+
 /**
  *
  * @author CRISTHIAN
  */
 public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
-       private String codEmpleado;
+
+    private String codEmpleado;
+
     /**
      * Creates new form IFrmTransferirSaldoEmpleado
      */
     public IFrmTransferirSaldoEmpleado() {
         initComponents();
     }
-    
-    public IFrmTransferirSaldoEmpleado(String codEmpleado){
+
+    public IFrmTransferirSaldoEmpleado(String codEmpleado) {
         initComponents();
-        this.codEmpleado=codEmpleado;
+        this.codEmpleado = codEmpleado;
     }
 
     /**
@@ -43,7 +47,6 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
         txtCodigo = new javax.swing.JTextField();
         txtCuenta = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        txtcuentaOrigen = new javax.swing.JTextField();
         txtcuentaDestino = new javax.swing.JTextField();
         btnTransferir = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -64,10 +67,10 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
         jLabel3.setText("         Codigo :");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Cuenta Origen :");
+        jLabel4.setText("Cuenta  :");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Cuenta Destino :");
+        jLabel5.setText("Cliente destinario :");
 
         txtCuenta.setText("(codigo de cuenta)");
         txtCuenta.setToolTipText("(codigo de cuenta )");
@@ -83,17 +86,6 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
-            }
-        });
-
-        txtcuentaOrigen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcuentaOrigenActionPerformed(evt);
-            }
-        });
-        txtcuentaOrigen.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtcuentaOrigenKeyTyped(evt);
             }
         });
 
@@ -123,20 +115,22 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))))
-                .addGap(18, 18, 18)
+                            .addComponent(jLabel4))
+                        .addGap(32, 32, 32)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtcuentaOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addGap(0, 220, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addGap(35, 35, 35)
                         .addComponent(txtcuentaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,11 +139,11 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCodigo)
                             .addComponent(txtCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(106, 106, 106))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtMontoTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMontoTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -175,22 +169,18 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
                                 .addContainerGap()
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel6)
-                                .addGap(36, 36, 36))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtMontoTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtMontoTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtcuentaOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtcuentaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(btnTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -259,47 +249,45 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtcuentaOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcuentaOrigenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcuentaOrigenActionPerformed
-
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
-    EmpleadoHace empleadoHace = new EmpleadoHace();
-    String codCuentaOrigen = BLCliente.obtenerCodCuentaPorCliente(txtcuentaOrigen.getText());
-    String codCuentaDestino = BLCliente.obtenerCodCuentaPorCliente(txtcuentaDestino.getText());
-    
-    float montoTransferencia = Float.parseFloat(txtMontoTransferencia.getText());
+        EmpleadoHace empleadoHace = new EmpleadoHace();
+        String codCuentaOrigen = BLCliente.obtenerCodCuentaPorCliente(txtCodigo.getText());
+        String codCuentaDestino = BLCliente.obtenerCodCuentaPorCliente(txtcuentaDestino.getText());
+        System.out.print("origen" + codCuentaOrigen);
+        System.out.print("des" + codCuentaDestino);
+        float montoTransferencia = Float.parseFloat(txtMontoTransferencia.getText());
 
-    if (montoTransferencia > 0) {
-        empleadoHace.transferirSaldo(codEmpleado, codCuentaOrigen, codCuentaDestino, montoTransferencia);
-    } else {
-        showMessageDialog(null, "El monto de la transferencia debe ser mayor a cero", "Error", 0);
-    
-       }// TODO add your handling code here:
-      // TODO add your handling code here:
+        if (codCuentaOrigen == null || codCuentaDestino == null || codCuentaOrigen.isEmpty() || codCuentaDestino.isEmpty()) {
+            showMessageDialog(null, "Código de cuenta no válido", "Error", 0);
+            return;
+        }
+
+        System.out.print("ss" + montoTransferencia);
+        if (montoTransferencia > 0) {
+            empleadoHace.transferirSaldo(codEmpleado, codCuentaOrigen, codCuentaDestino, montoTransferencia);
+        } else {
+            showMessageDialog(null, "El monto de la transferencia debe ser mayor a cero", "Error", 0);
+
+        }// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnTransferirActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String mensaje=BLCliente.obtenerCodCuentaPorCliente(txtCodigo.getText());
-        if(mensaje !=null){
+        String mensaje = BLCliente.obtenerCodCuentaPorCliente(txtCodigo.getText());
+        System.out.print(mensaje);
+        if (mensaje != null) {
             txtCuenta.setText(mensaje);
             txtcuentaDestino.setEnabled(true);
-            txtcuentaOrigen.setEnabled(true);
+            //.setEnabled(true);
             btnTransferir.setEnabled(true);
-        }else 
-            showMessageDialog(null, "No tiene cuenta registrada", "No se hizo la transferencia",0); // TODO add your handling code here:
+        } else
+            showMessageDialog(null, "No tiene cuenta registrada", "No se hizo la transferencia", 0); // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void txtcuentaOrigenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcuentaOrigenKeyTyped
-        char c = evt.getKeyChar();
-        if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtcuentaOrigen.getText().contains(".")))
-           evt.consume();// TODO add your handling code here:
-    }//GEN-LAST:event_txtcuentaOrigenKeyTyped
-
     private void txtcuentaDestinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcuentaDestinoKeyTyped
-           char c = evt.getKeyChar();
-        if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtcuentaDestino.getText().contains(".")))
-           evt.consume();// TODO add your handling code here: // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.' || txtcuentaDestino.getText().contains(".")))
+            evt.consume();// TODO add your handling code here: // TODO add your handling code here:
     }//GEN-LAST:event_txtcuentaDestinoKeyTyped
 
     private void txtCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuentaActionPerformed
@@ -327,6 +315,5 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCuenta;
     private javax.swing.JTextField txtMontoTransferencia;
     private javax.swing.JTextField txtcuentaDestino;
-    private javax.swing.JTextField txtcuentaOrigen;
     // End of variables declaration//GEN-END:variables
 }
