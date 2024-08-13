@@ -35,7 +35,7 @@ public class EmpleadoHace {
              //PEDIMOS CLAVE
             do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
-                if(cuenta.getClave().equals(clave)){
+                if(cuenta.getClave().equalsIgnoreCase(clave)){
                 // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO)   //METODO DE DAL QUE TENGA EL UPDATE
                 mensaje = BLCuenta.retiroCuenta( saldo, codCuenta);
                     if(mensaje == null){
@@ -80,7 +80,7 @@ public class EmpleadoHace {
             // PEDIMOS CLAVE
             do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
-                if (cuenta.getClave().equals(clave)) {
+                if (cuenta.getClave().equalsIgnoreCase(clave)) {
                     // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO) //METODO DE DAL QUE TENGA EL UPDATE
                     mensaje = BLCuenta.depositoCuenta(saldo, codCuenta);
                     if (mensaje == null) {
@@ -97,7 +97,7 @@ public class EmpleadoHace {
                                 codEmpleado, "003"); 
                                 System.out.println(aux);  
                         //Sumamos puntos:
-                        if(cuenta.getCuenTipo().trim().equals("CREDITO")){
+                        if(cuenta.getCuenTipo().trim().equalsIgnoreCase("CREDITO")){
                             mensaje2=DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
                         }
                     } else {
@@ -128,7 +128,7 @@ public class EmpleadoHace {
                        cuenta = BLCuenta.obtenerCuenta(codCuenta);
                        cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
                        clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", 1);
-                       while (!cuenta.getClave().equals(clave) && contIntentos < 3) {
+                       while (!cuenta.getClave().equalsIgnoreCase(clave) && contIntentos < 3) {
                            contIntentos++;
                            if (contIntentos < 3) {
                                showMessageDialog(null, "Clave incorrecta. Le quedan " + (3 - contIntentos) + " intentos.",
@@ -153,18 +153,18 @@ public class EmpleadoHace {
                                String moneRemitente=cuenta.getMoneCodigo();
                                retiroRemitente=saldo;
                                saldoDestino=cuentaDestino.getSaldo();
-                                   if(moneDestino.trim().equals(moneRemitente)){
+                                   if(moneDestino.trim().equalsIgnoreCase(moneRemitente)){
                                        mensaje = BLCuenta.depositoCuenta(saldo, codCuentaDestino);
                                        mensaje2 = BLCuenta.retiroCuenta(saldo, codCuenta);                    
                                    } else{
                                        for (MonedaConverter moneda : monedas) {
-                                              if (moneda.getCodigo().equals(moneRemitente)) {
+                                              if (moneda.getCodigo().equalsIgnoreCase(moneRemitente)) {
                                                   saldo=saldo*moneda.getEquivalenciaEnSoles();
                                                   break; 
                                               }
                                        }
                                        for (MonedaConverter moneda : monedas) {
-                                              if (moneda.getCodigo().equals(moneDestino)) {
+                                              if (moneda.getCodigo().equalsIgnoreCase(moneDestino)) {
                                                   saldo=saldo/moneda.getEquivalenciaEnSoles();
                                                   break; 
                                               }
@@ -185,7 +185,7 @@ public class EmpleadoHace {
                                            "Cobro ITF", 1);
                                    
                                    //Sumamos puntos:
-                                   if(cuenta.getCuenTipo().trim().equals("CREDITO")){
+                                   if(cuenta.getCuenTipo().trim().equalsIgnoreCase("CREDITO")){
                                        mensaje3=DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
                                    }
                                    //Realizamos movimientos

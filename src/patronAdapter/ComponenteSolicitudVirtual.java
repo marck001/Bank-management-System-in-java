@@ -10,6 +10,7 @@ import entidades.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
+import patronBuilder.CuentaCredito;
 
 /**
  * 
@@ -23,19 +24,21 @@ public class ComponenteSolicitudVirtual {
         String codBuscado, clave, mensaje;
         int contIntentos = 0, numMov;
         float saldoNuevo;
-        Cuenta cuenta;
+        CuentaCredito cuenta;
         Cliente cliente;
         ///1//   Buscamos q exista la cuenta
         codBuscado=BLCuenta.buscar(codCuenta);
         //condicional a 1
         if(codBuscado != null){
             ///2//  Extraemos esa cuenta y guardamos en objeto cuenta
-            cuenta = BLCuenta.obtenerCuenta(codBuscado);
+            cuenta = BLCuenta.obtenerCuenta(codCuenta);
+            System.out.print(cuenta.getClave());
             cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
+            
              //PEDIMOS CLAVE
             do {
-                clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
-                if(cuenta.getClave().equals(clave)){
+                clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", 1);
+                if(cuenta.getClave().equalsIgnoreCase(clave)){
                 // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO)   //METODO DE DAL QUE TENGA EL UPDATE
                 mensaje = BLCuenta.retiroCuenta( saldo, codCuenta);
                     if(mensaje == null){
@@ -47,7 +50,7 @@ public class ComponenteSolicitudVirtual {
                         numMov= BLMovimiento.NumeroMaxMovimiento(codBuscado);
                     // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
                         int aux = BLMovimiento.insertarMovimiento(numMov++,fechaActual,saldo, "SALIDA", cuenta.getCodigo(), "9999" , "004");
-                        System.out.println(aux);                        
+                        System.out.println(aux);
                     }else{
                         showMessageDialog(null, mensaje, "Error",0);
                     }
@@ -77,7 +80,7 @@ public class ComponenteSolicitudVirtual {
             cuenta = BLCuenta.obtenerCuenta(codCuenta);
             cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
             clave = JOptionPane.showInputDialog(null, "Ingresa tu clave: ", "CONFIRMAR MOVIMIENTO", 1);
-            while (!cuenta.getClave().equals(clave) && contIntentos < 3) {
+            while (!cuenta.getClave().equalsIgnoreCase(clave) && contIntentos < 3) {
                 contIntentos++;
                 if (contIntentos < 3) {
                     showMessageDialog(null, "Clave incorrecta. Le quedan " + (3 - contIntentos) + " intentos.",
@@ -105,18 +108,18 @@ public class ComponenteSolicitudVirtual {
                     String moneRemitente=cuenta.getMoneCodigo();
                     retiroRemitente=saldo;
                     saldoDestino=cuentaDestino.getSaldo();
-                        if(moneDestino.trim().equals(moneRemitente)){
+                        if(moneDestino.trim().equalsIgnoreCase(moneRemitente)){
                             mensaje = BLCuenta.depositoCuenta(saldo, codCuentaDestino);
                             mensaje2 = BLCuenta.retiroCuenta(saldo, codCuenta);                    
                         } else{
                             for (MonedaConverter moneda : monedas) {
-                                   if (moneda.getCodigo().equals(moneRemitente)) {
+                                   if (moneda.getCodigo().equalsIgnoreCase(moneRemitente)) {
                                        saldo=saldo*moneda.getEquivalenciaEnSoles();
                                        break; 
                                    }
                             }
                             for (MonedaConverter moneda : monedas) {
-                                   if (moneda.getCodigo().equals(moneDestino)) {
+                                   if (moneda.getCodigo().equalsIgnoreCase(moneDestino)) {
                                        saldo=saldo/moneda.getEquivalenciaEnSoles();
                                        break; 
                                    }
@@ -136,7 +139,7 @@ public class ComponenteSolicitudVirtual {
                         aux1 = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "SALIDA", codCuenta, "9999","009");                        
                         aux2 = BLMovimiento.insertarMovimiento(numMov1++, fechaActual, saldo, "ENTRADA", codCuentaDestino,"9999", "008");
                         //Sumamos puntos:
-                        if(cuenta.getCuenTipo().trim().equals("CREDITO")){
+                        if(cuenta.getCuenTipo().trim().equalsIgnoreCase("CREDITO")){
                             mensaje3=DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
                         }
                     } else {
@@ -204,7 +207,7 @@ public class ComponenteSolicitudVirtual {
             // PEDIMOS CLAVE
             do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
-                if (cuenta.getClave().equals(clave)) {
+                if (cuenta.getClave().equalsIgnoreCase(clave)) {
                     // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO) //METODO DE DAL QUE TENGA EL UPDATE
                     mensaje = BLCuenta.depositoCuenta(saldo, codCuenta);
                     if (mensaje == null) {
@@ -221,7 +224,7 @@ public class ComponenteSolicitudVirtual {
                                 "9999", "003"); 
                                 System.out.println(aux);  
                         //Sumamos puntos:
-                        if(cuenta.getCuenTipo().trim().equals("CREDITO")){
+                        if(cuenta.getCuenTipo().trim().equalsIgnoreCase("CREDITO")){
                             mensaje2=DALCuenta.actualizarPuntosCredito(codCuenta, saldo);
                         }
                     } else {
@@ -254,7 +257,7 @@ public class ComponenteSolicitudVirtual {
             cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
             do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR CANCELAMIENTO", 1);
-                if (cuenta.getClave().equals(clave)) {
+                if (cuenta.getClave().equalsIgnoreCase(clave)) {
                     mensaje = BLCuenta.cancelarCuenta(codCuenta);
                     if (mensaje == null) {
                         showMessageDialog(null, cliente.getNombre() + "  su cuenta ha sido cancelada :(.",
@@ -296,7 +299,7 @@ public class ComponenteSolicitudVirtual {
             cliente = BLCliente.obtenerCliente(cuenta.getClieCodigo());
             do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR REACTIVACIÓN", 1);
-                if (cuenta.getClave().equals(clave)) {
+                if (cuenta.getClave().equalsIgnoreCase(clave)) {
                     mensaje = BLCuenta.reactivarCuenta(codCuenta);
                     if (mensaje == null) {
                         showMessageDialog(null, cliente.getNombre() + "  su cuenta ha sido reactivada :).",

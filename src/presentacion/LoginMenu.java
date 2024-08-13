@@ -9,6 +9,7 @@ import java.util.*;
 import javax.swing.JInternalFrame;
 import logica.*;
 import entidades.*;
+import patronBuilder.*;
 
 /**
  *
@@ -206,49 +207,38 @@ public class LoginMenu extends javax.swing.JFrame {
         });
     }
 
-        public static void sumarInteresCuentas(){
+    public static void sumarInteresCuentas(){
         GregorianCalendar fechaActual = new GregorianCalendar();
         int diaActual=fechaActual.get(Calendar.DAY_OF_MONTH);
         ArrayList<InteresMensual> listaInteres = BLInteresMensual.listarInteres();
-            int numMov = BLMovimiento.NumeroMaxMovimiento("GLOBAL");
-        if(diaActual==1)
-            for(InteresMensual interes : listaInteres){
-            if (numMov < Integer.parseInt(BLParametro.obtenerMaxMov())) {
-                String mensaje = BLInteresMensual.realizarInteres("01", interes.getInteImporte());
-                if (mensaje == null) {
-                    BLMovimiento.insertarMovimiento(numMov + 1, fechaActual, interes.getInteImporte(), "INTERÉS", "GLOBAL", "9999", "010");
-                    numMov++;
-                } else {
-                    System.out.println("Error al registrar el interés: " + mensaje);
-                }
-            } else {
-                System.out.println("Se ha alcanzado el límite máximo de movimientos.");
+        ArrayList<CuentaCredito> listaCuentas = BLCuenta.listarCuentas();
+        if(diaActual==1) {
+            for(CuentaCredito cuentaCredito : listaCuentas) {
+                float saldoActual = Float.parseFloat(BLCuenta.obtenerSaldo(cuentaCredito.getCodigo()));
+                for(InteresMensual interes : listaInteres)
+                    BLInteresMensual.realizarInteres("01", interes.getInteImporte());
+                int numMov= BLMovimiento.NumeroMaxMovimiento(cuentaCredito.getCodigo());
+                float saldoConInteres =  Float.parseFloat(BLCuenta.obtenerSaldo(cuentaCredito.getCodigo()));
+                int aux = BLMovimiento.insertarMovimiento(numMov++,fechaActual, saldoConInteres - saldoActual , "INGRESO", cuentaCredito.getCodigo(), "9999" , "005");
             }
         }
-        
- }
+    }
     
     public static void realizarMantenimiento(){
         GregorianCalendar fechaActual = new GregorianCalendar();
         int diaActual=fechaActual.get(Calendar.DAY_OF_MONTH);
-          if (diaActual == 1) {
         ArrayList<CargoMantenimiento> listarMantenimiento = BLCargoMantenimiento.listarCargoMantenimiento();
-        int numMov = BLMovimiento.NumeroMaxMovimiento("GLOBAL"); 
-    
-        for (CargoMantenimiento cargo : listarMantenimiento) {
-            if (numMov < Integer.parseInt(BLParametro.obtenerMaxMov())) {
-                String mensaje = BLCargoMantenimiento.realizarMantenimiento("01", cargo.getCargMontoMaximo(), cargo.getCargImporte());
-                if (mensaje == null) {
-                    BLMovimiento.insertarMovimiento(numMov + 1, fechaActual, cargo.getCargImporte(), "MANTENIMIENTO", "GLOBAL", "9999", "011");
-                    numMov++; 
-                } else {
-                    System.out.println("Error al registrar el mantenimiento: " + mensaje);
-                }
-            } else {
-                System.out.println("Se ha alcanzado el límite máximo de movimientos.");
+        ArrayList<CuentaCredito> listaCuentas = BLCuenta.listarCuentas();
+        if(diaActual==1) {
+            for(CuentaCredito cuentaCredito : listaCuentas) {
+                float saldoAnterior = Float.parseFloat(BLCuenta.obtenerSaldo(cuentaCredito.getCodigo()));
+                for(CargoMantenimiento cargo : listarMantenimiento)
+                    BLCargoMantenimiento.realizarMantenimiento("01",cargo.getCargMontoMaximo(),cargo.getCargImporte());
+                int numMov= BLMovimiento.NumeroMaxMovimiento(cuentaCredito.getCodigo());
+                float saldoConMantenimiento =  Float.parseFloat(BLCuenta.obtenerSaldo(cuentaCredito.getCodigo()));
+                int aux = BLMovimiento.insertarMovimiento(numMov++,fechaActual, saldoAnterior - saldoConMantenimiento, "SALIDA", cuentaCredito.getCodigo(), "9999" , "006");
             }
         }
-    }
     }
     
 

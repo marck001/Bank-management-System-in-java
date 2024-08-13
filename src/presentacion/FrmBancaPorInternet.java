@@ -22,22 +22,8 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
     
     public FrmBancaPorInternet(String codCuenta, String clieCodigo) {
         initComponents();
-        try {
-            Cuenta cuenta = BLCuenta.obtenerCuenta(codCuenta);
-            codCuentica = codCuenta;
-            Cliente cliente = BLCliente.obtenerCliente(clieCodigo);
-            lblNombreCliente.setText(cliente.getNombre());
-            String descripcion =BLMoneda.obtenerDescripcion(codCuenta);
-            String saldo = BLCuenta.obtenerSaldo(codCuenta);
-            cuentaSaldo1.setText(saldo +" "+ descripcion);
-            panelPuntos.setVisible(false);
-            if(cuenta.getCuenTipo()!=null && cuenta.getCuenTipo().compareTo("CREDITO")==0)
-                panelPuntos.setVisible(true);
-        }catch(Exception e) {
-            System.out.print(e.getMessage());
-        }
+        crear(codCuenta, clieCodigo);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,7 +33,7 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dspFondo = new javax.swing.JDesktopPane();
+        dspFondo3 = new javax.swing.JDesktopPane();
         nombreeCliente1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -246,64 +232,64 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("¡Gracias por elegirnos!");
 
-        dspFondo.setLayer(nombreeCliente1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dspFondo.setLayer(iconRecargar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dspFondo.setLayer(lblRecargar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dspFondo.setLayer(iconTransferir, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dspFondo.setLayer(lblTransferir, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dspFondo.setLayer(iconRetirar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dspFondo.setLayer(lblRetirar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dspFondo.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dspFondo.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dspFondo3.setLayer(nombreeCliente1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dspFondo3.setLayer(iconRecargar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dspFondo3.setLayer(lblRecargar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dspFondo3.setLayer(iconTransferir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dspFondo3.setLayer(lblTransferir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dspFondo3.setLayer(iconRetirar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dspFondo3.setLayer(lblRetirar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dspFondo3.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dspFondo3.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout dspFondoLayout = new javax.swing.GroupLayout(dspFondo);
-        dspFondo.setLayout(dspFondoLayout);
-        dspFondoLayout.setHorizontalGroup(
-            dspFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dspFondoLayout.createSequentialGroup()
+        javax.swing.GroupLayout dspFondo3Layout = new javax.swing.GroupLayout(dspFondo3);
+        dspFondo3.setLayout(dspFondo3Layout);
+        dspFondo3Layout.setHorizontalGroup(
+            dspFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dspFondo3Layout.createSequentialGroup()
                 .addComponent(nombreeCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(dspFondoLayout.createSequentialGroup()
+            .addGroup(dspFondo3Layout.createSequentialGroup()
                 .addGap(114, 114, 114)
-                .addGroup(dspFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dspFondoLayout.createSequentialGroup()
+                .addGroup(dspFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dspFondo3Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(iconRecargar)
                         .addGap(97, 97, 97)
                         .addComponent(iconTransferir)
                         .addGap(100, 100, 100)
                         .addComponent(iconRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(dspFondoLayout.createSequentialGroup()
+                    .addGroup(dspFondo3Layout.createSequentialGroup()
                         .addComponent(lblRecargar)
                         .addGap(63, 63, 63)
                         .addComponent(lblTransferir)
                         .addGap(76, 76, 76)
                         .addComponent(lblRetirar))
-                    .addGroup(dspFondoLayout.createSequentialGroup()
+                    .addGroup(dspFondo3Layout.createSequentialGroup()
                         .addGap(87, 87, 87)
-                        .addGroup(dspFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(dspFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(dspFondoLayout.createSequentialGroup()
+                            .addGroup(dspFondo3Layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
                                 .addComponent(jLabel7)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        dspFondoLayout.setVerticalGroup(
-            dspFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dspFondoLayout.createSequentialGroup()
+        dspFondo3Layout.setVerticalGroup(
+            dspFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dspFondo3Layout.createSequentialGroup()
                 .addComponent(nombreeCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addGroup(dspFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(dspFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dspFondoLayout.createSequentialGroup()
+                    .addGroup(dspFondo3Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addGroup(dspFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(dspFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(iconTransferir)
                             .addComponent(iconRetirar))))
                 .addGap(6, 6, 6)
-                .addGroup(dspFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dspFondoLayout.createSequentialGroup()
-                        .addGroup(dspFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(dspFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dspFondo3Layout.createSequentialGroup()
+                        .addGroup(dspFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTransferir)
                             .addComponent(lblRetirar))
                         .addGap(39, 39, 39)
@@ -319,12 +305,12 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(dspFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dspFondo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dspFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(dspFondo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -344,37 +330,38 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
     }//GEN-LAST:event_iconoVolverMouseClicked
 
     private void iconAjustesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconAjustesMouseClicked
-        new ajustesBancaInternet(codCuentica);
+        ajustesBancaInternet ajustesbancaInternet = new ajustesBancaInternet(codCuentica);
+        centrarInternalFrameParaExterna(ajustesbancaInternet);
     }//GEN-LAST:event_iconAjustesMouseClicked
 
     private void lblRetirarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRetirarMouseClicked
-        // TODO add your handling code here:
-        new RetirarSaldo(codCuentica);
+        RetirarSaldo retirarSaldo = new RetirarSaldo(codCuentica);
+        centrarInternalFrameParaExterna(retirarSaldo);
     }//GEN-LAST:event_lblRetirarMouseClicked
 
     private void lblTransferirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTransferirMouseClicked
-        // TODO add your handling code here:
-        new TransferirDinero(codCuentica);
+        TransferirDinero transferirDinero = new TransferirDinero(codCuentica);
+        centrarInternalFrameParaExterna(transferirDinero);
     }//GEN-LAST:event_lblTransferirMouseClicked
 
     private void lblRecargarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecargarMouseClicked
-        // TODO add your handling code here:
-        new RecargarSaldo(codCuentica);
+        RecargarSaldo recargarSaldo = new RecargarSaldo(codCuentica);
+        centrarInternalFrameParaExterna(recargarSaldo);
     }//GEN-LAST:event_lblRecargarMouseClicked
 
     private void iconTransferirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconTransferirMouseClicked
-        // TODO add your handling code here:
-        new TransferirDinero(codCuentica);
+        TransferirDinero transferirDinero = new TransferirDinero(codCuentica);
+        centrarInternalFrameParaExterna(transferirDinero);
     }//GEN-LAST:event_iconTransferirMouseClicked
 
     private void iconRetirarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconRetirarMouseClicked
         RetirarSaldo retirarSaldo = new RetirarSaldo(codCuentica);
-        MainFrm.centrarInternalFrameExterno(retirarSaldo);
+        centrarInternalFrameParaExterna(retirarSaldo);
     }//GEN-LAST:event_iconRetirarMouseClicked
 
     private void iconRecargarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconRecargarMouseClicked
         RecargarSaldo recargarSaldo = new RecargarSaldo(codCuentica);
-        MainFrm.centrarInternalFrameExterno(recargarSaldo);
+        centrarInternalFrameParaExterna(recargarSaldo);
     }//GEN-LAST:event_iconRecargarMouseClicked
 
     /**
@@ -412,20 +399,37 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
         });
     }
     private static void centrarInternalFrameParaExterna(JInternalFrame interna) {
-        int x = dspFondo.getWidth() / 2 - interna.getWidth() / 2;
-        int y = dspFondo.getHeight() / 2 - interna.getHeight() / 2;
+        int x = dspFondo3.getWidth() / 2 - interna.getWidth() / 2;
+        int y = dspFondo3.getHeight() / 2 - interna.getHeight() / 2;
         if (interna.isShowing()) {
             interna.setLocation(x, y);
         } else {
-            dspFondo.add(interna);
+            dspFondo3.add(interna);
             interna.setLocation(x, y);
             interna.setVisible(true);
         }
     }
     
+    public void crear(String codCuenta, String clieCodigo){
+        try {
+            Cuenta cuenta = BLCuenta.obtenerCuenta(codCuenta);
+            codCuentica = codCuenta;
+            Cliente cliente = BLCliente.obtenerCliente(clieCodigo);
+            lblNombreCliente.setText(cliente.getNombre());
+            String descripcion =BLMoneda.obtenerDescripcion(codCuenta);
+            String saldo = BLCuenta.obtenerSaldo(codCuenta);
+            cuentaSaldo1.setText(saldo +" "+ descripcion);
+            panelPuntos.setVisible(false);
+            if(cuenta.getCuenTipo()!=null && cuenta.getCuenTipo().compareTo("CREDITO")==0)
+                panelPuntos.setVisible(true);
+        }catch(Exception e) {
+            System.out.print(e.getMessage());
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cuentaSaldo1;
-    private static javax.swing.JDesktopPane dspFondo;
+    private static javax.swing.JDesktopPane dspFondo3;
     private javax.swing.JLabel iconAjustes;
     private javax.swing.JLabel iconPuntos;
     private javax.swing.JLabel iconRecargar;

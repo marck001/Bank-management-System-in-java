@@ -74,8 +74,13 @@ public class BLCuenta {
         return DALCuenta.listarCuentasCredito();
     
     }
+    
+    public static ArrayList<CuentaCredito> listarCuentas(){
+        return DALCuenta.listarCuentas();
+    
+    }
 
-    public static Cuenta obtenerCuenta(String codigo) {
+    public static CuentaCredito obtenerCuenta(String codigo) {
         if (codigo!=null && codigo.length() == 8 && buscar(codigo) != null) {
             return DALCuenta.obtenerCuenta(codigo);
         } else {

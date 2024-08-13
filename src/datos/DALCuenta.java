@@ -150,8 +150,8 @@ public class DALCuenta {
         return null;
     }
 
-    public static Cuenta obtenerCuenta(String cuenCodigo) {
-        Cuenta obj = new CuentaDebito();
+    public static CuentaCredito obtenerCuenta(String cuenCodigo) {
+        CuentaCredito obj = new CuentaCredito();
         try {
             cn = Conexion.realizarConexion();
             String sql = "{call sp_buscar_cuenta(?)}";
@@ -242,6 +242,37 @@ public class DALCuenta {
                         rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(2),
                         rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(11)));
                 }
+                
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                cs.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return list;
+    }
+    
+    public static ArrayList<CuentaCredito> listarCuentas() {
+        String sql;
+        ArrayList<CuentaCredito> list = new ArrayList<>();
+        try {
+            cn = Conexion.realizarConexion();
+            sql = "{call sp_listar_cuentas()}";
+            cs = cn.prepareCall(sql);
+            rs = cs.executeQuery(sql);
+            while (rs.next()) {
+                String[] string = rs.getString(7).split("-");
+                list.add(new CuentaCredito(rs.getString(1), rs.getFloat(6),
+                        new GregorianCalendar(Integer.parseInt(string[0]), Integer.parseInt(string[1]),
+                                Integer.parseInt(string[2])),
+                        rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(2),
+                        rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(11)));
                 
             }
         } catch (ClassNotFoundException | SQLException ex) {
