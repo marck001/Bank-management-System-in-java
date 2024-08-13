@@ -126,6 +126,11 @@ public class InfRecargarSaldoEmpleado extends javax.swing.JInternalFrame {
         txtSaldoRecargado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtSaldoRecargado.setToolTipText("Monto");
         txtSaldoRecargado.setEnabled(false);
+        txtSaldoRecargado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSaldoRecargadoActionPerformed(evt);
+            }
+        });
         txtSaldoRecargado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtSaldoRecargadoKeyTyped(evt);
@@ -168,6 +173,7 @@ public class InfRecargarSaldoEmpleado extends javax.swing.JInternalFrame {
             txtCuenta.setText(mensaje);
             txtSaldoRecargado.setEnabled(true);
             btnRecargar.setEnabled(true);
+            txtSaldoRecargado.requestFocus();
         }else 
             showMessageDialog(null, "No tiene cuenta registrada", "Recargar Saldo",0);
         
@@ -177,8 +183,7 @@ public class InfRecargarSaldoEmpleado extends javax.swing.JInternalFrame {
         char c = evt.getKeyChar();
         if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtSaldoRecargado.getText().contains(".")))
            evt.consume();
-        if (txtCuenta.getText().length() > 7)
-            evt.consume();
+        
     }//GEN-LAST:event_txtSaldoRecargadoKeyTyped
 
     private void btnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargarActionPerformed
@@ -189,6 +194,10 @@ public class InfRecargarSaldoEmpleado extends javax.swing.JInternalFrame {
         else
              showMessageDialog(null, "Saldo inválido", "Error",0);
     }//GEN-LAST:event_btnRecargarActionPerformed
+
+    private void txtSaldoRecargadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaldoRecargadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSaldoRecargadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
