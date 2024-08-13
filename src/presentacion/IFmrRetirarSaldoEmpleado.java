@@ -40,14 +40,15 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtCodCuenta = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtMontoRetirado = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnRetirar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        txtCodCuenta = new javax.swing.JTextField();
+        txtMontoRetirado = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,36 +81,12 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel2.setText("Datos del cliente");
 
-        txtCodigo.setBackground(new java.awt.Color(102, 102, 102));
-        txtCodigo.setBorder(null);
-        txtCodigo.setEnabled(false);
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel3.setText("Código");
-
-        txtCodCuenta.setBackground(new java.awt.Color(102, 102, 102));
-        txtCodCuenta.setToolTipText("Código de cuenta");
-        txtCodCuenta.setBorder(null);
-        txtCodCuenta.setEnabled(false);
-        txtCodCuenta.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCodCuentaKeyTyped(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel4.setText("Ingrese el monto");
         jLabel4.setToolTipText("");
-
-        txtMontoRetirado.setBackground(new java.awt.Color(102, 102, 102));
-        txtMontoRetirado.setToolTipText("Digite el monto a retirar");
-        txtMontoRetirado.setBorder(null);
-        txtMontoRetirado.setEnabled(false);
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Buscar.gif"))); // NOI18N
         btnBuscar.setText("Buscar");
@@ -131,36 +108,43 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_ayuda_msocios.gif"))); // NOI18N
 
+        txtCodCuenta.setEnabled(false);
+        txtCodCuenta.setFocusable(false);
+
+        txtMontoRetirado.setEnabled(false);
+
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("Código de cuenta");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel3))
+                        .addComponent(jLabel4)
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel5))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(txtMontoRetirado, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(36, 36, 36)
-                                .addComponent(jLabel5))
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtCodCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(68, 68, 68)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtMontoRetirado, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtCodCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                                        .addComponent(txtCodigo)))))
+                        .addGap(68, 68, 68)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(109, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 199, Short.MAX_VALUE)
                 .addComponent(btnRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(186, 186, 186))
         );
@@ -171,22 +155,24 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCodCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)))
+                .addGap(2, 2, 2)
+                .addComponent(txtCodCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtMontoRetirado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(txtMontoRetirado, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addComponent(btnRetirar)
                 .addGap(16, 16, 16))
         );
@@ -223,13 +209,10 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
             txtCodCuenta.setText(msj);
             txtMontoRetirado.setEnabled(true);
             btnRetirar.setEnabled(true);
+            txtMontoRetirado.requestFocus();
         }else 
             showMessageDialog(null, "No tiene cuenta registrada", "Retirar Saldo",0);
     }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
 
     private void btnRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirarActionPerformed
         EmpleadoHace componente = new EmpleadoHace();
@@ -243,15 +226,6 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
 
     
  
-    private void txtCodCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodCuentaKeyTyped
-        char c = evt.getKeyChar();
-        if(((c<'0') || (c>'9')) && (c != KeyEvent.VK_BACK_SPACE) && (c!= '.' || txtMontoRetirado.getText().contains(".")))
-           evt.consume();
-        
-        if (txtCodCuenta.getText().length() > 7)
-            evt.consume();
-    }//GEN-LAST:event_txtCodCuentaKeyTyped
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
@@ -261,6 +235,7 @@ public class IFmrRetirarSaldoEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
