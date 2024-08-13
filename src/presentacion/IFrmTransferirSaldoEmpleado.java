@@ -252,7 +252,8 @@ public class IFrmTransferirSaldoEmpleado extends javax.swing.JInternalFrame {
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
         EmpleadoHace empleadoHace = new EmpleadoHace();
         String codCuentaOrigen = BLCliente.obtenerCodCuentaPorCliente(txtCodigo.getText());
-        String codCuentaDestino = BLCliente.obtenerCodCuentaPorCliente(txtcuentaDestino.getText());
+        String codCuentaDest=txtcuentaDestino.getText();
+        String codCuentaDestino = BLCuenta.obtenerCuenta(codCuentaDest).getCodigo();
         float montoTransferencia = Float.parseFloat(txtMontoTransferencia.getText());
 
         if (codCuentaOrigen == null || codCuentaDestino == null || codCuentaOrigen.isEmpty() || codCuentaDestino.isEmpty()) {

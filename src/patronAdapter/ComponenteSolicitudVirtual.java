@@ -104,7 +104,6 @@ public class ComponenteSolicitudVirtual {
                         monedas[4] = new MonedaConverter("05", "EUROS", 4.07f);
 
                 if (codBuscadoDestino != null) {
-                    if(codBuscadoDestino.equalsIgnoreCase(codBuscado)){
                     Cuenta cuentaDestino= BLCuenta.obtenerCuenta(codBuscadoDestino);
                     String moneDestino=cuentaDestino.getMoneCodigo();
                     String moneRemitente=cuenta.getMoneCodigo();
@@ -149,9 +148,6 @@ public class ComponenteSolicitudVirtual {
                     } else {
                         showMessageDialog(null, "Error 1: "+ mensaje + "\n" + "Error 2: "+mensaje2, "Error", 0);
                     }
-                    }else {
-                               showMessageDialog(null, "La cuenta destino no puede ser la misma cuenta.", "Error", 0);
-                           }
                 } else {
                     showMessageDialog(null, "La cuenta destino no existe o no está registrada.", "Error", 0);
                 }
