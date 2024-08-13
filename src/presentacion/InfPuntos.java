@@ -57,7 +57,6 @@ public class InfPuntos extends javax.swing.JInternalFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Tienes");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, -1));
 
@@ -67,7 +66,6 @@ public class InfPuntos extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
 
         lblPuntos.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lblPuntos.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(lblPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 80, 20));
 
         iconoVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresarMini.png"))); // NOI18N
@@ -96,7 +94,6 @@ public class InfPuntos extends javax.swing.JInternalFrame {
 
         btnConvertirSaldo.setBackground(new java.awt.Color(255, 255, 102));
         btnConvertirSaldo.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        btnConvertirSaldo.setForeground(new java.awt.Color(0, 0, 0));
         btnConvertirSaldo.setText("Convertir en Saldo");
         btnConvertirSaldo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,7 +108,6 @@ public class InfPuntos extends javax.swing.JInternalFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 112));
         jButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Obtener Descuento");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -155,8 +151,11 @@ public class InfPuntos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked
+        FrmBancaPorInternet frm = new FrmBancaPorInternet();
+        frm.setVisible(true);
+        frm.pack();
+        frm.setLocationRelativeTo(null);
         this.dispose();
-        new BancaPorInternet(codCuentica);
     }//GEN-LAST:event_iconoVolverMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -172,7 +171,7 @@ public class InfPuntos extends javax.swing.JInternalFrame {
             if(saldoFloat<=0.0f)
                 showMessageDialog(null, "Saldo no válido " , "Error", 0 );
         }while(saldoFloat<=0.0f);
-        String mensaje = BLCuenta.converterPuntosCreditoASaldo(codCuentica, Float.parseFloat(saldo));
+        String mensaje = BLCuenta.converterPuntosCreditoASaldo(codCuentica, saldoFloat);
         Float saldoNuevo;
         if(mensaje == null){
             saldoNuevo = Float.parseFloat(BLCuenta.obtenerSaldo(codCuentica)); 

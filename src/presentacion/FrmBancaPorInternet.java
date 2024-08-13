@@ -318,7 +318,7 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         InfPuntos infPuntos = new InfPuntos(codCuentica);
-        MainFrm.centrarInternalFrameExterno(infPuntos);
+        centrarInternalFrameParaExterna(infPuntos);
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked
