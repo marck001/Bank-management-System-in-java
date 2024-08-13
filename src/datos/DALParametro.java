@@ -111,6 +111,7 @@ public class DALParametro {
         }
         return mensaje;        
     }
+
    
     public static ArrayList<Parametro> listarParametro() {
         String sql;
@@ -137,32 +138,32 @@ public class DALParametro {
         }
         return obj;
     }
-        public static Parametro obtenerParametro(String codigo) {
-        Parametro parametro = new Parametro();
-        try {
-            cn = Conexion.realizarConexion();
-            String sql = "{call sp_buscar_parametro(?)}";
-            cs = cn.prepareCall(sql);
-            cs.setString(1, codigo);
-            rs = cs.executeQuery();
-            while (rs.next()) {
-                parametro.setParaCodigo(rs.getString(1));
-                parametro.setParaDescripcion(rs.getString(2));
-                parametro.setParaValor(rs.getString(3));
-                parametro.setParaValor(rs.getString(4));
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            showMessageDialog(null, ex.getMessage(), "Error", 0);
-        } finally {
-            try {
-                rs.close();
-                cs.close();
-                cn.close();
-            } catch (SQLException ex) {
-                showMessageDialog(null, ex.getMessage(), "Error", 0);
-            }
+    public static Parametro obtenerParametro(String codigo) {
+    Parametro parametro = new Parametro();
+    try {
+        cn = Conexion.realizarConexion();
+        String sql = "{call sp_buscar_parametro(?)}";
+        cs = cn.prepareCall(sql);
+        cs.setString(1, codigo);
+        rs = cs.executeQuery();
+        while (rs.next()) {
+            parametro.setParaCodigo(rs.getString(1));
+            parametro.setParaDescripcion(rs.getString(2));
+            parametro.setParaValor(rs.getString(3)); // Asignación correcta para Valor
+            parametro.setParaEstado(rs.getString(4)); // Asignación correcta para Estado
         }
-        return parametro;
-            
-    } 
+    } catch (ClassNotFoundException | SQLException ex) {
+        showMessageDialog(null, ex.getMessage(), "Error", 0);
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (cs != null) cs.close();
+            if (cn != null) cn.close();
+        } catch (SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        }
+    }
+    return parametro;
+}
+
 }

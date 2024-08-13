@@ -163,7 +163,7 @@ public class IFrmActualizarParametro extends javax.swing.JInternalFrame {
                 txtValorActionPerformed(evt);
             }
         });
-        jPanel2.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 150, -1));
+        jPanel2.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 150, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -225,7 +225,7 @@ public class IFrmActualizarParametro extends javax.swing.JInternalFrame {
         jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, -1));
 
         txtEstado.setEnabled(false);
-        jPanel2.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 150, -1));
+        jPanel2.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 150, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -269,22 +269,22 @@ public class IFrmActualizarParametro extends javax.swing.JInternalFrame {
     private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
         char c=evt.getKeyChar();
         String text = txtCodigo.getText();
-        if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)|| text.length() >= 2)
+        if(((c<'0')||(c>'9')) && (c != KeyEvent.VK_BACK_SPACE)|| text.length() >= 3)
         evt.consume();
     }//GEN-LAST:event_txtCodigoKeyTyped
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         String respuesta;
         codigo = txtCodigo.getText();
-        valor= txtValor.getText();
+        valor= txtNueva.getText();
         estado = String.valueOf(cbxNueva.getSelectedItem());
-        if (codigo.isEmpty()) {
-            mostrarMensajeError("El campo de código no puede estar vacío.");
+        if (valor.isEmpty()) {
+            mostrarMensajeError("El campo del valor no puede estar vacío.");
             txtCodigo.requestFocus();
             return;
         }
         if ("<Estado>".equals(estado)) {
-            mostrarMensajeError("Debe seleccionar una descripción válida que no sea <Moneda>.");
+            mostrarMensajeError("Debe seleccionar una descripción válida que no sea <Estado>.");
             cbxNueva.requestFocus();
             return;
         }
@@ -323,7 +323,7 @@ public class IFrmActualizarParametro extends javax.swing.JInternalFrame {
         parametro = BLParametro.obtenerParametro(codigo);
         if(parametro != null) {
             if(parametro.getParaCodigo().compareTo("00") != 0) {
-                codigo = parametro.getParaCodigo();
+                //codigo = parametro.getParaCodigo();
                 txtValor.setText(parametro.getParaValor());
                 txtEstado.setText(parametro.getParaEstado());
                 txtCodigo.setEnabled(false);
@@ -356,17 +356,18 @@ public class IFrmActualizarParametro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNuevaKeyTyped
         private void activar(boolean estado) {
         txtCodigo.setEnabled(estado);
-        txtValor.setEnabled(estado);
-        txtEstado.setEnabled(estado);
         cbxNueva.setEnabled(estado);
         txtNueva.setEnabled(estado);
+        btnBuscar.setEnabled(estado);
         btnActualizar.setEnabled(estado);
         btnNuevo.setEnabled(!estado);
     }
     
     private void limpiar() {
         txtCodigo.setText(null);
+        txtEstado.setText(null);
         txtValor.setText(null);
+        txtNueva.setText(null);
         cbxNueva.setSelectedIndex(0);
         
     }
