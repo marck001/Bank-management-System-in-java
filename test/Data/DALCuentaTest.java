@@ -109,7 +109,7 @@ public class DALCuentaTest {
     public void testHandleSQLException() throws SQLException {
         when(mockCallableStatement.executeUpdate()).thenThrow(new SQLException("Database error"));
 
-        CuentaCredito cuentaCredito = new CuentaCredito("00200009", 1000.0f, new GregorianCalendar(), "ACTIVO", 10, "123456", "01", "002", "0001", "00001", "DEBITO");
+        CuentaCredito cuentaCredito = new CuentaCredito("00200009", 1000.0f, new GregorianCalendar(), "ACTIVO", 10, "123456", "01", "002", "0001", "00001", "CREDITO");
 
         String result = DALCuenta.insertarCuentaCredito(cuentaCredito);
 
