@@ -111,10 +111,13 @@ public class IFrmActualizarEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
+        lblCodigo2.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo2.setText("Direccion:");
 
+        lblDescripcion2.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion2.setText("Usuario:");
 
+        lblDescripcion1.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion1.setText("Ciudad:");
 
         txtDireccion.setEnabled(false);
@@ -124,6 +127,7 @@ public class IFrmActualizarEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre de Ususario");
 
         txtUser.setEnabled(false);
@@ -133,6 +137,7 @@ public class IFrmActualizarEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
+        lblCodigo3.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo3.setText("Clave:");
 
         txtApellidoM.setEnabled(false);
@@ -144,10 +149,12 @@ public class IFrmActualizarEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
+        lblDescripcion3.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion3.setText("Apellido Materno");
 
         lblCodigo.setText("Código: ");
 
+        lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Apellidos Paterno");
 
         txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {

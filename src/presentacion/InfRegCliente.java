@@ -77,6 +77,7 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
 
         lblCodigo.setBackground(new java.awt.Color(255, 255, 255));
         lblCodigo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo.setText("Código");
 
         lblNombres.setBackground(new java.awt.Color(204, 204, 204));
@@ -87,12 +88,15 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
         lblApellidos.setText("Apellidos");
 
         lblDni.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblDni.setForeground(new java.awt.Color(255, 255, 255));
         lblDni.setText("DNI");
 
         lblCiudad.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCiudad.setForeground(new java.awt.Color(255, 255, 255));
         lblCiudad.setText("Ciudad: ");
 
         lblDireccion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(255, 255, 255));
         lblDireccion.setText("Dirección: ");
 
         txtCodigo.setText("********");
@@ -190,13 +194,16 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
         });
 
         lblMail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblMail.setForeground(new java.awt.Color(255, 255, 255));
         lblMail.setText("E-mail");
 
         lblTelefono.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(255, 255, 255));
         lblTelefono.setText("Teléfono: ");
         lblTelefono.setToolTipText("");
 
         lblNombreCompleto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblNombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreCompleto.setText("Nombre Completo");
 
         txtMaterno.setText("Apellido materno");
@@ -290,10 +297,11 @@ public class InfRegCliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMail)
                     .addComponent(txtMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTelefono)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6))
         );
 
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Usuario.gif"))); // NOI18N
