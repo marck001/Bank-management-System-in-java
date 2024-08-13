@@ -67,12 +67,15 @@ public class BLMoneda {
     }
 
     public static Moneda obtenerMoneda(String codigo) {
-        if (codigo.trim().length() == 2) {
-            moneda = DALMoneda.obtenerMoneda(codigo);
-            return moneda;
+        if (codigo!=null && codigo.length() == 2 && buscarMoneda(codigo)!=null) {
+            return DALMoneda.obtenerMoneda(codigo);
         } else
-        return null;
+            return null;
     }
-        
+    
+    public static String obtenerDescripcion(String codCuenta) {
+        return DALMoneda.obtenerDescripcion(codCuenta);
+    } 
+    
 }
 

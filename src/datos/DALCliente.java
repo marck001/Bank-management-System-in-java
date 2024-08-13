@@ -78,17 +78,12 @@ public class DALCliente {
         try {
             cn = Conexion.realizarConexion();
             sql = "{call sp_buscar_cliente_login(?, ?)}";
-            System.out.println("Ejecutando: " + sql);
             cs = cn.prepareCall(sql);
             cs.setString(1, codigo);
             cs.setString(2, dni);
             rs = cs.executeQuery();
-            if (rs.next()) {
-                String email = rs.getString("clieemail");
-                System.out.println("Email encontrado: " + email);
-                return email;
-            } else {
-                System.out.println("No se encontró el cliente.");
+            while (rs.next()) {
+                return rs.getString("clieemail");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
