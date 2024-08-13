@@ -630,6 +630,10 @@ public class Menu extends javax.swing.JInternalFrame {
     private void d5_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d5_2MouseClicked
         // TODO add your handling code here:
 
+        IFrmListaSucursal tab = new IFrmListaSucursal();
+           MainFrm.centrarInternalFrameExterno(tab);
+        
+        
     }//GEN-LAST:event_d5_2MouseClicked
 
     private void d5_2dash_h(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_d5_2dash_h

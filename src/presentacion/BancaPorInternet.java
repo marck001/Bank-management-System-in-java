@@ -5,6 +5,7 @@
 package presentacion;
 import logica.*;
 import entidades.*;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -344,7 +345,6 @@ public class BancaPorInternet extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         new InfPuntos(codCuentica);
     }//GEN-LAST:event_jLabel10MouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cuentaSaldo;

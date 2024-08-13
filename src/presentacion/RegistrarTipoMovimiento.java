@@ -13,12 +13,12 @@ import java.util.GregorianCalendar;
  *
  * @author CRISTHIAN
  */
-public class RegistrarMovimiento extends javax.swing.JInternalFrame {
+public class RegistrarTipoMovimiento extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form RegistrarMovimiento
      */
-    public RegistrarMovimiento() {
+    public RegistrarTipoMovimiento() {
         initComponents();
           this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
@@ -101,9 +101,15 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setText("         Estado");
 
+        txtTipoCodigo.setEnabled(false);
         txtTipoCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipoCodigoActionPerformed(evt);
+            }
+        });
+        txtTipoCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTipoCodigoKeyTyped(evt);
             }
         });
 
@@ -121,6 +127,7 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         btnRegistrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.gif"))); // NOI18N
         btnRegistrar2.setText("Registrar");
         btnRegistrar2.setToolTipText("Registrar");
+        btnRegistrar2.setEnabled(false);
         btnRegistrar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrar2ActionPerformed(evt);
@@ -128,8 +135,12 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
         });
 
         cbxAccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingreso", "Salida" }));
+        cbxAccion.setEnabled(false);
 
         cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Anulado", "Cancelado" }));
+        cbxEstado.setEnabled(false);
+
+        txtDescripcion.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -265,7 +276,8 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTipoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoCodigoActionPerformed
-        // TODO add your handling code here:
+   
+// TODO add your handling code here:
     }//GEN-LAST:event_txtTipoCodigoActionPerformed
 
     private void btnNuevo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo2ActionPerformed
@@ -292,6 +304,13 @@ public class RegistrarMovimiento extends javax.swing.JInternalFrame {
             }
         } // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar2ActionPerformed
+
+    private void txtTipoCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipoCodigoKeyTyped
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE))
+         evt.consume();
+// TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoCodigoKeyTyped
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -214,18 +214,23 @@ public class LoginCliente extends javax.swing.JFrame {
         codigo = String.valueOf(passCodigo.getPassword());
         respuesta1 = BLCliente.buscarClienteLogin(codigo, dni);
         respuesta2 = BLCliente.obtenerCodCuentaPorCliente(codigo);
-        if(respuesta1!=null && respuesta2!= null) {
-            new BancaPorInternet(respuesta2);
-            System.out.print("Registered");
+        if(respuesta1!=null || respuesta2!= null) {
+            FrmBancaPorInternet frm = new FrmBancaPorInternet(respuesta2, codigo);
+            frm.setVisible(true);
+            frm.pack();
+            frm.setLocationRelativeTo(null);
+            this.dispose();
         } else {
             if(respuesta2==null) {
                 showMessageDialog(null, "No tiene cuenta registrada", "Login Cliente",0);
             }
-            showMessageDialog(null, "Codigo o clave erronea, intente nuevamente", "Login Cliente",0);
+            else {
+                showMessageDialog(null, "Codigo o clave erronea, intente nuevamente", "Login Cliente",0);
+            }
             txtDni.setText("Ingrese su numero de Dni");
-            txtDni.setForeground(Color.gray);
-            passCodigo.setText("********");
-            passCodigo.setForeground(Color.gray);
+                txtDni.setForeground(Color.gray);
+                passCodigo.setText("********");
+                passCodigo.setForeground(Color.gray);
         }
     }//GEN-LAST:event_lblEntrarMouseClicked
 

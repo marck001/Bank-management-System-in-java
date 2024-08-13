@@ -16,12 +16,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Gaby Zanabria
  */
-public class IFrmParametro extends javax.swing.JInternalFrame {
+public class IFrmActualizarParametro extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form IFrmParametro
      */
-    public IFrmParametro() {
+    public IFrmActualizarParametro() {
         initComponents();
     }
 
@@ -168,7 +168,7 @@ public class IFrmParametro extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Estado:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, 30));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Salir.gif"))); // NOI18N
         btnSalir.setMnemonic('S');
@@ -198,7 +198,7 @@ public class IFrmParametro extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Valor:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, 30));
 
         txtNueva.setEnabled(false);
         txtNueva.addActionListener(new java.awt.event.ActionListener() {
@@ -357,7 +357,9 @@ public class IFrmParametro extends javax.swing.JInternalFrame {
         private void activar(boolean estado) {
         txtCodigo.setEnabled(estado);
         txtValor.setEnabled(estado);
+        txtEstado.setEnabled(estado);
         cbxNueva.setEnabled(estado);
+        txtNueva.setEnabled(estado);
         btnActualizar.setEnabled(estado);
         btnNuevo.setEnabled(!estado);
     }

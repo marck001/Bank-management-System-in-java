@@ -17,6 +17,7 @@ public class DALMoneda {
     private static Connection cn = null;
     private static ResultSet rs = null;
     private static CallableStatement cs = null;
+    private static PreparedStatement pe = null;
     
     public static String insertarMoneda(Moneda moneda) {
         String mensaje=null, sql;
@@ -163,5 +164,38 @@ public class DALMoneda {
             }
         }
         return moneda;
+    }
+    
+    public static String obtenerDescripcion(String codCuenta) {
+        String code = null;
+        try {
+            cn = Conexion.realizarConexion();
+            String sqla = "select monecodigo from cuenta where cuencodigo = ?";
+            String sqlb = "select monedescripcion from moneda where monecodigo = ?";
+            pe = cn.prepareStatement(sqla);
+            pe.setString(1, codCuenta);
+            rs = pe.executeQuery();
+            while (rs.next()) {
+                code = rs.getString("monecodigo");
+            }
+            
+            pe = cn.prepareStatement(sqlb);
+            pe.setString(1, code);
+            rs = pe.executeQuery();
+            while (rs.next()) {
+                return rs.getString("monedescripcion");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            try {
+                rs.close();
+                pe.close();
+                cn.close();
+            } catch (SQLException ex) {
+                showMessageDialog(null, ex.getMessage(), "Error", 0);
+            }
+        }
+        return null;
     }
 }

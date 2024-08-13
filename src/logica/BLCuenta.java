@@ -76,7 +76,7 @@ public class BLCuenta {
     }
 
     public static Cuenta obtenerCuenta(String codigo) {
-        if (codigo.trim().length() == 8 && buscar(codigo) != null) {
+        if (codigo!=null && codigo.length() == 8 && buscar(codigo) != null) {
             return DALCuenta.obtenerCuenta(codigo);
         } else {
             return null;
