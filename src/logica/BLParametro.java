@@ -27,8 +27,7 @@ public class BLParametro {
     }
     public static String actualizarParametro(String paraCodigo, String descripcion, String paraValor, String paraEstado) {
         String mensaje;
-        if (paraCodigo.trim().length()==3 && paraValor.trim().length()>0 && 
-                paraValor.trim().length()<70) {
+        if (paraCodigo.trim().length()==3 && paraValor.trim().length()<70) {
              parametro=new Parametro(paraCodigo,descripcion, paraValor, paraEstado);
             mensaje = DALParametro.actualizarParametro(parametro);
             if (mensaje == null)
