@@ -310,9 +310,7 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(4, 4, 4)
                         .addComponent(jLabel7))
-                    .addGroup(dspFondoLayout.createSequentialGroup()
-                        .addComponent(lblRecargar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblRecargar))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -413,37 +411,39 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
             }
         });
     }
-
+    private static void centrarInternalFrameParaExterna(JInternalFrame interna) {
+        int x = dspFondo.getWidth() / 2 - interna.getWidth() / 2;
+        int y = dspFondo.getHeight() / 2 - interna.getHeight() / 2;
+        if (interna.isShowing()) {
+            interna.setLocation(x, y);
+        } else {
+            dspFondo.add(interna);
+            interna.setLocation(x, y);
+            interna.setVisible(true);
+        }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel cuentaSaldo;
     private javax.swing.JLabel cuentaSaldo1;
-    private javax.swing.JDesktopPane dspFondo;
+    private static javax.swing.JDesktopPane dspFondo;
     private javax.swing.JLabel iconAjustes;
     private javax.swing.JLabel iconPuntos;
     private javax.swing.JLabel iconRecargar;
     private javax.swing.JLabel iconRetirar;
     private javax.swing.JLabel iconTransferir;
     private javax.swing.JLabel iconoVolver;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblNombreCliente;
     private javax.swing.JLabel lblRecargar;
     private javax.swing.JLabel lblRetirar;
     private javax.swing.JLabel lblTransferir;
-    private javax.swing.JPanel nombreeCliente;
     private javax.swing.JPanel nombreeCliente1;
     private javax.swing.JPanel panelPuntos;
     // End of variables declaration//GEN-END:variables
