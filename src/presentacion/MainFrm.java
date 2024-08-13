@@ -477,7 +477,7 @@ public class MainFrm extends javax.swing.JFrame {
                 .addComponent(firstPanelTab11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(firstPanelTab12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(1125, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dspFondoLayout = new javax.swing.GroupLayout(dspFondo);
@@ -552,7 +552,7 @@ public class MainFrm extends javax.swing.JFrame {
                 .addComponent(Header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dspFondo))
-            .addComponent(FirstPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
+            .addComponent(FirstPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 1751, Short.MAX_VALUE)
         );
 
         tabbedPanel1.addTab("Admin", jPanel1);
@@ -766,8 +766,8 @@ public class MainFrm extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/InicioSesion.gif"))); // NOI18N
-        jLabel7.setText("Recargar Saldo");
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/recargaarSimbo (1).png"))); // NOI18N
+        jLabel7.setText(" Recargar Saldo");
 
         javax.swing.GroupLayout secondPanelTab6Layout = new javax.swing.GroupLayout(secondPanelTab6);
         secondPanelTab6.setLayout(secondPanelTab6Layout);
@@ -798,8 +798,8 @@ public class MainFrm extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/InicioSesion.gif"))); // NOI18N
-        jLabel9.setText("Transferencia");
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Calcular.gif"))); // NOI18N
+        jLabel9.setText(" Transferencia");
 
         javax.swing.GroupLayout secondPanelTab7Layout = new javax.swing.GroupLayout(secondPanelTab7);
         secondPanelTab7.setLayout(secondPanelTab7Layout);
@@ -828,8 +828,8 @@ public class MainFrm extends javax.swing.JFrame {
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/retirarSaldo.png"))); // NOI18N
-        jLabel15.setText("Retirar Saldo");
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_ayuda_msocios.gif"))); // NOI18N
+        jLabel15.setText(" Retirar Saldo");
 
         javax.swing.GroupLayout secondPanelTab8Layout = new javax.swing.GroupLayout(secondPanelTab8);
         secondPanelTab8.setLayout(secondPanelTab8Layout);
@@ -885,7 +885,7 @@ public class MainFrm extends javax.swing.JFrame {
                 .addComponent(secondPanelTab7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(secondPanelTab8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dspFondo1Layout = new javax.swing.GroupLayout(dspFondo1);
@@ -962,7 +962,7 @@ public class MainFrm extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 1751, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

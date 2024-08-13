@@ -87,7 +87,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="dspFondo" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="FirstPanelMenu" alignment="0" pref="827" max="32767" attributes="0"/>
+                  <Component id="FirstPanelMenu" alignment="0" pref="1751" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -137,7 +137,7 @@
                           <Component id="firstPanelTab11" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="firstPanelTab12" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="201" max="32767" attributes="0"/>
+                          <EmptySpace pref="1125" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -638,7 +638,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel4" pref="827" max="32767" attributes="0"/>
+                  <Component id="jPanel4" pref="1751" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="Header" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -700,7 +700,7 @@
                           <Component id="secondPanelTab7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="secondPanelTab8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="56" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1055,9 +1055,9 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/InicioSesion.gif"/>
+                          <Image iconType="3" name="/img/recargaarSimbo (1).png"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Recargar Saldo"/>
+                        <Property name="text" type="java.lang.String" value=" Recargar Saldo"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1111,9 +1111,9 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/InicioSesion.gif"/>
+                          <Image iconType="3" name="/img/Calcular.gif"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Transferencia"/>
+                        <Property name="text" type="java.lang.String" value=" Transferencia"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1160,9 +1160,9 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/retirarSaldo.png"/>
+                          <Image iconType="3" name="/img/icono_ayuda_msocios.gif"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Retirar Saldo"/>
+                        <Property name="text" type="java.lang.String" value=" Retirar Saldo"/>
                       </Properties>
                     </Component>
                   </SubComponents>
