@@ -107,6 +107,11 @@ public class RegistrarTipoMovimiento extends javax.swing.JInternalFrame {
                 txtTipoCodigoActionPerformed(evt);
             }
         });
+        txtTipoCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTipoCodigoKeyTyped(evt);
+            }
+        });
 
         btnNuevo2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnNuevo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Nuevo.gif"))); // NOI18N
@@ -178,7 +183,7 @@ public class RegistrarTipoMovimiento extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(txtTipoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -271,7 +276,8 @@ public class RegistrarTipoMovimiento extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTipoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoCodigoActionPerformed
-        // TODO add your handling code here:
+   
+// TODO add your handling code here:
     }//GEN-LAST:event_txtTipoCodigoActionPerformed
 
     private void btnNuevo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo2ActionPerformed
@@ -298,6 +304,13 @@ public class RegistrarTipoMovimiento extends javax.swing.JInternalFrame {
             }
         } // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar2ActionPerformed
+
+    private void txtTipoCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipoCodigoKeyTyped
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE))
+         evt.consume();
+// TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoCodigoKeyTyped
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
