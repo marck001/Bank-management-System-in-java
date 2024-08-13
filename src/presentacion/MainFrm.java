@@ -36,8 +36,8 @@ public class MainFrm extends javax.swing.JFrame {
         int year = now.getYear();
         int dia = now.getDayOfMonth();
         int month = now.getMonthValue();
-        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", " ;Septiembre",
-             "Octubre", "Noviembre", "Diciemrbre"};
+        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+             "Octubre", "Noviembre", "Diciembre"};
         //fecha7.setText("Hoy es "+dia+" de "+meses[month - 1]+" de "+year);
         fecha.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
         fecha1.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
@@ -72,8 +72,8 @@ public class MainFrm extends javax.swing.JFrame {
         int year = now.getYear();
         int dia = now.getDayOfMonth();
         int month = now.getMonthValue();
-        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", " ;Septiembre",
-             "Octubre", "Noviembre", "Diciemrbre"};
+        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+             "Octubre", "Noviembre", "Diciembre"};
         //fecha7.setText("Hoy es "+dia+" de "+meses[month - 1]+" de "+year);
         fecha.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
         fecha1.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
@@ -495,7 +495,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Eurabank Services");
+        jLabel23.setText("Eureka Bank Services");
 
         fecha1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fecha1.setForeground(new java.awt.Color(255, 255, 255));
@@ -903,7 +903,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Eurabank Services");
+        jLabel16.setText("Eureka Bank Services");
 
         fecha.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fecha.setForeground(new java.awt.Color(255, 255, 255));
@@ -924,7 +924,7 @@ public class MainFrm extends javax.swing.JFrame {
                 .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(HeaderLayout.createSequentialGroup()
                         .addComponent(jLabel16)
-                        .addContainerGap(696, Short.MAX_VALUE))
+                        .addContainerGap(665, Short.MAX_VALUE))
                     .addGroup(HeaderLayout.createSequentialGroup()
                         .addComponent(fecha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)

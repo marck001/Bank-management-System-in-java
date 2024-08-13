@@ -5,6 +5,9 @@
 package presentacion;
 import logica.*;
 import entidades.*;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 /**
  *
@@ -33,7 +36,13 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dspFondo3 = new javax.swing.JDesktopPane();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/presentacion/fondo.jpg"));
+        Image image = icon.getImage();
+        dspFondo3 = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+                g.drawImage(image,0,0,getWidth(),getHeight(),this);
+            }
+        };
         nombreeCliente1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -199,6 +208,7 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
         });
 
         lblRecargar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRecargar.setForeground(new java.awt.Color(255, 255, 255));
         lblRecargar.setText("RECARGAR ");
         lblRecargar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -216,6 +226,7 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
         });
 
         lblTransferir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTransferir.setForeground(new java.awt.Color(255, 255, 255));
         lblTransferir.setText("TRANSFERENCIAS");
         lblTransferir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -232,7 +243,9 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
             }
         });
 
+        lblRetirar.setBackground(new java.awt.Color(255, 255, 255));
         lblRetirar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRetirar.setForeground(new java.awt.Color(255, 255, 255));
         lblRetirar.setText("RETIRAR");
         lblRetirar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -240,11 +253,13 @@ public class FrmBancaPorInternet extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Sos la razón de nuestro trabajo diario");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("¡Gracias por elegirnos!");
 
         dspFondo3.setLayer(nombreeCliente1, javax.swing.JLayeredPane.DEFAULT_LAYER);

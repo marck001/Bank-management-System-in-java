@@ -128,11 +128,13 @@ public class IFrmListaSucursal extends javax.swing.JInternalFrame {
         iterador = lista.iterator();
         while(iterador.hasNext()) {
             sucursal = iterador.next();
+             fila = new Object[6];
             fila[0] = sucursal.getCodigo();
             fila[1] = sucursal.getNombre();
             fila[2] = sucursal.getCiudad();
             fila[3] = sucursal.getDireccion();
             fila[4] = sucursal.getContCuenta();
+
              if (sucursal instanceof SucursalDepartamental) {
             fila[5] = "Departamental";
         } else if (sucursal instanceof SucursalProvincial) {
@@ -154,7 +156,7 @@ public class IFrmListaSucursal extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 private DefaultTableModel modelo;
 private ArrayList<Sucursal> lista;
-private String columnas[] = {"Código", "Nombre", "Ciudad", "Dirección", "Cuentas"};
+private String columnas[] = {"Código", "Nombre", "Ciudad", "Dirección", "Cuentas", "Tipo"};
 private Object fila[] = new Object[columnas.length];
 private Iterator<Sucursal> iterador;
 private Sucursal sucursal;
