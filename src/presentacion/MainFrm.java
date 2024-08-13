@@ -21,7 +21,7 @@ import javax.swing.JDesktopPane;
 public class MainFrm extends javax.swing.JFrame {
 
     private static Menu main = new Menu();
-    private static BancaPorInternet main2 = new BancaPorInternet();
+    private static IFrmPresentacion main2 = new IFrmPresentacion();
     private JInternalFrame currentInternalFrame = null;
     private String codEmpleado;
     /**
@@ -42,10 +42,48 @@ public class MainFrm extends javax.swing.JFrame {
         fecha.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
         fecha1.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
         centrarInternalFrame1(main);
-        //centrarInternalFrame3(main2);
+        //centrarInternalFrame2(main2);
         defaultColor = new Color(64, 4, 4);
         clickedColor = new Color(104, 7, 7);
 
+        mnuTab1.setBackground(defaultColor);
+        firstPanelTab1.setBackground(defaultColor);
+        firstPanelTab2.setBackground(defaultColor);
+        firstPanelTab3.setBackground(defaultColor);
+        firstPanelTab4.setBackground(defaultColor);
+        firstPanelTab11.setBackground(defaultColor);
+        firstPanelTab6.setBackground(defaultColor);
+        firstPanelTab12.setBackground(defaultColor);
+
+        mnuTab2.setBackground(defaultColor);
+        secondPanelTab1.setBackground(defaultColor);
+        secondPanelTab2.setBackground(defaultColor);
+        secondPanelTab3.setBackground(defaultColor);
+        secondPanelTab4.setBackground(defaultColor);
+        secondPanelTab5.setBackground(defaultColor);
+        secondPanelTab6.setBackground(defaultColor);
+       
+    }
+    
+    public MainFrm(String frame) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        LocalDate now = LocalDate.now();
+        int year = now.getYear();
+        int dia = now.getDayOfMonth();
+        int month = now.getMonthValue();
+        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", " ;Septiembre",
+             "Octubre", "Noviembre", "Diciemrbre"};
+        //fecha7.setText("Hoy es "+dia+" de "+meses[month - 1]+" de "+year);
+        fecha.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
+        fecha1.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
+        main2.setName(frame);
+        centrarInternalFrame2(main2);
+        //centrarInternalFrame2(main2);
+        defaultColor = new Color(64, 4, 4);
+        clickedColor = new Color(104, 7, 7);
+
+        System.out.print(frame);
         mnuTab1.setBackground(defaultColor);
         firstPanelTab1.setBackground(defaultColor);
         firstPanelTab2.setBackground(defaultColor);
@@ -99,6 +137,8 @@ public class MainFrm extends javax.swing.JFrame {
         } 
 
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -267,10 +307,10 @@ public class MainFrm extends javax.swing.JFrame {
         firstPanelTab2.setLayout(firstPanelTab2Layout);
         firstPanelTab2Layout.setHorizontalGroup(
             firstPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, firstPanelTab2Layout.createSequentialGroup()
+            .addGroup(firstPanelTab2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         firstPanelTab2Layout.setVerticalGroup(
             firstPanelTab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1323,6 +1363,7 @@ public class MainFrm extends javax.swing.JFrame {
     }
 
     private static void centrarInternalFrame(JInternalFrame interna) {
+        
         int x = dspFondo.getWidth() / 2 - interna.getWidth() / 2;
         int y = dspFondo.getHeight() / 2 - interna.getHeight() / 2;
         if (interna.isShowing()) {

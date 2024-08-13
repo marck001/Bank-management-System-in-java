@@ -192,10 +192,10 @@ public class IFrmListaAmbasCuentas extends javax.swing.JInternalFrame {
             fila1[0] = cuen.getCodigo();
             fila1[1] = cuen.getClieCodigo();
             fila1[2] = cuen.getEstado();
-            fila2[3] = cuen.getCuenTipo();
-            fila2[4] = cuen.getSaldo();
-            //fila2[5] = BLCuenta.obtenerNumTarjetaDebito(cuen.getCodigo());
-         
+            fila1[3] = cuen.getCuenTipo();
+            fila1[4] = cuen.getSaldo();
+            //fila1[5] = BLCuenta.obtenerNumTarjetaDebito(cuen.getCodigo());
+               modelo.addRow(fila1);
         }
         tblCuentasDebito.setModel(modelo);
     }

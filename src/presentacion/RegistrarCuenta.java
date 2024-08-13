@@ -179,6 +179,11 @@ public class RegistrarCuenta extends javax.swing.JInternalFrame {
 
         btnValidar.setText("Validar");
         btnValidar.setEnabled(false);
+        btnValidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidarActionPerformed(evt);
+            }
+        });
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Clave de seis dígitos");
@@ -516,6 +521,15 @@ public class RegistrarCuenta extends javax.swing.JInternalFrame {
         activar(true);
 
     }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
+        // TODO add your handling code here:
+        if(txtCodCuenta.getText().length()==8){
+               JOptionPane.showMessageDialog(this, "El codigo es valido.", "Error", 2);
+        }else{
+              JOptionPane.showMessageDialog(this, "Codigo de cuenta no valido.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnValidarActionPerformed
 
     private void activar(boolean estado) {
         txtCodCuenta.setEnabled(estado);

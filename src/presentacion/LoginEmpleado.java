@@ -213,7 +213,7 @@ public class LoginEmpleado extends javax.swing.JFrame {
         clave = String.valueOf(passClave.getPassword());
         respuesta = BLEmpleado.buscarEmpleadoLogin(usuario, clave);
         if(respuesta!=null) {
-            MainFrm frm = new MainFrm();
+            MainFrm frm = new MainFrm(usuario);
             frm.setCodigoEmpleado(BLEmpleado.buscarEmpleadoPorUser(usuario));
             frm.setUser(1, respuesta, false);
             frm.setVisible(true);

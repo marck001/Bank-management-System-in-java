@@ -169,7 +169,7 @@ public class IFrmPresentacion extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)))
                     .addComponent(jLabel2)
@@ -204,6 +204,9 @@ public class IFrmPresentacion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
+    public void setName(String name){
+        lblNombreCliente.setText(name);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
