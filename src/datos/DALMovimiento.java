@@ -14,15 +14,15 @@ public class DALMovimiento {
         String mensaje = null, sql;
         try {
             cn = Conexion.realizarConexion();
-            sql = "{call sp_insertar_movimiento(?, ?, ?, ?, ?, ?)}";
+            sql = "{call sp_insertar_mov(?, ?, ?, ?, ?, ?, ?)}";
             cs = cn.prepareCall(sql);
-            cs.setInt(1, obj.getNumero());
-            cs.setString(2, obj.getFechaMov().toString());
-            cs.setString(3, String.valueOf(obj.getImporte()));
-            cs.setString(4, obj.getReferencia());
-            cs.setString(5, DALCuenta.buscarCuenta(obj.getCuenCodigo()));
-            cs.setString(6, obj.getEmpCodigo());
-            cs.setString(7, String.valueOf(obj.getTipoMovimiento()));
+            cs.setString(1, obj.getCuenCodigo());
+            cs.setInt(2, obj.getNumero());
+            cs.setString(3, obj.getFechaMovCorta());
+            cs.setString(4, obj.getEmpCodigo());
+            cs.setString(5, obj.getTipoMovimiento());
+            cs.setFloat(6, obj.getImporte());
+            cs.setString(7, obj.getReferencia());
             cs.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             mensaje = ex.getMessage();
@@ -46,7 +46,7 @@ public class DALMovimiento {
             cs.setString(1, codigo);
             rs = cs.executeQuery();
             while (rs.next()) {
-                return rs.getString("movicodigo");
+                return "Encontrado";
             }
         } catch (ClassNotFoundException | SQLException ex) {
             showMessageDialog(null, ex.getMessage(), "Error", 0);
@@ -178,7 +178,7 @@ public class DALMovimiento {
             cs.setString(1, cuenCodigo);
             rs = cs.executeQuery();
             if(rs.next()){
-                max = rs.getInt("moviNumero");
+                max = rs.getInt("max");
             }
             
             cs.executeUpdate();

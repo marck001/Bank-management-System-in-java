@@ -151,35 +151,35 @@ public class BLCuenta {
             switch (nombreMoneda) {
                 case "Soles":
                     if (deposito <= 1000) {
-                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                        mensaje = DALCuenta.depositoCuenta(deposito, codigo);
                     } else {
                         mensaje = "El limite es de 1000.00 soles";
                     }
                     break;
                 case "Dolares":
                     if (deposito <= 268) {
-                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                        mensaje = DALCuenta.depositoCuenta(deposito, codigo);
                     } else {
                         mensaje = "El limite es de 268 dólares. ";
                     }
                     break;
                 case "Pesos argentinos":
                     if (deposito <= 250282) {
-                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                        mensaje = DALCuenta.depositoCuenta(deposito, codigo);
                     } else {
                         mensaje = "El limite es de 250282 Pesos Argentinos ";
                     }
                     break;
                 case "Pesos chilenos":
                     if (deposito <= 252457) {
-                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                        mensaje = DALCuenta.depositoCuenta(deposito, codigo);
                     } else {
                         mensaje = "El limite es de 252457.00 Pesos Chilenos";
                     }
                     break;
                 case "Euro":
                     if (deposito <= 245) {
-                        mensaje = DALCuenta.retiroCuenta(deposito, codigo);
+                        mensaje = DALCuenta.depositoCuenta(deposito, codigo);
                     } else {
                         mensaje = "El limite es de 245.00 Euros";
                     }

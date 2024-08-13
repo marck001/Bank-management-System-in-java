@@ -19,20 +19,14 @@ public class BLMovimiento {
         if (numero > 0 && fechaMov != null && importe > 0  && referencia.trim().length() > 0
                 && cuenCodigo.trim().length() == 8 && empCodigo.trim().length() == 4
                 && tipoMovimiento.trim().length() > 0) {
-            if (buscarMovimiento(cuenCodigo) == null) {
                 obj = new Movimiento(numero, fechaMov, importe, referencia, cuenCodigo, empCodigo, tipoMovimiento);
                 mensaje = DALMovimiento.insertarMovimiento(obj);
                 if (mensaje == null) {
-                    showMessageDialog(null, "Registro insertado", "Resultado", 1);
                     return 0;
                 } else {
                     showMessageDialog(null, mensaje, "Error", 0);
                     return 1;
-                }
-            } else {
-                showMessageDialog(null, "Codigo ya existe", "Error", 0);
-                return 2;
-            }
+                } 
         } else {
             showMessageDialog(null, "Datos no validos", "Error", 0);
             return 3;

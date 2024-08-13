@@ -207,6 +207,7 @@ public class ComponenteSolicitudVirtual {
             // PEDIMOS CLAVE
             do {
                 clave = JOptionPane.showInputDialog(null, "Ingresa tu clave:   ", "CONFIRMAR MOVIMIENTO", 1);
+                clave = clave.trim();
                 if (cuenta.getClave().equalsIgnoreCase(clave)) {
                     // HACEMOS EL RETIRO (DESCONTAMOS EL SALDO) //METODO DE DAL QUE TENGA EL UPDATE
                     mensaje = BLCuenta.depositoCuenta(saldo, codCuenta);
@@ -220,7 +221,8 @@ public class ComponenteSolicitudVirtual {
                         GregorianCalendar fechaActual = new GregorianCalendar();
                         numMov = BLMovimiento.NumeroMaxMovimiento(codBuscado); // puse 1 al comienzo, ta por definir
                         // REGISTRAMOS EL MOVIMIENTO EN TABLA MOVIMIENT
-                        aux = BLMovimiento.insertarMovimiento(numMov++, fechaActual, saldo, "ENTRADA", cuenta.getCodigo(),
+                        numMov=numMov+1;
+                        aux = BLMovimiento.insertarMovimiento(numMov, fechaActual, saldo, "ENTRADA", cuenta.getCodigo(),
                                 "9999", "003"); 
                                 System.out.println(aux);  
                         //Sumamos puntos:

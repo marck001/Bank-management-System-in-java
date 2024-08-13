@@ -154,7 +154,7 @@ public class DALCuenta {
         CuentaCredito obj = new CuentaCredito();
         try {
             cn = Conexion.realizarConexion();
-            String sql = "{call sp_buscar_cuenta(?)}";
+            String sql = "{call sp_obtener_cuenta(?)}";
             cs = cn.prepareCall(sql);
             cs.setString(1, cuenCodigo);
             rs = cs.executeQuery();

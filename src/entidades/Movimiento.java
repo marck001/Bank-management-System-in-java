@@ -73,7 +73,7 @@ public class Movimiento implements Comparable<Movimiento> {
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
         int mes = fecha.get(Calendar.MONTH) + 1;
         int year = fecha.get(Calendar.YEAR);
-      return year + "-" + (mes <= 9 ? "0" + mes : mes) + "-" + (dia <= 9 ? "0" + dia : dia);
+      return year + "" + (mes <= 9 ? "0" + mes : mes) + "" + (dia <= 9 ? "0" + dia : dia);
     }
 
     public void setFechaMov(int dia, int mes, int año) {
