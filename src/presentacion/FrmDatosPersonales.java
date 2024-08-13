@@ -52,7 +52,6 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -190,9 +189,6 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
         });
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, 140, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconVarios.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 360, 260));
-
         jLabel9.setBackground(new java.awt.Color(136, 67, 67));
         jLabel9.setForeground(new java.awt.Color(136, 67, 67));
         jLabel9.setText("Nombre");
@@ -260,7 +256,7 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
             if(cliente.getCodigo().compareTo("00000") != 0) {
                 codigo = cliente.getCodigo();
                 
-                txtNombre.setText(cliente.getNombre()+ cliente.getApellidoPaterno()+cliente.getApellidoMaterno());
+                txtNombre.setText(cliente.getNombre()+" "+ cliente.getApellidoPaterno()+ " "+ " " +cliente.getApellidoMaterno());
                 txtDni.setText(cliente.getDni());
                 txtCiudad.setText(cliente.getCiudad());
                 txtDireccion.setText(cliente.getDireccion());
@@ -387,7 +383,6 @@ public class FrmDatosPersonales extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
