@@ -191,8 +191,8 @@ public class RetirarSaldo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnRetirarActionPerformed
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked
+
         this.dispose();
-        new BancaPorInternet(codCuentica);
     }//GEN-LAST:event_iconoVolverMouseClicked
 
     private void txtSaldoRetiradoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoRetiradoKeyTyped

@@ -203,8 +203,8 @@ public class ajustesBancaInternet extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnReactivarActionPerformed
 
     private void iconoVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconoVolverMouseClicked
+
         this.dispose();
-        new BancaPorInternet(codCuentica);;
     }//GEN-LAST:event_iconoVolverMouseClicked
 
 
